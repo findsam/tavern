@@ -24,42 +24,53 @@ function verifyJWT(token) {
 }
 
 async function verifyTokens(req, res, next) {
-  const decodedRefreshToken = verifyJWT(req.cookies.refreshToken);
-  const decodedAccessToken = verifyJWT(req.cookies.accessToken);
+  if (!req.cookies || req.cookies === undefined) {
+    return res.send({
+      status: 200,
+      content: "you are not locked in you cannot do these requests",
+    });
+  }
+  if (
+    !verifyJWT(req.cookies.refreshToken).expired &&
+    !verifyJWT(req.cookies.accessToken).expired
+  ) {
+    return next();
+  }
 
-  if (decodedAccessToken.expired) {
+  if (!req.cookies.accessToken && req.cookies.refreshToken) {
+    const drt = verifyJWT(req.cookies.refreshToken);
+    if (drt.expired) return console.log("expired token relogin");
     const { access_token, refresh_token } = await generateNewAccessToken(
-      decodedRefreshToken.payload.refresh_token
+      drt.payload.refresh_token
     );
-
     const accessToken = jwt.sign({ access_token }, process.env.PRIV_KEY, {
       expiresIn: "15m",
     });
     const refreshToken = jwt.sign({ refresh_token }, process.env.PRIV_KEY, {
       expiresIn: "59m",
     });
-
     res.cookie("accessToken", accessToken, accessTokenCookieOptions);
     res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
-    res.send();
+    res.locals.at = accessToken;
     return next();
   }
+  return res.send({
+    status: 200,
+    content: "Please login via the homepage.",
+  });
 }
 
 function routes(app) {
   app.get("/api/auth/discord/redirect", discordOAuthHandler);
-
-  app.get("/getUser", async (req, res) => {
-    const decodedAccessToken = jwt.verify(
-      req.cookies.accessToken,
-      process.env.PRIV_KEY
-    ).access_token;
-
-    console.log(decodedAccessToken);
-    res.status(200).json({ data: await getDiscordUser(decodedAccessToken) });
+  app.get("/getUserDetails", verifyTokens, async (req, res) => {
+    res.status(200).json({
+      data: await getDiscordUser(
+        verifyJWT(req.cookies.accessToken || res.locals.at).payload.access_token
+      ),
+    });
   });
 
-  app.get("/", verifyTokens, async (req, res) => {});
+  app.get("/", async (req, res) => console.log("hi"));
 }
 
 module.exports = routes;
