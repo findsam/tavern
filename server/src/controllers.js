@@ -17,8 +17,12 @@ const refreshTokenCookieOptions = {
 async function discordOAuthHandler(req, res) {
   const { code } = req.query;
   const { access_token, refresh_token } = await getDiscordTokens(code);
-  const accessToken = jwt.sign(access_token, process.env.PRIV_KEY);
-  const refreshToken = jwt.sign(refresh_token, process.env.PRIV_KEY);
+  const accessToken = jwt.sign({ access_token }, process.env.PRIV_KEY, {
+    expiresIn: "15m",
+  });
+  const refreshToken = jwt.sign({ refresh_token }, process.env.PRIV_KEY, {
+    expiresIn: "59m",
+  });
   res.cookie("accessToken", accessToken, accessTokenCookieOptions);
   res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
   res.redirect("http://localhost:3000");
