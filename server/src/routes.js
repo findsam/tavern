@@ -25,19 +25,23 @@ function verifyJWT(token) {
 
 async function verifyTokens(req, res, next) {
   if (!req.cookies || req.cookies === undefined) {
+    console.log("how the f did u make a request bruh???");
     return res.send({
       status: 200,
       content: "you are not locked in you cannot do these requests",
     });
   }
+
   if (
     !verifyJWT(req.cookies.refreshToken).expired &&
     !verifyJWT(req.cookies.accessToken).expired
   ) {
+    console.log("users tokens are both active and now fetching the user details");
     return next();
   }
 
   if (!req.cookies.accessToken && req.cookies.refreshToken) {
+    console.log("users access token is expired, now fetch a new one.");
     const drt = verifyJWT(req.cookies.refreshToken);
     if (drt.expired) return console.log("expired token relogin");
     const { access_token, refresh_token } = await generateNewAccessToken(
@@ -52,11 +56,12 @@ async function verifyTokens(req, res, next) {
     res.cookie("accessToken", accessToken, accessTokenCookieOptions);
     res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
     res.locals.at = accessToken;
+    console.log("set new tokens and now fetching the users details");
     return next();
   }
   return res.send({
     status: 200,
-    content: "Please login via the homepage.",
+    content: "User is not logged in, redirect to the homepage.",
   });
 }
 
