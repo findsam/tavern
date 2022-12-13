@@ -4,4 +4,4 @@ const API = axios.create({
   withCredentials: true,
 });
 
-export const testAPI = () => API.get("/");
+export const getUser = () => API.get("/");
