@@ -39,7 +39,10 @@ async function verifyTokens(req, res, next) {
     console.log("need to relog you dumbdum");
     return null;
   } else {
-    if (verifyJWT(req.cookies.accessToken).expired || !req.cookies.accessToken) {
+    if (
+      verifyJWT(req.cookies.accessToken).expired ||
+      (!req.cookies.accessToken && !verifyJWT(req.cookies.refreshToken).expired)
+    ) {
       const { accessToken, refreshToken } = await generateTokens(req, res);
       await generateCookies(res, req, accessToken, refreshToken);
       console.log("have to regenrate tokens because accessToken is expired");

@@ -49,12 +49,27 @@ async function generateNewAccessToken(refresh_token) {
 
 async function getDiscordUser(access_token) {
   try {
-    const res = await axios.get(`https://discord.com/api/users/@me`, {
+    const TOKEN_CONFIG = {
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
-    });
-    return res.data;
+    };
+
+    return await axios
+      .all([
+        axios.get("https://discord.com/api/users/@me", TOKEN_CONFIG),
+        axios.get("https://discord.com/api/users/@me/connections", TOKEN_CONFIG),
+      ])
+      .then(
+        axios.spread((...responses) => {
+          for (const res of responses) {
+            return res.data;
+          }
+        })
+      )
+      .catch((err) => {
+        console.log(err);
+      });
   } catch (err) {
     console.log(err);
   }
