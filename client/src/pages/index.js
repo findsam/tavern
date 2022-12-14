@@ -12,6 +12,8 @@ export default function Home() {
     }
   }, [user]);
 
+  console.log(user);
+
   return (
     <div className="w-full max-w-5xl mx-auto mt-20">
       {!user && <a href={getDiscordURL()}>Login with Discord</a>}

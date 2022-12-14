@@ -40,7 +40,6 @@ async function generateNewAccessToken(refresh_token) {
         },
       }
     );
-    // console.log(res);
     return res.data;
   } catch (err) {
     console.log(err);
@@ -55,6 +54,8 @@ async function getDiscordUser(access_token) {
       },
     };
 
+    let userData = {};
+
     return await axios
       .all([
         axios.get("https://discord.com/api/users/@me", TOKEN_CONFIG),
@@ -62,14 +63,16 @@ async function getDiscordUser(access_token) {
       ])
       .then(
         axios.spread((...responses) => {
-          for (const res of responses) {
-            return res.data;
-          }
+          // return responses.map((item) => item.data);
+          const urls = responses.map((item) =>
+            item.config.url.substring(item.config.url.lastIndexOf("/") + 1)
+          );
         })
       )
       .catch((err) => {
         console.log(err);
       });
+    return { ...x[0], connections: x[1] };
   } catch (err) {
     console.log(err);
   }
