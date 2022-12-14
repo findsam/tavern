@@ -40,6 +40,7 @@ async function generateNewAccessToken(refresh_token) {
         },
       }
     );
+    // console.log(res);
     return res.data;
   } catch (err) {
     console.log(err);
