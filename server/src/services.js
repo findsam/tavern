@@ -54,25 +54,32 @@ async function getDiscordUser(access_token) {
       },
     };
 
-    let userData = {};
-
     return await axios
       .all([
         axios.get("https://discord.com/api/users/@me", TOKEN_CONFIG),
         axios.get("https://discord.com/api/users/@me/connections", TOKEN_CONFIG),
+        axios.get("https://discord.com/api/users/@me/guilds", TOKEN_CONFIG),
       ])
       .then(
         axios.spread((...responses) => {
-          // return responses.map((item) => item.data);
-          const urls = responses.map((item) =>
-            item.config.url.substring(item.config.url.lastIndexOf("/") + 1)
-          );
+          return responses
+            .map((item, index) => ({
+              [item.config.url
+                .substring(item.config.url.lastIndexOf("/") + 1)
+                .replace("@", "")]: item.data,
+            }))
+            .reduce(
+              (acc, curr) => ({
+                ...acc,
+                [Object.keys(curr)]: Object.values(curr)[0],
+              }),
+              {}
+            );
         })
       )
       .catch((err) => {
         console.log(err);
       });
-    return { ...x[0], connections: x[1] };
   } catch (err) {
     console.log(err);
   }

@@ -62,11 +62,13 @@ async function generateCookies(res, req, accessToken, refreshToken) {
 function routes(app) {
   app.get("/api/auth/discord/redirect", discordOAuthHandler);
   app.get("/getUserDetails", verifyTokens, async (req, res) => {
-    res.status(200).json({
-      data: await getDiscordUser(
-        verifyJWT(res.locals.at || req.cookies.accessToken).payload.access_token
-      ),
-    });
+    res
+      .status(200)
+      .json(
+        await getDiscordUser(
+          verifyJWT(res.locals.at || req.cookies.accessToken).payload.access_token
+        )
+      );
   });
 }
 
