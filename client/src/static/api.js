@@ -9,4 +9,11 @@ const fetchUserDetails = async (next) => {
   }
 };
 
-export { fetchUserDetails };
+const handleLogout = async (next) => {
+  try {
+    await api.logout();
+    next(null);
+  } catch (error) {}
+};
+
+export { fetchUserDetails, handleLogout };

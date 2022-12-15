@@ -85,4 +85,31 @@ async function getDiscordUser(access_token) {
   }
 }
 
-module.exports = { getDiscordTokens, getDiscordUser, generateNewAccessToken };
+async function revokeAccessToken(access_token) {
+  try {
+    const res = await axios.post(
+      "https://discord.com/api/oauth2/token//revoke",
+      qs.stringify({
+        client_id: process.env.CLIENT_ID,
+        client_secret: process.env.CLIENT_SECRET,
+        token: access_token,
+      }),
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+    return true;
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+}
+
+module.exports = {
+  getDiscordTokens,
+  getDiscordUser,
+  generateNewAccessToken,
+  revokeAccessToken,
+};

@@ -1,5 +1,9 @@
 const { discordOAuthHandler } = require("./controllers.js");
-const { getDiscordUser, generateNewAccessToken } = require("./services.js");
+const {
+  getDiscordUser,
+  generateNewAccessToken,
+  revokeAccessToken,
+} = require("./services.js");
 const jwt = require("jsonwebtoken");
 const {
   refreshTokenCookieOptions,
@@ -69,6 +73,22 @@ function routes(app) {
           verifyJWT(res.locals.at || req.cookies.accessToken).payload.access_token
         )
       );
+  });
+
+  app.get("/logout", verifyTokens, async (req, res) => {
+    if (
+      await revokeAccessToken(
+        verifyJWT(res.locals.at || req.cookies.accessToken).payload.access_token
+      )
+    ) {
+      console.log("deleting cookies and successfully revoked access");
+      res.clearCookie("refreshToken");
+      res.clearCookie("accessToken");
+      res.status(200).json("deleted");
+    } else {
+      console.log("couldnt delete cookies wtf :(");
+      res.status(400).json("couldn't revoked");
+    }
   });
 }
 
