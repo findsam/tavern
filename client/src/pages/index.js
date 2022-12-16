@@ -3,6 +3,7 @@ import { fetchUserDetails, handleLogout } from "../static/api";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Navbar from "../components/navbar";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -13,17 +14,29 @@ export default function Home() {
     }
   }, [user]);
 
-  // console.log(user);
+  const router = useRouter();
+
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     router.push("/");
+  //   }, 7000);
+  //   return () => clearTimeout(timeout);
+  // }, [router.query]);
 
   return (
     <>
       {/* <Navbar user={user} setUser={setUser} /> */}
+      {router.query.login === "failure" && (
+        <div className="bg-red-500">Failed to login, please try again.</div>
+      )}
       <div className="w-full max-w-5xl mx-auto mt-20">
         {!user && <a href={getDiscordURL()}>Login with Discord</a>}
         <br /> <br />
         {user && (
           <div>
-            <button onClick={() => handleLogout(setUser)}>LOGOUT OF ACCOUNT</button>
+            <button onClick={() => handleLogout(setUser)}>
+              LOGOUT OF ACCOUNT
+            </button>
             <br /> <br />
             <Image
               className="rounded-full"
@@ -36,7 +49,7 @@ export default function Home() {
             <h1>
               {user.me.username}#{user.me.discriminator}
             </h1>
-            <br /> <br />
+            {/* <br /> <br />
             your account connections:
             <ul>
               {user.connections.map((connection, index) => (
@@ -51,7 +64,7 @@ export default function Home() {
               {user.guilds.map((guild, index) => (
                 <li key={index}>{guild.name}</li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         )}
       </div>

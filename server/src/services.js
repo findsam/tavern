@@ -57,7 +57,10 @@ async function getDiscordUser(access_token) {
     return await axios
       .all([
         axios.get("https://discord.com/api/users/@me", TOKEN_CONFIG),
-        axios.get("https://discord.com/api/users/@me/connections", TOKEN_CONFIG),
+        axios.get(
+          "https://discord.com/api/users/@me/connections",
+          TOKEN_CONFIG
+        ),
         axios.get("https://discord.com/api/users/@me/guilds", TOKEN_CONFIG),
       ])
       .then(
