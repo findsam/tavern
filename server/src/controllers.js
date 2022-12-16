@@ -10,7 +10,7 @@ async function discordOAuthHandler(req, res) {
     expiresIn: "59m",
   });
   res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
-  res.redirect("http://localhost:3000");
+  res.redirect("http://localhost:3000?login=success");
 }
 
 module.exports = { discordOAuthHandler };
