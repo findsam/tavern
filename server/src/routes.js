@@ -8,15 +8,11 @@ const jwt = require("jsonwebtoken");
 const {
   refreshTokenCookieOptions,
   accessTokenCookieOptions,
+  signJWT,
+  verifyJWT,
+  generateCookies
 } = require("./constants.js");
 
-function verifyJWT(token) {
-  try {
-    return { payload: jwt.verify(token, process.env.PRIV_KEY), expired: false };
-  } catch (error) {
-    return { payload: null, expired: true };
-  }
-}
 
 async function generateTokens(req, res) {
   if (req.cookies.refreshToken) {
@@ -24,12 +20,8 @@ async function generateTokens(req, res) {
     const { access_token, refresh_token } = await generateNewAccessToken(
       payload.refresh_token
     );
-    const accessToken = jwt.sign({ access_token }, process.env.PRIV_KEY, {
-      expiresIn: "15m",
-    });
-    const refreshToken = jwt.sign({ refresh_token }, process.env.PRIV_KEY, {
-      expiresIn: "59m",
-    });
+    const accessToken = signJWT({access_token}, '15m')
+    const refreshToken = signJWT({refresh_token}, '59m')
     return { accessToken, refreshToken };
   }
 }
@@ -58,11 +50,6 @@ async function verifyTokens(req, res, next) {
   }
 }
 
-async function generateCookies(res, req, accessToken, refreshToken) {
-  res.cookie("accessToken", accessToken, accessTokenCookieOptions);
-  res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
-}
-
 function routes(app) {
   app.get("/api/auth/discord/redirect", discordOAuthHandler);
   app.get("/getUserDetails", verifyTokens, async (req, res) => {
@@ -70,7 +57,8 @@ function routes(app) {
       .status(200)
       .json(
         await getDiscordUser(
-          verifyJWT(res.locals.at || req.cookies.accessToken).payload.access_token
+          verifyJWT(res.locals.at || req.cookies.accessToken).payload
+            .access_token
         )
       );
   });

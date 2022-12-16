@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken')
 const accessTokenCookieOptions = {
   maxAge: 900000, // 15 mins
   httpOnly: true,
@@ -11,6 +12,12 @@ const refreshTokenCookieOptions = {
   maxAge: 1.8e6,
 };
 
+function signJWT(token, expired){
+  return jwt.sign(token, process.env.PRIV_KEY, {
+      expiresIn: expired,
+    });
+}
+
 function verifyJWT(token) {
   try {
     return { payload: jwt.verify(token, process.env.PRIV_KEY), expired: false };
@@ -19,4 +26,10 @@ function verifyJWT(token) {
   }
 }
 
-module.exports = { accessTokenCookieOptions, refreshTokenCookieOptions, verifyJWT };
+async function generateCookies(res, req, accessToken, refreshToken) {
+  res.cookie("accessToken", accessToken, accessTokenCookieOptions);
+  res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
+}
+
+
+module.exports = { accessTokenCookieOptions, refreshTokenCookieOptions, verifyJWT, signJWT, generateCookies};
