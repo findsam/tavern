@@ -9,9 +9,7 @@ export default function Home() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    if (user === null) {
-      (async () => await fetchUserDetails(setUser))();
-    }
+    if (!user) (async () => await fetchUserDetails(setUser))();
   }, [user]);
 
   const router = useRouter();
