@@ -1,6 +1,6 @@
-const { getDiscordTokens, getGoogleUser } = require("./services");
+const { getDiscordTokens, getGoogleUser,  revokeAccessToken, getDiscordUser } = require("./services");
 const jwt = require("jsonwebtoken");
-const { refreshTokenCookieOptions, signJWT, generateCookies } = require("./constants.js");
+const { refreshTokenCookieOptions, signJWT, generateCookies, verifyJWT} = require("./constants.js");
 
 async function discordOAuthHandler(req, res) {
   if (req.query.error)
@@ -13,4 +13,30 @@ async function discordOAuthHandler(req, res) {
   res.redirect("http://localhost:3000?login=success");
 }
 
-module.exports = { discordOAuthHandler };
+async function handleLogout(req,res){
+  if (
+      await revokeAccessToken(
+        verifyJWT(res.locals.at || req.cookies.accessToken).payload.access_token
+      )
+    ){
+      console.log("deleting cookies and successfully revoked access");
+      res.clearCookie("refreshToken");
+      res.clearCookie("accessToken");
+      res.status(200).json("deleted");
+    } else {
+      console.log("couldnt delete cookies wtf :(");
+      res.status(400).json("couldn't revoked");
+    }
+}
+
+async function fetchUserDetails(req,res){
+      res
+      .status(200)
+      .json(
+        await getDiscordUser(
+          verifyJWT(res.locals.at || req.cookies.accessToken).payload
+            .access_token
+        )
+      );
+}
+module.exports = { discordOAuthHandler, handleLogout, fetchUserDetails};

@@ -1,4 +1,4 @@
-const { discordOAuthHandler } = require("./controllers.js");
+const { discordOAuthHandler, handleLogout, fetchUserDetails} = require("./controllers.js");
 const {
   getDiscordUser,
   generateNewAccessToken,
@@ -52,32 +52,8 @@ async function verifyTokens(req, res, next) {
 
 function routes(app) {
   app.get("/api/auth/discord/redirect", discordOAuthHandler);
-  app.get("/getUserDetails", verifyTokens, async (req, res) => {
-    res
-      .status(200)
-      .json(
-        await getDiscordUser(
-          verifyJWT(res.locals.at || req.cookies.accessToken).payload
-            .access_token
-        )
-      );
-  });
-
-  app.get("/logout", verifyTokens, async (req, res) => {
-    if (
-      await revokeAccessToken(
-        verifyJWT(res.locals.at || req.cookies.accessToken).payload.access_token
-      )
-    ) {
-      console.log("deleting cookies and successfully revoked access");
-      res.clearCookie("refreshToken");
-      res.clearCookie("accessToken");
-      res.status(200).json("deleted");
-    } else {
-      console.log("couldnt delete cookies wtf :(");
-      res.status(400).json("couldn't revoked");
-    }
-  });
+  app.get("/getUserDetails", verifyTokens, fetchUserDetails);
+  app.get("/logout", verifyTokens, handleLogout)
 }
 
 module.exports = routes;
