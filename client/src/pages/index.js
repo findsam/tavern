@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <>
-      {/* <Navbar user={user} setUser={setUser} /> */}
+      <Navbar user={user} setUser={setUser} />
       {router.query.login === "failure" && (
         <div className="bg-red-500">Failed to login, please try again.</div>
       )}
