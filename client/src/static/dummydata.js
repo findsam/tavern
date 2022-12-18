@@ -1,0 +1,103 @@
+export const DUMMY_DATA_POSTS = [
+  {
+    title: "Lightforge Draenei",
+    genre: "Pixel",
+    author: "Authbel",
+    comments: 23,
+    contributors: [
+      { name: "simon", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+    ],
+  },
+  {
+    title: "Sova",
+    genre: "Sketch",
+    author: "Vivi",
+    comments: 2,
+    contributors: [
+      { name: "simon", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+    ],
+  },
+  {
+    title: "Mal'ganis",
+    genre: "Watercolor",
+    author: "Kaz",
+    comments: 0,
+    contributors: [{ name: "simon", img: "p.jpeg" }],
+  },
+  {
+    title: "Sage & Jett",
+    genre: "Illustration",
+    author: "Vi",
+    comments: 12,
+    contributors: [
+      { name: "simon", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+    ],
+  },
+  {
+    title: "Sylvanas",
+    genre: "Flatcolors",
+    author: "Vi",
+    comments: 31,
+    contributors: [{ name: "simon", img: "p.jpeg" }],
+  },
+  {
+    title: "Legolas",
+    genre: "Illustration",
+    author: "Sam",
+    comments: 6,
+    contributors: [
+      { name: "simon", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+    ],
+  },
+  {
+    title: "Gimley",
+    genre: "Sketch",
+    author: "Kian",
+    comments: 8,
+    contributors: [
+      { name: "simon", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+    ],
+  },
+  {
+    title: "Gandalf the White",
+    genre: "Sketch",
+    author: "Jawn",
+    comments: 8,
+    contributors: [
+      { name: "simon", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+    ],
+  },
+  {
+    title: "Vivixstar fanart",
+    genre: "Illustration",
+    author: "Sam",
+    comments: 8,
+    contributors: [
+      { name: "simon", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+      { name: "tyler", img: "p.jpeg" },
+    ],
+  },
+];
