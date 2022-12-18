@@ -81,10 +81,10 @@ async function getDiscordUser(access_token) {
         })
       )
       .catch((err) => {
-        console.log(err);
+        return err.response.status;
       });
   } catch (err) {
-    console.log(err);
+    return err.response.status;
   }
 }
 

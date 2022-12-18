@@ -25,12 +25,8 @@ export default function Navbar(props) {
         </div>
         <ul className="flex flex-col gap-2.5 my-6 mb-auto text-sm tracking-wide flex-1">
           <li className="flex rounded-md bg-stone-500/20 px-2.5 py-2.5">
-            <AiOutlineHome className="text-xl mr-3" />
-            <span>Timeline</span>
-          </li>
-          <li className="flex opacity-70  px-2.5 py-2.5">
             <AiOutlineFire className="text-xl mr-3" />
-            Popular
+            <span>Feed</span>
           </li>
           <li className="flex opacity-70  px-2.5 py-2.5">
             <IoBookmarkOutline className="text-xl mr-3" />

@@ -1,4 +1,8 @@
-const { discordOAuthHandler, handleLogout, fetchUserDetails} = require("./controllers.js");
+const {
+  discordOAuthHandler,
+  handleLogout,
+  fetchUserDetails,
+} = require("./controllers.js");
 const {
   getDiscordUser,
   generateNewAccessToken,
@@ -10,9 +14,8 @@ const {
   accessTokenCookieOptions,
   signJWT,
   verifyJWT,
-  generateCookies
+  generateCookies,
 } = require("./constants.js");
-
 
 async function generateTokens(req, res) {
   if (req.cookies.refreshToken) {
@@ -20,8 +23,8 @@ async function generateTokens(req, res) {
     const { access_token, refresh_token } = await generateNewAccessToken(
       payload.refresh_token
     );
-    const accessToken = signJWT({access_token}, '15m')
-    const refreshToken = signJWT({refresh_token}, '59m')
+    const accessToken = signJWT({ access_token }, "15m");
+    const refreshToken = signJWT({ refresh_token }, "59m");
     return { accessToken, refreshToken };
   }
 }
@@ -53,7 +56,7 @@ async function verifyTokens(req, res, next) {
 function routes(app) {
   app.get("/api/auth/discord/redirect", discordOAuthHandler);
   app.get("/getUserDetails", verifyTokens, fetchUserDetails);
-  app.get("/logout", verifyTokens, handleLogout)
+  app.get("/logout", verifyTokens, handleLogout);
 }
 
 module.exports = routes;

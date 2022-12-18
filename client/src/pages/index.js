@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Navbar from "../components/navbar";
 import { useRouter } from "next/router";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineFileAdd } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
+import Posts from "../components/posts";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -25,7 +26,6 @@ export default function Home() {
   return (
     <>
       <Navbar user={user} setUser={setUser} />
-
       <div className="p-8 ml-[245px] w-[calc(100%-245px)] relative z-100">
         <div className="flex">
           <form className="w-full flex items-center justify-center px-2.5 py-2.5 rounded-md bg-neutral-800 flex">
@@ -40,7 +40,8 @@ export default function Home() {
           <div className="px-8 ml-auto items-end">
             {user && (
               <aside className="flex gap-3 items-center ml-auto">
-                <BsBell className="text-2xl shrink-0 mr-8" />
+                <BsBell className="text-[1.3rem] shrink-0 opacity-70" />
+                <AiOutlineFileAdd className="text-[1.3rem] shrink-0 mr-4 opacity-70" />
                 <span>
                   <h5 className="tracking-wide text-sm mb-0.5 text-right">
                     {user.me.username}#{user.me.discriminator}
@@ -50,7 +51,7 @@ export default function Home() {
                   </p>
                 </span>
                 <Image
-                  className="rounded-full grayscale border border-stone-500/20"
+                  className="rounded-full grayscale ring-2 ring-stone-500/20 p-0.5"
                   height="40"
                   width="40"
                   src={`https://cdn.discordapp.com/avatars/${user.me.id}/${user.me.avatar}.png`}
@@ -60,6 +61,7 @@ export default function Home() {
             )}
           </div>
         </div>
+        <Posts />
       </div>
     </>
   );
