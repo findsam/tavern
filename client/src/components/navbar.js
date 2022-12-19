@@ -15,7 +15,7 @@ import { handleLogout } from "../static/api";
 
 export default function Navbar(props) {
   return (
-    <div className="min-w-[275px] bg-main-800 max-w-[275px] min-h-screen fixed left-0 top-0">
+    <div className="min-w-[275px] bg-main-800 max-w-[275px] min-h-screen fixed left-0 top-0 border-r border-main-700">
       <nav className="flex flex-col h-full min-h-screen p-5">
         <div className="flex items-center pb-3">
           <div className="flex items-center justify-center -space-x-3">
@@ -43,7 +43,7 @@ export default function Navbar(props) {
           <p className="pt-3 border-t border-main-600 opacity-70">Navigation</p>
           <li className="flex px-2 py-2 border rounded-md bg-main-700 border-main-700">
             <AiOutlineFire className="mr-2 text-xl" />
-            <span>Feed</span>
+            <span className="font-medium">Feed</span>
           </li>
           <li className="flex px-2 py-2 bg-transparent border border-transparent rounded-md opacity-70 ">
             <IoBookmarkOutline className="mr-2 text-xl" />
