@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { AiOutlineSearch, AiOutlineFileAdd } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
 import Topbar from "../components/topbar";
+import Feed from "../components/feed";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -27,6 +28,8 @@ export default function Home() {
     <>
       <Topbar user={user} />
       <Navbar user={user} setUser={setUser} />
+      <Feed />
+
       {/* <div className="p-8 ml-[245px] w-[calc(100%-275px)] relative z-100">
         <div className="flex">
           <form className="w-full flex items-center justify-center px-2.5 py-2.5 rounded-md bg-neutral-800 flex">

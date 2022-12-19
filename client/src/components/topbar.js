@@ -1,6 +1,8 @@
 import Image from "next/image";
-import { AiOutlineFileAdd } from "react-icons/ai";
+import { AiOutlineHome } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
+import { TfiTwitter } from "react-icons/tfi";
+import { VscGithubAlt } from "react-icons/vsc";
 
 export default ({ user }) => {
   return (
@@ -37,10 +39,10 @@ export default ({ user }) => {
               <BsBell className="text-xl shrink-0 opacity-70" />
             </span>
             <span className="h-[38px] w-[38px] bg-main-700 border-main-600 border rounded-full flex items-center justify-center">
-              <BsBell className="text-xl shrink-0 opacity-70" />
+              <TfiTwitter className="text-xl shrink-0 opacity-70" />
             </span>
             <span className="h-[38px] w-[38px] bg-main-700 border-main-600 border rounded-full flex items-center justify-center">
-              <BsBell className="text-xl shrink-0 opacity-70" />
+              <VscGithubAlt className="text-xl shrink-0 opacity-70" />
             </span>
           </aside>
         )}
