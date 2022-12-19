@@ -5,62 +5,86 @@ import {
   AiOutlineMessage,
   AiOutlineHome,
   AiOutlineLogout,
+  AiOutlineSearch,
   AiOutlineLogin,
+  AiOutlineLock,
 } from "react-icons/ai";
 import { getDiscordURL } from "../static/util";
 import { IoPeopleOutline, IoBookmarkOutline } from "react-icons/io5";
 import { handleLogout } from "../static/api";
+
 export default function Navbar(props) {
   return (
-    <div className="min-w-[245px] bg-neutral-800 max-w-[245px] min-h-screen fixed left-0 top-0">
-      <nav className="flex flex-col p-6 h-full min-h-screen">
-        <div className="font-medium text-lg tracking-wide flex gap-3">
-          <span
-            className="h-[30px] w-[30px] min-h-[30px] max-h-[30px] min-w-[30px] max-w-[30px] block
-          rounded-md text-center h-full bg-indigo-500"
-          >
-            C
-          </span>
-          <span>Current.ly</span>
+    <div className="min-w-[275px] bg-main-800 max-w-[275px] min-h-screen fixed left-0 top-0">
+      <nav className="flex flex-col h-full min-h-screen p-5">
+        <div className="flex items-center pb-3">
+          <div className="flex items-center justify-center -space-x-3">
+            <span
+              className="block w-6 h-6 border-2 rounded-full bg-main-300 border-main-800"
+              src="/p.jpeg"
+            />
+            <span
+              className="block w-8 h-8 border-4 rounded-full bg-main-500 border-main-800"
+              src="/p.jpeg"
+            />
+          </div>
+          <span className="text-sm font-semibold tracking-wide">beta@tavern.gg</span>
         </div>
-        <ul className="flex flex-col gap-2.5 my-6 mb-auto text-sm tracking-wide flex-1">
-          <li className="flex rounded-md bg-stone-500/20 px-2.5 py-2.5">
-            <AiOutlineFire className="text-xl mr-3" />
+        <form className="flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-600 max-h-[38px] min-h-[38px]">
+          <button>
+            <AiOutlineSearch className="mr-2 text-xl opacity-70" />
+          </button>
+          <input
+            className="w-full col-span-2 bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm "
+            placeholder="Explore..."
+          ></input>
+        </form>
+        <ul className="flex flex-col flex-1 gap-3 mt-6 text-sm tracking-wide">
+          <p className="pt-3 border-t border-main-600 opacity-70">Navigation</p>
+          <li className="flex px-2 py-2 border rounded-md bg-main-700 border-main-700">
+            <AiOutlineFire className="mr-2 text-xl" />
             <span>Feed</span>
           </li>
-          <li className="flex opacity-70  px-2.5 py-2.5">
-            <IoBookmarkOutline className="text-xl mr-3" />
+          <li className="flex px-2 py-2 bg-transparent border border-transparent rounded-md opacity-70 ">
+            <IoBookmarkOutline className="mr-2 text-xl" />
             Bookmarks
           </li>
-          <li className="flex opacity-70  px-2.5 py-2.5">
-            <IoPeopleOutline className="text-xl mr-3" />
+          <li className="flex px-2 py-2 bg-transparent border border-transparent rounded-md opacity-70">
+            <IoPeopleOutline className="mr-2 text-xl" />
             Community
           </li>
-          <li className="flex opacity-70  px-2.5 py-2.5">
-            <AiOutlineMessage className="text-xl mr-3" />
+          <li className="flex px-2 py-2 bg-transparent border border-transparent rounded-md opacity-70">
+            <AiOutlineMessage className="mr-2 text-xl" />
             Help
           </li>
-          <li className="flex opacity-70  px-2.5 py-2.5">
-            <AiOutlineQuestionCircle className="text-xl mr-3" />
+          <li className="flex px-2 py-2 bg-transparent border border-transparent rounded-md opacity-70">
+            <AiOutlineQuestionCircle className="mr-2 text-xl" />
             FAQ
           </li>
 
-          <li className="flex opacity-70  px-2.5 py-2.5 mt-auto">
-            <AiOutlineFileText className="text-xl mr-3" />
-            Terms and Privacy
+          <p className="pt-3 mt-auto border-t border-main-600 opacity-70">
+            Terms & Authentication
+          </p>
+          <li className="flex px-2 py-2 border rounded-md opacity-70 bg-main-700 border-main-700">
+            <AiOutlineFileText className="mr-2 text-xl" />
+            Terms of Service
           </li>
-          <li className="flex opacity-70  px-2.5 py-2.5">
+          <li className="flex px-2 py-2 border rounded-md opacity-70 bg-main-700 border-main-700">
+            <AiOutlineLock className="mr-2 text-xl" />
+            Privacy Policy
+          </li>
+          <li className="flex px-2 py-2 border rounded-md opacity-70 bg-main-700 border-main-700">
             {!props.user ? (
               <a className="flex text-sm tracking-wide" href={getDiscordURL()}>
-                <AiOutlineLogin className="text-xl mr-3" />
+                <AiOutlineLogin className="mr-2 text-xl" />
                 Log in
               </a>
             ) : (
               <button
                 onClick={() => handleLogout(props.setUser)}
-                className="flex  text-sm tracking-wide"
+                className="flex text-sm tracking-wide"
               >
-                <AiOutlineLogout className="text-xl mr-3" />
+                <AiOutlineLogout className="mr-2 text-xl" />
                 Log out
               </button>
             )}

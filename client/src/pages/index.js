@@ -5,7 +5,6 @@ import Navbar from "../components/navbar";
 import { useRouter } from "next/router";
 import { AiOutlineSearch, AiOutlineFileAdd } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
-import Posts from "../components/posts";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -26,29 +25,27 @@ export default function Home() {
   return (
     <>
       <Navbar user={user} setUser={setUser} />
-      <div className="p-8 ml-[245px] w-[calc(100%-245px)] relative z-100">
+      {/* <div className="p-8 ml-[245px] w-[calc(100%-275px)] relative z-100">
         <div className="flex">
           <form className="w-full flex items-center justify-center px-2.5 py-2.5 rounded-md bg-neutral-800 flex">
             <button>
-              <AiOutlineSearch className="text-xl mr-3 opacity-70" />
+              <AiOutlineSearch className="mr-3 text-xl opacity-70" />
             </button>
             <input
-              className="focus:outline-none w-full col-span-2 bg-transparent text-white/70 placeholder:text-white/70 placeholder:text-sm placeholder:tracking-wide"
+              className="w-full col-span-2 bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm placeholder:tracking-wide"
               placeholder="Search by title, urls, or creators."
             ></input>
           </form>
-          <div className="px-8 ml-auto items-end">
+          <div className="items-end px-8 ml-auto">
             {user && (
-              <aside className="flex gap-3 items-center ml-auto">
+              <aside className="flex items-center gap-3 ml-auto">
                 <BsBell className="text-[1.3rem] shrink-0 opacity-70" />
                 <AiOutlineFileAdd className="text-[1.3rem] shrink-0 mr-4 opacity-70" />
                 <span>
                   <h5 className="tracking-wide text-sm mb-0.5 text-right">
                     {user.me.username}#{user.me.discriminator}
                   </h5>
-                  <p className="tracking-wide text-xs opacity-70">
-                    {user.me.email}
-                  </p>
+                  <p className="text-xs tracking-wide opacity-70">{user.me.email}</p>
                 </span>
                 <Image
                   className="rounded-full grayscale ring-2 ring-stone-500/20 p-0.5"
@@ -62,7 +59,7 @@ export default function Home() {
           </div>
         </div>
         <Posts />
-      </div>
+      </div> */}
     </>
   );
 }
