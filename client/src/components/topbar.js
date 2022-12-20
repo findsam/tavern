@@ -22,11 +22,13 @@ export default ({ user }) => {
       <div className="ml-auto">
         {user && (
           <aside className="flex items-center gap-3 ml-auto">
-            <span>
-              <h5 className="tracking-wide text-sm mb-0.5 text-right">
+            <span className="text-sm text-right">
+              <a>
                 {user.me.username}#{user.me.discriminator}
-              </h5>
-              <p className="text-xs tracking-wide opacity-70">{user.me.email}</p>
+              </a>
+              <p className="text-xs tracking-wide text-right opacity-70">
+                {user.me.email}
+              </p>
             </span>
             <Image
               className="rounded-full ring-1 ring-main-600 p-0.5"
@@ -37,12 +39,6 @@ export default ({ user }) => {
             />
             <span className="h-[38px] w-[38px] bg-main-700 border-main-600 border rounded-full flex items-center justify-center">
               <BsBell className="text-xl shrink-0 opacity-70" />
-            </span>
-            <span className="h-[38px] w-[38px] bg-main-700 border-main-600 border rounded-full flex items-center justify-center">
-              <TfiTwitter className="text-xl shrink-0 opacity-70" />
-            </span>
-            <span className="h-[38px] w-[38px] bg-main-700 border-main-600 border rounded-full flex items-center justify-center">
-              <VscGithubAlt className="text-xl shrink-0 opacity-70" />
             </span>
           </aside>
         )}
