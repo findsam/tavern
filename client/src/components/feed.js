@@ -4,8 +4,21 @@ import Post from "./post";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/legacy/image";
 import { AiOutlineArrowDown } from "react-icons/ai";
-
-const images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.webp", "6.webp", "7.jpg"];
+const images = [
+  "1.jpg",
+  "2.jpg",
+  "3.jpg",
+  "4.jpg",
+  "5.webp",
+  "6.webp",
+  "7.jpg",
+  "8.jpg",
+  "9.webp",
+  "10.jpg",
+  "11.jpg",
+  "12.jpg",
+  "13.jpg",
+];
 
 export default () => {
   const [posts, setPosts] = useState([]);
@@ -38,32 +51,17 @@ export default () => {
         [`column${column}`]: [...prev[`column${column}`], posts[i]],
       }));
     }
-
-    for (let i = 0; i < columns; i++) {}
   }
 
   useEffect(() => {
     generateMasonryGrid(4, posts);
   }, [posts]);
 
-  console.log(columnWrappers);
+  // console.log(columnWrappers);
 
   return (
-    // <div className="w-[calc(100%-275px)] px-10 relative z-100 pt-24 ml-auto grid grid-cols-10 gap-10">
-    //   <div className="grid col-span-8 gap-5">
-    //     <Wrap>
-    //       <Post />
-    //     </Wrap>
-    //     <Wrap>123</Wrap>
-    //     <Wrap>123</Wrap>
-    //   </div>
-    //   <div className="col-span-2">
-    //     <Trending />
-    //   </div>
-    // </div>
-
     <div
-      className="w-[calc(100%-275px)] ml-auto flex relative gap-5 pt-24 px-12"
+      className="w-[calc(100%-275px)] ml-auto flex relative gap-5 pt-24 px-12 pb-12"
       ref={container}
     >
       {Object.keys(columnWrappers).map((key, index) => {
