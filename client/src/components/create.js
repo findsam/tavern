@@ -38,21 +38,31 @@ export default ({ upload, setUpload }) => {
             </p>
             <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-600 max-h-[38px] min-h-[38px]">
               <input
-                className="w-full col-span-2 bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm "
-                placeholder="Enter your thread title..."
+                className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm"
+                // placeholder="Enter your thread title."
               ></input>
             </form>
 
             <p className="">Created With:</p>
             <p className="text-xs tracking-wide opacity-70">
-              Please list the applications used to create this file.
+              Please tell us the primary application used to create this file.
             </p>
             <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-600 max-h-[38px] min-h-[38px]">
               <input
-                className="w-full col-span-2 bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm "
-                placeholder="Enter application names..."
+                className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm "
+                // placeholder="Enter primary application."
               ></input>
             </form>
+
+            <p className="">Short Description:</p>
+            <p className="text-xs tracking-wide opacity-70">
+              Please give a short description on this piece.
+            </p>
+
+            <textarea
+              className=" text-xs font-medium mt-3 mb-5 w-full col-span-2 p-2  bg-main-700 border-main-600 border rounded-md resize-none  focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm min-h-[100px] "
+              // placeholder="Please provide a small description for people to be able to understand your work."
+            ></textarea>
 
             <p className="">Upload and attach files.</p>
             <p className="text-xs tracking-wide opacity-70">
