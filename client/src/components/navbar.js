@@ -59,7 +59,7 @@ export default function Navbar(props) {
                 r.url === router.route
                   ? "bg-main-700 border-main-700 text-white"
                   : "border-transparent bg-transparent text-white/70 "
-              } flex px-2 py-2  border  rounded-md`}
+              } flex px-2 py-2  border  rounded-md hover:cursor-pointer hover:bg-main-700 hover:text-white duration-200`}
             >
               <span className="mr-2 text-xl">{r.icon}</span>
               {r.name}
