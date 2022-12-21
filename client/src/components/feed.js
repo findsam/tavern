@@ -30,17 +30,7 @@ export default () => {
   const [columnWrappers, setColumnWrappers] = useState({});
 
   useEffect(() => {
-    let imageIndex = 0;
-    for (let i = 0; i < 80; i++) {
-      let item = {
-        id: i,
-        title: `Post ${i}`,
-        image: images[imageIndex],
-      };
-      setPosts((prevPosts) => [...prevPosts, item]);
-      imageIndex++;
-      if (imageIndex > images.length - 1) imageIndex = 0;
-    }
+    testingInfiniteScroll();
   }, []);
 
   function testingInfiniteScroll() {
@@ -62,6 +52,7 @@ export default () => {
     for (let i = 0; i < columns; i++) {
       setColumnWrappers((prev) => ({ ...prev, [`column${i}`]: [] }));
     }
+
     for (let i = 0; i < posts.length; i++) {
       const column = i % columns;
       setColumnWrappers((prev) => ({
@@ -77,12 +68,9 @@ export default () => {
 
   const observer = useRef();
   const lastPost = useCallback((node) => {
-    // if (isLoading) return;
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        testingInfiniteScroll();
-      }
+      if (entries[0].isIntersecting) testingInfiniteScroll();
     });
     if (node) observer.current.observe(node);
   }, []);
@@ -182,27 +170,6 @@ export default () => {
               </div>
             );
           })}
-
-        {/* <div className="flex flex-col flex-1 gap-5">
-        <div className="h-[300px] w-full bg-red-500 overflow-hidden relative" />
-        <div className="h-[300px] w-full bg-red-500 overflow-hidden relative" />
-      </div>
-      <div className="flex flex-col flex-1 gap-5">
-        <div className="h-[300px] w-full bg-red-500 overflow-hidden relative" />
-        <div className="h-[300px] w-full bg-red-500 overflow-hidden relative" />
-      </div>
-      <div className="flex flex-col flex-1 gap-5">
-        <div className="h-[300px] w-full bg-red-500 overflow-hidden relative" />
-        <div className="h-[300px] w-full bg-red-500 overflow-hidden relative" />
-      </div>
-      <div className="flex flex-col flex-1 gap-5">
-        <div className="h-[300px] w-full bg-red-500 overflow-hidden relative" />
-        <div className="h-[300px] w-full bg-red-500 overflow-hidden relative" />
-      </div>
-      <div className="flex flex-col flex-1 gap-5">
-        <div className="h-[300px] w-full bg-red-500 overflow-hidden relative" />
-        <div className="h-[300px] w-full bg-red-500 overflow-hidden relative" />
-      </div> */}
       </div>
     </>
   );
