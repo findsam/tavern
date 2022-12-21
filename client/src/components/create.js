@@ -1,12 +1,36 @@
 import React from "react";
 import Wrap from "./wrap";
 import { AiOutlineFileAdd } from "react-icons/ai";
+import { useRef, useEffect } from "react";
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export default ({ upload, setUpload }) => {
+  const container = useRef(null);
+
+  useEffect(() => {
+    (async () => {
+      if (upload) {
+        await sleep(1);
+        container?.current?.childNodes[0]?.classList?.remove("opacity-0");
+        container?.current?.childNodes[0]?.classList?.remove("-translate-y-12");
+      }
+    })();
+  }, [upload, container]);
+
+  async function handleClose() {
+    container?.current?.childNodes[0]?.classList?.add("opacity-0");
+    container?.current?.childNodes[0]?.classList?.add("-translate-y-12");
+    await sleep(300);
+    setUpload(false);
+  }
+
   return (
     upload && (
-      <div className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-main-900/90">
-        <div className="border rounded-lg border-main-700 bg-main-800">
+      <div
+        className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full transition-all duration-300 bg-main-900/90"
+        ref={container}
+      >
+        <div className="duration-300 -translate-y-12 border rounded-lg opacity-0 border-main-700 bg-main-800 main">
           <div className="min-w-[500px] p-5">
             <p className="">Thread title:</p>
             <p className="text-xs tracking-wide opacity-70">
@@ -21,7 +45,7 @@ export default ({ upload, setUpload }) => {
 
             <p className="">Created With:</p>
             <p className="text-xs tracking-wide opacity-70">
-              Please list the applications used to create this project.
+              Please list the applications used to create this file.
             </p>
             <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-600 max-h-[38px] min-h-[38px]">
               <input
@@ -32,7 +56,7 @@ export default ({ upload, setUpload }) => {
 
             <p className="">Upload and attach files.</p>
             <p className="text-xs tracking-wide opacity-70">
-              Upload and attach files to this post.
+              Upload and attach files to this thread.
             </p>
             <div className="mb-2 mt-3 border-2 border-dashed border-white/70 min-h-[150px] rounded-lg flex items-center justify-center flex-col">
               <AiOutlineFileAdd size={42} />
@@ -47,7 +71,7 @@ export default ({ upload, setUpload }) => {
             <div className="flex gap-5 p-5">
               <button
                 className="flex-1 px-4 min-h-[38px] text-sm text-white border border-main-700 rounded-md bg-main-900"
-                onClick={() => setUpload(false)}
+                onClick={() => handleClose()}
               >
                 Cancel Creation
               </button>
