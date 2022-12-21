@@ -24,7 +24,6 @@ const APP_ROUTES = [
 
 export default function Navbar(props) {
   const router = useRouter();
-  console.log(router);
   return (
     <div className="min-w-[275px] bg-main-800 max-w-[275px] min-h-screen fixed left-0 top-0 border-r border-main-700">
       <nav className="flex flex-col h-full min-h-screen p-5">

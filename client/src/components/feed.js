@@ -10,7 +10,7 @@ const images = [
   "3.jpg",
   "4.jpg",
   "5.webp",
-  "6.webp",
+  "6.jpg",
   "7.jpg",
   "8.jpg",
   "9.webp",
@@ -58,10 +58,8 @@ export default () => {
   }
 
   useEffect(() => {
-    generateMasonryGrid(4, posts);
+    generateMasonryGrid(5, posts);
   }, [posts]);
-
-  // console.log(columnWrappers);
 
   return (
     <div
