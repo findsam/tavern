@@ -6,7 +6,7 @@ import { VscGithubAlt } from "react-icons/vsc";
 
 export default ({ user }) => {
   return (
-    <div className="fixed flex p-4 border-b border-main-700 bg-main-800 w-[calc(100%-275px)] right-0">
+    <div className="fixed flex p-4 border-b border-main-700 bg-main-800 w-[calc(100%-275px)] right-0 z-10">
       <ul className="flex max-w-max border rounded-md bg-main-700 border-main-600 max-h-[38px] min-h-[38px] items-center">
         <li className="flex px-3 py-1 mx-1 rounded-md bg-main-600">
           <span className="text-sm font-medium opacity-100">Explore</span>
