@@ -10,24 +10,23 @@ export default ({ user }) => {
   const [upload, setUpload] = useState(false);
   return (
     <>
-      <Create upload={upload} />
-      <div className="fixed flex py-4 px-12 border-b border-main-700 bg-main-800 w-[calc(100%-275px)] right-0 z-10">
+      <Create upload={upload} setUpload={setUpload} />
+      <div className="fixed flex py-3 px-12 border-b border-main-700 bg-main-800 w-[calc(100%-275px)] right-0 z-10">
         <button
-          className="px-4 mr-5 text-sm text-white border border-indigo-900 rounded-md bg-indigo-900/40"
+          className="mr-5 px-4 min-h-[38px] max-h-[38px] whitespace-nowrap text-sm text-white border rounded-md bg-main-700 border-main-600 "
           onClick={() => setUpload(true)}
         >
           Create Post
         </button>
-
         <ul className="flex max-w-max border rounded-md bg-main-700 border-main-600 max-h-[38px] min-h-[38px] items-center">
           <li className="flex px-3 py-1 mx-1 rounded-md bg-main-600">
-            <span className="text-sm font-medium opacity-100">Explore</span>
-          </li>
-          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-700">
-            <span className="text-sm font-normal opacity-70">Community feed</span>
+            <span className="text-sm font-normal opacity-100">Recommended</span>
           </li>
           <li className="flex px-3 py-1 mx-1 rounded-md bg-main-700">
             <span className="text-sm font-normal opacity-70">Mutual friends</span>
+          </li>
+          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-700">
+            <span className="text-sm font-normal opacity-70">Your posts</span>
           </li>
         </ul>
 
