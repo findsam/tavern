@@ -69,15 +69,15 @@ export default function Navbar(props) {
           <p className="pt-3 mt-auto border-t border-main-600 opacity-70">
             Terms & Authentication
           </p>
-          <li className="flex px-2 py-2 border rounded-md opacity-70 bg-main-700 border-main-700">
+          <li className="flex px-2 py-2 duration-200 border rounded-md opacity-70 bg-main-700 border-main-700 hover:border-main-700 hover:bg-main-900 hover:text-white hover:opacity-100 hover:cursor-pointer">
             <AiOutlineFileText className="mr-2 text-xl" />
             Terms of Service
           </li>
-          <li className="flex px-2 py-2 border rounded-md opacity-70 bg-main-700 border-main-700">
+          <li className="flex px-2 py-2 duration-200 border rounded-md opacity-70 bg-main-700 border-main-700 hover:border-main-700 hover:bg-main-900 hover:text-white hover:opacity-100 hover:cursor-pointer">
             <AiOutlineLock className="mr-2 text-xl" />
             Privacy Policy
           </li>
-          <li className="flex px-2 py-2 border rounded-md opacity-70 bg-main-700 border-main-700">
+          <li className="flex px-2 py-2 duration-200 border rounded-md opacity-70 bg-main-700 border-main-700 hover:border-main-700 hover:bg-main-900 hover:text-white hover:opacity-100 hover:cursor-pointer">
             {!props.user ? (
               <a className="flex text-sm" href={getDiscordURL()}>
                 <AiOutlineLogin className="mr-2 text-xl" />
