@@ -92,7 +92,7 @@ export default () => {
   return (
     <>
       <div
-        className="w-[calc(100%-275px)] ml-auto flex relative gap-5 pt-24 px-12 pb-12"
+        className="w-[calc(100%-275px)] ml-auto flex relative gap-5 pt-24 px-5 pb-12"
         ref={container}
       >
         {Object.keys(columnWrappers)
