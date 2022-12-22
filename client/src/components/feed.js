@@ -83,16 +83,17 @@ export default () => {
 
   useEffect(() => {
     console.log("running");
-    if (size.width > 1400) setCols(4);
-    if (size.width < 1400) setCols(3);
-    if (size.width < 1000) setCols(2);
-    if (size.width < 750) setCols(1);
+    if (size.width > 1450) setCols(5);
+    if (size.width < 1450) setCols(4);
+    if (size.width < 1100) setCols(3);
+    if (size.width < 850) setCols(2);
+    if (size.width < 600) setCols(1);
   }, [size.width]);
 
   return (
     <>
       <div
-        className="w-[calc(100%-275px)] ml-auto flex relative gap-5 pt-24 px-5 pb-12"
+        className="w-[calc(100%-65px)] ml-auto flex relative gap-5 pt-24 px-5 pb-12"
         ref={container}
       >
         {Object.keys(columnWrappers)

@@ -11,7 +11,7 @@ export default ({ user }) => {
   return (
     <>
       <Create upload={upload} setUpload={setUpload} />
-      <div className="fixed flex p-5 border-b border-main-700 bg-main-800 w-[calc(100%-275px)] right-0 z-10">
+      <div className="fixed flex min-h-[65px] max-h-[65px] items-center px-5 border-b border-main-700 bg-main-800 w-[calc(100%-65px)] right-0 z-10">
         <form className="flex items-center justify-center w-[275px] mr-5 px-2 py-2 border rounded-md bg-main-700 border-main-600 max-h-[38px] min-h-[38px]">
           <button>
             <AiOutlineSearch className="mr-2 text-xl opacity-70" />
