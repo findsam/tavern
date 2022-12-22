@@ -26,8 +26,8 @@ export default function Navbar(props) {
   const router = useRouter();
   return (
     <div className="min-w-[275px] bg-main-800 max-w-[275px] min-h-screen fixed left-0 top-0 border-r border-main-700">
-      <nav className="flex flex-col h-full min-h-screen p-5">
-        <div className="flex items-center pb-5">
+      <nav className="flex flex-col h-full min-h-screen gap-5 p-5">
+        <div className="flex items-center py-0.5">
           <div className="flex items-center justify-center -space-x-3">
             <span
               className="block w-6 h-6 border-2 rounded-full bg-main-300 border-main-800"
@@ -41,7 +41,6 @@ export default function Navbar(props) {
           <span className="text-sm font-semibold">beta@tavern.gg</span>
         </div>
         <ul className="flex flex-col flex-1 gap-3 text-sm">
-          <p className="pt-5 border-t border-main-600 opacity-70">Navigation</p>
           {APP_ROUTES.map((r, i) => (
             <li
               key={i}
