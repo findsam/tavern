@@ -107,6 +107,9 @@ export default () => {
                     key={index}
                   >
                     <div className="w-full bg-main-800">
+                      <div className="relative h-full max-w-full mx-auto my-0">
+                        <img src={"/" + item.image} className="object-fill w-full" />
+                      </div>
                       <div className="flex gap-3 p-1.5 text-white">
                         <Image
                           className="rounded-full ring-1 ring-main-600 p-0.5 shrink-0"
@@ -122,9 +125,6 @@ export default () => {
                             Photoshop
                           </p>
                         </span>
-                      </div>
-                      <div className="relative h-full max-w-full mx-auto my-0">
-                        <img src={"/" + item.image} className="object-fill w-full" />
                       </div>
                     </div>
                   </div>
@@ -156,6 +156,12 @@ export default () => {
                       key={index}
                     >
                       <div className="w-full bg-main-800">
+                        <div className="relative h-full max-w-full mx-auto my-0">
+                          <img
+                            src={"/" + item.image}
+                            className="object-fill w-full"
+                          />
+                        </div>
                         <div className="flex gap-3 p-1.5 text-white">
                           <Image
                             className="rounded-full ring-1 ring-main-600 p-0.5 shrink-0"
@@ -171,12 +177,6 @@ export default () => {
                               Photoshop
                             </p>
                           </span>
-                        </div>
-                        <div className="relative h-full max-w-full mx-auto my-0">
-                          <img
-                            src={"/" + item.image}
-                            className="object-fill w-full"
-                          />
                         </div>
                       </div>
                     </div>
