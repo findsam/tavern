@@ -4,6 +4,7 @@ import Post from "./post";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/legacy/image";
 import { AiOutlineArrowDown, AiOutlinePlus } from "react-icons/ai";
+
 const images = [
   "1.jpg",
   "2.jpg",
@@ -30,6 +31,8 @@ export default () => {
   const [posts, setPosts] = useState([]);
   const container = useRef();
   const [columnWrappers, setColumnWrappers] = useState({});
+  const size = useWindowSize();
+  const [cols, setCols] = useState(4);
 
   useEffect(() => {
     testingInfiniteScroll();
@@ -50,11 +53,10 @@ export default () => {
   }
 
   function generateMasonryGrid(columns, posts) {
-    container.innerHTML = "";
+    setColumnWrappers([]);
     for (let i = 0; i < columns; i++) {
       setColumnWrappers((prev) => ({ ...prev, [`column${i}`]: [] }));
     }
-
     for (let i = 0; i < posts.length; i++) {
       const column = i % columns;
       setColumnWrappers((prev) => ({
@@ -65,8 +67,8 @@ export default () => {
   }
 
   useEffect(() => {
-    generateMasonryGrid(4, posts);
-  }, [posts]);
+    generateMasonryGrid(cols, posts);
+  }, [posts, cols]);
 
   const observer = useRef();
   const lastPost = useCallback((node) => {
@@ -76,6 +78,16 @@ export default () => {
     });
     if (node) observer.current.observe(node);
   }, []);
+
+  console.log(size.width);
+
+  useEffect(() => {
+    console.log("running");
+    if (size.width > 1400) setCols(4);
+    if (size.width < 1400) setCols(3);
+    if (size.width < 1000) setCols(2);
+    if (size.width < 750) setCols(1);
+  }, [size.width]);
 
   return (
     <>
@@ -178,3 +190,46 @@ export default () => {
 };
 
 const RenderPostItem = () => {};
+
+function getWindow() {
+  return typeof window !== "undefined" ? window : null;
+}
+// Debounce function
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+function useWindowSize() {
+  const window = getWindow();
+  function getSize() {
+    return {
+      width: window?.innerWidth,
+      height: window?.innerHeight,
+    };
+  }
+
+  const [windowSize, setWindowSize] = useState(getSize);
+
+  useEffect(() => {
+    var handleResizeDebounced = debounce(function handleResize() {
+      setWindowSize(getSize());
+    }, 250);
+
+    window.addEventListener("resize", handleResizeDebounced);
+    return () => window.removeEventListener("resize", handleResizeDebounced);
+  }, []);
+
+  return windowSize;
+}
