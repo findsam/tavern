@@ -109,7 +109,7 @@ export default () => {
                 if (columnWrappers[key].length === index + 1) {
                   return (
                     <span key={index} ref={lastPost}>
-                      <Post post={item} />;
+                      <Post post={item} />
                     </span>
                   );
                 }
@@ -129,7 +129,7 @@ const Post = ({ post }) => {
         <div className="relative h-full max-w-full mx-auto my-0">
           <img src={"/" + post.image} className="object-fill w-full" />
         </div>
-        <div className="flex gap-3 p-1.5 text-white">
+        <div className="flex gap-3 p-1.5 text-white absolute  -bottom-[100%] bg-main-800/40 w-full">
           <Image
             className="rounded-full ring-1 ring-main-600 p-0.5 shrink-0"
             height="38"

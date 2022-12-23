@@ -14,11 +14,31 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 const APP_ROUTES = [
-  { name: "Feed", url: "/", icon: <AiOutlineFire /> },
-  { name: "Bookmarks", url: "/bookmarks", icon: <IoBookmarkOutline /> },
-  { name: "Community", url: "/community", icon: <IoPeopleOutline /> },
-  { name: "Help", url: "/help", icon: <AiOutlineMessage /> },
-  { name: "faq", url: "/faq", icon: <AiOutlineQuestionCircle /> },
+  { name: "Feed", url: "/", icon: <AiOutlineFire />, tooltip: "Homepage" },
+  {
+    name: "Bookmarks",
+    url: "/bookmarks",
+    icon: <IoBookmarkOutline />,
+    tooltip: "Your bookmarks",
+  },
+  {
+    name: "Community",
+    url: "/community",
+    icon: <IoPeopleOutline />,
+    tooltip: "Your community",
+  },
+  {
+    name: "Help",
+    url: "/help",
+    icon: <AiOutlineMessage />,
+    tooltip: "Ask for Help",
+  },
+  {
+    name: "faq",
+    url: "/faq",
+    icon: <AiOutlineQuestionCircle />,
+    tooltip: "Our FAQ",
+  },
 ];
 
 export default function Navbar(props) {
