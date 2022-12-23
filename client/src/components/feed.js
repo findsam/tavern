@@ -97,7 +97,7 @@ export default () => {
           .map((key, index) => (
             <div className="flex flex-col flex-1 gap-5" key={index}>
               {columnWrappers[key].map((item, index) => (
-                <Post post={item} />
+                <Post post={item} key={index} />
               ))}
             </div>
           ))}
@@ -108,12 +108,12 @@ export default () => {
               {columnWrappers[key].map((item, index) => {
                 if (columnWrappers[key].length === index + 1) {
                   return (
-                    <div key={index} ref={lastPost}>
+                    <span key={index} ref={lastPost}>
                       <Post post={item} />;
-                    </div>
+                    </span>
                   );
                 }
-                return <Post post={item} />;
+                return <Post post={item} key={index} />;
               })}
             </div>
           ))}
@@ -124,10 +124,7 @@ export default () => {
 
 const Post = ({ post }) => {
   return (
-    <div
-      className="relative w-full overflow-hidden border rounded-lg bg-main-800 border-main-700"
-      key={post.id}
-    >
+    <div className="relative w-full overflow-hidden border rounded-lg bg-main-800 border-main-700">
       <div className="w-full bg-main-800">
         <div className="relative h-full max-w-full mx-auto my-0">
           <img src={"/" + post.image} className="object-fill w-full" />
