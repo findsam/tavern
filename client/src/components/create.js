@@ -43,7 +43,7 @@ export default ({ upload, setUpload }) => {
               ></input>
             </form>
 
-            <p className="">Created With:</p>
+            <p className="">Created with:</p>
             <p className="text-xs tracking-wide opacity-70">
               Please tell us the primary application used to create this file.
             </p>
@@ -54,7 +54,7 @@ export default ({ upload, setUpload }) => {
               ></input>
             </form>
 
-            <p className="">Short Description:</p>
+            <p className="">A short description:</p>
             <p className="text-xs tracking-wide opacity-70">
               Please give a short description on this piece.
             </p>

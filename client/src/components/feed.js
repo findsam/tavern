@@ -129,7 +129,7 @@ const Post = ({ post }) => {
         <div className="relative h-full max-w-full mx-auto my-0">
           <img src={"/" + post.image} className="object-fill w-full" />
         </div>
-        <div className="flex gap-3 p-1.5 text-white absolute  -bottom-[100%] bg-main-800/40 w-full">
+        {/* <div className="flex gap-3 p-1.5 text-white absolute  bottom-0 bg-main-800/40 w-full">
           <Image
             className="rounded-full ring-1 ring-main-600 p-0.5 shrink-0"
             height="38"
@@ -143,7 +143,7 @@ const Post = ({ post }) => {
               <span className="opacity-70">12 minutes ago on</span> Photoshop
             </p>
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
