@@ -30,13 +30,13 @@ export default ({ upload, setUpload }) => {
         className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full transition-all duration-300 bg-main-900/90"
         ref={container}
       >
-        <div className="duration-300 -translate-y-12 border rounded-lg opacity-0 border-main-700 bg-main-800 main">
+        <div className="duration-300 -translate-y-12 border rounded-lg opacity-0 border-main-border bg-main-800 main">
           <div className="min-w-[500px] p-5">
             <p className="">Thread title:</p>
             <p className="text-xs tracking-wide opacity-70">
               Set a title that people can use to search for your thread.
             </p>
-            <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-600 max-h-[38px] min-h-[38px]">
+            <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
               <input
                 className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm"
                 // placeholder="Enter your thread title."
@@ -47,7 +47,7 @@ export default ({ upload, setUpload }) => {
             <p className="text-xs tracking-wide opacity-70">
               Please tell us the primary application used to create this file.
             </p>
-            <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-600 max-h-[38px] min-h-[38px]">
+            <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
               <input
                 className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm "
                 // placeholder="Enter primary application."
@@ -60,7 +60,7 @@ export default ({ upload, setUpload }) => {
             </p>
 
             <textarea
-              className=" text-xs font-medium mt-3 mb-5 w-full col-span-2 p-2  bg-main-700 border-main-600 border rounded-md resize-none  focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm min-h-[100px] "
+              className="text-xs font-medium mt-3 mb-5 w-full col-span-2 p-2  bg-main-700 border-main-border border rounded-md resize-none  focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm min-h-[100px] "
               // placeholder="Please provide a small description for people to be able to understand your work."
             ></textarea>
 
@@ -77,10 +77,10 @@ export default ({ upload, setUpload }) => {
             </div>
           </div>
 
-          <div className="border-t border-main-700">
+          <div className="border-t border-main-border">
             <div className="flex gap-5 p-5">
               <button
-                className="flex-1 px-4 min-h-[38px] text-sm text-white border border-main-700 rounded-md bg-main-900"
+                className="flex-1 px-4 min-h-[38px] text-sm text-white border border-main-border rounded-md bg-main-900"
                 onClick={() => handleClose()}
               >
                 Cancel Creation
