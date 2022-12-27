@@ -128,7 +128,7 @@ const Post = ({ post }) => {
         </div>
         <div className="flex items-center w-full gap-3 p-2.5 text-white">
           <Image
-            className=" border border-main-700 rounded-full drop-shadow-md p-0.5 shrink-0"
+            className=" border border-main-700 rounded-full drop-shadow-sm p-0.5 shrink-0"
             height="28"
             width="28"
             quality={100}

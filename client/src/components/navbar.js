@@ -34,7 +34,7 @@ const APP_ROUTES = [
     tooltip: "Ask for Help",
   },
   {
-    name: "faq",
+    name: "FAQ",
     url: "/faq",
     icon: <AiOutlineQuestionCircle />,
     tooltip: "Our FAQ",
@@ -45,7 +45,7 @@ export default function Navbar(props) {
   const [collapsed, setCollapsed] = useState(false);
   const router = useRouter();
   return (
-    <div className="fixed top-0 left-0 min-h-screen border-r bg-main-800 border-main-border max-w-[65px] min-w-[65px]">
+    <div className="fixed top-0 left-0 min-h-screen border-r bg-main-800 border-main-border max-w-[65px] min-w-[65px] z-50">
       <nav className="flex flex-col items-center h-full min-h-screen gap-5 p-2">
         <div className="flex items-center py-0.5 mb-auto max-h-max">
           <div className="flex items-center justify-center -space-x-3">
@@ -63,13 +63,15 @@ export default function Navbar(props) {
           {APP_ROUTES.map((r, i) => (
             <li
               key={i}
-              className={`${
-                r.url === router.route
-                  ? "border-transparent"
-                  : "border-transparent bg-transparent text-white/70 "
-              } flex px-2 py-2 border rounded-md`}
+              className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
             >
-              <span className="text-[1.3rem]">{r.icon}</span>
+              <span className="text-[1.3rem] relative">
+                {r.icon}
+
+                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                  {r.name}
+                </span>
+              </span>
             </li>
           ))}
         </ul>
