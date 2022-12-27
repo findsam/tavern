@@ -77,23 +77,47 @@ export default function Navbar(props) {
         </ul>
 
         <ul className="flex flex-col flex-1 flex-grow-0 gap-3 mt-auto text-sm">
-          <li className="flex px-2 py-2 mt-auto duration-200 rounded-md opacity-70">
-            <AiOutlineFileText className="text-[1.3rem]" />
+          <li
+            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
+          >
+            <span className="text-[1.3rem] relative">
+              <AiOutlineFileText />
+              <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                Terms of Service
+              </span>
+            </span>
           </li>
-          <li className="flex px-2 py-2 duration-200 rounded-md opacity-70">
-            <AiOutlineLock className="text-[1.3rem]" />
+
+          <li
+            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
+          >
+            <span className="text-[1.3rem] relative">
+              <AiOutlineLock />
+              <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                Privacy
+              </span>
+            </span>
           </li>
-          <li className="flex px-2 py-2 duration-200 rounded-md opacity-70">
+
+          <li
+            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
+          >
             {!props.user ? (
-              <a className="flex text-sm" href={getDiscordURL()}>
-                <AiOutlineLogin className="text-[1.3rem]" />
+              <a className="text-[1.3rem] relative" href={getDiscordURL()}>
+                <AiOutlineLogin />
+                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                  Login
+                </span>
               </a>
             ) : (
               <button
+                className="text-[1.3rem] relative"
                 onClick={() => handleLogout(props.setUser)}
-                className="flex text-sm"
               >
-                <AiOutlineLogout className="text-[1.3rem]" />
+                <AiOutlineLogout />
+                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                  Logout
+                </span>
               </button>
             )}
           </li>
