@@ -12,30 +12,30 @@ export default ({ user }) => {
     <>
       <Create upload={upload} setUpload={setUpload} />
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-65px)] right-0 z-10 top-0 min-h-[65px] max-h-[65px] px-5">
-        <form className="flex items-center justify-center w-[275px] mr-5 px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
+        <form className="flex items-center justify-center w-[275px] mr-5 px-2 py-2 border rounded-md bg-main-900 border-main-border max-h-[38px] min-h-[38px]">
           <button>
             <AiOutlineSearch className="mr-2 text-xl opacity-70" />
           </button>
           <input
-            className="w-full col-span-2 bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm "
+            className="w-full col-span-2 bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm placeholder:font-normal"
             placeholder="Explore..."
           ></input>
         </form>
 
-        <ul className="flex max-w-max border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px] items-center">
-          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-600">
+        <ul className="flex max-w-max border rounded-md bg-main-900 border-main-border max-h-[38px] min-h-[38px] items-center">
+          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-800">
             <span className="text-sm font-normal opacity-100">Recommended</span>
           </li>
-          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-700">
+          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-900">
             <span className="text-sm font-normal opacity-70">Mutual friends</span>
           </li>
-          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-700">
+          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-900">
             <span className="text-sm font-normal opacity-70">Your posts</span>
           </li>
         </ul>
 
         <button
-          className="ml-5 px-4 min-h-[38px] max-h-[38px] whitespace-nowrap text-sm text-white border rounded-md bg-main-700 border-main-border "
+          className="ml-5 px-4 min-h-[38px] max-h-[38px] whitespace-nowrap text-sm text-white border rounded-md bg-main-900 border-main-border "
           onClick={() => setUpload(true)}
         >
           Create Post

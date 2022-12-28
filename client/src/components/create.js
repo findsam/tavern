@@ -27,7 +27,7 @@ export default ({ upload, setUpload }) => {
   return (
     upload && (
       <div
-        className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full transition-all duration-300 bg-main-900/90"
+        className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full transition-all duration-150 bg-main-900/90"
         ref={container}
       >
         <div className="duration-300 -translate-y-12 border rounded-lg opacity-0 border-main-border bg-main-800 main">
