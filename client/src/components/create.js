@@ -12,14 +12,14 @@ export default ({ upload, setUpload }) => {
       if (upload) {
         await sleep(1);
         container?.current?.childNodes[0]?.classList?.remove("opacity-0");
-        container?.current?.childNodes[0]?.classList?.remove("-translate-y-12");
+        container?.current?.childNodes[0]?.classList?.remove("-translate-y-8");
       }
     })();
   }, [upload, container]);
 
   async function handleClose() {
     container?.current?.childNodes[0]?.classList?.add("opacity-0");
-    container?.current?.childNodes[0]?.classList?.add("-translate-y-12");
+    container?.current?.childNodes[0]?.classList?.add("-translate-y-8");
     await sleep(300);
     setUpload(false);
   }
@@ -30,7 +30,7 @@ export default ({ upload, setUpload }) => {
         className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full transition-all duration-150 bg-main-900/90"
         ref={container}
       >
-        <div className="duration-300 -translate-y-12 border rounded-lg opacity-0 border-main-border bg-main-800 main">
+        <div className="duration-300 -translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 main">
           <div className="min-w-[500px] p-5">
             <p className="">Thread title:</p>
             <p className="text-xs tracking-wide opacity-70">

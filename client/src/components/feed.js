@@ -121,7 +121,7 @@ export default () => {
 
 const Post = ({ post }) => {
   return (
-    <div className="relative w-full overflow-hidden border rounded-lg bg-main-800 border-main-border drop-shadow-lg">
+    <div className="relative w-full overflow-hidden border rounded-lg bg-main-800 border-main-border drop-shadow-md">
       <div className="w-full bg-main-800">
         <div className="relative h-full max-w-full mx-auto my-0">
           <img src={"/" + post.image} className="object-fill w-full" />
