@@ -9,6 +9,7 @@ import Topbar from "../components/topbar";
 import Feed from "../components/feed";
 import Trending from "../components/trending";
 import Notifications from "../components/notifications";
+import Community from "../components/community";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -19,19 +20,18 @@ export default function Home() {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     router.push("/");
-  //   }, 7000);
-  //   return () => clearTimeout(timeout);
-  // }, [router.query]);
-
   return (
     <>
       <Topbar user={user} />
       <Navbar user={user} setUser={setUser} />
       <div className="flex w-[calc(100%-62px)] ml-auto px-5 gap-5 pb-12 mt-[62px] pt-5">
-        <Feed />
+        <div className="fixed top-0 left-[62px] mt-[62px] pt-5 ml-5 grid gap-5">
+          <Trending />
+          <Community />
+        </div>
+        <div className="pl-5 ml-[333px]">
+          <Feed />
+        </div>
       </div>
     </>
   );

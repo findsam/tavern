@@ -79,11 +79,11 @@ export default () => {
   }, []);
 
   useEffect(() => {
-    if (size.width > 1450) setCols(5);
-    if (size.width < 1450) setCols(4);
-    if (size.width < 1100) setCols(3);
-    if (size.width < 850) setCols(2);
-    if (size.width < 600) setCols(1);
+    if (size.width > 1450) setCols(4);
+    if (size.width < 1450) setCols(3);
+    if (size.width < 1100) setCols(2);
+    if (size.width < 850) setCols(1);
+    // if (size.width < 600) setCols(1);
   }, [size.width]);
 
   return (
