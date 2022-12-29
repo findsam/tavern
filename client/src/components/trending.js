@@ -2,7 +2,7 @@ import Wrap from "./wrap";
 export default () => {
   return (
     <Wrap>
-      <li className="flex text-sm bg-transparent border border-transparent rounded-md opacity-70 min-w-[300px]">
+      <li className="flex text-sm bg-transparent border border-transparent rounded-md">
         {/* <AiOutlineMessage className="mr-2 text-xl" /> */}
         Trending Now
       </li>
