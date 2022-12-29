@@ -20,8 +20,8 @@ export default () => {
           <p className="text-xs tracking-wide opacity-70">102 comments</p>
         </li>
         <li className="text-sm">
-          <a>C'thun</a>
-          <p className="text-xs tracking-wide opacity-70">2 comments</p>
+          <a>C'Thun</a>
+          <p className="text-xs tracking-wide opacity-70">102 comments</p>
         </li>
       </ul>
     </Wrap>

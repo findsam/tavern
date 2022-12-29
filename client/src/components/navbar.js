@@ -2,7 +2,6 @@ import {
   AiOutlineFire,
   AiOutlineQuestionCircle,
   AiOutlineFileText,
-  AiOutlineMessage,
   AiOutlineLogout,
   AiOutlineLogin,
   AiOutlineLock,
@@ -26,12 +25,6 @@ const APP_ROUTES = [
     url: "/community",
     icon: <IoPeopleOutline />,
     tooltip: "Your community",
-  },
-  {
-    name: "Help",
-    url: "/help",
-    icon: <AiOutlineMessage />,
-    tooltip: "Ask for Help",
   },
   {
     name: "FAQ",

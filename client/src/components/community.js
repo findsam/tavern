@@ -18,7 +18,6 @@ export default () => {
           <li>Verified Badge</li>
           <li>Advertising Perks</li>
           <li>Unlimited Uploads</li>
-          <li>Suggest Features</li>
           <li>Private Community</li>
         </ul>
 
