@@ -4,14 +4,15 @@ import { BsBell } from "react-icons/bs";
 import { TfiTwitter } from "react-icons/tfi";
 import { VscGithubAlt } from "react-icons/vsc";
 import Create from "./create";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default ({ user }) => {
   const [upload, setUpload] = useState(false);
+
   return (
     <>
       <Create upload={upload} setUpload={setUpload} />
-      <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-65px)] right-0 z-10 top-0 min-h-[65px] max-h-[65px] px-5">
+      <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-5 py-5">
         <form className="flex items-center justify-center w-[275px] mr-5 px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
           <button>
             <AiOutlineSearch className="mr-2 text-xl opacity-70" />
@@ -22,15 +23,17 @@ export default ({ user }) => {
           ></input>
         </form>
 
-        <ul className="flex max-w-max border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px] items-center">
-          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-800">
-            <span className="text-sm font-normal opacity-100">Recommended</span>
+        <ul className="flex max-w-max border rounded-md relative bg-main-700 border-main-border max-h-[38px] min-h-[38px] items-center">
+          <li className="flex px-3 py-1 mx-1 rounded-md">
+            <span className="z-10 text-sm font-normal opacity-100">Recommended</span>
           </li>
-          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-700">
-            <span className="text-sm font-normal opacity-70">Mutual friends</span>
+          <li className="flex px-3 py-1 mx-1 rounded-md">
+            <span className="z-10 text-sm font-normal opacity-70">
+              Mutual friends
+            </span>
           </li>
-          <li className="flex px-3 py-1 mx-1 rounded-md bg-main-700">
-            <span className="text-sm font-normal opacity-70">Your posts</span>
+          <li className="flex px-3 py-1 mx-1 rounded-md">
+            <span className="z-10 text-sm font-normal opacity-70">Your posts</span>
           </li>
         </ul>
 

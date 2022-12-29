@@ -30,7 +30,7 @@ export default function Home() {
     <>
       <Topbar user={user} />
       <Navbar user={user} setUser={setUser} />
-      <div className="flex w-[calc(100%-65px)] ml-auto px-5 gap-5 pb-12 mt-[65px] pt-5">
+      <div className="flex w-[calc(100%-62px)] ml-auto px-5 gap-5 pb-12 mt-[62px] pt-5">
         <Feed />
       </div>
     </>
