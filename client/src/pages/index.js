@@ -10,7 +10,6 @@ import Feed from "../components/feed";
 import Trending from "../components/trending";
 import Notifications from "../components/notifications";
 import Community from "../components/community";
-import Who from "../components/who";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -29,7 +28,6 @@ export default function Home() {
         <div className="fixed top-0 left-[62px] mt-[62px] pt-5 ml-5 grid gap-5 max-w-[325px] min-w-[325px] w-full">
           <Community />
           <Trending />
-          <Who />
         </div>
         <div className="pl-5 ml-[325px]">
           <Feed />
