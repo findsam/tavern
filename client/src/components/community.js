@@ -3,7 +3,7 @@ export default () => {
   return (
     <Wrap>
       <div className="text-sm">
-        <a className="block mb-3">Subscribe to Tarvern.</a>
+        <a className="block mb-3">Welcome to Tarvern.</a>
         <p className="text-xs tracking-wide opacity-70">
           Tavern is an independant non-algorithm art discovery and collaberation
           tool. We are a community based storytelling and creative platform for all
@@ -11,8 +11,9 @@ export default () => {
           fans, friend and other creators.
         </p>
         <p className="mt-3 text-xs tracking-wide opacity-70">
-          Subscribing to Tavern will support development and in return we will
-          provide unique perks such as the following:
+          Interested in supporing Tavern's quest? Subscribing to Tavern ($5 per
+          month) will support development and in return we will provide unique perks
+          such as the following:
         </p>
         <ul className="mt-3 ml-3.5 text-xs tracking-wide list-disc opacity-70">
           <li>Verified Badge</li>
