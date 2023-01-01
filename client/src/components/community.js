@@ -3,7 +3,7 @@ export default () => {
   return (
     <Wrap>
       <div className="text-sm">
-        <a className="block mb-3">Welcome to Tarvern.</a>
+        <a className="block mb-3">Welcome to Tarvern</a>
         <p className="text-xs tracking-wide opacity-70">
           Tavern is an independant non-algorithm art discovery and collaberation
           tool. We are a community based storytelling and creative platform for all
