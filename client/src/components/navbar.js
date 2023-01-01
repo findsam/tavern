@@ -1,10 +1,10 @@
 import {
-  AiOutlineFire,
   AiOutlineQuestionCircle,
   AiOutlineFileText,
   AiOutlineLogout,
   AiOutlineLogin,
   AiOutlineLock,
+  AiOutlineHome,
 } from "react-icons/ai";
 import { getDiscordURL } from "../static/util";
 import { IoPeopleOutline, IoBookmarkOutline } from "react-icons/io5";
@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 const APP_ROUTES = [
-  { name: "Feed", url: "/", icon: <AiOutlineFire />, tooltip: "Homepage" },
+  { name: "Home", url: "/", icon: <AiOutlineHome />, tooltip: "Homepage" },
   {
     name: "Bookmarks",
     url: "/bookmarks",
