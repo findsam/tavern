@@ -105,7 +105,7 @@ export default function Navbar(props) {
             ) : (
               <button
                 className="text-[1.3rem] relative"
-                onClick={() => handleLogout(props.setUser)}
+                onClick={() => handleLogout(props.setUser, router)}
               >
                 <AiOutlineLogout />
                 <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">

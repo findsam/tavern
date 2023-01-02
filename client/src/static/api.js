@@ -10,11 +10,14 @@ const fetchUserDetails = async (next, router) => {
   }
 };
 
-const handleLogout = async (next) => {
+const handleLogout = async (next, router) => {
   try {
     await api.logout();
     next(null);
-  } catch (error) {}
+    return router.push("/auth");
+  } catch (error) {
+    return router.push("/auth");
+  }
 };
 
 export { fetchUserDetails, handleLogout };
