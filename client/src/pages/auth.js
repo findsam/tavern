@@ -2,6 +2,7 @@ import React from "react";
 import Wrap from "../components/wrap";
 import { SiDiscord } from "react-icons/si";
 import { useRef, useEffect } from "react";
+import { getDiscordURL } from "../static/util";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export default () => {
@@ -36,13 +37,13 @@ export default () => {
         </div>
 
         <div className="flex gap-5 px-5 pb-5">
-          <button
+          <a
+            href={getDiscordURL()}
             className="flex-1 px-4 min-h-[38px] gap-2 text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150 flex items-center justify-center"
-            onClick={() => handleClose()}
           >
             <SiDiscord size={18} />
             Login with Discord
-          </button>
+          </a>
         </div>
       </div>
     </div>

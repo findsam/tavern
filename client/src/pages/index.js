@@ -12,13 +12,18 @@ import Notifications from "../components/notifications";
 import Community from "../components/community";
 
 export default function Home() {
+  const [render, setRender] = useState(false);
   const [user, setUser] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) (async () => await fetchUserDetails(setUser, router))();
+    if (!user)
+      (async () => {
+        (await fetchUserDetails(setUser, router)) && setRender(true);
+      })();
   }, [user]);
 
+  if (!render) return null;
   return (
     <>
       <Topbar user={user} />
