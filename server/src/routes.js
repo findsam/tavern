@@ -3,19 +3,9 @@ const {
   handleLogout,
   fetchUserDetails,
 } = require("./controllers.js");
-const {
-  getDiscordUser,
-  generateNewAccessToken,
-  revokeAccessToken,
-} = require("./services.js");
+const { generateNewAccessToken } = require("./services.js");
 const jwt = require("jsonwebtoken");
-const {
-  refreshTokenCookieOptions,
-  accessTokenCookieOptions,
-  signJWT,
-  verifyJWT,
-  generateCookies,
-} = require("./constants.js");
+const { signJWT, verifyJWT, generateCookies } = require("./constants.js");
 
 async function generateTokens(req, res) {
   if (req.cookies.refreshToken) {
@@ -32,11 +22,11 @@ async function generateTokens(req, res) {
 async function verifyTokens(req, res, next) {
   if (!req.cookies || req.cookies === undefined) {
     console.log("litearlly HOW are you making a request...???");
-    return null;
+    return res.status(500).json("error while fetching user, please relogin.");
   }
   if (verifyJWT(req.cookies.refreshToken).expired) {
     console.log("need to relog you dumbdum");
-    return null;
+    return res.status(500).json("error while fetching user, please relogin.");
   } else {
     if (
       verifyJWT(req.cookies.accessToken).expired ||
@@ -48,7 +38,6 @@ async function verifyTokens(req, res, next) {
       res.locals.at = accessToken;
       return next();
     }
-    console.log("refresh token is active & access token");
     return next();
   }
 }

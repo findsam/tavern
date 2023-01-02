@@ -13,12 +13,11 @@ import Community from "../components/community";
 
 export default function Home() {
   const [user, setUser] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
-    if (!user) (async () => await fetchUserDetails(setUser))();
+    if (!user) (async () => await fetchUserDetails(setUser, router))();
   }, [user]);
-
-  const router = useRouter();
 
   return (
     <>

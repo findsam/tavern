@@ -44,7 +44,7 @@ export default ({ user }) => {
           ></input>
         </form>
         <button
-          className="px-4 min-h-[38px] max-h-[38px] whitespace-nowrap text-sm text-white/70 border rounded-md bg-main-700 border-main-border "
+          className="px-4 min-h-[38px] max-h-[38px] whitespace-nowrap text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150"
           onClick={() => setUpload(true)}
         >
           Create Post

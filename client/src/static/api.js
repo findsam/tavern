@@ -1,12 +1,12 @@
 import * as api from "./axios.js";
 
-const fetchUserDetails = async (next) => {
+const fetchUserDetails = async (next, router) => {
   try {
     const { data } = await api.getUserDetails();
-    if (data === 401) return null;
+    if (data.response.status !== 200) return router.push("/auth");
     next(data);
   } catch (error) {
-    console.log(error);
+    return router.push("/auth");
   }
 };
 

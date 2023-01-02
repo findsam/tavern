@@ -80,7 +80,7 @@ export default ({ upload, setUpload }) => {
           <div className="border-t border-main-border">
             <div className="flex gap-5 p-5">
               <button
-                className="flex-1 px-4 min-h-[38px] text-sm text-white border border-main-border rounded-md bg-main-900"
+                className="flex-1 px-4 min-h-[38px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150"
                 onClick={() => handleClose()}
               >
                 Cancel Creation

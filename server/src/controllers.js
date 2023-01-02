@@ -13,8 +13,7 @@ const {
 } = require("./constants.js");
 
 async function discordOAuthHandler(req, res) {
-  if (req.query.error)
-    return res.redirect("http://localhost:3000/?login=failure");
+  if (req.query.error) return res.redirect("http://localhost:3000/?login=failure");
   const { code } = req.query;
   const { access_token, refresh_token } = await getDiscordTokens(code);
   const refreshToken = signJWT({ refresh_token }, "59m");
@@ -45,8 +44,7 @@ async function fetchUserDetails(req, res) {
       .status(200)
       .json(
         await getDiscordUser(
-          verifyJWT(res.locals.at || req.cookies.accessToken).payload
-            .access_token
+          verifyJWT(res.locals.at || req.cookies.accessToken).payload.access_token
         )
       );
   } catch (err) {
