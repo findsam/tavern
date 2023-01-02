@@ -12,7 +12,7 @@ export default () => {
     (async () => {
       await sleep(1);
       container?.current?.childNodes[0]?.classList?.remove("opacity-0");
-      container?.current?.childNodes[0]?.classList?.remove("-translate-y-8");
+      container?.current?.childNodes[0]?.classList?.remove("translate-y-8");
     })();
   }, [container]);
 
@@ -21,7 +21,7 @@ export default () => {
       className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full transition-all duration-150 bg-main-900/90"
       ref={container}
     >
-      <div className="duration-300 -translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 main">
+      <div className="duration-300 translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 main">
         <div className="min-w-[400px] p-5 max-w-[400px]">
           <p className="">Welcome to Tavern 👋</p>
           <p className="text-xs tracking-wide opacity-70">
@@ -31,8 +31,15 @@ export default () => {
             fans, friend and other creators.
           </p>
 
-          <p className="mt-3 text-xs tracking-wide opacity-70">
-            By continuing you agree to our terms of service and privacy policy.
+          <p className="mt-3 text-xs tracking-wide text-white/70">
+            By continuing you agree to our{" "}
+            <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
+              terms of service
+            </a>{" "}
+            and{" "}
+            <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
+              privacy policy
+            </a>
           </p>
         </div>
 
