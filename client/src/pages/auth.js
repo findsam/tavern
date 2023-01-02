@@ -32,13 +32,17 @@ export default () => {
           </p>
 
           <p className="mt-3 text-xs tracking-wide text-white/70">
-            By continuing you agree to our{" "}
+            By continuing you hereby agree to our{" "}
             <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
               terms of service
             </a>{" "}
             and{" "}
             <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
               privacy policy
+            </a>
+            . If you'd like to continue the login process please login using{" "}
+            <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
+              Discord
             </a>
           </p>
         </div>
