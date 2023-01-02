@@ -30,15 +30,18 @@ export default () => {
             art forms. We aim to turn art into a meaningful stories with the help of
             fans, friend and other creators.
           </p>
-
           <p className="mt-3 text-xs tracking-wide text-white/70">
-            By continuing you hereby agree to our{" "}
+            By loging-in you agree to our{" "}
             <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
-              terms of service
+              Terms of Service
             </a>{" "}
             and{" "}
             <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
-              privacy policy
+              Privacy Policy
+            </a>{" "}
+            including{" "}
+            <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
+              Cookie Use
             </a>
             . If you'd like to continue the login process please login using{" "}
             <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
