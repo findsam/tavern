@@ -17,20 +17,31 @@ export default () => {
   }, [container]);
 
   return (
-    <div
-      className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full transition-all duration-150 bg-main-900/90"
-      ref={container}
-    >
-      <div className="duration-300 translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 main">
-        <div className="min-w-[400px] p-5 max-w-[400px]">
-          <p className="">Welcome to Tavern 👋</p>
-          <p className="text-xs tracking-wide opacity-70">
+    <div className="flex items-center justify-center pt-20" ref={container}>
+      <div className="flex flex-col justify-between p-5 duration-300 translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 main">
+        <div className="min-w-[400px] max-w-[400px]">
+          <div className="flex items-center py-0.5 mb-auto max-h-max">
+            <div className="flex items-center justify-center -space-x-3">
+              <span
+                className="block w-6 h-6 border-2 rounded-full border-main-800 bg-main-300"
+                src="/p.jpeg"
+              />
+              <span
+                className="block w-8 h-8 border-4 rounded-full border-main-800 bg-main-500"
+                src="/p.jpeg"
+              />
+            </div>
+            <h1 className="">Welcome to Tavern!</h1>
+          </div>
+          <p className="mt-2 text-xs tracking-wide opacity-70">
             Tavern is an independant non-algorithm art discovery and collaberation
             tool. We are a community based storytelling and creative platform for all
             art forms. We aim to turn art into a meaningful stories with the help of
             fans, friend and other creators.
           </p>
-          <p className="mt-3 text-xs tracking-wide text-white/70">
+        </div>
+        <div className="flex flex-col gap-5 min-w-[400px]  max-w-[400px]">
+          <p className="mt-3 text-xs tracking-wide opacity-70">
             By loging-in you agree to our{" "}
             <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
               Terms of Service
@@ -48,16 +59,22 @@ export default () => {
               Discord
             </a>
           </p>
-        </div>
-
-        <div className="flex gap-5 px-5 pb-5">
           <a
             href={getDiscordURL()}
-            className="flex-1 px-4 min-h-[38px] gap-2 text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150 flex items-center justify-center"
+            className="flex-1 px-4 min-h-[38px] gap-2 text-sm relative text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150 flex items-center justify-center"
           >
-            <SiDiscord size={18} />
-            Login with Discord
+            Sign in with Discord
+            <SiDiscord size={18} className="absolute left-2" />
           </a>
+
+          <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center opacity-70">
+            <span className="h-[1px] block flex-1 bg-main-border"></span>
+            <span>Why Discord?</span>
+            <span className="h-[1px] block flex-1 bg-main-border"></span>
+          </span>
+          <button className="flex-1 px-4 min-h-[38px] text-sm  border border-main-border rounded-md text-white/70">
+            Visit Developer Q&A
+          </button>
         </div>
       </div>
     </div>
