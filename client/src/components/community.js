@@ -10,11 +10,6 @@ export default () => {
           art forms. We aim to turn art into a meaningful stories with the help of
           fans, friend and other creators.
         </p>
-        <p className="mt-3 text-xs tracking-wide opacity-70">
-          Interested in supporing Tavern's quest? Subscribing to Tavern ($5 per
-          month) will support development and in return we will provide unique perks
-          such as the following:
-        </p>
         <ul className="mt-3 ml-3.5 text-xs tracking-wide list-disc opacity-70">
           <li>Verified Badge</li>
           <li>Advertising Perks</li>
@@ -22,8 +17,8 @@ export default () => {
           <li>Private Community</li>
         </ul>
 
-        <div className="mt-2 border-t border-main-border">
-          <div className="flex flex-col gap-3 pt-3">
+        <div className="mt-3 border-t border-main-border">
+          <div className="flex flex-col gap-3 pt-3.5">
             <button className="px-4 min-h-[38px] max-h-[38px] whitespace-nowrap text-sm text-white/70 border rounded-md bg-main-700 border-main-border hover:bg-main-900 hover:text-white duration-150">
               Subscribe to Tavern
             </button>
