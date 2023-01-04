@@ -2,7 +2,7 @@
 
 > Tavern is an independant non-algorithm art discovery and collaberation tool. A
 > community based storytelling and creative platform built to bring creators
-> together. The aim is to build meaningful stories wit hthe help of fans, friends and
+> together. The aim is to build meaningful stories with the help of fans, friends and
 > other creators.
 
 ![build](https://i.imgur.com/t70vMhH.jpeg) ![build2](https://i.imgur.com/GR1NGRh.png)
