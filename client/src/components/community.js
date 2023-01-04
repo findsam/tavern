@@ -7,8 +7,7 @@ export default () => {
         <p className="text-xs tracking-wide opacity-70">
           Tavern is an independant non-algorithm art discovery and collaberation
           tool. We are a community based storytelling and creative platform for all
-          art forms. We aim to turn art into a meaningful stories with the help of
-          fans, friend and other creators.
+          art forms turning creativity into meaningful stories.
         </p>
         <p className="mt-3 text-xs tracking-wide opacity-70">
           Support Tavern for as little as $5 per month and gain unique perks like:
@@ -18,6 +17,7 @@ export default () => {
           <li>Advertising Perks</li>
           <li>Unlimited Uploads</li>
           <li>Private Community</li>
+          <li>Pay Creatives</li>
         </ul>
 
         <div className="mt-3">
@@ -26,14 +26,14 @@ export default () => {
               Subscribe to Tavern
             </button>
           </div>
-          <span className="relative flex items-center w-full gap-2 mt-3 text-xs tracking-wide text-center opacity-70">
+          {/* <span className="relative flex items-center w-full gap-2 mt-3 text-xs tracking-wide text-center opacity-70">
             <span className="h-[1px] block flex-1 bg-main-border"></span>
             <span>Or join the</span>
             <span className="h-[1px] block flex-1 bg-main-border"></span>
           </span>
           <button className="flex-1 px-4 min-h-[38px] text-sm  border border-main-border rounded-md text-white/70 mt-3 w-full">
             Community Discord
-          </button>
+          </button> */}
         </div>
       </div>
     </Wrap>
