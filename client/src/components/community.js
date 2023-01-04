@@ -11,9 +11,7 @@ export default () => {
           fans, friend and other creators.
         </p>
         <p className="mt-3 text-xs tracking-wide opacity-70">
-          Interested in supporing Tavern's quest? Subscribing to Tavern ($5 per
-          month) will support development and in return we will provide unique perks
-          such as the following:
+          Support Tavern for as little as $5 per month and gain unique perks like:
         </p>
         <ul className="mt-3 ml-3.5 text-xs tracking-wide list-disc opacity-70">
           <li>Verified Badge</li>
