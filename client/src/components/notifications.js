@@ -3,7 +3,7 @@ import Wrap from "../components/wrap";
 export default () => {
   return (
     <div className="overflow-hidden border rounded-lg bg-main-800 border-main-border">
-      <div>123</div>
+      <div className="p-3 px-5 border-b border-main-border">123</div>
 
       <ul className="grid gap-3 pt-5 pb-5">
         <li className="flex items-center w-full gap-3 px-5 pb-3 ml-auto border-b border-main-border">

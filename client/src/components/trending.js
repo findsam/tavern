@@ -23,14 +23,6 @@ export default () => {
           <a>C'Thun</a>
           <p className="text-xs tracking-wide opacity-70">61 comments</p>
         </li>
-        <li className="text-sm">
-          <a>Ragnaros</a>
-          <p className="text-xs tracking-wide opacity-70">5 comments</p>
-        </li>
-        <li className="text-sm">
-          <a>Lich King</a>
-          <p className="text-xs tracking-wide opacity-70">2 comments</p>
-        </li>
       </ul>
     </Wrap>
   );
