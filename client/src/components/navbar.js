@@ -21,12 +21,6 @@ const APP_ROUTES = [
     tooltip: "Your bookmarks",
   },
   {
-    name: "Community",
-    url: "/community",
-    icon: <IoPeopleOutline />,
-    tooltip: "Your community",
-  },
-  {
     name: "FAQ",
     url: "/faq",
     icon: <AiOutlineQuestionCircle />,

@@ -1,30 +1,52 @@
+import React from "react";
+import { AiOutlineFileAdd } from "react-icons/ai";
+import { useRef, useEffect } from "react";
+import { sleep } from "../static/util";
 import Image from "next/image";
-import Modal from "../components/modal";
-import { useState } from "react";
 
-export default () => {
-  const [show, setShow] = useState(false);
+export default ({ show, setShow }) => {
+  const container = useRef(null);
+
+  useEffect(() => {
+    (async () => {
+      if (show) {
+        await sleep(1);
+        container?.current?.childNodes[0]?.classList?.remove("opacity-0");
+        container?.current?.childNodes[0]?.classList?.remove("-translate-y-8");
+      }
+    })();
+  }, [show, container]);
+
+  async function handleClose() {
+    container?.current?.childNodes[0]?.classList?.add("opacity-0");
+    container?.current?.childNodes[0]?.classList?.add("-translate-y-8");
+    await sleep(300);
+    setShow(false);
+  }
+
   return (
-    <>
-      <Modal show={show} setShow={setShow} />
-      <div className="overflow-hidden border rounded-lg bg-main-800 border-main-border -z-10">
-        <li className="flex px-3 py-3 text-sm bg-transparent border-b border-main-border ">
-          Notifications & Contributions
-        </li>
-        <ul className="grid">
-          <NotificationItem comment={true} />
-          <NotificationItem />
-          <ContributionItem />
-          <NotificationItem comment={true} />
-          <ContributionItem />
-        </ul>
-        <div className="px-5 py-3">
-          <span className="relative flex items-center justify-center w-full gap-2 text-xs tracking-wide text-center duration-150 opacity-70 hover:opacity-100 hover:cursor-pointer">
-            <span onClick={() => setShow(true)}>See more...</span>
-          </span>
+    show && (
+      <div
+        className="fixed top-0 left-0 flex items-center justify-center w-full h-full transition-all duration-150 z-100 bg-main-900/90"
+        ref={container}
+      >
+        <div className="duration-300 -translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 main">
+          <div className="min-w-[500px] py-5">
+            <p className="px-5 text-xl">Notifications and Contributions</p>
+            <p className="px-5 text-xs tracking-wide opacity-70">
+              Set a title that people can use to search for your thread.
+            </p>
+            <ul className="grid">
+              <NotificationItem comment={true} />
+              <NotificationItem />
+              <ContributionItem />
+              <NotificationItem comment={true} />
+              <ContributionItem />
+            </ul>
+          </div>
         </div>
       </div>
-    </>
+    )
   );
 };
 
@@ -84,7 +106,7 @@ const ContributionItem = () => {
           </p>
         </span>
       </div>
-      <div className="w-full pb-0.5 border-main-border max-w-[200px]">
+      <div className="w-full pb-0.5 border-main-border max-w-[200px] items-start mr-auto ml-12">
         <div className="flex gap-3.5">
           <button className="flex-1 px-1.5 min-h-[30px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150">
             Deny
