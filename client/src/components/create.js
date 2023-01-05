@@ -56,7 +56,7 @@ export default ({ upload, setUpload }) => {
 
             <p className="">A short description:</p>
             <p className="text-xs tracking-wide opacity-70">
-              Please give a short description on this piece.
+              Please give a short description on this thread.
             </p>
 
             <textarea
@@ -85,8 +85,8 @@ export default ({ upload, setUpload }) => {
               >
                 Cancel Creation
               </button>
-              <button className="flex-1 px-4 min-h-[38px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40">
-                Create Post
+              <button className="flex-1 px-4 min-h-[38px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:bg-green-900">
+                Create Thread
               </button>
             </div>
           </div>

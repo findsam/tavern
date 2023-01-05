@@ -4,7 +4,7 @@ export default () => {
   return (
     <div className="overflow-hidden border rounded-lg bg-main-800 border-main-border">
       <li className="flex px-3 py-3 text-sm bg-transparent border-b border-main-border ">
-        Your notifications and contributions
+        Notifications & Contributions
       </li>
       <ul className="grid">
         <NotificationItem comment={true} />
@@ -14,7 +14,7 @@ export default () => {
         <ContributionItem />
       </ul>
       <div className="px-5 py-3">
-        <span className="relative flex items-center justify-center w-full gap-2 text-xs tracking-wide text-center opacity-70">
+        <span className="relative flex items-center justify-center w-full gap-2 text-xs tracking-wide text-center duration-150 opacity-70 hover:opacity-100 hover:cursor-pointer">
           <span>See more...</span>
         </span>
       </div>
@@ -39,7 +39,7 @@ const NotificationItem = (props) => {
             53 min ago
           </p>
         </span>
-        <p className="flex text-xs tracking-wide text-left opacity-70 whitespace-nowrap max-w-[230px]">
+        <p className="flex text-xs tracking-wide text-left text-white/70 whitespace-nowrap max-w-[230px]">
           {props.comment ? "Commented on " : "Liked "}
           your post{" "}
           <a className="text-green-400 text-ellipsis whitespace-nowrap max-w-[144px] block overflow-hidden ml-1">
@@ -83,7 +83,7 @@ const ContributionItem = () => {
           <button className="flex-1 px-1.5 min-h-[26px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150">
             Deny
           </button>
-          <button className="flex-1 px-1.5 min-h-[26px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40">
+          <button className="flex-1 px-1.5 min-h-[26px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:bg-green-900">
             Approve
           </button>
         </div>
