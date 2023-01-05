@@ -18,7 +18,7 @@ export default () => {
 
   return (
     <div className="flex items-center justify-center pt-20" ref={container}>
-      <div className="flex flex-col justify-between p-5 duration-300 translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 main">
+      <div className="flex flex-col justify-between p-5 duration-300 translate-y-8 border rounded-lg shadow-md opacity-0 border-main-border bg-main-800">
         <div className="min-w-[400px] max-w-[400px]">
           <div className="flex items-center py-0.5 mb-auto max-h-max">
             <div className="flex items-center justify-center -space-x-3">
@@ -31,9 +31,9 @@ export default () => {
                 src="/p.jpeg"
               />
             </div>
-            <h1 className="">Welcome to Tavern!</h1>
           </div>
-          <p className="mt-2 text-xs tracking-wide opacity-70">
+          <h1 className="">Welcome to Tavern!</h1>
+          <p className="mt-2 text-xs tracking-wide text-white/70">
             Tavern is an independant non-algorithm art discovery and collaberation
             tool. We are a community based storytelling and creative platform for all
             art forms. We aim to turn art into a meaningful stories with the help of
@@ -41,7 +41,7 @@ export default () => {
           </p>
         </div>
         <div className="flex flex-col gap-5 min-w-[400px]  max-w-[400px]">
-          <p className="mt-3 text-xs tracking-wide opacity-70">
+          <p className="mt-3 text-xs tracking-wide text-white/70">
             By loging-in you agree to our{" "}
             <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
               Terms of Service
@@ -72,7 +72,7 @@ export default () => {
             <span className="h-[1px] block flex-1 bg-main-border"></span>
           </span>
           <button className="flex-1 px-4 min-h-[38px] text-sm  border border-main-border rounded-md text-white/70">
-            Visit Developer Q&A
+            See developer Q&A...
           </button>
         </div>
       </div>

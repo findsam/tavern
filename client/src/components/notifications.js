@@ -78,12 +78,12 @@ const ContributionItem = () => {
           </p>
         </span>
       </div>
-      <div className="w-full pb-0.5 pl-12 ml-auto border-main-border">
+      <div className="w-full pb-0.5 border-main-border max-w-[200px]">
         <div className="flex gap-3.5">
-          <button className="flex-1 px-1.5 min-h-[26px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150">
+          <button className="flex-1 px-1.5 min-h-[30px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150">
             Deny
           </button>
-          <button className="flex-1 px-1.5 min-h-[26px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:bg-green-900">
+          <button className="flex-1 px-1.5 min-h-[30px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:bg-green-900">
             Approve
           </button>
         </div>
