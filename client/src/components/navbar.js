@@ -7,7 +7,7 @@ import {
   AiOutlineHome,
 } from "react-icons/ai";
 import { getDiscordURL } from "../static/util";
-import { IoPeopleOutline, IoBookmarkOutline } from "react-icons/io5";
+import { IoBookmarkOutline } from "react-icons/io5";
 import { handleLogout } from "../static/api";
 import { useRouter } from "next/router";
 import { useState } from "react";

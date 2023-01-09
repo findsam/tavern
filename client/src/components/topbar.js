@@ -17,9 +17,12 @@ export default ({ user }) => {
         <div className="mr-auto">
           {user && (
             <aside className="flex items-center gap-5 ml-auto">
-              <span className="h-[38px] w-[38px] bg-main-700 border-main-600 border rounded-full flex items-center justify-center">
+              <button
+                onClick={() => setShow(true)}
+                className="h-[38px] w-[38px] bg-main-700 border-main-600 border rounded-full flex items-center justify-center"
+              >
                 <BsBell className="text-xl shrink-0 opacity-70" />
-              </span>
+              </button>
               <Image
                 className="rounded-full ring-1 ring-main-border p-0.5"
                 height="38"

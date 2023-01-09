@@ -1,3 +1,4 @@
+import Image from "next/image";
 export const LikeItem = (props) => {
   return (
     <li className="flex gap-3.5 p-5 border-b border-main-border">

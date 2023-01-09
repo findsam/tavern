@@ -1,9 +1,11 @@
 import React from "react";
-import { useRef, useEffect } from "react";
-import { sleep } from "../static/util";
 import Image from "next/image";
+import { sleep } from "../static/util";
+import { useRef, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import ContributionItem from "../components/notifications/contributionItem";
+import { ContributionItem } from "../components/notifications/contributionItem";
+import { LikeItem } from "../components/notifications/likeItem";
+import { CommentItem } from "../components/notifications/commentItem";
 
 export default ({ show, setShow }) => {
   const container = useRef(null);
@@ -62,7 +64,6 @@ export default ({ show, setShow }) => {
               <LikeItem />
               <CommentItem />
             </ul>
-            123
           </div>
         </div>
       </div>
