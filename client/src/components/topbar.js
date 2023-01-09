@@ -16,6 +16,9 @@ export default ({ user }) => {
         <div className="mr-auto">
           {user && (
             <aside className="flex items-center gap-3 ml-auto">
+              <button className="rounded-full min-h-[38px] block shrink-0 min-w-[38px] whitespace-nowrap text-sm text-white/70 border bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150">
+                <BsBell />
+              </button>
               <Image
                 className="rounded-full ring-1 ring-main-border p-0.5"
                 height="38"
