@@ -19,7 +19,7 @@ export const CommentItem = (props) => {
         <p className="inline-flex text-xs tracking-wide text-left text-white/70">
           2h Ago — Comment Preview
         </p>
-        <div className="p-3 mt-0.5 text-sm border rounded-md bg-main-700 border-main-border">
+        <div className="p-2 mt-0.5 text-sm border rounded-md bg-main-700 border-main-border">
           <p className="text-xs tracking-wide opacity-70">
             Amazing art, is this the first draft? Feel free to take a look at a piece
             I've made and tell me what you think...
