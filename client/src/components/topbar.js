@@ -19,8 +19,9 @@ export default ({ user }) => {
             <aside className="flex items-center gap-5 ml-auto">
               <button
                 onClick={() => setShow(true)}
-                className="h-[38px] w-[38px] bg-main-700 border-main-600 border rounded-full flex items-center justify-center"
+                className="h-[38px] w-[38px] bg-main-700 border-main-600 border rounded-full flex items-center justify-center relative"
               >
+                <span className="absolute top-0 right-0 z-10 block w-3 h-3 bg-green-400 border-2 rounded-full border-main-800" />
                 <BsBell className="text-xl shrink-0 opacity-70" />
               </button>
               <Image
