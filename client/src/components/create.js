@@ -31,7 +31,7 @@ export default ({ upload, setUpload }) => {
         ref={container}
       >
         <div className="duration-300 -translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 main">
-          <div className="min-w-[500px] p-5">
+          <div className="min-w-[535px] p-5">
             <p className="">Thread title:</p>
             <p className="text-xs tracking-wide opacity-70">
               Set a title that people can use to search for your thread.

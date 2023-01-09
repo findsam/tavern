@@ -34,7 +34,7 @@ export default ({ show, setShow }) => {
         ref={container}
       >
         <div className="duration-300 -translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 main">
-          <div className="max-w-[550px] w-full min-w-[550px] pb-5 relative">
+          <div className="max-w-[535px] w-full min-w-[535px] pb-5 relative">
             <button
               className="absolute items-center justify-center -right-3.5 top-5 rounded-full border border-main-border bg-main-900 h-[28px] w-[28px] flex"
               onClick={handleClose}

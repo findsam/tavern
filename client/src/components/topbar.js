@@ -8,7 +8,6 @@ import { useState, useRef, useEffect } from "react";
 export default ({ user }) => {
   const [show, setShow] = useState(false);
   const [upload, setUpload] = useState(false);
-
   return (
     <>
       <Create upload={upload} setUpload={setUpload} />
