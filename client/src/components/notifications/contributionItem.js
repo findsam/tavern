@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-const ContributionItem = (props) => {
+export const ContributionItem = (props) => {
   return (
     <li className="flex gap-3.5 p-5 border-b border-main-border">
       <div className="shrink-0">

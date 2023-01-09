@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
-import { TfiTwitter } from "react-icons/tfi";
-import { VscGithubAlt } from "react-icons/vsc";
 import Create from "./create";
+import Modal from "./modal";
 import { useState, useRef, useEffect } from "react";
 
 export default ({ user }) => {
+  const [show, setShow] = useState(false);
   const [upload, setUpload] = useState(false);
 
   return (
     <>
       <Create upload={upload} setUpload={setUpload} />
+      <Modal show={show} setShow={setShow} />
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-5 py-5">
         <div className="mr-auto">
           {user && (
