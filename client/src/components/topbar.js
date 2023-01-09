@@ -15,10 +15,10 @@ export default ({ user }) => {
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-5 py-5">
         <div className="mr-auto">
           {user && (
-            <aside className="flex items-center gap-3 ml-auto">
-              <button className="rounded-full min-h-[38px] block shrink-0 min-w-[38px] whitespace-nowrap text-sm text-white/70 border bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150">
-                <BsBell />
-              </button>
+            <aside className="flex items-center gap-5 ml-auto">
+              <span className="h-[38px] w-[38px] bg-main-700 border-main-600 border rounded-full flex items-center justify-center">
+                <BsBell className="text-xl shrink-0 opacity-70" />
+              </span>
               <Image
                 className="rounded-full ring-1 ring-main-border p-0.5"
                 height="38"
