@@ -32,7 +32,7 @@ export default function Navbar(props) {
   const [collapsed, setCollapsed] = useState(false);
   const router = useRouter();
   return (
-    <div className="fixed top-0 left-0 min-h-screen border-r bg-main-800 border-main-border max-w-[62px] min-w-[62px] z-50">
+    <div className="fixed top-0 left-0 min-h-screen border-r bg-main-800 border-main-border max-w-[62px] min-w-[62px] z-10">
       <nav className="flex flex-col items-center h-full min-h-screen gap-5 p-2">
         <div className="flex items-center py-0.5 mb-auto max-h-max">
           <div className="flex items-center justify-center -space-x-3">

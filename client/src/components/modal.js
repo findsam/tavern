@@ -16,6 +16,7 @@ export default ({ show, setShow }) => {
         await sleep(1);
         container?.current?.childNodes[0]?.classList?.remove("opacity-0");
         container?.current?.childNodes[0]?.classList?.remove("-translate-y-8");
+        document.body.style.overflow = "hidden";
       }
     })();
   }, [show, container]);
@@ -23,6 +24,7 @@ export default ({ show, setShow }) => {
   async function handleClose() {
     container?.current?.childNodes[0]?.classList?.add("opacity-0");
     container?.current?.childNodes[0]?.classList?.add("-translate-y-8");
+    document.body.style.overflow = "unset";
     await sleep(300);
     setShow(false);
   }
@@ -57,7 +59,7 @@ export default ({ show, setShow }) => {
                 </li>
               </ul>
             </div>
-            <ul className="grid max-h-[600px] h-full">
+            <ul className="grid max-h-[600px] h-full overflow-y-scroll">
               <CommentItem />
               <LikeItem />
               <ContributionItem />

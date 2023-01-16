@@ -3,6 +3,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /* For Firefox Browser */
+  * {
+    scrollbar-width: none;
+  }
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    @apply invisible hidden opacity-0;
+  }
+  *::-webkit-scrollbar-track {
+    @apply invisible hidden opacity-0;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply invisible hidden opacity-0;
+  }
+}
 body {
   @apply text-white bg-main-900 font-inter;
 }
