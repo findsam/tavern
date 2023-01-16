@@ -60,15 +60,19 @@ export default ({ show, setShow }) => {
               <LikeItem />
               <CommentItem />
               <ContributionItem />
-              <div className="">
-                <div className="flex gap-5 p-5">
-                  <button
-                    className="flex-1 px-4 min-h-[38px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150"
-                    onClick={handleClose}
-                  >
-                    Close Notifications
-                  </button>
-                </div>
+              <div className="flex gap-5 p-5">
+                <button
+                  onClick={handleClose}
+                  className="px-2 min-h-[30px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150"
+                >
+                  Close Notifications
+                </button>
+                <button className="flex gap-1.5 items-center justify-center px-2 min-h-[30px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:bg-green-900">
+                  Mark all as Seen{" "}
+                  <span className="h-[20px] w-[24px] border-green-900 border bg-green-900/40 text-green-400 text-center font-semibold rounded-md tracking-tighter flex items-center justify-center">
+                    26
+                  </span>
+                </button>
               </div>
             </ul>
           </div>

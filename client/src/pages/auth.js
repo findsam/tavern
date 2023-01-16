@@ -12,13 +12,13 @@ export default () => {
     (async () => {
       await sleep(1);
       container?.current?.childNodes[0]?.classList?.remove("opacity-0");
-      container?.current?.childNodes[0]?.classList?.remove("translate-y-8");
+      container?.current?.childNodes[0]?.classList?.remove("-translate-y-8");
     })();
   }, [container]);
 
   return (
     <div className="flex items-center justify-center pt-20" ref={container}>
-      <div className="flex flex-col justify-between p-5 duration-300 translate-y-8 border rounded-lg shadow-md opacity-0 border-main-border bg-main-800">
+      <div className="flex flex-col justify-between p-5 duration-300 -translate-y-8 border rounded-lg shadow-md opacity-0 border-main-border bg-main-800">
         <div className="min-w-[400px] max-w-[400px]">
           <div className="flex items-center py-0.5 mb-auto max-h-max">
             <div className="flex items-center justify-center -space-x-3">
