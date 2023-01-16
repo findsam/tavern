@@ -37,12 +37,6 @@ export default ({ show, setShow }) => {
       >
         <div className="duration-300 -translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 main">
           <div className="max-w-[535px] w-full b-5 relative">
-            <button
-              className="absolute items-center justify-center -right-3.5 top-5 rounded-full border border-main-border bg-main-900 h-[28px] w-[28px] flex"
-              onClick={handleClose}
-            >
-              <AiOutlineClose className="text-xs opacity-70" />
-            </button>
             <div className="flex items-center border-b border-main-border">
               <ul className="flex h-full gap-5 px-5">
                 <li className="py-5 flex text-sm gap-1.5 after:absolute after:content-[''] after:bottom-[-1px] after:h-[2px] after:block after:bg-green-900 relative after:w-full">
@@ -66,6 +60,16 @@ export default ({ show, setShow }) => {
               <LikeItem />
               <CommentItem />
               <ContributionItem />
+              <div className="">
+                <div className="flex gap-5 p-5">
+                  <button
+                    className="flex-1 px-4 min-h-[38px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150"
+                    onClick={handleClose}
+                  >
+                    Close Notifications
+                  </button>
+                </div>
+              </div>
             </ul>
           </div>
         </div>
