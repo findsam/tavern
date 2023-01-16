@@ -60,7 +60,7 @@ export default ({ show, setShow }) => {
               <LikeItem />
               <CommentItem />
               <ContributionItem />
-              <div className="flex gap-5 p-5">
+              <div className="flex gap-2.5 p-5">
                 <button
                   onClick={handleClose}
                   className="px-2 min-h-[30px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150"
