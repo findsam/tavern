@@ -57,7 +57,7 @@ export default ({ show, setShow }) => {
                 </li>
               </ul>
             </div>
-            <ul className="grid max-h-[600px] h-full overflow-y-scroll scrollbar scrollbar-rounded-lg scrollbar-h-[120px] scrollbar-w-[10px] scrollbar-thumb-rose-500 scrollbar-track-slate-700">
+            <ul className="grid max-h-[600px] h-full">
               <CommentItem />
               <LikeItem />
               <ContributionItem />
