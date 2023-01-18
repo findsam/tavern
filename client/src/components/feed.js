@@ -88,11 +88,11 @@ export default () => {
 
   return (
     <>
-      <div className="relative flex gap-5 ml-auto" ref={container}>
+      <div className="relative flex ml-auto gap-2.5 md:gap-5" ref={container}>
         {Object.keys(columnWrappers)
           .slice(0, Object.keys(columnWrappers).length - 1)
           .map((key, index) => (
-            <div className="flex flex-col flex-1 gap-5" key={index}>
+            <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
               {columnWrappers[key].map((item, index) => (
                 <Post post={item} key={index} />
               ))}
@@ -101,7 +101,7 @@ export default () => {
         {Object.keys(columnWrappers)
           .slice(-1)
           .map((key, index) => (
-            <div className="flex flex-col flex-1 gap-5" key={index}>
+            <div className="flex flex-col flex-1  gap-2.5 md:gap-5" key={index}>
               {columnWrappers[key].map((item, index) => {
                 if (columnWrappers[key].length === index + 1) {
                   return (
