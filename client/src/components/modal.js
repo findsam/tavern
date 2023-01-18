@@ -29,6 +29,16 @@ export default ({ show, setShow }) => {
     setShow(false);
   }
 
+  useEffect(() => {
+    function handleEscapeKey(event) {
+      if (event.code === "Escape") {
+        handleClose();
+      }
+    }
+    document.addEventListener("keydown", handleEscapeKey);
+    return () => document.removeEventListener("keydown", handleEscapeKey);
+  }, []);
+
   return (
     show && (
       <div
