@@ -12,7 +12,7 @@ export default ({ user }) => {
     <>
       <Create upload={upload} setUpload={setUpload} />
       <Modal show={show} setShow={setShow} />
-      <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-5 py-5 gap-2.5 md:gap-5">
+      <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
         <div className=" flex-1 flex w-full gap-2.5 md:gap-5">
           <form className="flex items-center justify-center w-[275px] px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
             <button>
