@@ -46,7 +46,7 @@ export default function Navbar(props) {
             />
           </div>
         </div>
-        <ul className="flex flex-col items-center justify-center flex-1 flex-grow-0 gap-3 text-sm">
+        <ul className="flex flex-col items-center justify-center flex-1 flex-grow-0 gap-2.5 text-sm">
           {APP_ROUTES.map((r, i) => (
             <li
               key={i}
@@ -63,7 +63,7 @@ export default function Navbar(props) {
           ))}
         </ul>
 
-        <ul className="flex flex-col flex-1 flex-grow-0 gap-3 mt-auto text-sm">
+        <ul className="flex flex-col flex-1 flex-grow-0 gap-2.5 mt-auto text-sm">
           <li
             className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
           >
