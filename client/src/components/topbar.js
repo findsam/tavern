@@ -14,7 +14,7 @@ export default ({ user }) => {
   return (
     <>
       <Modal show={upload} setShow={setUpload}>
-        <div className="w-full p-5">
+        <div className="block w-full min-w-full p-5">
           <p className="">Thread title:</p>
           <p className="text-xs tracking-wide opacity-70">
             Set a title that people can use to search for your thread.
@@ -57,7 +57,7 @@ export default ({ user }) => {
           </div>
         </div>
 
-        <div className="border-t border-main-border">
+        {/* <div className="border-t border-main-border">
           <div className="flex gap-5 p-5">
             <button
               className="flex-1 px-4 min-h-[38px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150"
@@ -69,7 +69,7 @@ export default ({ user }) => {
               Create Thread
             </button>
           </div>
-        </div>
+        </div> */}
       </Modal>
       <Modal show={show} setShow={setShow}>
         <div className="flex items-center border-b border-main-border">
