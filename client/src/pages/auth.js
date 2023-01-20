@@ -54,10 +54,6 @@ export default () => {
             <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
               Cookie Use
             </a>
-            . If you'd like to continue the login process please login using{" "}
-            <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
-              Discord
-            </a>
           </p>
           <a
             href={getDiscordURL()}
