@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
-import Create from "./create";
 import Modal from "./modal";
 import { CommentItem } from "./notifications/commentItem";
 import { LikeItem } from "./notifications/likeItem";
@@ -15,45 +14,47 @@ export default ({ user }) => {
   return (
     <>
       <Modal show={upload} setShow={setUpload}>
-        <p className="">Thread title:</p>
-        <p className="text-xs tracking-wide opacity-70">
-          Set a title that people can use to search for your thread.
-        </p>
-        <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
-          <input className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm"></input>
-        </form>
-
-        <p className="">Created with:</p>
-        <p className="text-xs tracking-wide opacity-70">
-          Please tell us the primary application used to create this file.
-        </p>
-        <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
-          <input
-            className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm "
-            // placeholder="Enter primary application."
-          ></input>
-        </form>
-
-        <p className="">A short description:</p>
-        <p className="text-xs tracking-wide opacity-70">
-          Please give a short description on this thread.
-        </p>
-
-        <textarea
-          className="text-xs font-medium mt-3 mb-5 w-full col-span-2 p-2  bg-main-700 border-main-border border rounded-md resize-none  focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm min-h-[100px] "
-          // placeholder="Please provide a small description for people to be able to understand your work."
-        ></textarea>
-
-        <p className="">Upload and attach files.</p>
-        <p className="text-xs tracking-wide opacity-70">
-          Upload and attach files to this thread.
-        </p>
-        <div className="mb-2 mt-3 border-2 border-dashed border-white/70 min-h-[150px] rounded-lg flex items-center justify-center flex-col">
-          <AiOutlineFileAdd size={42} />
-          <p className="mt-3">Click to Upload</p>
+        <div className="w-full p-5">
+          <p className="">Thread title:</p>
           <p className="text-xs tracking-wide opacity-70">
-            Maximum file size of 10MB.
+            Set a title that people can use to search for your thread.
           </p>
+          <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
+            <input className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm"></input>
+          </form>
+
+          <p className="">Created with:</p>
+          <p className="text-xs tracking-wide opacity-70">
+            Please tell us the primary application used to create this file.
+          </p>
+          <form className="mb-5 mt-3 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
+            <input
+              className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm "
+              // placeholder="Enter primary application."
+            ></input>
+          </form>
+
+          <p className="">A short description:</p>
+          <p className="text-xs tracking-wide opacity-70">
+            Please give a short description on this thread.
+          </p>
+
+          <textarea
+            className="text-xs font-medium mt-3 mb-5 w-full col-span-2 p-2  bg-main-700 border-main-border border rounded-md resize-none  focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm min-h-[100px] "
+            // placeholder="Please provide a small description for people to be able to understand your work."
+          ></textarea>
+
+          <p className="">Upload and attach files.</p>
+          <p className="text-xs tracking-wide opacity-70">
+            Upload and attach files to this thread.
+          </p>
+          <div className="mb-2 mt-3 border-2 border-dashed border-white/70 min-h-[150px] rounded-lg flex items-center justify-center flex-col">
+            <AiOutlineFileAdd size={42} />
+            <p className="mt-3">Click to Upload</p>
+            <p className="text-xs tracking-wide opacity-70">
+              Maximum file size of 10MB.
+            </p>
+          </div>
         </div>
 
         <div className="border-t border-main-border">
