@@ -45,8 +45,16 @@ export default ({ show, setShow, children }) => {
         className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full p-3 overflow-hidden transition-all duration-150 bg-main-900/90"
         ref={container}
       >
-        <div className="overflow-hidden duration-300 -translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 max-w-[535px] w-full">
-          <div className="relative b-5">{children}</div>
+        <div className="duration-300 -translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 max-w-[535px] w-full">
+          <div className="relative b-5">
+            <button
+              className="absolute items-center justify-center -right-3.5 top-5 rounded-full border border-main-border bg-main-900 h-[28px] w-[28px] flex"
+              onClick={handleClose}
+            >
+              <AiOutlineClose className="text-xs opacity-70" />
+            </button>
+            {children}
+          </div>
         </div>
       </div>
     )
