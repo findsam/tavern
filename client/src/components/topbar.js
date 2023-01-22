@@ -2,11 +2,9 @@ import Image from "next/image";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
 import Modal from "./modal";
-import { CommentItem } from "./notifications/commentItem";
-import { LikeItem } from "./notifications/likeItem";
-import { ContributionItem } from "./notifications/contributionItem";
 import { useState, useRef, useEffect } from "react";
 import { AiOutlineFileAdd } from "react-icons/ai";
+import NotificationsContainer from "./notifications/notificationsContainer";
 
 export default ({ user }) => {
   const [show, setShow] = useState(false);
@@ -63,30 +61,7 @@ export default ({ user }) => {
         </div>
       </Modal>
       <Modal show={show} setShow={setShow}>
-        <div className="relative flex items-center border-b border-main-border top-[1px] bg-main-800">
-          <ul className="flex h-full gap-5 px-5">
-            <li className="py-5 flex text-sm gap-1.5 after:absolute after:content-[''] after:bottom-[-1px] after:h-[2px] after:block after:bg-green-900 relative after:w-full">
-              <span className="text-green-400">Notifications</span>
-              <span className="h-[20px] w-[24px] border-green-900 border bg-green-900/40 text-green-400 text-center font-semibold rounded-md tracking-tighter flex items-center justify-center">
-                3
-              </span>
-            </li>
-            <li className="py-5  flex text-sm gap-1.5 after:absolute after:content-[''] after:block after:bg-main-border relative after:w-full">
-              <span className=" text-white/70">Following</span>
-              <span className="h-[20px] w-[24px] border-main-border  border text-white/70 rounded-md bg-main-700 text-center font-semibold  tracking-tighter flex items-center justify-center">
-                23
-              </span>
-            </li>
-          </ul>
-        </div>
-        <ul className="grid max-h-[600px] h-full overflow-y-scroll">
-          <CommentItem />
-          <LikeItem />
-          <ContributionItem />
-          <LikeItem />
-          <CommentItem />
-          <ContributionItem />
-        </ul>
+        <NotificationsContainer />
       </Modal>
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
         <div className=" flex-1 flex w-full gap-2.5 md:gap-5">
