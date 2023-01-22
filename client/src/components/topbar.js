@@ -15,7 +15,7 @@ export default ({ user }) => {
     <>
       <Modal show={upload} setShow={setUpload}>
         <div className="block w-full min-w-full p-5">
-          <p className="">Thread title:</p>
+          <p className="">Artwork name:</p>
           <p className="text-xs tracking-wide opacity-70">
             Set a title that people can use to search for your thread.
           </p>
@@ -23,7 +23,7 @@ export default ({ user }) => {
             <input className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm"></input>
           </form>
 
-          <p className="">Created with:</p>
+          <p className="">Created using:</p>
           <p className="text-xs tracking-wide opacity-70">
             Please tell us the primary application used to create this file.
           </p>
@@ -34,7 +34,7 @@ export default ({ user }) => {
             ></input>
           </form>
 
-          <p className="">A short description:</p>
+          <p className="">Short description:</p>
           <p className="text-xs tracking-wide opacity-70">
             Provide a short description on this thread.
           </p>
