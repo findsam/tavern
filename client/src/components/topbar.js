@@ -90,16 +90,6 @@ export default ({ user }) => {
           <CommentItem />
           <ContributionItem />
         </ul>
-        <div className="border-t border-main-border">
-          <div className="flex gap-5 p-5">
-            <button className="flex items-center justify-center w-full gap-3 px-4 min-h-[38px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:bg-green-900">
-              Mark as Read
-              <span className="h-[20px] w-[24px] border-green-900 border bg-green-900/40 text-green-400 text-center font-semibold rounded-md tracking-tighter flex items-center justify-center">
-                26
-              </span>
-            </button>
-          </div>
-        </div>
       </Modal>
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
         <div className=" flex-1 flex w-full gap-2.5 md:gap-5">
