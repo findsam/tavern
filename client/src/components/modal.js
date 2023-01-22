@@ -48,7 +48,7 @@ export default ({ show, setShow, children }) => {
         <div className="duration-300 -translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 max-w-[535px] w-full">
           <div className="relative b-5">
             <button
-              className="absolute items-center justify-center -right-3.5 top-5 rounded-full border border-main-border bg-main-900 h-[28px] w-[28px] flex"
+              className="absolute items-center justify-center -right-3.5 top-5 rounded-full border border-main-border bg-main-900 h-[28px] w-[28px] flex z-50"
               onClick={handleClose}
             >
               <AiOutlineClose className="text-xs opacity-70" />

@@ -1,7 +1,7 @@
 import Image from "next/image";
 export const ContributionItem = (props) => {
   return (
-    <li className="flex gap-3.5 p-5 border-b border-main-border">
+    <li className="flex gap-3.5 p-5 border-t border-main-border">
       <div className="shrink-0">
         <Image
           className="rounded-full ring-1 ring-main-border p-0.5"

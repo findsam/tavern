@@ -66,7 +66,7 @@ export default ({ user }) => {
         </div>
       </Modal>
       <Modal show={show} setShow={setShow}>
-        <div className="flex items-center border-b border-main-border">
+        <div className="relative flex items-center border-b border-main-border top-[1px] bg-main-800">
           <ul className="flex h-full gap-5 px-5">
             <li className="py-5 flex text-sm gap-1.5 after:absolute after:content-[''] after:bottom-[-1px] after:h-[2px] after:block after:bg-green-900 relative after:w-full">
               <span className="text-green-400">Notifications</span>
