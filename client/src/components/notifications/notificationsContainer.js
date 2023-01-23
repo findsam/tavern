@@ -12,7 +12,7 @@ export default () => {
         <ul className="flex h-full gap-5 px-5">
           <li
             onClick={() => setActiveTab(1)}
-            className={`relative py-5 flex text-sm gap-1.5 ${
+            className={`relative py-5 flex text-sm gap-1.5 hover:cursor-pointer ${
               activeTab &&
               "after:absolute after:content-[''] after:bottom-[-1px] after:h-[2px] after:block after:bg-green-900 after:w-full"
             }`}
@@ -32,7 +32,7 @@ export default () => {
           </li>
           <li
             onClick={() => setActiveTab(0)}
-            className={`relative py-5 flex text-sm gap-1.5 ${
+            className={`relative py-5 flex text-sm gap-1.5 hover:cursor-pointer ${
               !activeTab &&
               "after:absolute after:content-[''] after:bottom-[-1px] after:h-[2px] after:block after:bg-green-900 after:w-full"
             }`}
