@@ -57,7 +57,7 @@ export default () => {
           </p>
           <a
             href={getDiscordURL()}
-            className="flex-1 px-4 min-h-[38px] gap-2 text-sm relative text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 hover:text-white duration-150 flex items-center justify-center"
+            className="flex-1 px-4 min-h-[38px] gap-2 text-sm relative text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900  duration-150 flex items-center justify-center"
           >
             Sign-in with Discord
             <SiDiscord size={18} />
