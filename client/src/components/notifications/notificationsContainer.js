@@ -67,9 +67,6 @@ export default () => {
             <div className="block h-full">
               <PostItem /> <PostItem />
               <PostItem />
-              <PostItem />
-              <PostItem />
-              <PostItem />
             </div>
           </>
         )}
