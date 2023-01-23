@@ -13,7 +13,7 @@ export const PostItem = (props) => {
       </div>
       <div className="grid gap-1.5">
         <p className="inline text-xs tracking-wide text-left text-white/70">
-          <span className="inline">Jay Pacheco uploaded a new post</span>
+          <span className="inline">Jay Pacheco uploaded a new thread</span>
           <a className="inline text-green-400 text-ellipsis">
             {" "}
             Arthas Menethil
@@ -22,15 +22,6 @@ export const PostItem = (props) => {
         <p className="inline-flex text-xs tracking-wide text-left text-white/70">
           2h Ago — Image
         </p>
-
-        <div className="flex gap-2.5 mt-0.5">
-          <button className="px-2 min-h-[30px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:bg-green-900">
-            Approve
-          </button>
-          <button className="px-2 min-h-[30px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 duration-150">
-            Deny
-          </button>
-        </div>
       </div>
     </li>
   );
