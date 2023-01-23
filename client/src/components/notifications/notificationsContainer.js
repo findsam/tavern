@@ -2,6 +2,7 @@ import { CommentItem } from "./commentItem";
 import { LikeItem } from "./likeItem";
 import { ContributionItem } from "./contributionItem";
 import { useState } from "react";
+import { PostItem } from "./postItem";
 
 export default () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -10,6 +11,7 @@ export default () => {
       <div className="relative flex items-center border-b border-main-border top-[1px] bg-main-800">
         <ul className="flex h-full gap-5 px-5">
           <li
+            onClick={() => setActiveTab(1)}
             className={`relative py-5 flex text-sm gap-1.5 ${
               activeTab &&
               "after:absolute after:content-[''] after:bottom-[-1px] after:h-[2px] after:block after:bg-green-900 after:w-full"
@@ -29,6 +31,7 @@ export default () => {
             </span>
           </li>
           <li
+            onClick={() => setActiveTab(0)}
             className={`relative py-5 flex text-sm gap-1.5 ${
               !activeTab &&
               "after:absolute after:content-[''] after:bottom-[-1px] after:h-[2px] after:block after:bg-green-900 after:w-full"
@@ -60,7 +63,11 @@ export default () => {
             <ContributionItem />
           </>
         ) : (
-          <></>
+          <>
+            <div className="block h-full">
+              <PostItem />
+            </div>
+          </>
         )}
       </ul>
     </>
