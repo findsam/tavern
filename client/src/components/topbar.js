@@ -13,37 +13,19 @@ export default ({ user }) => {
     <>
       <Modal show={upload} setShow={setUpload}>
         <div className="block w-full min-w-full p-5">
-          <p className="">Artwork name:</p>
+          <p className="">Title:</p>
           <p className="text-xs tracking-wide opacity-70">
-            Set a title that people can use to search for your thread.
+            Provide a title for your artwork.
           </p>
           <form className="mb-3.5 mt-1.5 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
             <input className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm"></input>
           </form>
 
-          <p className="">Created using:</p>
-          <p className="text-xs tracking-wide opacity-70">
-            Please tell us the primary application used to create this file.
-          </p>
-          <form className="mb-3.5  mt-1.5 flex items-center justify-center w-full px-2 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
-            <input
-              className="w-full col-span-2 text-xs font-medium bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm "
-              // placeholder="Enter primary application."
-            ></input>
-          </form>
-
-          <p className="">Short description:</p>
-          <p className="text-xs tracking-wide opacity-70">
-            Provide a short description on this thread.
-          </p>
-
-          <textarea className="text-xs font-medium  mt-1.5 mb-3.5 w-full col-span-2 p-2  bg-main-700 border-main-border border rounded-md resize-none  focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm min-h-[90px]"></textarea>
-
           <p className="">Upload and attach files.</p>
           <p className="text-xs tracking-wide opacity-70">
             Provide a file to create this thread.
           </p>
-          <div className="mb-2  mt-1.5 border-2 border-dashed border-main-600 min-h-[180px] rounded-lg flex items-center justify-center flex-col">
+          <div className="mb-2  mt-1.5 border-2 border-dashed border-main-600 min-h-[180px] rounded-lg flex items-center justify-center flex-col hover:border-main-700 hover:cursor-pointer duration-150">
             <AiOutlineFileAdd size={42} />
             <p className="mt-1.5">Click to Upload</p>
             <p className="text-xs leading-none tracking-wide opacity-70">

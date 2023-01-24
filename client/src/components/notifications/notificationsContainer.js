@@ -52,7 +52,7 @@ export default () => {
           </li>
         </ul>
       </div>
-      <ul className="grid max-h-[600px] h-full overflow-y-scroll">
+      <ul className="grid max-h-[540px] h-full overflow-y-scroll">
         {activeTab ? (
           <>
             <CommentItem />
