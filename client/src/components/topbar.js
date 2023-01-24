@@ -33,8 +33,15 @@ export default ({ user }) => {
             </p>
           </div>
         </div>
+        <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
+          <span className="h-[1px] block flex-1 bg-main-border" />
+          <span className="duration-150 hover:cursor-pointer opacity-70 hover:opacity-100">
+            Need larged file size?
+          </span>
+          <span className="h-[1px] block flex-1 bg-main-border" />
+        </span>
 
-        <div className="border-t border-main-border">
+        <div className="">
           <div className="flex gap-5 p-5">
             <button className="flex-1 px-4 min-h-[38px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:bg-green-900">
               Create Thread
@@ -45,6 +52,7 @@ export default ({ user }) => {
       <Modal show={show} setShow={setShow}>
         <NotificationsContainer />
       </Modal>
+
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
         <div className=" flex-1 flex w-full gap-2.5 md:gap-5">
           <button
@@ -63,6 +71,7 @@ export default ({ user }) => {
             </button>
           </form>
         </div>
+
         <div className="ml-0 flex-0 md:ml-auto">
           {user && (
             <aside className="flex flex-row-reverse items-center gap-2.5 ml-auto md:gap-5">

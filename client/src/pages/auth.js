@@ -57,10 +57,12 @@ export default () => {
             Sign-in with Discord
             <SiDiscord size={18} />
           </a>
-          <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center opacity-70">
-            <span className="h-[1px] block flex-1 bg-main-border"></span>
-            <span>Need help?</span>
-            <span className="h-[1px] block flex-1 bg-main-border"></span>
+          <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
+            <span className="h-[1px] block flex-1 bg-main-border" />
+            <span className="duration-150 hover:cursor-pointer opacity-70 hover:opacity-100">
+              Need help?
+            </span>
+            <span className="h-[1px] block flex-1 bg-main-border" />
           </span>
         </div>
       </div>
