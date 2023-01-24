@@ -49,6 +49,7 @@ export default () => {
               Cookie Use
             </a>
           </p>
+
           <a
             href={getDiscordURL()}
             className="flex-1 px-4 min-h-[38px] gap-2 text-sm relative text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900  duration-150 flex items-center justify-center"
@@ -58,7 +59,7 @@ export default () => {
           </a>
           <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center opacity-70">
             <span className="h-[1px] block flex-1 bg-main-border"></span>
-            <span>Tavern Help</span>
+            <span>Need help?</span>
             <span className="h-[1px] block flex-1 bg-main-border"></span>
           </span>
         </div>
