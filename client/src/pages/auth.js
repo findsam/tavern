@@ -22,14 +22,8 @@ export default () => {
         <div className="min-w-[400px] max-w-[400px]">
           <div className="flex items-center py-0.5 mb-auto max-h-max">
             <div className="flex items-center justify-center -space-x-3">
-              <span
-                className="block w-6 h-6 border-2 rounded-full border-main-800 bg-main-300"
-                src="/p.jpeg"
-              />
-              <span
-                className="block w-8 h-8 border-4 rounded-full border-main-800 bg-main-500"
-                src="/p.jpeg"
-              />
+              <span className="block w-6 h-6 border-2 rounded-full border-main-800 bg-main-300" />
+              <span className="block w-8 h-8 border-4 rounded-full border-main-800 bg-main-500" />
             </div>
           </div>
           <h1 className="">Welcome to Tavern!</h1>
@@ -42,7 +36,7 @@ export default () => {
         </div>
         <div className="flex flex-col gap-5 min-w-[400px]  max-w-[400px]">
           <p className="mt-3 text-xs tracking-wide text-white/70">
-            By loging-in you agree to our{" "}
+            By loging-in or sigin-up you agree to our{" "}
             <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
               Terms of Service
             </a>{" "}
@@ -64,12 +58,9 @@ export default () => {
           </a>
           <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center opacity-70">
             <span className="h-[1px] block flex-1 bg-main-border"></span>
-            <span>Why Discord?</span>
+            <span>Tavern Help</span>
             <span className="h-[1px] block flex-1 bg-main-border"></span>
           </span>
-          <button className="flex-1 px-4 min-h-[38px] text-sm  border border-main-border rounded-md text-white/70">
-            See developer Q&A...
-          </button>
         </div>
       </div>
     </div>
