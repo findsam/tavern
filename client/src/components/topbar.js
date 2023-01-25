@@ -13,6 +13,8 @@ export default () => {
   const [upload, setUpload] = useState(false);
   const { state, dispatch } = useContext(Context);
 
+  console.log(state);
+
   return (
     <>
       <Modal show={upload} setShow={setUpload}>

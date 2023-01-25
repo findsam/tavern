@@ -1,26 +1,10 @@
-import { fetchUserDetails } from "../static/api";
-import { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
-import { useRouter } from "next/router";
 import Topbar from "../components/topbar";
 import Feed from "../components/feed";
-import { useContext } from "react";
-import { Context } from "../store/context";
+import useAuth from "../hooks/useAuth";
 
 export default function Home() {
-  const { state, dispatch } = useContext(Context);
-  const [render, setRender] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!state.user)
-      (async () => {
-        (await fetchUserDetails(dispatch, router)) && setRender(true);
-      })();
-  }, [state.user]);
-
-  if (!render) return null;
-
+  if (!useAuth()) return null;
   return (
     <>
       <Topbar />
