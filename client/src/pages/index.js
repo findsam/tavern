@@ -5,8 +5,12 @@ import { useRouter } from "next/router";
 import Topbar from "../components/topbar";
 import Feed from "../components/feed";
 import Community from "../components/community";
+import { useContext } from "react";
+import { Context } from "../store/context";
 
 export default function Home() {
+  const { state, dispatch } = useContext(Context);
+  console.log(state, dispatch);
   const [render, setRender] = useState(false);
   const [user, setUser] = useState(null);
   const router = useRouter();
@@ -19,6 +23,7 @@ export default function Home() {
   }, [user]);
 
   if (!render) return null;
+
   return (
     <>
       <Topbar user={user} />
