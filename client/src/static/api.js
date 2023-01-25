@@ -16,7 +16,10 @@ const fetchUserDetails = async (next, router) => {
 const handleLogout = async (next, router) => {
   try {
     await api.logout();
-    next(null);
+    next({
+      type: "SET_USER",
+      payload: null,
+    });
     return router.push("/auth");
   } catch (error) {
     return router.push("/auth");
