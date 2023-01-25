@@ -13,7 +13,6 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(state.user);
     if (!state.user)
       (async () => {
         (await fetchUserDetails(dispatch, router)) && setRender(true);
@@ -22,24 +21,10 @@ export default function Home() {
 
   if (!render) return null;
 
-  console.log(state);
-
   return (
     <>
-      <Topbar user={state.user} />
-      <Navbar user={state.user} setUser={() => null} />
-      <button
-        className="absolute text-white z-[5400]"
-        onClick={() => {
-          console.log(state);
-          dispatch({
-            type: "SET_TEST",
-            payload: "?XD",
-          });
-        }}
-      >
-        Click me
-      </button>
+      <Topbar />
+      <Navbar />
       <div className="flex w-[calc(100%-62px)] ml-auto px-2.5 md:px-5  pb-12 mt-[62px] pt-2.5 md:pt-5 ">
         <div className="-z-10">
           <Feed />

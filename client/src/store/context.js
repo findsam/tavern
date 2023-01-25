@@ -1,14 +1,9 @@
 import { useReducer, createContext } from "react";
 
-const initialState = { test: 0, user: null };
+const initialState = { user: null };
 
 const Reducer = (state, action) => {
   switch (action.type) {
-    case "SET_TEST":
-      return {
-        ...state,
-        test: action.payload,
-      };
     case "SET_USER":
       return {
         ...state,

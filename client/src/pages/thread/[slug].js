@@ -1,3 +1,11 @@
+import Topbar from "../../components/topbar";
+import Navbar from "../../components/navbar";
+
 export default () => {
-  return "hi";
+  return (
+    <>
+      <Topbar />
+      <Navbar />
+    </>
+  );
 };
