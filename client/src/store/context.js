@@ -1,6 +1,6 @@
-import { useReducer, useState, createContext } from "react";
+import { useReducer, createContext } from "react";
 
-const initialState = { test: 0 };
+const initialState = { test: 0, user: null };
 
 const Reducer = (state, action) => {
   switch (action.type) {
@@ -8,6 +8,11 @@ const Reducer = (state, action) => {
       return {
         ...state,
         test: action.payload,
+      };
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

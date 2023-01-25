@@ -3,7 +3,10 @@ import * as api from "./axios.js";
 const fetchUserDetails = async (next, router) => {
   try {
     const { data } = await api.getUserDetails();
-    next(data);
+    next({
+      type: "SET_USER",
+      payload: data,
+    });
     return true;
   } catch (error) {
     return router.push("/auth");

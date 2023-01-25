@@ -79,7 +79,7 @@ export default function Navbar(props) {
             </span>
           </li>
 
-          <li
+          {/* <li
             className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
           >
             {!props.user ? (
@@ -100,7 +100,7 @@ export default function Navbar(props) {
                 </span>
               </button>
             )}
-          </li>
+          </li> */}
         </ul>
       </nav>
     </div>
