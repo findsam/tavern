@@ -5,7 +5,7 @@
 > together. The aim is to build meaningful stories with the help of fans, friends and
 > other creators.
 
-![build](https://i.imgur.com/4OPUgZT.jpeg) ![build2](https://i.imgur.com/XGMjGN0.png)
+![build](https://i.imgur.com/siv0KL5.jpeg) ![build2](https://i.imgur.com/XGMjGN0.png)
 ![build3](https://i.imgur.com/mTExn9c.png)
 
 #### Overview:
