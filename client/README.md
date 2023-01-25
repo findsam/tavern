@@ -1,5 +1,7 @@
 ## Front-end Tavern Build
 
+> Features such as responsive masonry grid and datafetch on scroll.
+
 #### Overview:
 
 - `/public` - Static files.
