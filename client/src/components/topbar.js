@@ -42,7 +42,7 @@ export default () => {
         <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
           <span className="h-[1px] block flex-1 bg-main-border" />
           <span className="duration-150 hover:cursor-pointer opacity-70 hover:opacity-100">
-            Need larged file size?
+            Need larger file size?
           </span>
           <span className="h-[1px] block flex-1 bg-main-border" />
         </span>
