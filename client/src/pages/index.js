@@ -6,8 +6,7 @@ import { useContext } from "react";
 import { Context } from "../store/context";
 
 export default function Home() {
-  const isLoggedIn = useAuth();
-  if (!isLoggedIn) return null;
+  if (!useAuth()) return null;
   return (
     <>
       <Topbar />

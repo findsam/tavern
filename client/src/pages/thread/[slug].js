@@ -3,8 +3,7 @@ import Navbar from "../../components/navbar";
 import useAuth from "../../hooks/useAuth";
 
 export default () => {
-  const isLoggedIn = useAuth();
-  if (!isLoggedIn) return null;
+  if (!useAuth()) return null;
   return (
     <>
       <Topbar />
