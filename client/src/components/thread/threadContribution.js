@@ -17,8 +17,8 @@ export default () => {
       </div>
 
       <p className="inline text-xs tracking-wide text-left text-white/70">
-        Jay Pacheco contributed sound to this thread{" "}
-        <a className="inline text-white text-ellipsis"> soundclip.wav</a>
+        <span className="text-white">Jay Pacheco</span> contributed sound to this
+        thread <a className="inline text-white text-ellipsis"> soundclip.wav</a>
       </p>
     </li>
   );

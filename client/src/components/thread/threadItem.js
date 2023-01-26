@@ -7,7 +7,7 @@ import ThreadComment from "./threadComment";
 export default () => {
   return (
     <div className="w-[600px] px-5 py-3">
-      <ul className="flex flex-col gap-5 px-8 border-l border-main-border">
+      <ul className="flex flex-col gap-6 px-8 border-l border-main-border">
         <li className="relative">
           <span className="absolute -left-12 rounded-full border border-main-border bg-main-800 h-[28px] w-[28px] text-md flex items-center justify-center">
             <FiPlus />
@@ -29,6 +29,7 @@ export default () => {
           </span>
         </li>
         <ThreadComment />
+        <ThreadContribution />
         <ThreadComment />
         <ThreadContribution />
       </ul>

@@ -17,7 +17,8 @@ export default () => {
       </div>
       <div className="grid gap-1.5">
         <p className="inline text-xs tracking-wide text-left text-white/70">
-          Jay Pacheco left a comment on this thread{" "}
+          <span className="text-white">Jay Pacheco</span> left a comment on this
+          thread{" "}
         </p>
         <div className="p-2 mt-0.5 text-sm border rounded-md bg-main-700 border-main-border">
           <p className="text-xs tracking-wide opacity-70">
