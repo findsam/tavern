@@ -77,7 +77,7 @@ export default () => {
         </div>
 
         <div className="ml-0 flex-0 md:ml-auto">
-          {state.user && (
+          {state.user !== null && (
             <aside className="flex flex-row-reverse items-center gap-2.5 ml-auto md:gap-5">
               <button
                 onClick={() => setShow(true)}
