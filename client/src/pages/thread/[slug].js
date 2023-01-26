@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar";
 import useAuth from "../../hooks/useAuth";
 
 export default () => {
-  if (!useAuth()) return null;
+  useAuth();
   return (
     <>
       <Topbar />

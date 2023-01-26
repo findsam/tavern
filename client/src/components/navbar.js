@@ -11,6 +11,7 @@ import { IoBookmarkOutline } from "react-icons/io5";
 import { handleLogout } from "../static/api";
 import { useRouter } from "next/router";
 import { useContext } from "react";
+import Link from "next/link";
 import { Context } from "../store/context";
 
 const APP_ROUTES = [
@@ -47,13 +48,15 @@ export default function Navbar(props) {
               key={i}
               className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
             >
-              <span className="text-[1.3rem] relative">
-                {r.icon}
+              <Link href={r.url}>
+                <span className="text-[1.3rem] relative">
+                  {r.icon}
 
-                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                  {r.name}
+                  <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                    {r.name}
+                  </span>
                 </span>
-              </span>
+              </Link>
             </li>
           ))}
         </ul>

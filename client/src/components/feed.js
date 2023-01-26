@@ -119,7 +119,7 @@ const Post = ({ post }) => {
   return (
     <div className="relative w-full overflow-hidden">
       <div className="w-full">
-        <Link href="/thread" onClick={() => console.log("hi")}>
+        <Link href={`thread/${post.id}`}>
           <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
             <img src={"/" + post.image} className="object-fill w-full" />
           </div>
