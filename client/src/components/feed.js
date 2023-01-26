@@ -1,9 +1,5 @@
-import Wrap from "./wrap";
-import Trending from "./trending";
 import { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/legacy/image";
-import { AiOutlineArrowDown, AiOutlinePlus, AiOutlineArrowUp } from "react-icons/ai";
-
+import Link from "next/link";
 const images = [
   "1.jpg",
   "2.jpg",
@@ -123,9 +119,12 @@ const Post = ({ post }) => {
   return (
     <div className="relative w-full overflow-hidden">
       <div className="w-full">
-        <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
-          <img src={"/" + post.image} className="object-fill w-full" />
-        </div>
+        <Link href="/thread" onClick={() => console.log("hi")}>
+          <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
+            <img src={"/" + post.image} className="object-fill w-full" />
+          </div>
+        </Link>
+
         <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
           <p className="text-xs tracking-wide text-left opacity-70">@swkn#dev</p>
           <ul className="flex gap-1 font-normal leading-none tracking-wide">
