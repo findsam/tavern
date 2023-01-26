@@ -17,14 +17,15 @@ export default () => {
       </div>
       <div className="grid gap-1.5">
         <p className="inline text-xs tracking-wide text-left text-white/70">
-          <span className="text-white">Jay Pacheco</span> left a comment on this
-          thread{" "}
+          <span className="text-white">Jay Pacheco</span> left a story of lore on
+          this thread{" "}
         </p>
-        <div className="p-2 mt-0.5 text-sm border rounded-md bg-main-700 border-main-border">
+        <div className="p-2 mt-0.5 text-sm border rounded-md bg-main-800 border-main-border">
           <p className="text-xs tracking-wide opacity-70">
-            Just checking in to see if I can help with your timeless in anyway.
-            Please don't hesitate to reach out and love to chat. This is a template
-            comment to provide whitespace regularities.
+            The Lord of the Rings is an epic high-fantasy novel by English author and
+            scholar J. R. R. Tolkien. Set in Middle-earth, the story began as a
+            sequel to Tolkien's 1937 children's book The Hobbit, but eventually
+            developed into a much larger work.
           </p>
         </div>
       </div>
