@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { BsBell, BsPlus } from "react-icons/bs";
 import ThreadContribution from "./threadContribution";
+import { IoPlay } from "react-icons/io5";
 
 export default () => {
   return (
@@ -18,6 +19,26 @@ export default () => {
                 a sequel to Tolkien's 1937 children's book The Hobbit, but eventually
                 developed into a much larger work.
               </p>
+            </div>
+            <div className="p-2 mt-0.5 text-sm border rounded-md bg-main-800 border-main-border">
+              <div className="flex items-center gap-3.5">
+                <span className="block mx-auto my-1 w-max">
+                  <span
+                    className={`text-white/70 flex relative items-center justify-center hover:cursor-pointer group rounded-full hover:text-white duration-150`}
+                  >
+                    <span className="text-[1.3rem] relative">
+                      <IoPlay />
+                      {/* <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md shadow-md opacity-0 left-1/2 -top-5 bg-main-800 group-hover:opacity-100 group-hover:-top-7">
+                        Play
+                      </span> */}
+                    </span>
+                  </span>
+                </span>
+                <span className="block w-full h-1.5 bg-main-900 rounded-full relative after:absolute after:content-[''] after:w-24 after:rounded-full after:bg-white/70 after:h-full overflow-hidden"></span>
+                <span className="block text-xs tracking-wide opacity-70">
+                  0:10/1:00
+                </span>
+              </div>
             </div>
           </div>
         </div>
