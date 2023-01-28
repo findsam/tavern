@@ -1,21 +1,42 @@
 import Image from "next/image";
 import { BsBell, BsPlus } from "react-icons/bs";
 import ThreadContribution from "./threadContribution";
-import { IoPlay } from "react-icons/io5";
-import { AiOutlineShareAlt } from "react-icons/ai";
+
+import { IoPlayOutline } from "react-icons/io5";
 
 export default () => {
   return (
     <>
       <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-image blur opacity-5 after:absolute after:content-[''] after:left-0 after:right-0 after:bottom-0 after:top-0 after:bg-main-900/30">
-        <img src="/3.jpg" className="object-scale-down" />
+        <img src="/4.jpg" className="w-full h-full object-fit" />
       </div>
-      <div className="flex gap-8">
-        <div className="overflow-hidden max-w-[508px]">
+      <div className="flex gap-5">
+        <div className="overflow-hidden max-w-[508px] flex flex-col gap-5">
           <img
-            src={"/3.jpg"}
-            className="block h-auto max-w-full align-middle border rounded-lg drop-shadow-md bg-main-800 border-main-border "
+            src={"/4.jpg"}
+            className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border "
           />
+          <div className="flex flex-col gap-1">
+            <span className="flex items-center justify-center gap-3 ">
+              <span className="block text-xs tracking-wide text-left text-white/70">
+                0:10
+              </span>
+              <span
+                className="relative flex w-full h-1 rounded-full bg-main-border 
+                
+                before:absolute before:content-[''] before:my-auto before:left-0 before:right-0 before:bottom-0 before:top-0 before:w-3/4 before:h-full before:bg-white/70 before:rounded-full
+              
+              
+              after:absolute after:content-[''] after:my-auto after:left-3/4 after:right-0 after:bottom-0 after:top-0 after:w-4 after:h-4 after:bg-white/70 after:rounded-full z-10"
+              />
+              <span className="block text-xs tracking-wide text-left text-white/70">
+                1:10
+              </span>
+            </span>
+            <span className="mx-auto rounded-full border border-main-border text-white/70 bg-main-800 h-[28px] w-[28px] text-md flex items-center justify-center">
+              <IoPlayOutline className="ml-0.5" />
+            </span>
+          </div>
         </div>
 
         <div className="max-w-[550px] w-full flex flex-col gap-4">
@@ -49,7 +70,7 @@ export default () => {
             />
             <span className="flex flex-col text-sm gap-0.5  strink-0">
               <a className="mt-auto">Finnigan Sham</a>
-              <p className="block mb-0.5 text-xs tracking-wide text-left opacity-70">
+              <p className="block mb-0.5 text-xs tracking-wide text-left text-white/70">
                 1k Followers
               </p>
             </span>
