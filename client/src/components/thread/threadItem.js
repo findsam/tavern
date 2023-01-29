@@ -8,14 +8,45 @@ export default () => {
   return (
     <>
       <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-image blur opacity-5 after:absolute after:content-[''] after:left-0 after:right-0 after:bottom-0 after:top-0 after:bg-main-900/30">
-        <img src="/2.jpg" className="object-cover object-top w-full h-full" />
+        <img src="/3.jpg" className="object-cover object-top w-full h-full" />
       </div>
-      <div className="flex gap-5">
-        <div className="overflow-hidden max-w-[508px] flex flex-col gap-5">
+      <div className="relative flex items-start gap-5">
+        <div className="overflow-hidden max-w-[544px] flex flex-col gap-5">
           <img
-            src={"/2.jpg"}
+            src={"/3.jpg"}
             className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border "
           />
+
+          <div className="duration-300 border rounded-lg  border-main-border bg-main-800 max-w-[535px] w-full">
+            <div className="relative p-5">
+              <p className="text-xs tracking-wide text-white/70">
+                When the world of the Orcs of Draenor is being destroyed by the evil
+                fel magic that uses life-force, the powerful warlock Gul'dan creates
+                a portal to the world of Azeroth and forms the Horde with members of
+                the Orc clans. He also captures many prisoners to keep the portal
+                open. The king of Azeroth, Llane Wrynn and his brother-in-law, Anduin
+                Lothar are informed by the apprentice of magician Khadgar that he has
+                found fel magic in dead bodies and the king decides to summon the
+                Guardian of Tirisfal, Medivh, to protect his kingdom. Lothar and
+                Khadgar head to Kharazhan to meet Medivh and an ominous shadow points
+                a book out to Khadgar, who takes it and hides. Anduin, Khadgar and
+                Medivh and a group of soldiers are attacked by Orcs and they capture
+                the slave Garona, who is released by King Llane, and she shows them
+                the location of the portal. Garona is contacted by the Orc chief of a
+                clan Durotan that wants to meet King Llane to stop the fel magic.
+                Meanwhile Khadgar learns that the gate was opened with the help of
+                someone in Azeroth. Shall King Llane trust Garona and Durotan, who
+                might be the traitor...
+              </p>
+              <span className="relative flex items-center w-full gap-2 pt-5 text-xs tracking-wide text-center">
+                <span className="h-[1px] block flex-1 bg-main-border" />
+                <span className="duration-150 hover:cursor-pointer opacity-70 hover:opacity-100">
+                  Read more...
+                </span>
+                <span className="h-[1px] block flex-1 bg-main-border" />
+              </span>
+            </div>
+          </div>
           <div className="flex flex-col gap-1">
             <span className="flex items-center justify-center gap-3 ">
               <span className="block text-xs tracking-wide text-left text-white/70">
@@ -43,7 +74,7 @@ export default () => {
           </div>
         </div>
 
-        <div className="max-w-[550px] w-full flex flex-col gap-4">
+        <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px]">
           <h1 className="text-2xl font-medium leading-none text-wide">
             Warcraft S6 Rogue
           </h1>
