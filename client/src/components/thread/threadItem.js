@@ -1,19 +1,19 @@
 import Image from "next/image";
 import { BsBell, BsPlus } from "react-icons/bs";
 import ThreadContribution from "./threadContribution";
-
+import { MdOutlineReplay, MdOutlineLoop } from "react-icons/md";
 import { IoPlayOutline } from "react-icons/io5";
 
 export default () => {
   return (
     <>
       <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-image blur opacity-5 after:absolute after:content-[''] after:left-0 after:right-0 after:bottom-0 after:top-0 after:bg-main-900/30">
-        <img src="/4.jpg" className="w-full h-full object-fit" />
+        <img src="/2.jpg" className="object-cover object-top w-full h-full" />
       </div>
       <div className="flex gap-5">
         <div className="overflow-hidden max-w-[508px] flex flex-col gap-5">
           <img
-            src={"/4.jpg"}
+            src={"/2.jpg"}
             className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border "
           />
           <div className="flex flex-col gap-1">
@@ -33,9 +33,13 @@ export default () => {
                 1:10
               </span>
             </span>
-            <span className="mx-auto rounded-full border border-main-border text-white/70 bg-main-800 h-[28px] w-[28px] text-md flex items-center justify-center">
-              <IoPlayOutline className="ml-0.5" />
-            </span>
+            <div className="flex items-center justify-center gap-3">
+              <MdOutlineReplay className="text-xl text-white/70" />
+              <span className="rounded-full border border-main-border text-white/70 bg-main-800 h-[38px] w-[38px] text-xl flex items-center justify-center">
+                <IoPlayOutline className="ml-0.5" />
+              </span>
+              <MdOutlineLoop className="text-xl text-white/70" />
+            </div>
           </div>
         </div>
 
