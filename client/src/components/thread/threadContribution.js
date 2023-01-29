@@ -5,7 +5,7 @@ export default (props) => {
     case "sound":
       return (
         <li className="flex gap-3.5 relative items-center">
-          <span className="absolute -left-[2.9rem] rounded-full border border-yellow-900 h-[28px] w-[28px] text-md flex items-center justify-center text-yellow-300 bg-yellow-900">
+          <span className="absolute -left-[2.9rem]  rounded-full border border-main-border text-white/70 bg-main-800 h-[28px] w-[28px] text-sm flex items-center justify-center">
             <AiOutlineSound />
           </span>
           <div className="shrink-0">
@@ -27,7 +27,7 @@ export default (props) => {
     case "text":
       return (
         <li className="flex gap-3.5 relative items-center">
-          <span className="absolute -left-[2.9rem] rounded-full border border-sky-900 h-[28px] w-[28px] text-md flex items-center justify-center text-sky-300 bg-sky-900">
+          <span className="absolute -left-[2.9rem]  rounded-full border border-main-border text-white/70 bg-main-800 h-[28px] w-[28px] text-sm flex items-center justify-center">
             <AiOutlineMessage />
           </span>
           <div className="shrink-0">
@@ -48,7 +48,7 @@ export default (props) => {
     case "image":
       return (
         <li className="flex gap-3.5 relative items-center">
-          <span className="absolute -left-[2.9rem] rounded-full border border-lime-900 h-[28px] w-[28px] text-md flex items-center justify-center text-lime-300 bg-lime-900">
+          <span className="absolute -left-[2.9rem]  rounded-full border border-main-border text-white/70 bg-main-800 h-[28px] w-[28px] text-sm flex items-center justify-center">
             <AiOutlinePicture />
           </span>
           <div className="shrink-0">
