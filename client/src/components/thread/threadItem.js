@@ -8,12 +8,12 @@ export default () => {
   return (
     <>
       <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-image blur opacity-5 after:absolute after:content-[''] after:left-0 after:right-0 after:bottom-0 after:top-0 after:bg-main-900/30">
-        <img src="/3.jpg" className="object-cover object-top w-full h-full" />
+        <img src="/2.jpg" className="object-cover object-top w-full h-full" />
       </div>
       <div className="relative flex items-start gap-5">
         <div className="overflow-hidden max-w-[544px] flex flex-col gap-5">
           <img
-            src={"/3.jpg"}
+            src={"/2.jpg"}
             className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border "
           />
 
