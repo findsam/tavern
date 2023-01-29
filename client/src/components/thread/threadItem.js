@@ -17,7 +17,7 @@ export default () => {
             className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border "
           />
 
-          <div className="duration-300 border rounded-lg  border-main-border bg-main-800 max-w-[535px] w-full">
+          <div className="w-full duration-300 border rounded-lg border-main-border bg-main-800">
             <div className="relative p-5">
               <p className="text-xs tracking-wide text-white/70">
                 When the world of the Orcs of Draenor is being destroyed by the evil
