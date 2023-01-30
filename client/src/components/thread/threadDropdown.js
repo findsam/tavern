@@ -7,7 +7,7 @@ export default ({ text }) => {
     <div className="w-full duration-300 border rounded-lg border-main-border bg-main-800">
       <div className="relative p-5">
         <p className="text-xs tracking-wide text-white/70">
-          {grow ? text : text.slice(0, 500)}
+          {grow ? text : text.slice(0, 499)}
         </p>
         {text.length > 800 && (
           <span className="relative flex items-center w-full gap-2 pt-5 text-xs tracking-wide text-center">
