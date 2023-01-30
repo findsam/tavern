@@ -85,7 +85,11 @@ export default () => {
 
   return (
     <>
-      {!loaded && <div>loading...</div>}
+      {!loaded && (
+        <p className="text-xs tracking-wide text-left opacity-70">
+          Loading content...
+        </p>
+      )}
       <div
         className={`relative flex ml-auto gap-2.5 md:gap-5 ${
           loaded ? "visible" : "invisible"

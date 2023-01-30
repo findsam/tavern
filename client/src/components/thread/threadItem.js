@@ -50,12 +50,12 @@ export default () => {
                 1:10
               </span>
             </span>
-            <div className="flex items-center justify-center gap-3">
-              <MdOutlineReplay className="text-xl text-white/70" />
+            <div className="flex items-center justify-center gap-2">
+              <MdOutlineReplay className="text-lg text-white/70" />
               <span className="rounded-full border border-main-border text-white/70 bg-main-800 h-[38px] w-[38px] text-xl flex items-center justify-center">
                 <IoPlayOutline className="ml-0.5" />
               </span>
-              <MdOutlineLoop className="text-xl text-white/70" />
+              <MdOutlineLoop className="text-lg text-white/70" />
             </div>
           </div>
         </div>
