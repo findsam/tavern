@@ -28,6 +28,7 @@ export default () => {
   const [columnWrappers, setColumnWrappers] = useState({});
   const size = useWindowSize();
   const [cols, setCols] = useState(4);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     testingInfiniteScroll();
@@ -84,7 +85,13 @@ export default () => {
 
   return (
     <>
-      <div className="relative flex ml-auto gap-2.5 md:gap-5" ref={container}>
+      {!loaded && <div>loading...</div>}
+      <div
+        className={`relative flex ml-auto gap-2.5 md:gap-5 ${
+          loaded ? "visible" : "invisible"
+        }`}
+        ref={container}
+      >
         {Object.keys(columnWrappers)
           .slice(0, Object.keys(columnWrappers).length - 1)
           .map((key, index) => (
@@ -101,7 +108,7 @@ export default () => {
               {columnWrappers[key].map((item, index) => {
                 if (columnWrappers[key].length === index + 1) {
                   return (
-                    <span key={index} ref={lastPost}>
+                    <span key={index} ref={lastPost} onLoad={() => setLoaded(true)}>
                       <Post post={item} />
                     </span>
                   );
