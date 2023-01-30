@@ -43,10 +43,7 @@ export default () => {
               </span>
               <span
                 className="relative flex w-full h-1 rounded-full bg-main-border 
-                
                 before:absolute before:content-[''] before:my-auto before:left-0 before:right-0 before:bottom-0 before:top-0 before:w-3/4 before:h-full before:bg-white/70 before:rounded-full
-              
-              
               after:absolute after:content-[''] after:my-auto after:left-3/4 after:right-0 after:bottom-0 after:top-0 after:w-3.5 after:h-3.5 after:bg-white/70 after:rounded-full z-10"
               />
               <span className="block text-xs tracking-wide text-left text-white/70">
