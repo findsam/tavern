@@ -3,6 +3,7 @@ import { BsBell, BsPlus } from "react-icons/bs";
 import ThreadContribution from "./threadContribution";
 import { MdOutlineReplay, MdOutlineLoop } from "react-icons/md";
 import { IoPlayOutline } from "react-icons/io5";
+import ThreadDropdown from "./threadDropdown";
 
 export default () => {
   return (
@@ -17,36 +18,24 @@ export default () => {
             className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border "
           />
 
-          <div className="w-full duration-300 border rounded-lg border-main-border bg-main-800">
-            <div className="relative p-5">
-              <p className="text-xs tracking-wide text-white/70">
-                When the world of the Orcs of Draenor is being destroyed by the evil
-                fel magic that uses life-force, the powerful warlock Gul'dan creates
-                a portal to the world of Azeroth and forms the Horde with members of
-                the Orc clans. He also captures many prisoners to keep the portal
-                open. The king of Azeroth, Llane Wrynn and his brother-in-law, Anduin
-                Lothar are informed by the apprentice of magician Khadgar that he has
-                found fel magic in dead bodies and the king decides to summon the
-                Guardian of Tirisfal, Medivh, to protect his kingdom. Lothar and
-                Khadgar head to Kharazhan to meet Medivh and an ominous shadow points
-                a book out to Khadgar, who takes it and hides. Anduin, Khadgar and
-                Medivh and a group of soldiers are attacked by Orcs and they capture
-                the slave Garona, who is released by King Llane, and she shows them
-                the location of the portal. Garona is contacted by the Orc chief of a
-                clan Durotan that wants to meet King Llane to stop the fel magic.
-                Meanwhile Khadgar learns that the gate was opened with the help of
-                someone in Azeroth. Shall King Llane trust Garona and Durotan, who
-                might be the traitor...
-              </p>
-              <span className="relative flex items-center w-full gap-2 pt-5 text-xs tracking-wide text-center">
-                <span className="h-[1px] block flex-1 bg-main-border" />
-                <span className="duration-150 hover:cursor-pointer opacity-70 hover:opacity-100">
-                  Read more...
-                </span>
-                <span className="h-[1px] block flex-1 bg-main-border" />
-              </span>
-            </div>
-          </div>
+          <ThreadDropdown
+            text="When the world of the Orcs of Draenor is being destroyed by the evil fel
+          magic that uses life-force, the powerful warlock Gul'dan creates a portal
+          to the world of Azeroth and forms the Horde with members of the Orc clans.
+          He also captures many prisoners to keep the portal open. The king of
+          Azeroth, Llane Wrynn and his brother-in-law, Anduin Lothar are informed by
+          the apprentice of magician Khadgar that he has found fel magic in dead
+          bodies and the king decides to summon the Guardian of Tirisfal, Medivh, to
+          protect his kingdom. Lothar and Khadgar head to Kharazhan to meet Medivh
+          and an ominous shadow points a book out to Khadgar, who takes it and hides.
+          Anduin, Khadgar and Medivh and a group of soldiers are attacked by Orcs and
+          they capture the slave Garona, who is released by King Llane, and she grows
+          them the location of the portal. Garona is contacted by the Orc chief of a
+          clan Durotan that wants to meet King Llane to stop the fel magic. Meanwhile
+          Khadgar learns that the gate was opened with the help of someone in
+          Azeroth. Shall King Llane trust Garona and Durotan, who might be the
+          traitor..."
+          />
           <div className="flex flex-col gap-1">
             <span className="flex items-center justify-center gap-3 ">
               <span className="block text-xs tracking-wide text-left text-white/70">
