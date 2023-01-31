@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useContext } from "react";
 import Link from "next/link";
 import { Context } from "../store/context";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 const images = [
   "1.jpg",
   "2.jpg",
@@ -99,12 +100,6 @@ export default ({ passedPosts }) => {
     });
   }, [posts, passedPosts, cols]);
 
-  useEffect(() => {
-    const x =
-      container?.current?.childNodes[container?.current?.childNodes.length - 1];
-    console.log(x);
-  }, [container.current]);
-
   return (
     <>
       {!loaded && (
@@ -149,17 +144,9 @@ export default ({ passedPosts }) => {
 };
 
 const Post = ({ post }) => {
-  const { state, dispatch } = useContext(Context);
-  function addToFavourites(data) {
-    dispatch({
-      type: "SET_FAVOURITES",
-      payload: [...state.favourites, data],
-    });
-  }
-
   return (
     <>
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full">
         <div className="w-full">
           {post.image && (
             <>
@@ -170,9 +157,11 @@ const Post = ({ post }) => {
               </Link>
 
               <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
-                <p className="text-xs tracking-wide text-left opacity-70">
-                  @swkn#dev
-                </p>
+                <div className="inline-flex w-full">
+                  <p className="mr-auto text-xs tracking-wide text-left opacity-70">
+                    @swkn#dev
+                  </p>
+                </div>
                 <ul className="flex gap-1 font-normal leading-none tracking-wide">
                   <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
                     #photoshop
@@ -185,7 +174,6 @@ const Post = ({ post }) => {
                   </li>
                 </ul>
               </div>
-              <span onClick={() => addToFavourites(post)}>favorite</span>
             </>
           )}
           {!post.image && (

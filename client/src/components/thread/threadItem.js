@@ -4,8 +4,17 @@ import ThreadContribution from "./threadContribution";
 import { MdOutlineReplay, MdOutlineLoop } from "react-icons/md";
 import { IoPlayOutline } from "react-icons/io5";
 import ThreadDropdown from "./threadDropdown";
+import { useContext } from "react";
+import { Context } from "../../store/context";
 
 export default () => {
+  const { state, dispatch } = useContext(Context);
+  function addToFavourites(data) {
+    dispatch({
+      type: "SET_FAVOURITES",
+      payload: [...state.favourites, data],
+    });
+  }
   return (
     <>
       <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-image blur opacity-5 after:absolute after:content-[''] after:left-0 after:right-0 after:bottom-0 after:top-0 after:bg-main-900/30">
