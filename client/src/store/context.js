@@ -1,6 +1,6 @@
 import { useReducer, createContext } from "react";
 
-const initialState = { user: null };
+const initialState = { user: null, favourites: [] };
 
 const Reducer = (state, action) => {
   switch (action.type) {
@@ -8,6 +8,11 @@ const Reducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
+      };
+    case "SET_FAVOURITES":
+      return {
+        ...state,
+        favourites: action.payload,
       };
     default:
       return state;

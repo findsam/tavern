@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useContext } from "react";
 import Link from "next/link";
+import { Context } from "../store/context";
 const images = [
   "1.jpg",
   "2.jpg",
@@ -27,7 +28,7 @@ export default () => {
   const container = useRef();
   const [columnWrappers, setColumnWrappers] = useState({});
   const size = useWindowSize();
-  const [cols, setCols] = useState(4);
+  const [cols, setCols] = useState(5);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -47,12 +48,11 @@ export default () => {
       if (imageIndex > images.length - 1) imageIndex = 0;
     }
   }
-
+  // console.log(posts);
   function generateMasonryGrid(columns, posts) {
     setColumnWrappers([]);
-    for (let i = 0; i < columns; i++) {
+    for (let i = 0; i < columns; i++)
       setColumnWrappers((prev) => ({ ...prev, [`column${i}`]: [] }));
-    }
     for (let i = 0; i < posts.length; i++) {
       const column = i % columns;
       setColumnWrappers((prev) => ({
@@ -82,6 +82,10 @@ export default () => {
     if (size.width < 850) setCols(2);
     if (size.width < 600) setCols(1);
   }, [size.width]);
+
+  // ${!loaded ? "invisible" : "visible"}
+
+  console.log(columnWrappers);
 
   return (
     <>
@@ -127,6 +131,13 @@ export default () => {
 };
 
 const Post = ({ post }) => {
+  const { state, dispatch } = useContext(Context);
+  function addToFavourites(data) {
+    dispatch({
+      type: "SET_FAVOURITES",
+      payload: [...state.favourites, data],
+    });
+  }
   return (
     <div className="relative w-full overflow-hidden">
       <div className="w-full">
@@ -135,7 +146,6 @@ const Post = ({ post }) => {
             <img src={"/" + post.image} className="object-fill w-full" />
           </div>
         </Link>
-
         <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
           <p className="text-xs tracking-wide text-left opacity-70">@swkn#dev</p>
           <ul className="flex gap-1 font-normal leading-none tracking-wide">
@@ -150,6 +160,7 @@ const Post = ({ post }) => {
             </li>
           </ul>
         </div>
+        <span onClick={() => addToFavourites(post)}>favorite</span>
       </div>
     </div>
   );
