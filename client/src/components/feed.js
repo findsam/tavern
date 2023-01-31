@@ -99,9 +99,25 @@ export default ({ passedPosts }) => {
     });
   }, [posts, passedPosts, cols]);
 
+  useEffect(() => {
+    const x =
+      container?.current?.childNodes[container?.current?.childNodes.length - 1];
+    console.log(x);
+  }, [container.current]);
+
   return (
     <>
-      <div className={`relative flex gap-2.5 md:gap-5 `} ref={container}>
+      {!loaded && (
+        <p className="text-xs tracking-wide text-left opacity-70">
+          Loading content...
+        </p>
+      )}
+      <div
+        className={`relative flex gap-2.5 md:gap-5 ${
+          loaded ? "visible" : "invisible"
+        }`}
+        ref={container}
+      >
         {Object.keys(columnWrappers)
           .slice(0, Object.keys(columnWrappers).length - 1)
           .map((key, index) => (
@@ -118,11 +134,7 @@ export default ({ passedPosts }) => {
               {columnWrappers[key].map((item, index) => {
                 if (columnWrappers[key].length === index + 1) {
                   return (
-                    <span
-                      key={index}
-                      ref={lastPost}
-                      onLoad={() => console.log("pog")}
-                    >
+                    <span key={index} ref={lastPost} onLoad={() => setLoaded(true)}>
                       <Post post={item} />
                     </span>
                   );
@@ -174,6 +186,13 @@ const Post = ({ post }) => {
                 </ul>
               </div>
               <span onClick={() => addToFavourites(post)}>favorite</span>
+            </>
+          )}
+          {!post.image && (
+            <>
+              <div className="relative hidden h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg pointer-events-none drop-shadow-md bg-main-800 border-main-border">
+                <img src={"/1.jpg"} className="object-fill w-full" />
+              </div>
             </>
           )}
         </div>
