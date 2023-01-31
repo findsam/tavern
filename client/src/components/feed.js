@@ -23,32 +23,32 @@ const images = [
   "19.webp",
 ];
 
-export default () => {
-  const [posts, setPosts] = useState([]);
+export default ({ passedPosts }) => {
+  const [posts, setPosts] = useState(passedPosts);
   const container = useRef();
   const [columnWrappers, setColumnWrappers] = useState({});
   const size = useWindowSize();
   const [cols, setCols] = useState(5);
   const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    testingInfiniteScroll();
-  }, []);
+  // useEffect(() => {
+  //   testingInfiniteScroll();
+  // }, []);
 
-  function testingInfiniteScroll() {
-    let imageIndex = 0;
-    for (let i = 0; i < 80; i++) {
-      let item = {
-        id: i,
-        title: `Post ${i}`,
-        image: images[imageIndex],
-      };
-      setPosts((prevPosts) => [...prevPosts, item]);
-      imageIndex++;
-      if (imageIndex > images.length - 1) imageIndex = 0;
-    }
-  }
-  // console.log(posts);
+  // function testingInfiniteScroll() {
+  //   let imageIndex = 0;
+  //   for (let i = 0; i < 80; i++) {
+  //     let item = {
+  //       id: i,
+  //       title: `Post ${i}`,
+  //       image: images[imageIndex],
+  //     };
+  //     setPosts((prevPosts) => [...prevPosts, item]);
+  //     imageIndex++;
+  //     if (imageIndex > images.length - 1) imageIndex = 0;
+  //   }
+  // }
+
   function generateMasonryGrid(columns, posts) {
     setColumnWrappers([]);
     for (let i = 0; i < columns; i++)
@@ -69,10 +69,10 @@ export default () => {
   const observer = useRef();
   const lastPost = useCallback((node) => {
     if (observer.current) observer.current.disconnect();
-    observer.current = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) testingInfiniteScroll();
-    });
-    if (node) observer.current.observe(node);
+    // observer.current = new IntersectionObserver((entries) => {
+    //   if (entries[0].isIntersecting) testingInfiniteScroll();
+    // });
+    // if (node) observer.current.observe(node);
   }, []);
 
   useEffect(() => {
@@ -85,21 +85,28 @@ export default () => {
 
   // ${!loaded ? "invisible" : "visible"}
 
+  console.log(
+    Object.keys(columnWrappers).forEach((k) => {
+      if (
+        !columnWrappers[k] ||
+        columnWrappers[k] === undefined ||
+        (Array.isArray(columnWrappers[k]) && columnWrappers[k].length === 0)
+      ) {
+        columnWrappers[k] = [{ id: Math.random(), title: Math.random() }];
+      }
+    })
+  );
+
   console.log(columnWrappers);
 
   return (
     <>
-      {!loaded && (
+      {/* {!loaded && (
         <p className="text-xs tracking-wide text-left opacity-70">
           Loading content...
         </p>
-      )}
-      <div
-        className={`relative flex ml-auto gap-2.5 md:gap-5 ${
-          loaded ? "visible" : "invisible"
-        }`}
-        ref={container}
-      >
+      )} */}
+      <div className={`relative flex ml-auto gap-2.5 md:gap-5`} ref={container}>
         {Object.keys(columnWrappers)
           .slice(0, Object.keys(columnWrappers).length - 1)
           .map((key, index) => (
@@ -116,7 +123,7 @@ export default () => {
               {columnWrappers[key].map((item, index) => {
                 if (columnWrappers[key].length === index + 1) {
                   return (
-                    <span key={index} ref={lastPost} onLoad={() => setLoaded(true)}>
+                    <span key={index} ref={lastPost}>
                       <Post post={item} />
                     </span>
                   );
@@ -138,31 +145,41 @@ const Post = ({ post }) => {
       payload: [...state.favourites, data],
     });
   }
+
   return (
-    <div className="relative w-full overflow-hidden">
-      <div className="w-full">
-        <Link href={`thread/${post.id}`}>
-          <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
-            <img src={"/" + post.image} className="object-fill w-full" />
+    <>
+      {post.image ? (
+        <div className="relative w-full overflow-hidden">
+          <div className="w-full">
+            <Link href={`thread/${post.id}`}>
+              <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
+                <img src={"/" + post.image} className="object-fill w-full" />
+              </div>
+            </Link>
+
+            <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
+              <p className="text-xs tracking-wide text-left opacity-70">@swkn#dev</p>
+              <ul className="flex gap-1 font-normal leading-none tracking-wide">
+                <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
+                  #photoshop
+                </li>
+                <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
+                  #warcraft
+                </li>
+                <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
+                  #offline
+                </li>
+              </ul>
+            </div>
+            <span onClick={() => addToFavourites(post)}>favorite</span>
           </div>
-        </Link>
-        <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
-          <p className="text-xs tracking-wide text-left opacity-70">@swkn#dev</p>
-          <ul className="flex gap-1 font-normal leading-none tracking-wide">
-            <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
-              #photoshop
-            </li>
-            <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
-              #warcraft
-            </li>
-            <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
-              #offline
-            </li>
-          </ul>
         </div>
-        <span onClick={() => addToFavourites(post)}>favorite</span>
-      </div>
-    </div>
+      ) : (
+        <div className="relative w-full overflow-hidden">
+          <div className="w-full"> </div>
+        </div>
+      )}
+    </>
   );
 };
 
