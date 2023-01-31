@@ -83,21 +83,35 @@ export default ({ passedPosts }) => {
     if (size.width < 600) setCols(1);
   }, [size.width]);
 
-  // ${!loaded ? "invisible" : "visible"}
+  // useEffect(() => {
+  //   Object.keys(columnWrappers).forEach((k) => {
+  //     if (
+  //       !columnWrappers[k] ||
+  //       columnWrappers[k] === undefined ||
+  //       (Array.isArray(columnWrappers[k]) && columnWrappers[k].length === 0)
+  //     ) {
+  //       columnWrappers[k] = [{ id: Math.random(), title: Math.random() }];
+  //     }
+  //   });
+  // }, [columnWrappers]);
 
-  console.log(
-    Object.keys(columnWrappers).forEach((k) => {
-      if (
-        !columnWrappers[k] ||
-        columnWrappers[k] === undefined ||
-        (Array.isArray(columnWrappers[k]) && columnWrappers[k].length === 0)
-      ) {
-        columnWrappers[k] = [{ id: Math.random(), title: Math.random() }];
-      }
-    })
-  );
+  useEffect(() => {
+    setColumnWrappers((prev) => {
+      const temp = Object.assign({}, prev);
+      Object.keys(prev).forEach((_) => {
+        if (
+          !prev[_] ||
+          prev[_] === undefined ||
+          (Array.isArray(prev[_]) && prev[_].length === 0)
+        ) {
+          temp[_] = [{ id: Math.random(), title: Math.random() }];
+        }
+      });
+      return temp;
+    });
+  }, [posts, passedPosts, cols]);
 
-  console.log(columnWrappers);
+  // console.log(columnWrappers);
 
   return (
     <>
@@ -106,7 +120,7 @@ export default ({ passedPosts }) => {
           Loading content...
         </p>
       )} */}
-      <div className={`relative flex ml-auto gap-2.5 md:gap-5`} ref={container}>
+      <div className={`relative flex ml-auto gap-2.5 md:gap-5 `} ref={container}>
         {Object.keys(columnWrappers)
           .slice(0, Object.keys(columnWrappers).length - 1)
           .map((key, index) => (
@@ -123,7 +137,13 @@ export default ({ passedPosts }) => {
               {columnWrappers[key].map((item, index) => {
                 if (columnWrappers[key].length === index + 1) {
                   return (
-                    <span key={index} ref={lastPost}>
+                    <span
+                      className="bg-orange-500"
+                      key={index}
+                      ref={lastPost}
+                      onLoad={() => console.log("running")}
+                    >
+                      testing something XD:
                       <Post post={item} />
                     </span>
                   );
@@ -148,37 +168,37 @@ const Post = ({ post }) => {
 
   return (
     <>
-      {post.image ? (
-        <div className="relative w-full overflow-hidden">
-          <div className="w-full">
-            <Link href={`thread/${post.id}`}>
-              <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
-                <img src={"/" + post.image} className="object-fill w-full" />
-              </div>
-            </Link>
+      <div className="relative w-full overflow-hidden">
+        <div className="w-full">
+          {post.image && (
+            <>
+              <Link href={`thread/${post.id}`}>
+                <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
+                  <img src={"/" + post.image} className="object-fill w-full" />
+                </div>
+              </Link>
 
-            <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
-              <p className="text-xs tracking-wide text-left opacity-70">@swkn#dev</p>
-              <ul className="flex gap-1 font-normal leading-none tracking-wide">
-                <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
-                  #photoshop
-                </li>
-                <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
-                  #warcraft
-                </li>
-                <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
-                  #offline
-                </li>
-              </ul>
-            </div>
-            <span onClick={() => addToFavourites(post)}>favorite</span>
-          </div>
+              <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
+                <p className="text-xs tracking-wide text-left opacity-70">
+                  @swkn#dev
+                </p>
+                <ul className="flex gap-1 font-normal leading-none tracking-wide">
+                  <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
+                    #photoshop
+                  </li>
+                  <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
+                    #warcraft
+                  </li>
+                  <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
+                    #offline
+                  </li>
+                </ul>
+              </div>
+              <span onClick={() => addToFavourites(post)}>favorite</span>
+            </>
+          )}
         </div>
-      ) : (
-        <div className="relative w-full overflow-hidden">
-          <div className="w-full"> </div>
-        </div>
-      )}
+      </div>
     </>
   );
 };
