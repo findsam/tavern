@@ -83,18 +83,6 @@ export default ({ passedPosts }) => {
     if (size.width < 600) setCols(1);
   }, [size.width]);
 
-  // useEffect(() => {
-  //   Object.keys(columnWrappers).forEach((k) => {
-  //     if (
-  //       !columnWrappers[k] ||
-  //       columnWrappers[k] === undefined ||
-  //       (Array.isArray(columnWrappers[k]) && columnWrappers[k].length === 0)
-  //     ) {
-  //       columnWrappers[k] = [{ id: Math.random(), title: Math.random() }];
-  //     }
-  //   });
-  // }, [columnWrappers]);
-
   useEffect(() => {
     setColumnWrappers((prev) => {
       const temp = Object.assign({}, prev);
@@ -111,16 +99,9 @@ export default ({ passedPosts }) => {
     });
   }, [posts, passedPosts, cols]);
 
-  // console.log(columnWrappers);
-
   return (
     <>
-      {/* {!loaded && (
-        <p className="text-xs tracking-wide text-left opacity-70">
-          Loading content...
-        </p>
-      )} */}
-      <div className={`relative flex ml-auto gap-2.5 md:gap-5 `} ref={container}>
+      <div className={`relative flex gap-2.5 md:gap-5 `} ref={container}>
         {Object.keys(columnWrappers)
           .slice(0, Object.keys(columnWrappers).length - 1)
           .map((key, index) => (
@@ -138,12 +119,10 @@ export default ({ passedPosts }) => {
                 if (columnWrappers[key].length === index + 1) {
                   return (
                     <span
-                      className="bg-orange-500"
                       key={index}
                       ref={lastPost}
-                      onLoad={() => console.log("running")}
+                      onLoad={() => console.log("pog")}
                     >
-                      testing something XD:
                       <Post post={item} />
                     </span>
                   );
