@@ -7,12 +7,8 @@ import ThreadDropdown from "./threadDropdown";
 import { useContext } from "react";
 import { Context } from "../../store/context";
 
-import {
-  RiHeartLine,
-  RiHeartFill,
-  RiBookmarkLine,
-  RiBookmarkFill,
-} from "react-icons/ri";
+import { RiHeartLine, RiHeartFill } from "react-icons/ri";
+import { TbDots } from "react-icons/tb";
 
 export default () => {
   const { state, dispatch } = useContext(Context);
@@ -82,9 +78,9 @@ export default () => {
               className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
             >
               <span className="text-[1.3rem] relative">
-                <RiBookmarkLine />
+                <RiHeartLine />
                 <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                  Bookmark Thread
+                  Like Thread
                 </span>
               </span>
             </li>
@@ -92,9 +88,9 @@ export default () => {
               className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
             >
               <span className="text-[1.3rem] relative">
-                <RiHeartLine />
+                <TbDots />
                 <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                  Like Thread
+                  Bookmark Thread
                 </span>
               </span>
             </li>
