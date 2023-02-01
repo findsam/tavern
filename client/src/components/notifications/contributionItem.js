@@ -23,10 +23,10 @@ export const ContributionItem = (props) => {
         </p>
 
         <div className="flex gap-2.5 mt-0.5">
-          <button className="px-2 min-h-[30px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:bg-green-900">
+          <button className="px-2 min-h-[30px] text-sm border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:border-green-400">
             Approve
           </button>
-          <button className="px-2 min-h-[30px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 duration-150">
+          <button className="px-2 min-h-[30px] text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:border-white/70 duration-150">
             Deny
           </button>
         </div>

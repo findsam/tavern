@@ -47,7 +47,7 @@ export default () => {
 
         <div className="">
           <div className="flex gap-5 p-5">
-            <button className="flex-1 px-4 min-h-[38px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:bg-green-900">
+            <button className="flex-1 px-4 min-h-[38px] text-sm  border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:border-green-400">
               Create Thread
             </button>
           </div>
@@ -60,7 +60,7 @@ export default () => {
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
         <div className=" flex-1 flex w-full gap-2.5 md:gap-5">
           <button
-            className="px-6 min-h-[38px] max-h-[38px] whitespace-nowrap text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:bg-main-900 duration-150"
+            className="px-6 min-h-[38px] max-h-[38px] whitespace-nowrap text-sm text-white/70 border rounded-md bg-main-700 border-main-border  hover:border-white/70 duration-150"
             onClick={() => setUpload(true)}
           >
             Create Thread

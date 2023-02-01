@@ -28,7 +28,7 @@ export default () => {
           className="object-cover object-top w-full h-full"
         />
       </div>
-      <div className="relative flex items-start gap-5">
+      <div className="relative flex items-start gap-5 ">
         <div className="max-w-[544px] flex flex-col gap-5">
           <img
             src={`/${post.image}`}
@@ -68,7 +68,17 @@ export default () => {
               </span>
             </span>
             <div className="flex items-center justify-center gap-2">
-              <MdOutlineReplay className="text-lg text-white/70" />
+              <span
+                className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+              >
+                <span className="relative flex items-center justify-center rounded-full text-white/70">
+                  <MdOutlineReplay className="text-lg text-white/70" />
+                  <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-8">
+                    Replay
+                  </span>
+                </span>
+              </span>
+
               <span
                 className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
               >
@@ -79,7 +89,17 @@ export default () => {
                   </span>
                 </span>
               </span>
-              <MdOutlineLoop className="text-lg text-white/70" />
+
+              <span
+                className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+              >
+                <span className="relative flex items-center justify-center rounded-full text-white/70">
+                  <MdOutlineLoop className="text-lg text-white/70" />
+                  <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-8">
+                    Loop
+                  </span>
+                </span>
+              </span>
             </div>
           </div>
         </div>
@@ -89,10 +109,7 @@ export default () => {
               onClick={() =>
                 dispatch({
                   type: "SET_FAVOURITES",
-                  payload: [
-                    ...state.favourites,
-                    { id: 45, title: "Post 45", image: "2.jpg" },
-                  ],
+                  payload: [...state.favourites, post],
                 })
               }
               className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
