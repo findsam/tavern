@@ -7,6 +7,13 @@ import ThreadDropdown from "./threadDropdown";
 import { useContext } from "react";
 import { Context } from "../../store/context";
 
+import {
+  RiHeartLine,
+  RiHeartFill,
+  RiBookmarkLine,
+  RiBookmarkFill,
+} from "react-icons/ri";
+
 export default () => {
   const { state, dispatch } = useContext(Context);
   function addToFavourites(data) {
@@ -70,6 +77,29 @@ export default () => {
         </div>
 
         <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px]">
+          <div className="flex gap-2 text-2xl">
+            <li
+              className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+            >
+              <span className="text-[1.3rem] relative">
+                <RiBookmarkLine />
+                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                  Bookmark Thread
+                </span>
+              </span>
+            </li>
+            <li
+              className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+            >
+              <span className="text-[1.3rem] relative">
+                <RiHeartLine />
+                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                  Like Thread
+                </span>
+              </span>
+            </li>
+          </div>
+
           <h1 className="text-2xl font-medium leading-none text-wide">
             Warcraft S6 Rogue
           </h1>
