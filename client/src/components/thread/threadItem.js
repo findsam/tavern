@@ -81,6 +81,7 @@ export default () => {
         <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px]">
           <div className="flex gap-2 text-2xl">
             <li
+              onClick={() => addToFavourites()}
               className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
             >
               <span className="text-[1.3rem] relative">

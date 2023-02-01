@@ -7,7 +7,7 @@ import {
   AiOutlineHome,
 } from "react-icons/ai";
 import { getDiscordURL } from "../static/util";
-import { IoBookmarkOutline } from "react-icons/io5";
+import { RiHeartLine } from "react-icons/ri";
 import { handleLogout } from "../static/api";
 import { useRouter } from "next/router";
 import { useContext } from "react";
@@ -17,10 +17,10 @@ import { Context } from "../store/context";
 const APP_ROUTES = [
   { name: "Home", url: "/", icon: <AiOutlineHome />, tooltip: "Homepage" },
   {
-    name: "Bookmarks",
-    url: "/bookmarks",
-    icon: <IoBookmarkOutline />,
-    tooltip: "Your bookmarks",
+    name: "Favourites",
+    url: "/favourites",
+    icon: <RiHeartLine />,
+    tooltip: "Your Favourites",
   },
   {
     name: "FAQ",
