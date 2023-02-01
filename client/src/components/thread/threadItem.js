@@ -6,27 +6,32 @@ import { IoPlayOutline } from "react-icons/io5";
 import ThreadDropdown from "./threadDropdown";
 import { useContext } from "react";
 import { Context } from "../../store/context";
-
+import { useRouter } from "next/router";
 import { RiHeartLine, RiHeartFill } from "react-icons/ri";
 import { TbDots } from "react-icons/tb";
+import { dummyData } from "../../static/util";
 
 export default () => {
   const { state, dispatch } = useContext(Context);
-  function addToFavourites(data) {
-    dispatch({
-      type: "SET_FAVOURITES",
-      payload: [...state.favourites, data],
-    });
-  }
+
+  const {
+    query: { slug },
+  } = useRouter();
+
+  const post = dummyData.find((_) => _.id === +slug);
+
   return (
     <>
       <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-image blur opacity-5 after:absolute after:content-[''] after:left-0 after:right-0 after:bottom-0 after:top-0 after:bg-main-900/30">
-        <img src="/2.jpg" className="object-cover object-top w-full h-full" />
+        <img
+          src={`/${post.image}`}
+          className="object-cover object-top w-full h-full"
+        />
       </div>
       <div className="relative flex items-start gap-5">
         <div className="max-w-[544px] flex flex-col gap-5">
           <img
-            src={"/2.jpg"}
+            src={`/${post.image}`}
             className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border "
           />
 
@@ -81,7 +86,15 @@ export default () => {
         <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px]">
           <div className="flex gap-2 text-2xl">
             <li
-              onClick={() => addToFavourites()}
+              onClick={() =>
+                dispatch({
+                  type: "SET_FAVOURITES",
+                  payload: [
+                    ...state.favourites,
+                    { id: 45, title: "Post 45", image: "2.jpg" },
+                  ],
+                })
+              }
               className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
             >
               <span className="text-[1.3rem] relative">
