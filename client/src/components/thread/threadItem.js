@@ -24,7 +24,7 @@ export default () => {
         <img src="/2.jpg" className="object-cover object-top w-full h-full" />
       </div>
       <div className="relative flex items-start gap-5">
-        <div className="overflow-hidden max-w-[544px] flex flex-col gap-5">
+        <div className="max-w-[544px] flex flex-col gap-5">
           <img
             src={"/2.jpg"}
             className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border "
@@ -64,14 +64,20 @@ export default () => {
             </span>
             <div className="flex items-center justify-center gap-2">
               <MdOutlineReplay className="text-lg text-white/70" />
-              <span className="rounded-full border border-main-border text-white/70 bg-main-800 h-[38px] w-[38px] text-xl flex items-center justify-center">
-                <IoPlayOutline className="ml-0.5" />
+              <span
+                className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+              >
+                <span className="rounded-full border border-main-border text-white/70 bg-main-800 h-[38px] w-[38px] text-xl flex items-center justify-center relative">
+                  <IoPlayOutline className="ml-0.5" />
+                  <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-8">
+                    Play
+                  </span>
+                </span>
               </span>
               <MdOutlineLoop className="text-lg text-white/70" />
             </div>
           </div>
         </div>
-
         <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px]">
           <div className="flex gap-2 text-2xl">
             <li
@@ -79,8 +85,8 @@ export default () => {
             >
               <span className="text-[1.3rem] relative">
                 <RiHeartLine />
-                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                  Like Thread
+                <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -top-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-top-8">
+                  Like
                 </span>
               </span>
             </li>
@@ -89,8 +95,8 @@ export default () => {
             >
               <span className="text-[1.3rem] relative">
                 <TbDots />
-                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                  Bookmark Thread
+                <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -top-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-top-8">
+                  Notifications
                 </span>
               </span>
             </li>
@@ -139,6 +145,7 @@ export default () => {
                 <span className="absolute -left-[2.9rem]  rounded-full border border-main-border text-white/70 bg-main-800 h-[28px] w-[28px] text-sm flex items-center justify-center">
                   <BsBell />
                 </span>
+
                 <span className="flex items-center gap-3 shink-0">
                   <Image
                     className="border rounded-full border-main-border bg-main-800 shrink-0"
