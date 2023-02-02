@@ -117,7 +117,7 @@ export default () => {
                 className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
               >
                 <span className="text-[1.3rem] relative">
-                  <RiHeartFill />
+                  <RiHeartFill className="text-red-500" />
                   <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -top-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-top-8">
                     Unlike
                   </span>
