@@ -129,7 +129,11 @@ export default ({ passedPosts }) => {
               {columnWrappers[key].map((item, index) => {
                 if (columnWrappers[key].length === index + 1) {
                   return (
-                    <span key={index} ref={lastPost} onLoad={() => setLoaded(true)}>
+                    <span
+                      key={index}
+                      ref={lastPost}
+                      onLoad={() => setLoaded(true)}
+                    >
                       <Post post={item} />
                     </span>
                   );
@@ -150,7 +154,7 @@ const Post = ({ post }) => {
         <div className="w-full">
           {post.image && (
             <>
-              <Link href={`thread/${post.id}`}>
+              <Link href={`thread/${post.id}`} className="bg-main-800">
                 <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
                   <img src={"/" + post.image} className="object-fill w-full" />
                 </div>
@@ -202,7 +206,10 @@ const debounce = (func, timeout) => {
 
 function useWindowSize() {
   const window = getWindow();
-  const getSize = () => ({ width: window?.innerWidth, height: window?.innerHeight });
+  const getSize = () => ({
+    width: window?.innerWidth,
+    height: window?.innerHeight,
+  });
   const [windowSize, setWindowSize] = useState(getSize);
   useEffect(() => {
     const handleResizeDebounced = debounce(() => {
