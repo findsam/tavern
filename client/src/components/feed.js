@@ -129,11 +129,7 @@ export default ({ passedPosts }) => {
               {columnWrappers[key].map((item, index) => {
                 if (columnWrappers[key].length === index + 1) {
                   return (
-                    <span
-                      key={index}
-                      ref={lastPost}
-                      onLoad={() => setLoaded(true)}
-                    >
+                    <span key={index} ref={lastPost} onLoad={() => setLoaded(true)}>
                       <Post post={item} />
                     </span>
                   );
@@ -162,9 +158,11 @@ const Post = ({ post }) => {
 
               <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
                 <div className="inline-flex w-full">
-                  <p className="mr-auto text-xs tracking-wide text-left opacity-70">
-                    @swkn#dev
-                  </p>
+                  <Link href={`profile/@swkn#dev`}>
+                    <p className="mr-auto text-xs tracking-wide text-left opacity-70">
+                      @swkn#dev
+                    </p>
+                  </Link>
                 </div>
                 <ul className="flex gap-1 font-normal leading-none tracking-wide">
                   <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
