@@ -8,12 +8,13 @@ import { useContext } from "react";
 import { Context } from "../../store/context";
 import { useRouter } from "next/router";
 import { RiHeartLine, RiHeartFill } from "react-icons/ri";
-import { TbDots } from "react-icons/tb";
 import { dummyData } from "../../static/util";
+import { useState } from "react";
+import { TbCopy } from "react-icons/tb";
+import { sleep } from "../../static/util";
 
 export default () => {
   const { state, dispatch } = useContext(Context);
-
   const router = useRouter();
   const post = dummyData.find((_) => _.id === +router.query.slug);
   !post && router.push("/");
@@ -104,7 +105,7 @@ export default () => {
               </div>
             </div>
           </div>
-          <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px] z-50">
+          <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px] z-30">
             <div className="flex gap-2 text-2xl">
               {liked ? (
                 <li
@@ -142,16 +143,7 @@ export default () => {
                 </li>
               )}
 
-              <li
-                className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
-              >
-                <span className="text-[1.3rem] relative">
-                  <TbDots />
-                  <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -top-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-top-8">
-                    Notifications
-                  </span>
-                </span>
-              </li>
+              <Copy />
             </div>
 
             <h1 className="text-2xl font-medium leading-none text-wide">
@@ -222,5 +214,39 @@ export default () => {
         </div>
       </>
     )
+  );
+};
+
+const Copy = () => {
+  const [copied, setCopied] = useState(false);
+
+  const onClickHandler = async () => {
+    setCopied(true);
+    await sleep(2500);
+    setCopied(false);
+  };
+
+  // async function handleClose() {
+  //   container?.current?.childNodes[0]?.classList?.add("opacity-0");
+  //   container?.current?.childNodes[0]?.classList?.add("-translate-y-8");
+  //   document.body.style.overflow = "unset";
+  //   await sleep(300);
+  //   setShow(false);
+  // }
+
+  console.log(copied);
+
+  return (
+    <li
+      className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+      onClick={onClickHandler}
+    >
+      <span className="text-[1.3rem] relative">
+        <TbCopy />
+        <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+          {!copied ? "Copy URL" : "Copied"}
+        </span>
+      </span>
+    </li>
   );
 };
