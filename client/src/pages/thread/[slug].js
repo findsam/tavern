@@ -5,6 +5,7 @@ import ThreadItem from "../../components/thread/threadItem";
 
 export default () => {
   if (!useAuth()) return null;
+
   return (
     <>
       <Topbar />
