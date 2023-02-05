@@ -259,7 +259,7 @@ const Copy = () => {
                 ? "-left-full visible duration-[3s]"
                 : "left-0 invisible duration-0"
             }
-            absolute content-[''] top-0 h-0.5 bg-white/70  transition-all w-full`}
+            absolute content-[''] top-0 h-0.5 bg-green-400 transition-all w-full`}
           />
 
           {!clicked ? "Copy" : "Copied"}
