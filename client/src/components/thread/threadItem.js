@@ -227,14 +227,13 @@ const Copy = () => {
     await navigator.clipboard.writeText(location.href);
     await sleep(2950);
     setShow(false);
-    // await sleep(150);
-    // setClicked(false);
+    await sleep(150);
+    setClicked(false);
   };
 
   const handleMouse = async ({ type }) =>
     type === "mouseenter" ? setShow(true) : !clicked && setShow(false);
 
-  console.log(clicked);
   return (
     <li
       onMouseEnter={(e) => handleMouse(e)}
@@ -245,12 +244,6 @@ const Copy = () => {
     >
       <span className="text-[1.3rem] relative">
         <TbCopy />
-        {/* <span
-          className={`absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap group-hover:opacity-100 group-hover:-bottom-9 bg-main-800`}
-        >
-          {!copied ? "Copy URL" : "Copied"}
-        </span> */}
-
         <span
           className={`absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none left-1/2 whitespace-nowrap 
           ${show ? "-bottom-9 opacity-100" : "-bottom-5 opacity-0"}
@@ -260,17 +253,16 @@ const Copy = () => {
          `}
         >
           <span
-            // style={{
-            //   left: `${clicked ? "-100%" : "0"}`,
-            //   visibility: `${!clicked ? "hidden" : "visible"}`,
-            // }}
             className={`
-            
-            ${clicked ? "-left-full visible" : "left-0 invisible"}
-            absolute content-[''] bottom-0 h-0.5 bg-white/70  transition-all duration-[3s] w-full`}
+            ${
+              clicked
+                ? "-left-full visible duration-[3s]"
+                : "left-0 invisible duration-0"
+            }
+            absolute content-[''] top-0 h-0.5 bg-white/70  transition-all w-full`}
           />
 
-          {!clicked ? "Copy URL" : "Copied"}
+          {!clicked ? "Copy" : "Copied"}
         </span>
       </span>
     </li>
