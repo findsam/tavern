@@ -14,16 +14,18 @@ export default ({ show, setShow, children }) => {
     (async () => {
       if (show) {
         await sleep(1);
-        container?.current?.childNodes[0]?.classList?.remove("opacity-0");
-        container?.current?.childNodes[0]?.classList?.remove("-translate-y-8");
+        container?.current?.childNodes[0]?.classList?.remove(
+          "opacity-0",
+          "-translate-y-8"
+        );
+
         document.body.style.overflow = "hidden";
       }
     })();
   }, [show, container]);
 
   async function handleClose() {
-    container?.current?.childNodes[0]?.classList?.add("opacity-0");
-    container?.current?.childNodes[0]?.classList?.add("-translate-y-8");
+    container?.current?.childNodes[0]?.classList?.add("opacity-0", "-translate-y-8");
     document.body.style.overflow = "unset";
     await sleep(300);
     setShow(false);

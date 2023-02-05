@@ -9,7 +9,7 @@ import { Context } from "../../store/context";
 import { useRouter } from "next/router";
 import { RiHeartLine, RiHeartFill } from "react-icons/ri";
 import { dummyData } from "../../static/util";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { TbCopy } from "react-icons/tb";
 import { sleep } from "../../static/util";
 
@@ -219,31 +219,30 @@ export default () => {
 
 const Copy = () => {
   const [copied, setCopied] = useState(false);
+  const clickable = useRef(null);
 
   const onClickHandler = async () => {
     setCopied(true);
+    await navigator.clipboard.writeText(location.href);
     await sleep(2500);
+    clickable.current.classList.add("pointer-events-none");
+    await sleep(150);
     setCopied(false);
+    await sleep(750);
+    clickable.current.classList.remove("pointer-events-none");
   };
-
-  // async function handleClose() {
-  //   container?.current?.childNodes[0]?.classList?.add("opacity-0");
-  //   container?.current?.childNodes[0]?.classList?.add("-translate-y-8");
-  //   document.body.style.overflow = "unset";
-  //   await sleep(300);
-  //   setShow(false);
-  // }
-
-  console.log(copied);
 
   return (
     <li
+      ref={clickable}
+      onClick={!copied ? onClickHandler : null}
       className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
-      onClick={onClickHandler}
     >
       <span className="text-[1.3rem] relative">
         <TbCopy />
-        <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+        <span
+          className={`absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap group-hover:opacity-100 group-hover:-bottom-9 bg-main-800`}
+        >
           {!copied ? "Copy URL" : "Copied"}
         </span>
       </span>
