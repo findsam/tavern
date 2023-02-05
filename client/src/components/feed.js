@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useContext } from "react";
 import Link from "next/link";
-import { Context } from "../store/context";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 const images = [
   "1.jpg",
   "2.jpg",

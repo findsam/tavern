@@ -218,32 +218,59 @@ export default () => {
 };
 
 const Copy = () => {
-  const [copied, setCopied] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const [show, setShow] = useState(false);
   const clickable = useRef(null);
 
   const onClickHandler = async () => {
-    setCopied(true);
+    setClicked(true);
     await navigator.clipboard.writeText(location.href);
-    await sleep(2500);
-    clickable?.current?.classList?.add("pointer-events-none");
-    await sleep(150);
-    setCopied(false);
-    await sleep(750);
-    clickable?.current?.classList?.remove("pointer-events-none");
+    await sleep(2950);
+    setShow(false);
+    // await sleep(150);
+    // setClicked(false);
   };
 
+  const handleMouse = async ({ type }) =>
+    type === "mouseenter" ? setShow(true) : !clicked && setShow(false);
+
+  console.log(clicked);
   return (
     <li
+      onMouseEnter={(e) => handleMouse(e)}
+      onMouseLeave={(e) => handleMouse(e)}
       ref={clickable}
-      onClick={!copied ? onClickHandler : null}
-      className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+      onClick={!clicked ? onClickHandler : null}
+      className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer`}
     >
       <span className="text-[1.3rem] relative">
         <TbCopy />
-        <span
+        {/* <span
           className={`absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap group-hover:opacity-100 group-hover:-bottom-9 bg-main-800`}
         >
           {!copied ? "Copy URL" : "Copied"}
+        </span> */}
+
+        <span
+          className={`absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none left-1/2 whitespace-nowrap 
+          ${show ? "-bottom-9 opacity-100" : "-bottom-5 opacity-0"}
+         bg-main-800
+         
+         overflow-hidden
+         `}
+        >
+          <span
+            // style={{
+            //   left: `${clicked ? "-100%" : "0"}`,
+            //   visibility: `${!clicked ? "hidden" : "visible"}`,
+            // }}
+            className={`
+            
+            ${clicked ? "-left-full visible" : "left-0 invisible"}
+            absolute content-[''] bottom-0 h-0.5 bg-white/70  transition-all duration-[3s] w-full`}
+          />
+
+          {!clicked ? "Copy URL" : "Copied"}
         </span>
       </span>
     </li>
