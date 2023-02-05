@@ -225,11 +225,11 @@ const Copy = () => {
     setCopied(true);
     await navigator.clipboard.writeText(location.href);
     await sleep(2500);
-    clickable.current.classList.add("pointer-events-none");
+    clickable?.current?.classList?.add("pointer-events-none");
     await sleep(150);
     setCopied(false);
     await sleep(750);
-    clickable.current.classList.remove("pointer-events-none");
+    clickable?.current?.classList?.remove("pointer-events-none");
   };
 
   return (
