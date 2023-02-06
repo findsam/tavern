@@ -18,20 +18,20 @@ export default memo(() => {
             }}
           >
             <span
-              className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite_0.5s] bg-gradient-to-r from-main-800 via-main-border/5 to-main-800"
+              className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite_0.5s] bg-gradient-to-r from-main-800 via-main-500/5 to-main-800"
               style={{ animationDelay: `${randomNumber()}ms` }}
             />
           </div>
           <ul className="flex gap-1 mt-1.5 font-normal leading-none tracking-wide w-1/2">
             <li className={liclass}>
               <span
-                className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite_0.5s] bg-gradient-to-r from-main-800 via-main-border/5 to-main-800"
+                className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite_0.5s] bg-gradient-to-r from-main-800 via-main-500/5 to-main-800"
                 style={{ animationDelay: `${randomNumber()}ms` }}
               />
             </li>
             <li className={liclass}>
               <span
-                className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite_0.5s] bg-gradient-to-r from-main-800 via-main-border/5 to-main-800"
+                className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite_0.5s] bg-gradient-to-r from-main-800 via-main-500/5 to-main-800"
                 style={{ animationDelay: `${randomNumber()}ms` }}
               />
             </li>

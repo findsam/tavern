@@ -137,7 +137,7 @@ export default ({ passedPosts }) => {
                       <span
                         key={index}
                         ref={lastPost}
-                        onLoad={() => setLoaded(true)}
+                        // onLoad={() => setLoaded(true)}
                       >
                         <Post post={item} />
                       </span>
