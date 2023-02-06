@@ -28,7 +28,7 @@ export default ({ passedPosts }) => {
   const container = useRef();
   const [columnWrappers, setColumnWrappers] = useState({});
   const size = useWindowSize();
-  const [cols, setCols] = useState(5);
+  const [cols, setCols] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
   // useEffect(() => {
@@ -63,7 +63,9 @@ export default ({ passedPosts }) => {
   }
 
   useEffect(() => {
-    generateMasonryGrid(cols, posts);
+    if (cols !== null) {
+      generateMasonryGrid(cols, posts);
+    }
   }, [posts, cols]);
 
   const observer = useRef();
@@ -76,11 +78,11 @@ export default ({ passedPosts }) => {
   }, []);
 
   useEffect(() => {
-    if (size.width > 1450) setCols(5);
-    if (size.width < 1450) setCols(4);
-    if (size.width < 1100) setCols(3);
-    if (size.width < 850) setCols(2);
-    if (size.width < 600) setCols(1);
+    if (size.width > 1440) setCols(5);
+    if (size.width < 1380) setCols(4);
+    if (size.width < 1024) setCols(3);
+    if (size.width < 768) setCols(2);
+    if (size.width < 640) setCols(1);
   }, [size.width]);
 
   useEffect(() => {
@@ -103,12 +105,12 @@ export default ({ passedPosts }) => {
     <>
       <div className="grid w-full">
         {!loaded && (
-          <div className="flex gap-2.5 md:gap-5 w-full">
-            <Loading />
-            <Loading />
-            <Loading />
-            <Loading />
-            <Loading />
+          <div className="relative flex gap-2.5 md:gap-5">
+            {Object.keys(columnWrappers).map((key, index) => (
+              <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
+                <Loading />
+              </div>
+            ))}
           </div>
         )}
         <div

@@ -8,7 +8,7 @@ export default memo(() => {
       className="relative flex-1 w-full h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border animate-pulse"
       style={{
         height: randomHeight(),
-        animationDelay: `${randomNumber() * 60}ms`,
+        animationDelay: `${randomNumber() * 30}ms`,
         animationFillMode: "backwards",
       }}
     />
