@@ -78,11 +78,11 @@ export default ({ passedPosts }) => {
   }, []);
 
   useEffect(() => {
-    if (size.width > 1440) setCols(5);
-    if (size.width < 1380) setCols(4);
-    if (size.width < 1024) setCols(3);
-    if (size.width < 768) setCols(2);
-    if (size.width < 640) setCols(1);
+    if (size.width > 1450) setCols(5);
+    if (size.width < 1450) setCols(4);
+    if (size.width < 1100) setCols(3);
+    if (size.width < 850) setCols(2);
+    if (size.width < 600) setCols(1);
   }, [size.width]);
 
   useEffect(() => {
@@ -104,14 +104,19 @@ export default ({ passedPosts }) => {
   return (
     <>
       <div className="grid w-full">
-        {!loaded && (
-          <div className="relative flex gap-2.5 md:gap-5">
-            {Object.keys(columnWrappers).map((key, index) => (
-              <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
-                <Loading />
-              </div>
+        {!loaded && cols && (
+          <div className="relative flex gap-2.5 md:gap-5 items-start">
+            {[...Array(cols)].map((_) => (
+              <Loading />
             ))}
           </div>
+          // <div className="relative flex gap-2.5 md:gap-5 items-start">
+          //   {Object.keys(columnWrappers).map((_, index) => (
+          //     <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
+          //       <Loading />
+          //     </div>
+          //   ))}
+          // </div>
         )}
         <div
           className={`relative flex gap-2.5 md:gap-5 ${
