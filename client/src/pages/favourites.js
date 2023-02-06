@@ -30,7 +30,7 @@ export default () => {
             src={`/1.png`}
           />
           <p className="max-w-sm text-sm leading-5 text-white/70">
-            We couldn't find any liked tweets... Don't let good threads slip away!
+            We couldn't find any liked threads... Don't let good threads slip away!
             Favourite threads to find them easily in the future. By favouriting
             threads you are directly supporting the creator and contributors to
             continue creating the greatest stories on Tavern.gg
