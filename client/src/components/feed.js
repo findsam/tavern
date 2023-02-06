@@ -110,13 +110,6 @@ export default ({ passedPosts }) => {
               <Loading />
             ))}
           </div>
-          // <div className="relative flex gap-2.5 md:gap-5 items-start">
-          //   {Object.keys(columnWrappers).map((_, index) => (
-          //     <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
-          //       <Loading />
-          //     </div>
-          //   ))}
-          // </div>
         )}
         <div
           className={`relative flex gap-2.5 md:gap-5 ${
