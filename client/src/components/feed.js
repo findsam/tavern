@@ -135,13 +135,17 @@ export default ({ passedPosts }) => {
                 {columnWrappers[key].map((item, index) => {
                   if (columnWrappers[key].length === index + 1) {
                     return (
-                      <span
+                      // <span
+                      //   key={index}
+                      //   ref={lastPost}
+                      //   onLoad={() => setLoaded(true)}
+                      // >
+                      <Post
+                        post={item}
+                        last={true}
                         key={index}
-                        ref={lastPost}
-                        onLoad={() => setLoaded(true)}
-                      >
-                        <Post post={item} />
-                      </span>
+                        setLoaded={setLoaded}
+                      />
                     );
                   }
                   return <Post post={item} key={index} />;
@@ -154,7 +158,8 @@ export default ({ passedPosts }) => {
   );
 };
 
-const Post = ({ post }) => {
+const Post = ({ post, last = false, setLoaded = null }) => {
+  if (last) console.log(1);
   return (
     <>
       <div className="relative w-full">
@@ -162,17 +167,25 @@ const Post = ({ post }) => {
           {post.image && (
             <>
               <Link href={`thread/${post.id}`} className="bg-main-800">
-                {/* <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
-                  <img src={"/" + post.image} className="object-fill w-full" />
-                </div> */}
                 <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border ">
-                  <Image
-                    alt={`${post.id} image dscribing`}
-                    src={"/" + post.image}
-                    className="object-contain !w-full !relative !h-['unset']"
-                    fill
-                    quality={85}
-                  />
+                  {last ? (
+                    <Image
+                      onLoadingComplete={() => setLoaded(true)}
+                      alt={`${post.id} image dscribing`}
+                      src={"/" + post.image}
+                      className="object-contain !w-full !relative !h-['unset']"
+                      fill
+                      quality={85}
+                    />
+                  ) : (
+                    <Image
+                      alt={`${post.id} image dscribing`}
+                      src={"/" + post.image}
+                      className="object-contain !w-full !relative !h-['unset']"
+                      fill
+                      quality={85}
+                    />
+                  )}
                 </div>
               </Link>
 
