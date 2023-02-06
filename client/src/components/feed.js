@@ -23,6 +23,7 @@ const images = [
   "18.jpg",
   "19.webp",
 ];
+import Image from "next/image";
 
 export default ({ passedPosts }) => {
   const [posts, setPosts] = useState(passedPosts);
@@ -137,7 +138,7 @@ export default ({ passedPosts }) => {
                       <span
                         key={index}
                         ref={lastPost}
-                        // onLoad={() => setLoaded(true)}
+                        onLoad={() => setLoaded(true)}
                       >
                         <Post post={item} />
                       </span>
@@ -161,8 +162,17 @@ const Post = ({ post }) => {
           {post.image && (
             <>
               <Link href={`thread/${post.id}`} className="bg-main-800">
-                <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
+                {/* <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border">
                   <img src={"/" + post.image} className="object-fill w-full" />
+                </div> */}
+                <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border ">
+                  <Image
+                    alt={`${post.id} image dscribing`}
+                    src={"/" + post.image}
+                    className="object-contain !w-full !relative !h-['unset']"
+                    fill
+                    quality={85}
+                  />
                 </div>
               </Link>
 
