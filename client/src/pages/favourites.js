@@ -24,8 +24,8 @@ export default () => {
             loading="eager"
             priority={true}
             height={50}
-            width={180}
-            className="object-cover w-auto h-auto"
+            width={200}
+            className="object-cover "
             alt={"displaying duck"}
             src={`/1.png`}
           />
