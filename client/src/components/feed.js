@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useContext } from "react";
 import Link from "next/link";
+import Loading from "./loading";
 const images = [
   "1.jpg",
   "2.jpg",
@@ -100,42 +101,52 @@ export default ({ passedPosts }) => {
 
   return (
     <>
-      {!loaded && (
-        <p className="text-xs tracking-wide text-left opacity-70">
-          Loading content...
-        </p>
-      )}
-      <div
-        className={`relative flex gap-2.5 md:gap-5 ${
-          loaded ? "visible" : "invisible"
-        }`}
-        ref={container}
-      >
-        {Object.keys(columnWrappers)
-          .slice(0, Object.keys(columnWrappers).length - 1)
-          .map((key, index) => (
-            <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
-              {columnWrappers[key].map((item, index) => (
-                <Post post={item} key={index} />
-              ))}
-            </div>
-          ))}
-        {Object.keys(columnWrappers)
-          .slice(-1)
-          .map((key, index) => (
-            <div className="flex flex-col flex-1  gap-2.5 md:gap-5" key={index}>
-              {columnWrappers[key].map((item, index) => {
-                if (columnWrappers[key].length === index + 1) {
-                  return (
-                    <span key={index} ref={lastPost} onLoad={() => setLoaded(true)}>
-                      <Post post={item} />
-                    </span>
-                  );
-                }
-                return <Post post={item} key={index} />;
-              })}
-            </div>
-          ))}
+      <div className="grid w-full">
+        {!loaded && (
+          <div className="flex gap-2.5 md:gap-5 w-full">
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+          </div>
+        )}
+        <div
+          className={`relative flex gap-2.5 md:gap-5 ${
+            loaded ? "visible" : "invisible"
+          }`}
+          ref={container}
+        >
+          {Object.keys(columnWrappers)
+            .slice(0, Object.keys(columnWrappers).length - 1)
+            .map((key, index) => (
+              <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
+                {columnWrappers[key].map((item, index) => (
+                  <Post post={item} key={index} />
+                ))}
+              </div>
+            ))}
+          {Object.keys(columnWrappers)
+            .slice(-1)
+            .map((key, index) => (
+              <div className="flex flex-col flex-1  gap-2.5 md:gap-5" key={index}>
+                {columnWrappers[key].map((item, index) => {
+                  if (columnWrappers[key].length === index + 1) {
+                    return (
+                      <span
+                        key={index}
+                        ref={lastPost}
+                        onLoad={() => setLoaded(true)}
+                      >
+                        <Post post={item} />
+                      </span>
+                    );
+                  }
+                  return <Post post={item} key={index} />;
+                })}
+              </div>
+            ))}
+        </div>
       </div>
     </>
   );
