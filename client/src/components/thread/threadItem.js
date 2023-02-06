@@ -30,7 +30,7 @@ export default () => {
             className="object-cover object-top w-full h-full"
           />
         </div>
-        <div className="relative flex items-start gap-5 ">
+        <div className="relative flex items-start gap-5">
           <div className="max-w-[544px] flex flex-col gap-5">
             <img
               src={`/${post?.image}`}

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useContext } from "react";
 import Link from "next/link";
 import Loading from "./loading";
+import { useWindowSize } from "../hooks/useWindowSize";
 const images = [
   "1.jpg",
   "2.jpg",
@@ -200,31 +201,3 @@ const Post = ({ post }) => {
     </>
   );
 };
-
-const getWindow = () => (typeof window !== "undefined" ? window : null);
-const debounce = (func, timeout) => {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this, args);
-    }, timeout);
-  };
-};
-
-function useWindowSize() {
-  const window = getWindow();
-  const getSize = () => ({
-    width: window?.innerWidth,
-    height: window?.innerHeight,
-  });
-  const [windowSize, setWindowSize] = useState(getSize);
-  useEffect(() => {
-    const handleResizeDebounced = debounce(() => {
-      setWindowSize(getSize());
-    }, 500);
-    window.addEventListener("resize", handleResizeDebounced);
-    return () => window.removeEventListener("resize", handleResizeDebounced);
-  }, []);
-  return windowSize;
-}

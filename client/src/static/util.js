@@ -1209,4 +1209,15 @@ const dummyData = [
   },
 ];
 
-export { sleep, getDiscordURL, dummyData };
+const getWindow = () => (typeof window !== "undefined" ? window : null);
+const debounce = (func, timeout) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+};
+
+export { sleep, getDiscordURL, dummyData, debounce, getWindow };
