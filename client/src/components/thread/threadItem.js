@@ -246,10 +246,8 @@ const Copy = () => {
         <TbCopy />
         <span
           className={`absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none left-1/2 whitespace-nowrap 
-          ${show ? "-bottom-9 opacity-100" : "-bottom-5 opacity-0"}
-         bg-main-800
-         
-         overflow-hidden
+          ${show ? "-bottom-9 opacity-100" : "-bottom-5 opacity-0"} 
+         bg-main-800 overflow-hidden
          `}
         >
           <span
