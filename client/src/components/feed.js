@@ -107,7 +107,7 @@ export default ({ passedPosts }) => {
         {!loaded && cols && (
           <div className="relative flex gap-2.5 md:gap-5 items-start">
             {[...Array(cols)].map((_) => (
-              <Loading />
+              <Loading key={Math.random()} />
             ))}
           </div>
         )}
@@ -192,6 +192,7 @@ const Post = ({ post }) => {
               <div className="relative hidden h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg pointer-events-none drop-shadow-md bg-main-800 border-main-border">
                 <img src={"/1.jpg"} className="object-fill w-full" />
               </div>
+              {/* <Loading /> */}
             </>
           )}
         </div>
