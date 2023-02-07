@@ -34,7 +34,7 @@ export default () => {
           <div className="max-w-[544px] flex flex-col gap-5">
             <img
               src={`/${post?.image}`}
-              className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border "
+              className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
             />
 
             <ThreadDropdown
