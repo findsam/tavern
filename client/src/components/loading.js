@@ -20,7 +20,7 @@ export default memo(({ isPlaceholder }) => {
                     </div>
                   </div>
                   <h1 className="">Your Tavern!</h1>
-                  <p className="mt-2 text-xs tracking-wide text-white/70">
+                  <p className="mt-2 text-xs tracking-wide text-white/k70">
                     We can't seem to find any posts that you've favourited, make sure
                     to favourite posts you find on your feed to not only support the
                     creators and contributors but to find them easily in the future.
