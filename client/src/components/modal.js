@@ -18,7 +18,6 @@ export default ({ show, setShow, children }) => {
           "opacity-0",
           "-translate-y-8"
         );
-
         document.body.style.overflow = "hidden";
       }
     })();

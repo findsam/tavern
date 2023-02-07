@@ -66,6 +66,7 @@ export default ({ passedPosts }) => {
 
   useEffect(() => {
     if (cols !== null) {
+      document.body.style.overflow = "hidden";
       generateMasonryGrid(cols, posts);
     }
   }, [posts, cols]);
@@ -135,11 +136,6 @@ export default ({ passedPosts }) => {
                 {columnWrappers[key].map((item, index) => {
                   if (columnWrappers[key].length === index + 1) {
                     return (
-                      // <span
-                      //   key={index}
-                      //   ref={lastPost}
-                      //   onLoad={() => setLoaded(true)}
-                      // >
                       <Post
                         post={item}
                         last={true}
@@ -170,7 +166,10 @@ const Post = ({ post, last = false, setLoaded = null }) => {
                 <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border ">
                   {last ? (
                     <Image
-                      onLoadingComplete={() => setLoaded(true)}
+                      onLoadingComplete={() => {
+                        setLoaded(true);
+                        document.body.style.overflow = "unset";
+                      }}
                       alt={`${post.id} image dscribing`}
                       src={"/" + post.image}
                       className="object-contain !w-full !relative !h-['unset']"
