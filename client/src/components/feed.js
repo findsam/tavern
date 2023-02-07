@@ -111,14 +111,16 @@ export default ({ passedPosts }) => {
     });
   }, [posts, passedPosts, cols]);
 
-  const LOADER = useMemo(() => <Loading />, []);
+  // const LOADER = useMemo(() => <Loading />, []);
 
   return (
     <>
       <div className="grid w-full">
         {!loaded && cols && (
           <div className="relative flex gap-2.5 md:gap-5 items-start">
-            {[...Array(cols)].map((_) => LOADER)}
+            {[...Array(cols)].map((_, _i) => (
+              <Loading key={_i} />
+            ))}
           </div>
         )}
         <div
@@ -162,7 +164,6 @@ export default ({ passedPosts }) => {
 };
 
 const Post = ({ post, last = false, setLoaded = null }) => {
-  if (last) console.log(1);
   return (
     <>
       <div className="relative w-full">

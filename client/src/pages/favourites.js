@@ -3,7 +3,6 @@ import { Context } from "../store/context";
 import Feed from "../components/feed";
 import Topbar from "../components/topbar";
 import Navbar from "../components/navbar";
-import Image from "next/image";
 import Loading from "../components/loading";
 
 export default () => {
@@ -21,8 +20,8 @@ export default () => {
             {
               <div className="relative flex gap-2.5 md:gap-5 items-start w-full">
                 {[...Array(5)].map((_, _i) => {
-                  if (_i === 0) return <Loading isPlaceholder={true} />;
-                  else return <Loading />;
+                  if (_i === 0) return <Loading isPlaceholder={true} key={_i} />;
+                  else return <Loading key={_i} />;
                 })}
               </div>
             }
