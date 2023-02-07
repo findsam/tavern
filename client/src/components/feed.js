@@ -1,4 +1,11 @@
-import { useState, useEffect, useRef, useCallback, useContext } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useContext,
+  useMemo,
+} from "react";
 import Link from "next/link";
 import Loading from "./loading";
 import { useWindowSize } from "../hooks/useWindowSize";
@@ -104,14 +111,14 @@ export default ({ passedPosts }) => {
     });
   }, [posts, passedPosts, cols]);
 
+  const LOADER = useMemo(() => <Loading />, []);
+
   return (
     <>
       <div className="grid w-full">
         {!loaded && cols && (
           <div className="relative flex gap-2.5 md:gap-5 items-start">
-            {[...Array(cols)].map((_) => (
-              <Loading key={Math.random()} />
-            ))}
+            {[...Array(cols)].map((_) => LOADER)}
           </div>
         )}
         <div

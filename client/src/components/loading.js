@@ -1,6 +1,4 @@
-import { memo, useEffect } from "react";
-
-export default memo(() => {
+export default () => {
   const randomHeight = () => Math.floor(Math.random() * (485 - 220)) + 220;
 
   const divclass = `relative flex-1 w-full h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border  min-h-[100px]`;
@@ -48,4 +46,4 @@ export default memo(() => {
       ))}
     </div>
   );
-});
+};
