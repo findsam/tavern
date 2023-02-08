@@ -99,26 +99,29 @@ export default ({ passedPosts }) => {
   useEffect(() => {
     setColumnWrappers((prev) => {
       const temp = Object.assign({}, prev);
+
+      const colsWithImages =
+        Object.keys(prev)
+          .map((_) => {
+            return prev[_][prev[_].length - 1]?.image ? true : null;
+          })
+          .filter((_) => _ !== null).length - 1;
+
       Object.keys(prev).forEach((_, index) => {
+        let hasImage = prev[_][prev[_].length - 1];
         if (
           !prev[_] ||
           prev[_] === undefined ||
           (Array.isArray(prev[_]) && prev[_].length === 0)
         ) {
-          temp[_] = [{ id: Math.random() }];
-        } else {
-          let lastItem = prev[_][prev[_].length - 1];
-
-          console.log(lastItem);
-          // console.log(currCol);
-          // console.log(nexCol);
-
-          temp[_][temp[_].length - 1] = {
+          return (temp[_] = [{ id: Math.random() }]);
+        } else if (hasImage && index === colsWithImages) {
+          return (temp[_][temp[_].length - 1] = {
             ...temp[_][temp[_].length - 1],
             isLast: true,
-          };
-          return temp[_];
+          });
         }
+        return temp[_];
       });
       return temp;
     });
