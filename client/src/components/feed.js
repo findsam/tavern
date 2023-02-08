@@ -208,28 +208,13 @@ const Post = ({ post, setLoaded = null }) => {
                   </li>
                   {post.isLast && (
                     <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
-                      LAST ITEM W/ IMAGE
+                      Development Last
                     </li>
                   )}
                 </ul>
               </div>
             </>
           )}
-          {/* {!post.image && (
-            <>
-              {last ? (
-                <span
-                  onLoadStart={() => {
-                    setLoaded(true);
-                    document.body.style.overflow = "unset";
-                  }}
-                  className="object-contain !w-full !relative !h-['unset'] hidden none"
-                />
-              ) : (
-                <span />
-              )}
-            </>
-          )} */}
         </div>
       </div>
     </>
