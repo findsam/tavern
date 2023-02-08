@@ -128,13 +128,13 @@ export default ({ passedPosts }) => {
           ref={container}
         >
           {Object.keys(columnWrappers).map((key, index) => {
-            const isLastCol =
-              Object.keys(columnWrappers).slice(-1).toString() === key;
-
             return (
               <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
                 {columnWrappers[key].map((item, index) => {
-                  if (isLastCol && columnWrappers[key].length === index + 1) {
+                  if (
+                    Object.keys(columnWrappers).slice(-1).toString() === key &&
+                    columnWrappers[key].length === index + 1
+                  ) {
                     return (
                       <Post
                         post={item}
@@ -164,30 +164,22 @@ const Post = ({ post, last = false, setLoaded = null }) => {
             <>
               <Link href={`thread/${post.id}`} className="bg-main-800">
                 <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border ">
-                  {last ? (
-                    <>
-                      <Image
-                        onLoadingComplete={() => {
+                  <>
+                    <Image
+                      onLoadingComplete={
+                        last &&
+                        (() => {
                           setLoaded(true);
                           document.body.style.overflow = "unset";
-                        }}
-                        alt={`${post.id} image dscribing`}
-                        src={"/" + post.image}
-                        className="object-contain !w-full !relative !h-['unset']"
-                        fill
-                        quality={85}
-                      />
-                      im last
-                    </>
-                  ) : (
-                    <Image
+                        })
+                      }
                       alt={`${post.id} image dscribing`}
                       src={"/" + post.image}
                       className="object-contain !w-full !relative !h-['unset']"
                       fill
                       quality={85}
                     />
-                  )}
+                  </>
                 </div>
               </Link>
 
