@@ -143,52 +143,6 @@ export default ({ passedPosts }) => {
           }`}
           ref={container}
         >
-          {/* {Object.keys(columnWrappers).map((key, index) => {
-            return (
-              <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
-                {columnWrappers[key].map((item, index) => {
-                  if (
-                    Object.keys(columnWrappers).slice(-1).toString() === key &&
-                    columnWrappers[key].length === index + 1
-                  ) {
-                    return (
-                      <Post
-                        post={item}
-                        last={true}
-                        key={index}
-                        setLoaded={setLoaded}
-                      />
-                    );
-                  }
-                  return <Post post={item} key={index} />;
-                })}
-              </div>
-            );
-          })} */}
-
-          {/* {Object.keys(columnWrappers).map((key, index) => {
-            return (
-              <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
-                {columnWrappers[key].map((item, index) => {
-                  if (
-                    Object.keys(columnWrappers).slice(-1).toString() === key &&
-                    columnWrappers[key].length === index + 1
-                  ) {
-                    return (
-                      <Post
-                        post={item}
-                        last={true}
-                        key={index}
-                        setLoaded={setLoaded}
-                      />
-                    );
-                  }
-                  return <Post post={item} key={index} />;
-                })}
-              </div>
-            );
-          })} */}
-
           {Object.keys(columnWrappers).map((key, index) => {
             return (
               <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
