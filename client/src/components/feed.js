@@ -99,7 +99,7 @@ export default ({ passedPosts }) => {
   useEffect(() => {
     setColumnWrappers((prev) => {
       const temp = Object.assign({}, prev);
-      Object.keys(prev).forEach((_) => {
+      Object.keys(prev).forEach((_, index) => {
         if (
           !prev[_] ||
           prev[_] === undefined ||
@@ -107,6 +107,12 @@ export default ({ passedPosts }) => {
         ) {
           temp[_] = [{ id: Math.random() }];
         } else {
+          let lastItem = prev[_][prev[_].length - 1];
+
+          console.log(lastItem);
+          // console.log(currCol);
+          // console.log(nexCol);
+
           temp[_][temp[_].length - 1] = {
             ...temp[_][temp[_].length - 1],
             isLast: true,
