@@ -104,14 +104,12 @@ export default ({ passedPosts }) => {
           prev[_] === undefined ||
           (Array.isArray(prev[_]) && prev[_].length === 0)
         ) {
-          temp[_] = [{ id: Math.random(), title: Math.random() }];
+          temp[_] = [{ id: Math.random() }];
         }
       });
       return temp;
     });
   }, [posts, passedPosts, cols]);
-
-  // const LOADER = useMemo(() => <Loading />, []);
 
   return (
     <>
@@ -129,21 +127,14 @@ export default ({ passedPosts }) => {
           }`}
           ref={container}
         >
-          {Object.keys(columnWrappers)
-            .slice(0, Object.keys(columnWrappers).length - 1)
-            .map((key, index) => (
+          {Object.keys(columnWrappers).map((key, index) => {
+            const isLastCol =
+              Object.keys(columnWrappers).slice(-1).toString() === key;
+
+            return (
               <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
-                {columnWrappers[key].map((item, index) => (
-                  <Post post={item} key={index} />
-                ))}
-              </div>
-            ))}
-          {Object.keys(columnWrappers)
-            .slice(-1)
-            .map((key, index) => (
-              <div className="flex flex-col flex-1  gap-2.5 md:gap-5" key={index}>
                 {columnWrappers[key].map((item, index) => {
-                  if (columnWrappers[key].length === index + 1) {
+                  if (isLastCol && columnWrappers[key].length === index + 1) {
                     return (
                       <Post
                         post={item}
@@ -156,7 +147,8 @@ export default ({ passedPosts }) => {
                   return <Post post={item} key={index} />;
                 })}
               </div>
-            ))}
+            );
+          })}
         </div>
       </div>
     </>
@@ -173,17 +165,20 @@ const Post = ({ post, last = false, setLoaded = null }) => {
               <Link href={`thread/${post.id}`} className="bg-main-800">
                 <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg drop-shadow-md bg-main-800 border-main-border ">
                   {last ? (
-                    <Image
-                      onLoadingComplete={() => {
-                        setLoaded(true);
-                        document.body.style.overflow = "unset";
-                      }}
-                      alt={`${post.id} image dscribing`}
-                      src={"/" + post.image}
-                      className="object-contain !w-full !relative !h-['unset']"
-                      fill
-                      quality={85}
-                    />
+                    <>
+                      <Image
+                        onLoadingComplete={() => {
+                          setLoaded(true);
+                          document.body.style.overflow = "unset";
+                        }}
+                        alt={`${post.id} image dscribing`}
+                        src={"/" + post.image}
+                        className="object-contain !w-full !relative !h-['unset']"
+                        fill
+                        quality={85}
+                      />
+                      im last
+                    </>
                   ) : (
                     <Image
                       alt={`${post.id} image dscribing`}
@@ -220,10 +215,17 @@ const Post = ({ post, last = false, setLoaded = null }) => {
           )}
           {!post.image && (
             <>
-              <div className="relative hidden h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg pointer-events-none drop-shadow-md bg-main-800 border-main-border">
-                <img src={"/1.jpg"} className="object-fill w-full" />
-              </div>
-              {/* <Loading /> */}
+              {last ? (
+                <span
+                  onLoadStart={() => {
+                    setLoaded(true);
+                    document.body.style.overflow = "unset";
+                  }}
+                  className="object-contain !w-full !relative !h-['unset'] hidden none"
+                />
+              ) : (
+                <span />
+              )}
             </>
           )}
         </div>
