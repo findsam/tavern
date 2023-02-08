@@ -39,6 +39,7 @@ export default ({ passedPosts }) => {
   const size = useWindowSize();
   const [cols, setCols] = useState(null);
   const [loaded, setLoaded] = useState(false);
+  const [lastCol, setLastCol] = useState(false);
 
   // useEffect(() => {
   //   testingInfiniteScroll();
@@ -105,6 +106,12 @@ export default ({ passedPosts }) => {
           (Array.isArray(prev[_]) && prev[_].length === 0)
         ) {
           temp[_] = [{ id: Math.random() }];
+        } else {
+          temp[_][temp[_].length - 1] = {
+            ...temp[_][temp[_].length - 1],
+            isLast: true,
+          };
+          return temp[_];
         }
       });
       return temp;
@@ -150,7 +157,7 @@ export default ({ passedPosts }) => {
             );
           })} */}
 
-          {Object.keys(columnWrappers).map((key, index) => {
+          {/* {Object.keys(columnWrappers).map((key, index) => {
             return (
               <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
                 {columnWrappers[key].map((item, index) => {
@@ -171,6 +178,19 @@ export default ({ passedPosts }) => {
                 })}
               </div>
             );
+          })} */}
+
+          {Object.keys(columnWrappers).map((key, index) => {
+            return (
+              <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
+                {columnWrappers[key].map((item, index) => {
+                  if (item.isLast) {
+                    return <Post post={item} key={index} setLoaded={setLoaded} />;
+                  }
+                  return <Post post={item} key={index} />;
+                })}
+              </div>
+            );
           })}
         </div>
       </div>
@@ -178,10 +198,10 @@ export default ({ passedPosts }) => {
   );
 };
 
-const Post = ({ post, last = false, setLoaded = null }) => {
+const Post = ({ post, setLoaded = null }) => {
   return (
     <>
-      <div className="relative w-full">
+      <div className={`${post.isLast && "IM THE LAST"} relative w-full`}>
         <div className="w-full">
           {post.image && (
             <>
@@ -190,7 +210,7 @@ const Post = ({ post, last = false, setLoaded = null }) => {
                   <>
                     <Image
                       onLoadingComplete={
-                        last &&
+                        post.isLast &&
                         (() => {
                           setLoaded(true);
                           document.body.style.overflow = "unset";
@@ -223,7 +243,7 @@ const Post = ({ post, last = false, setLoaded = null }) => {
                   <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
                     #offline
                   </li>
-                  {last && (
+                  {post.isLast && (
                     <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
                       LAST ITEM W/ IMAGE
                     </li>
