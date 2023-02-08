@@ -32,9 +32,11 @@ export default () => {
         </div>
         <div className="relative flex items-start gap-5">
           <div className="max-w-[544px] flex flex-col gap-5">
-            <img
+            <Image
               src={`/${post?.image}`}
-              className="block h-auto max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
+              className="object-contain !w-full !relative !h-['unset'] block  max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
+              fill
+              quality={100}
             />
 
             <ThreadDropdown
