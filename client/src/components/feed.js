@@ -127,6 +127,29 @@ export default ({ passedPosts }) => {
           }`}
           ref={container}
         >
+          {/* {Object.keys(columnWrappers).map((key, index) => {
+            return (
+              <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
+                {columnWrappers[key].map((item, index) => {
+                  if (
+                    Object.keys(columnWrappers).slice(-1).toString() === key &&
+                    columnWrappers[key].length === index + 1
+                  ) {
+                    return (
+                      <Post
+                        post={item}
+                        last={true}
+                        key={index}
+                        setLoaded={setLoaded}
+                      />
+                    );
+                  }
+                  return <Post post={item} key={index} />;
+                })}
+              </div>
+            );
+          })} */}
+
           {Object.keys(columnWrappers).map((key, index) => {
             return (
               <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
@@ -182,7 +205,6 @@ const Post = ({ post, last = false, setLoaded = null }) => {
                   </>
                 </div>
               </Link>
-
               <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
                 <div className="inline-flex w-full">
                   <Link href={`profile/@swkn#dev`}>
@@ -201,11 +223,16 @@ const Post = ({ post, last = false, setLoaded = null }) => {
                   <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
                     #offline
                   </li>
+                  {last && (
+                    <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
+                      LAST ITEM W/ IMAGE
+                    </li>
+                  )}
                 </ul>
               </div>
             </>
           )}
-          {!post.image && (
+          {/* {!post.image && (
             <>
               {last ? (
                 <span
@@ -219,7 +246,7 @@ const Post = ({ post, last = false, setLoaded = null }) => {
                 <span />
               )}
             </>
-          )}
+          )} */}
         </div>
       </div>
     </>
