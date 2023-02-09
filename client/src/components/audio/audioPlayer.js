@@ -1,6 +1,7 @@
 import { MdOutlineReplay, MdOutlineLoop } from "react-icons/md";
 import { IoPlayOutline, IoPauseOutline } from "react-icons/io5";
 import { useState, useRef, useEffect } from "react";
+import { AiOutlineSound } from "react-icons/ai";
 export default () => {
   const audioPlayer = useRef();
   const progressBar = useRef();
@@ -66,9 +67,8 @@ export default () => {
     const { width, left } = volBar.current.getBoundingClientRect();
     const cursorPos = pageX - left;
     const clickPercent = Math.round((cursorPos / width) * 100);
-    // console.log(clickPercent);
+    console.log(clickPercent);
     audioPlayer.current.volume = clickPercent / 100;
-    // console.log(clickPercent / 100);
     volBar.current.childNodes[0].style.width = clickPercent + "%";
   };
 
@@ -80,14 +80,17 @@ export default () => {
         onLoadedMetadata={() => setLoaded(true)}
       />
       <div className="flex flex-col gap-1">
-        <div className="relative w-full mx-auto mb-20">
-          <span
-            className="relative flex w-full h-1 rounded-full bg-main-border "
-            ref={volBar}
-            onClick={(e) => handleVolumeControls(e)}
-          >
-            <span className="absolute content-[''] my-auto left-0 right-0 bottom-0 top-0 w-0 h-full bg-white/70 rounded-full"></span>
-          </span>
+        <div className="relative w-full max-w-[80px] mx-auto">
+          <div className="flex items-center gap-2">
+            <AiOutlineSound className="text-lg text-white/70" />
+            <span
+              className="relative flex w-full h-1 rounded-full bg-main-border hover:cursor-pointer"
+              ref={volBar}
+              onClick={(e) => handleVolumeControls(e)}
+            >
+              <span className="absolute content-[''] my-auto left-0 right-0 bottom-0 top-0 w-full h-full bg-white/70 rounded-full"></span>
+            </span>
+          </div>
         </div>
         <span className="flex items-center justify-center gap-3 ">
           <span className="block text-xs tracking-wide text-left text-white/70">
