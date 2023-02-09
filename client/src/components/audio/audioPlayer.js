@@ -66,8 +66,9 @@ export default () => {
     const { width, left } = volBar.current.getBoundingClientRect();
     const cursorPos = pageX - left;
     const clickPercent = Math.round((cursorPos / width) * 100);
-    audioPlayer.current.volume =
-      0 + "." + clickPercent > 0.98 ? 1 : 0 + "." + clickPercent;
+    // console.log(clickPercent);
+    audioPlayer.current.volume = clickPercent / 100;
+    // console.log(clickPercent / 100);
     volBar.current.childNodes[0].style.width = clickPercent + "%";
   };
 
