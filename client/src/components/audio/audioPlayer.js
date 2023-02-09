@@ -1,10 +1,26 @@
 import { MdOutlineReplay, MdOutlineLoop } from "react-icons/md";
 import { IoPlayOutline, IoPauseOutline } from "react-icons/io5";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 export default () => {
   const audioPlayer = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const seconds = Math.floor(audioPlayer.current.duration);
+    setDuration(seconds);
+    // progressBar.current.max = seconds;
+  }, [loaded, audioPlayer?.current?.readyState]);
+
+  const calculateTime = (secs) => {
+    const minutes = Math.floor(secs / 60);
+    const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const seconds = Math.floor(secs % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    return `${returnedMinutes}:${returnedSeconds}`;
+  };
 
   const togglePlayPause = () => {
     const prevValue = isPlaying;
@@ -14,11 +30,15 @@ export default () => {
 
   return (
     <div>
-      <audio ref={audioPlayer} src={`/hidden/sound.mp3 `} />
+      <audio
+        ref={audioPlayer}
+        src={`/hidden/sound.mp3 `}
+        onLoadedMetadata={() => setLoaded(true)}
+      />
       <div className="flex flex-col gap-1">
         <span className="flex items-center justify-center gap-3 ">
           <span className="block text-xs tracking-wide text-left text-white/70">
-            0:10
+            {calculateTime(currentTime)}
           </span>
           <span
             className="relative flex w-full h-1 rounded-full bg-main-border 
@@ -26,7 +46,7 @@ export default () => {
               after:absolute after:content-[''] after:my-auto after:left-1/4 after:right-0 after:bottom-0 after:top-0 after:w-3.5 after:h-3.5 after:bg-white/70 after:rounded-full z-10"
           />
           <span className="block text-xs tracking-wide text-left text-white/70">
-            1:10
+            {duration && !isNaN(duration) && calculateTime(duration)}
           </span>
         </span>
         <div className="flex items-center justify-center gap-2">
