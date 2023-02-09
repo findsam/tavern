@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { BsBell } from "react-icons/bs";
 import ThreadContribution from "./threadContribution";
-import { MdOutlineReplay, MdOutlineLoop } from "react-icons/md";
-import { IoPlayOutline } from "react-icons/io5";
 import ThreadDropdown from "./threadDropdown";
 import { useContext } from "react";
 import { Context } from "../../store/context";
@@ -61,55 +59,6 @@ export default () => {
 
             {/* <audio controls src={`/hidden/sound.mp3 `} /> */}
             <AudioPlayer />
-            <div className="flex flex-col gap-1">
-              <span className="flex items-center justify-center gap-3 ">
-                <span className="block text-xs tracking-wide text-left text-white/70">
-                  0:10
-                </span>
-                <span
-                  className="relative flex w-full h-1 rounded-full bg-main-border 
-                before:absolute before:content-[''] before:my-auto before:left-0 before:right-0 before:bottom-0 before:top-0 before:w-1/4 before:h-full before:bg-white/70 before:rounded-full
-              after:absolute after:content-[''] after:my-auto after:left-1/4 after:right-0 after:bottom-0 after:top-0 after:w-3.5 after:h-3.5 after:bg-white/70 after:rounded-full z-10"
-                />
-                <span className="block text-xs tracking-wide text-left text-white/70">
-                  1:10
-                </span>
-              </span>
-              <div className="flex items-center justify-center gap-2">
-                <span
-                  className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
-                >
-                  <span className="relative flex items-center justify-center rounded-full text-white/70">
-                    <MdOutlineReplay className="text-lg text-white/70" />
-                    <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
-                      Replay
-                    </span>
-                  </span>
-                </span>
-
-                <span
-                  className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
-                >
-                  <span className="rounded-full border border-main-border text-white/70 bg-main-800 h-[38px] w-[38px] text-xl flex items-center justify-center relative">
-                    <IoPlayOutline className="ml-0.5" />
-                    <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
-                      Play
-                    </span>
-                  </span>
-                </span>
-
-                <span
-                  className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
-                >
-                  <span className="relative flex items-center justify-center rounded-full text-white/70">
-                    <MdOutlineLoop className="text-lg text-white/70" />
-                    <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
-                      Loop
-                    </span>
-                  </span>
-                </span>
-              </div>
-            </div>
           </div>
           <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px] z-30">
             <div className="flex gap-2 text-2xl">
