@@ -29,7 +29,7 @@ export default () => {
             className="object-cover object-top w-full h-full"
           />
         </div>
-        <div className="relative flex items-start gap-5">
+        <div className="relative flex flex-col items-start gap-5 md:flex-row">
           <div className="max-w-[544px] flex flex-col gap-5">
             <Image
               src={`/${post?.image}`}
@@ -40,24 +40,23 @@ export default () => {
 
             <ThreadDropdown
               text="When the world of the Orcs of Draenor is being destroyed by the evil fel
-          magic that uses life-force, the powerful warlock Gul'dan creates a portal
-          to the world of Azeroth and forms the Horde with members of the Orc clans.
-          He also captures many prisoners to keep the portal open. The king of
-          Azeroth, Llane Wrynn and his brother-in-law, Anduin Lothar are informed by
-          the apprentice of magician Khadgar that he has found fel magic in dead
-          bodies and the king decides to summon the Guardian of Tirisfal, Medivh, to
-          protect his kingdom. Lothar and Khadgar head to Kharazhan to meet Medivh
-          and an ominous shadow points a book out to Khadgar, who takes it and hides.
-          Anduin, Khadgar and Medivh and a group of soldiers are attacked by Orcs and
-          they capture the slave Garona, who is released by King Llane, and she grows
-          them the location of the portal. Garona is contacted by the Orc chief of a
-          clan Durotan that wants to meet King Llane to stop the fel magic. Meanwhile
-          Khadgar learns that the gate was opened with the help of someone in
-          Azeroth. Shall King Llane trust Garona and Durotan, who might be the
-          traitor..."
+                magic that uses life-force, the powerful warlock Gul'dan creates a portal
+                to the world of Azeroth and forms the Horde with members of the Orc clans.
+                He also captures many prisoners to keep the portal open. The king of
+                Azeroth, Llane Wrynn and his brother-in-law, Anduin Lothar are informed by
+                the apprentice of magician Khadgar that he has found fel magic in dead
+                bodies and the king decides to summon the Guardian of Tirisfal, Medivh, to
+                protect his kingdom. Lothar and Khadgar head to Kharazhan to meet Medivh
+                and an ominous shadow points a book out to Khadgar, who takes it and hides.
+                Anduin, Khadgar and Medivh and a group of soldiers are attacked by Orcs and
+                they capture the slave Garona, who is released by King Llane, and she grows
+                them the location of the portal. Garona is contacted by the Orc chief of a
+                clan Durotan that wants to meet King Llane to stop the fel magic. Meanwhile
+                Khadgar learns that the gate was opened with the help of someone in
+                Azeroth. Shall King Llane trust Garona and Durotan, who might be the
+                traitor..."
             />
 
-            {/* <audio controls src={`/hidden/sound.mp3 `} /> */}
             <AudioPlayer />
           </div>
           <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px] z-30">

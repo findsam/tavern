@@ -6,6 +6,7 @@ export default () => {
   const progressBar = useRef();
   const animationRef = useRef();
   const progressContainer = useRef();
+  const volBar = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -55,9 +56,19 @@ export default () => {
     const { width, left } = progressContainer.current.getBoundingClientRect();
     const cursorPos = pageX - left;
     const clickPercent = Math.round((cursorPos / width) * 100);
+
     progressBar.current.style.width = `${clickPercent}%`;
     audioPlayer.current.currentTime = Math.round((clickPercent / 100) * duration);
     animationRef.current = requestAnimationFrame(whilePlaying);
+  };
+
+  const handleVolumeControls = ({ pageX }) => {
+    const { width, left } = volBar.current.getBoundingClientRect();
+    const cursorPos = pageX - left;
+    const clickPercent = Math.round((cursorPos / width) * 100);
+    audioPlayer.current.volume =
+      0 + "." + clickPercent > 0.98 ? 1 : 0 + "." + clickPercent;
+    volBar.current.childNodes[0].style.width = clickPercent + "%";
   };
 
   return (
@@ -68,6 +79,15 @@ export default () => {
         onLoadedMetadata={() => setLoaded(true)}
       />
       <div className="flex flex-col gap-1">
+        <div className="relative w-full mx-auto mb-20">
+          <span
+            className="relative flex w-full h-1 rounded-full bg-main-border "
+            ref={volBar}
+            onClick={(e) => handleVolumeControls(e)}
+          >
+            <span className="absolute content-[''] my-auto left-0 right-0 bottom-0 top-0 w-0 h-full bg-white/70 rounded-full"></span>
+          </span>
+        </div>
         <span className="flex items-center justify-center gap-3 ">
           <span className="block text-xs tracking-wide text-left text-white/70">
             {calculateTime(currentTime)}
@@ -108,7 +128,6 @@ export default () => {
               </span>
             </span>
           </span>
-
           <span
             onClick={() => togglePlayPause()}
             className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
@@ -124,7 +143,6 @@ export default () => {
               </span>
             </span>
           </span>
-
           <span
             className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
           >
