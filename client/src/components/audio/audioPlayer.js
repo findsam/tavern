@@ -3,6 +3,9 @@ import { IoPlayOutline, IoPauseOutline } from "react-icons/io5";
 import { useState, useRef, useEffect } from "react";
 export default () => {
   const audioPlayer = useRef();
+  const progressBar = useRef();
+  const animationRef = useRef();
+  const progressContainer = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -11,7 +14,7 @@ export default () => {
   useEffect(() => {
     const seconds = Math.floor(audioPlayer.current.duration);
     setDuration(seconds);
-    // progressBar.current.max = seconds;
+    progressBar.current.max = seconds;
   }, [loaded, audioPlayer?.current?.readyState]);
 
   const calculateTime = (secs) => {
@@ -25,14 +28,43 @@ export default () => {
   const togglePlayPause = () => {
     const prevValue = isPlaying;
     setIsPlaying(!prevValue);
-    !prevValue ? audioPlayer.current.play() : audioPlayer.current.pause();
+    if (!prevValue) {
+      audioPlayer.current.play();
+      animationRef.current = requestAnimationFrame(whilePlaying);
+    } else {
+      audioPlayer.current.pause();
+      cancelAnimationFrame(animationRef.current);
+    }
+  };
+
+  const changePlayerCurrentTime = () => {
+    progressBar.current.style.width = `${Math.floor(
+      (progressBar.current.value / duration) * 100
+    )}%`;
+    setCurrentTime(progressBar.current.value);
+  };
+
+  const whilePlaying = () => {
+    progressBar.current.value = Math.floor(audioPlayer.current.currentTime);
+    changePlayerCurrentTime();
+    animationRef.current = requestAnimationFrame(whilePlaying);
+  };
+
+  const startDrag = ({ pageX }) => {
+    cancelAnimationFrame(animationRef.current);
+    const { width, left } = progressContainer.current.getBoundingClientRect();
+    const cursorPos = pageX - left;
+    const clickPercent = Math.round((cursorPos / width) * 100);
+    progressBar.current.style.width = `${clickPercent}%`;
+    audioPlayer.current.currentTime = Math.round((clickPercent / 100) * duration);
+    animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
   return (
     <div>
       <audio
         ref={audioPlayer}
-        src={`/hidden/sound.mp3 `}
+        src={`/hidden/test.mp3`}
         onLoadedMetadata={() => setLoaded(true)}
       />
       <div className="flex flex-col gap-1">
@@ -41,10 +73,26 @@ export default () => {
             {calculateTime(currentTime)}
           </span>
           <span
-            className="relative flex w-full h-1 rounded-full bg-main-border 
-                before:absolute before:content-[''] before:my-auto before:left-0 before:right-0 before:bottom-0 before:top-0 before:w-1/4 before:h-full before:bg-white/70 before:rounded-full
-              after:absolute after:content-[''] after:my-auto after:left-1/4 after:right-0 after:bottom-0 after:top-0 after:w-3.5 after:h-3.5 after:bg-white/70 after:rounded-full z-10"
-          />
+            className="relative flex w-full h-1 rounded-full bg-main-border "
+            onClick={(e) => startDrag(e)}
+            ref={progressContainer}
+          >
+            <span
+              className="absolute content-[''] my-auto left-0 right-0 bottom-0 top-0 w-0 h-full bg-white/70 rounded-full"
+              ref={progressBar}
+              onClick={(e) => startDrag(e)}
+            ></span>
+
+            {/* <span
+            className="absolute content-[''] my-auto left-0
+                right-0 bottom-0 top-0 w-3.5 h-3.5
+                bg-white/70 rounded-full z-10"
+            onMouseDown={startDrag}
+            ref={progressGrabber}
+            onMouseUp={() => null}
+        ></span> */}
+          </span>
+
           <span className="block text-xs tracking-wide text-left text-white/70">
             {duration && !isNaN(duration) && calculateTime(duration)}
           </span>
