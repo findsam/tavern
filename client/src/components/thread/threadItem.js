@@ -12,6 +12,7 @@ import { dummyData } from "../../static/util";
 import { useState, useRef } from "react";
 import { TbCopy } from "react-icons/tb";
 import { sleep } from "../../static/util";
+import AudioPlayer from "../audio/audioPlayer";
 
 export default () => {
   const { state, dispatch } = useContext(Context);
@@ -57,6 +58,9 @@ export default () => {
           Azeroth. Shall King Llane trust Garona and Durotan, who might be the
           traitor..."
             />
+
+            {/* <audio controls src={`/hidden/sound.mp3 `} /> */}
+            <AudioPlayer />
             <div className="flex flex-col gap-1">
               <span className="flex items-center justify-center gap-3 ">
                 <span className="block text-xs tracking-wide text-left text-white/70">

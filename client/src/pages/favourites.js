@@ -7,7 +7,6 @@ import Loading from "../components/loading";
 
 export default () => {
   const { state, dispatch } = useContext(Context);
-  // const LOADER = useMemo(() => <Loading />, []);
 
   return (
     <>

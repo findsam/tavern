@@ -19,7 +19,7 @@ export default memo(({ isPlaceholder }) => {
                       <span className="block w-8 h-8 border-4 rounded-full border-main-800 bg-main-500" />
                     </div>
                   </div>
-                  <h1 className="">Your Tavern!</h1>
+                  <h1 className="">Welcome to your Tavern!</h1>
                   <p className="mt-2 text-xs tracking-wide text-white/k70">
                     We can't seem to find any posts that you've favourited, make sure
                     to favourite posts you find on your feed to not only support the
