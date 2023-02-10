@@ -1,4 +1,4 @@
-import { MdOutlineReplay, MdOutlineLoop } from "react-icons/md";
+import { MdOutlineReplay } from "react-icons/md";
 import { IoPlayOutline, IoPauseOutline } from "react-icons/io5";
 import { useState, useRef, useEffect } from "react";
 import { AiOutlineSound } from "react-icons/ai";
@@ -9,6 +9,7 @@ export default () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [volumeIndex, setVolumeIndex] = useState(0);
   const progressBar = useRef();
 
   useEffect(() => {
@@ -32,11 +33,9 @@ export default () => {
     const curPercent = Math.floor(
       (audioPlayer.current.currentTime / duration) * 100
     );
-    progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${
-      curPercent + 1
-    }%, hsla(0,0%,99%,.08) 0)`;
+    progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${curPercent}%, hsla(0,0%,99%,.08) 0)`;
     progressBar.current.childNodes[0].style.left =
-      curPercent >= 99 ? `${98}%` : `${curPercent}%`;
+      curPercent >= 99 ? `${98}%` : `${curPercent - 0.5}%`;
   };
 
   const whilePlaying = () => {
@@ -69,6 +68,14 @@ export default () => {
     return `${returnedMinutes}:${returnedSeconds}`;
   };
 
+  const handleAudio = () => {
+    const availableVolumeOptions = [0.15, 0.35, 0.55, 0.75, 1];
+    const newIndex =
+      volumeIndex + 1 > availableVolumeOptions.length - 1 ? 0 : volumeIndex + 1;
+    setVolumeIndex(newIndex);
+    audioPlayer.current.volume = availableVolumeOptions[volumeIndex];
+  };
+
   return (
     <div>
       <audio
@@ -85,13 +92,13 @@ export default () => {
           {calculateTime(currentTime)}
         </span>
 
-        <div className="relative flex items-center w-full select-none">
+        <div className="relative flex items-center w-full select-none hover:cursor-pointer group">
           <div
-            className="relative flex items-center flex-1 w-full h-1.5  rounded-full bg-main-border will-change-contents"
+            className="relative flex items-center flex-1 w-full h-1.5 rounded-full bg-main-border will-change-contents "
             ref={progressBar}
             onMouseDown={(e) => handleTimeDrag(e)}
           >
-            <span className="relative top-0 bottom-0 left-0 right-0 block w-3 h-3 bg-white border border-white rounded-full will-change-contents" />
+            <span className="relative top-0 bottom-0 left-0 right-0 block pr-0.5 w-3 h-3 bg-white border border-white rounded-full will-change-contents" />
           </div>
         </div>
 
@@ -122,16 +129,17 @@ export default () => {
             </span>
           </span>
         </span>
-        <span
+        <button
+          onClick={handleAudio}
           className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
         >
           <span className="relative flex items-center justify-center rounded-full text-white/70">
-            <MdOutlineLoop className="text-lg text-white/70" />
-            <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
-              Loop
+            <AiOutlineSound className="text-lg text-white/70" />
+            <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+              Volume
             </span>
           </span>
-        </span>
+        </button>
       </div>
     </div>
   );
