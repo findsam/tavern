@@ -29,12 +29,14 @@ export default () => {
   };
 
   const updateBar = () => {
-    const curPercent = (audioPlayer.current.currentTime / duration) * 100;
+    const curPercent = Math.floor(
+      (audioPlayer.current.currentTime / duration) * 100
+    );
     progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${curPercent}%, hsla(0,0%,99%,.08) 0)`;
-    progressBar.current.childNodes[0].style.left = `${curPercent - 2}%`;
+    progressBar.current.childNodes[0].style.left =
+      curPercent >= 99 ? `${98}%` : `${curPercent}%`;
   };
 
-  //working progress bar while playing
   const whilePlaying = () => {
     setCurrentTime(audioPlayer.current.currentTime);
     updateBar();
@@ -45,8 +47,6 @@ export default () => {
     const { width, left } = progressBar.current.getBoundingClientRect();
     const cursorPos = e.pageX - left;
     const clickPercent = Math.round((cursorPos / width) * 100);
-    // progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${clickPercent}%, hsla(0,0%,99%,.08) 0)`;
-    // progressBar.current.childNodes[0].style.left = `${clickPercent - 2}%`;
     audioPlayer.current.currentTime =
       (clickPercent / 100) * audioPlayer.current.duration;
     updateBar();
@@ -59,6 +59,14 @@ export default () => {
     });
   };
 
+  const calculateTime = (secs) => {
+    const minutes = Math.floor(secs / 60);
+    const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const seconds = Math.floor(secs % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    return `${returnedMinutes}:${returnedSeconds}`;
+  };
+
   return (
     <div>
       <audio
@@ -67,14 +75,27 @@ export default () => {
         onLoadedMetadata={() => setLoaded(true)}
       />
 
-      <div className="relative flex items-center w-full select-none">
-        <div
-          className="relative flex items-center flex-1 w-full h-1.5 mb-20 rounded-full bg-main-border"
-          ref={progressBar}
-          onMouseDown={(e) => handleTimeDrag(e)}
+      <div className="flex items-center gap-2">
+        <span
+          className="block text-xs tracking-wide text-left text-white/70 min-w-[42px]
+        "
         >
-          <span className="relative block w-3 h-3 bg-white rounded-full" />
+          {calculateTime(currentTime)}
+        </span>
+
+        <div className="relative flex items-center w-full select-none">
+          <div
+            className="relative flex items-center flex-1 w-full h-1.5  rounded-full bg-main-border will-change-contents"
+            ref={progressBar}
+            onMouseDown={(e) => handleTimeDrag(e)}
+          >
+            <span className="relative top-0 bottom-0 left-0 right-0 block w-3 h-3 bg-white border border-white rounded-full will-change-contents" />
+          </div>
         </div>
+
+        <span className="block text-xs tracking-wide text-left text-white/70  min-w-[42px] ">
+          {duration && !isNaN(duration) && calculateTime(duration)}
+        </span>
       </div>
 
       <div className="flex items-center justify-center gap-2">
