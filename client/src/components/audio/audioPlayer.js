@@ -32,7 +32,9 @@ export default () => {
     const curPercent = Math.floor(
       (audioPlayer.current.currentTime / duration) * 100
     );
-    progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${curPercent}%, hsla(0,0%,99%,.08) 0)`;
+    progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${
+      curPercent + 1
+    }%, hsla(0,0%,99%,.08) 0)`;
     progressBar.current.childNodes[0].style.left =
       curPercent >= 99 ? `${98}%` : `${curPercent}%`;
   };
@@ -93,12 +95,12 @@ export default () => {
           </div>
         </div>
 
-        <span className="block text-xs tracking-wide text-left text-white/70  min-w-[42px] text-right ">
+        <span className="block text-xs tracking-wide  text-white/70  min-w-[42px] text-right ">
           {duration && !isNaN(duration) && calculateTime(duration)}
         </span>
       </div>
 
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center justify-center gap-2 mt-2">
         <span
           className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
         >
