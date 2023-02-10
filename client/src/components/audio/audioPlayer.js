@@ -1,7 +1,8 @@
 import { MdOutlineReplay } from "react-icons/md";
 import { IoPlayOutline, IoPauseOutline, IoVolumeOffOutline } from "react-icons/io5";
+import { IoIosClose } from "react-icons/io";
 import { useState, useRef, useEffect } from "react";
-import { AiOutlineSound } from "react-icons/ai";
+import { MdOutlineClose } from "react-icons/md";
 
 export default () => {
   const availableVolumeOptions = [0, 0.15, 0.45, 0.85];
@@ -141,9 +142,11 @@ export default () => {
               Change Volume
             </span>
             <span className="absolute flex items-center h-4 gap-0.5 left-5 align-center">
+              {!volumeIndex && (
+                <MdOutlineClose className="absolute text-sm scale-90 -left-1" />
+              )}
               {[...Array(volumeIndex)].map((_, _i) => {
                 const indexValue = 2 * Math.round(_i + 1 / 2);
-
                 return (
                   <span
                     style={{
