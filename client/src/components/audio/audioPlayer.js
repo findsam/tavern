@@ -93,7 +93,7 @@ export default () => {
           </div>
         </div>
 
-        <span className="block text-xs tracking-wide text-left text-white/70  min-w-[42px] ">
+        <span className="block text-xs tracking-wide text-left text-white/70  min-w-[42px] text-right ">
           {duration && !isNaN(duration) && calculateTime(duration)}
         </span>
       </div>
