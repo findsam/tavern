@@ -30,7 +30,7 @@ export default () => {
 
   const updateBar = () => {
     const curPercent = (audioPlayer.current.currentTime / duration) * 100;
-    progressBar.current.style.background = `linear-gradient(to right, white ${curPercent}%, hsla(0,0%,99%,.08) 0)`;
+    progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${curPercent}%, hsla(0,0%,99%,.08) 0)`;
     progressBar.current.childNodes[0].style.left = `${curPercent - 2}%`;
   };
 
@@ -45,25 +45,18 @@ export default () => {
     const { width, left } = progressBar.current.getBoundingClientRect();
     const cursorPos = e.pageX - left;
     const clickPercent = Math.round((cursorPos / width) * 100);
-    progressBar.current.style.background = `linear-gradient(to right, white ${clickPercent}%, hsla(0,0%,99%,.08) 0)`;
-    progressBar.current.childNodes[0].style.left = `${clickPercent - 2}%`;
+    // progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${clickPercent}%, hsla(0,0%,99%,.08) 0)`;
+    // progressBar.current.childNodes[0].style.left = `${clickPercent - 2}%`;
     audioPlayer.current.currentTime =
       (clickPercent / 100) * audioPlayer.current.duration;
     updateBar();
   };
 
   const handleTimeDrag = (e) => {
-    // const curPercentage =
-    // (Math.floor(audioPlayer.current.currentTime) /
-    //   Math.floor(audioPlayer.current.duration)) *
-    // 100;
-
     document.addEventListener("mousemove", dragHandler);
     document.addEventListener("mouseup", () => {
       document.removeEventListener("mousemove", dragHandler);
     });
-
-    // progressBar.current.style.background = `linear-gradient(to right, orange ${curPercentage}%, white 0)`;
   };
 
   return (
@@ -76,11 +69,11 @@ export default () => {
 
       <div className="relative flex items-center w-full select-none">
         <div
-          className="relative flex items-center flex-1 w-full h-3 mb-20 rounded-full bg-main-border"
+          className="relative flex items-center flex-1 w-full h-1.5 mb-20 rounded-full bg-main-border"
           ref={progressBar}
           onMouseDown={(e) => handleTimeDrag(e)}
         >
-          <span className="relative block w-4 h-4 bg-white rounded-full" />
+          <span className="relative block w-3 h-3 bg-white rounded-full" />
         </div>
       </div>
 
