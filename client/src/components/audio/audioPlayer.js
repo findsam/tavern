@@ -12,7 +12,7 @@ export default () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volumeIndex, setVolumeIndex] = useState(0);
+  const [volumeIndex, setVolumeIndex] = useState(1);
   const progressBar = useRef();
 
   useEffect(() => {
@@ -49,7 +49,6 @@ export default () => {
   };
 
   const dragHandler = (e) => {
-    // console.log(e);
     const { width, left } = progressBar.current.getBoundingClientRect();
     const cursorPos = e.pageX - left;
     const clickPercent = Math.round((cursorPos / width) * 100);
@@ -85,7 +84,7 @@ export default () => {
     <div>
       <audio
         ref={audioPlayer}
-        src={`/hidden/test.mp3`}
+        src={`/hidden/soundx.mp3`}
         onLoadedMetadata={() => setLoaded(true)}
       />
 
