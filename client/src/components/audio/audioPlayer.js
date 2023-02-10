@@ -49,6 +49,7 @@ export default () => {
   };
 
   const dragHandler = (e) => {
+    // console.log(e);
     const { width, left } = progressBar.current.getBoundingClientRect();
     const cursorPos = e.pageX - left;
     const clickPercent = Math.round((cursorPos / width) * 100);
@@ -58,6 +59,7 @@ export default () => {
   };
 
   const handleTimeDrag = (e) => {
+    dragHandler(e);
     document.addEventListener("mousemove", dragHandler);
     document.addEventListener("mouseup", () => {
       document.removeEventListener("mousemove", dragHandler);
