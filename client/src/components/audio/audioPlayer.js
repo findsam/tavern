@@ -1,23 +1,22 @@
 import { MdOutlineReplay } from "react-icons/md";
 import { IoPlayOutline, IoPauseOutline, IoVolumeOffOutline } from "react-icons/io5";
-import { IoIosClose } from "react-icons/io";
 import { useState, useRef, useEffect } from "react";
 import { MdOutlineClose } from "react-icons/md";
 
 export default () => {
   const availableVolumeOptions = [0, 0.15, 0.45, 0.85];
   const audioPlayer = useRef();
+  const progressBar = useRef();
   const animationRef = useRef();
   const [loaded, setLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volumeIndex, setVolumeIndex] = useState(1);
-  const progressBar = useRef();
 
   useEffect(() => {
-    setDuration(Math.floor(audioPlayer.current.duration));
-    setCurrentTime(Math.floor(audioPlayer.current.currentTime));
+    setDuration(Math.floor(audioPlayer?.current.duration));
+    setCurrentTime(Math.floor(audioPlayer?.current?.currentTime));
   }, [loaded, audioPlayer?.current?.readyState]);
 
   const togglePlayPause = () => {
@@ -25,25 +24,27 @@ export default () => {
     setIsPlaying(!prevValue);
     audioPlayer.current.volume = availableVolumeOptions[volumeIndex];
     if (!prevValue) {
-      audioPlayer.current.play();
+      audioPlayer?.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
     } else {
-      audioPlayer.current.pause();
+      audioPlayer?.current.pause();
       cancelAnimationFrame(animationRef.current);
     }
   };
 
   const updateBar = () => {
     const curPercent = Math.floor(
-      (audioPlayer.current.currentTime / duration) * 100
+      (audioPlayer?.current?.currentTime / duration) * 100
     );
-    progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${curPercent}%, hsla(0,0%,99%,.08) 0)`;
-    progressBar.current.childNodes[0].style.left =
-      curPercent >= 99 ? `${98}%` : `${curPercent - 0.5}%`;
+    if (progressBar.current) {
+      progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${curPercent}%, hsla(0,0%,99%,.08) 0)`;
+      progressBar.current.childNodes[0].style.left =
+        curPercent >= 99 ? `${98}%` : `${curPercent - 0.5}%`;
+    }
   };
 
   const whilePlaying = () => {
-    setCurrentTime(audioPlayer.current.currentTime);
+    setCurrentTime(audioPlayer?.current?.currentTime);
     updateBar();
     animationRef.current = requestAnimationFrame(whilePlaying);
   };
@@ -53,7 +54,7 @@ export default () => {
     const cursorPos = e.pageX - left;
     const clickPercent = Math.round((cursorPos / width) * 100);
     audioPlayer.current.currentTime =
-      (clickPercent / 100) * audioPlayer.current.duration;
+      (clickPercent / 100) * audioPlayer?.current.duration;
     updateBar();
   };
 
