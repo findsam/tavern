@@ -102,7 +102,7 @@ export default () => {
             ref={progressBar}
             onMouseDown={(e) => handleTimeDrag(e)}
           >
-            <span className="relative top-0 bottom-0 left-0 right-0 block pr-0.5 w-3 h-3 bg-white border border-white rounded-full will-change-contents" />
+            <span className="relative top-0 bottom-0 left-0 right-0 block pr-0.5 w-3 h-3 bg-white border border-white rounded-full will-change-transform" />
           </div>
         </div>
 
