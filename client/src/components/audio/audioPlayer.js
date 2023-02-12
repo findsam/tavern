@@ -127,22 +127,22 @@ export default () => {
         >
           <span className="relative flex items-center justify-center rounded-full text-white/70">
             <MdOutlineReplay className="text-lg text-white/70" />
-            <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+            <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
               Replay
             </span>
           </span>
         </span>
-        <span
+        <button
           onClick={() => togglePlayPause()}
           className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
         >
           <span className="rounded-full border border-main-border text-white/70 bg-main-800 h-[38px] w-[38px] text-xl flex items-center justify-center relative">
             {!isPlaying ? <IoPlayOutline className="ml-0.5" /> : <IoPauseOutline />}
-            <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+            <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
               {isPlaying ? "Pause" : "Play"}
             </span>
           </span>
-        </span>
+        </button>
         <button
           onClick={handleAudio}
           className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
