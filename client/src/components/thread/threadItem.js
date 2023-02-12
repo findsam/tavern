@@ -214,7 +214,7 @@ const Copy = () => {
             absolute content-[''] top-0 h-0.5 bg-green-400 transition-all w-full`}
           />
 
-          {!clicked ? "Copy" : "Copied"}
+          {!clicked ? "Copy URL" : "Copied"}
         </span>
       </span>
     </li>
