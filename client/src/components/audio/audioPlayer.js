@@ -45,8 +45,8 @@ export default () => {
 
   const whilePlaying = () => {
     setCurrentTime(audioPlayer?.current?.currentTime);
-    updateBar();
     animationRef.current = requestAnimationFrame(whilePlaying);
+    updateBar();
   };
 
   const dragHandler = (e) => {
@@ -79,6 +79,14 @@ export default () => {
       volumeIndex + 1 > availableVolumeOptions.length - 1 ? 0 : volumeIndex + 1;
     setVolumeIndex(newIndex);
     audioPlayer.current.volume = availableVolumeOptions[newIndex];
+  };
+
+  const replay = () => {
+    cancelAnimationFrame(animationRef.current);
+    setIsPlaying(true);
+    audioPlayer.current.currentTime = 0;
+    audioPlayer?.current.play();
+    animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
   return (
@@ -114,6 +122,7 @@ export default () => {
 
       <div className="flex items-center justify-center gap-2 mt-2">
         <span
+          onClick={replay}
           className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
         >
           <span className="relative flex items-center justify-center rounded-full text-white/70">
