@@ -26,6 +26,18 @@ module.exports = {
             transform: "translateX(100%)",
           },
         },
+        like: {
+          "0%, 100%": {
+            transform: "scale(1.0)",
+          },
+
+          "20%": {
+            transform: " scale(0.8)",
+          },
+          "80%": {
+            transform: "scale(1.5)",
+          },
+        },
       },
     },
   },

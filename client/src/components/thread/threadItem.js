@@ -17,7 +17,6 @@ export default () => {
   const router = useRouter();
   const post = dummyData.find((_) => _.id === +router.query.slug);
   !post && router.push("/");
-
   const liked = state.favourites.find((_) => _.id == post.id);
 
   return (
@@ -26,7 +25,7 @@ export default () => {
         <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-image blur opacity-5 after:absolute after:content-[''] after:left-0 after:right-0 after:bottom-0 after:top-0 after:bg-main-900/30">
           <img
             src={`/${post?.image}`}
-            className="object-cover object-top w-full h-full"
+            className="object-cover object-top w-full h-full "
           />
         </div>
         <div className="relative flex flex-col items-start gap-5 md:flex-row">
@@ -56,20 +55,19 @@ export default () => {
                 Azeroth. Shall King Llane trust Garona and Durotan, who might be the
                 traitor..."
             />
-
             <AudioPlayer />
           </div>
           <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px] z-30">
             <div className="flex gap-2 text-2xl">
               {liked ? (
                 <button
-                  onClick={() =>
+                  onClick={(e) => {
                     dispatch({
                       type: "SET_FAVOURITES",
                       payload: state.favourites.filter((_) => _.id !== post?.id),
-                    })
-                  }
-                  className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group z-50 `}
+                    });
+                  }}
+                  className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group z-50`}
                 >
                   <span className="text-[1.3rem] relative">
                     <RiHeartFill className="text-red-500" />
@@ -80,13 +78,13 @@ export default () => {
                 </button>
               ) : (
                 <button
-                  onClick={() =>
+                  onClick={(e) => {
                     dispatch({
                       type: "SET_FAVOURITES",
                       payload: [...state.favourites, post],
-                    })
-                  }
-                  className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+                    });
+                  }}
+                  className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group duration-500 `}
                 >
                   <span className="text-[1.3rem] relative">
                     <RiHeartLine />

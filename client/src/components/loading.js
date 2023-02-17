@@ -21,9 +21,10 @@ export default memo(({ isPlaceholder }) => {
                   </div>
                   <h1 className="">Welcome to your Tavern!</h1>
                   <p className="mt-2 text-xs tracking-wide text-white/k70">
-                    We can't seem to find any posts that you've favourited, make sure
-                    to favourite posts you find on your feed to not only support the
-                    creators and contributors but to find them easily in the future.
+                    We can't find any threads that you have favourited. Make sure you
+                    favourite threads you like and support the creator and
+                    contributors. It will also make each thread easier to find in the
+                    future by saving them here, to your personal tavern.
                   </p>
                 </div>
               </div>
