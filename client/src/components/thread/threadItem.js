@@ -102,7 +102,7 @@ export default () => {
               Warcraft S6 Rogue
             </h1>
 
-            <p className="max-w-sm text-sm leading-5 text-white/70">
+            <p className="max-w-sm text-sm font-normal leading-5 text-white/70">
               Female blood-elf rogue wearing Naxx 10 man gear from the Wrath of the
               Lich King: World of Warcraft by
             </p>
