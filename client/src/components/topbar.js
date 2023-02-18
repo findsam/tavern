@@ -2,7 +2,7 @@ import Image from "next/image";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
 import Modal from "./modal";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { AiOutlineFileAdd } from "react-icons/ai";
 import NotificationsContainer from "./notifications/notificationsContainer";
 import { useContext } from "react";
@@ -11,7 +11,7 @@ import { Context } from "../store/context";
 export default () => {
   const [show, setShow] = useState(false);
   const [upload, setUpload] = useState(false);
-  const { state, dispatch } = useContext(Context);
+  const { state } = useContext(Context);
 
   return (
     <>
