@@ -192,7 +192,7 @@ const Post = ({ post, setLoaded = null }) => {
                 <div className="inline-flex w-full">
                   <Link href={`profile/@swkn#dev`}>
                     <p className="mr-auto text-xs tracking-wide text-left opacity-70">
-                      @swkn#dev
+                      @tavern#dev
                     </p>
                   </Link>
                 </div>
