@@ -1,27 +1,13 @@
 import Image from "next/image";
 import { getDiscordURL } from "../static/util";
 import { SiDiscord } from "react-icons/si";
+import { useWindowScroll } from "../hooks/useWinScroll";
 
 export default () => {
   return (
     <>
-      <nav className="flex items-center justify-center max-w-xl mx-auto mt-20">
-        <div className="flex items-center gap-2.5">
-          <div className="flex items-center justify-center -space-x-3">
-            <span className="block w-6 h-6 border-2 rounded-full border-main-900 bg-main-300" />
-            <span className="block w-8 h-8 border-4 rounded-full border-main-900 bg-main-500" />
-          </div>
-          <h1 className="font-medium tracking-wide">Tavern</h1>
-        </div>
-        <ul className="flex items-center gap-5 ml-auto text-white/70">
-          <li className="text-sm font-normal leading-5 text-white/70">
-            What is Tavern?
-          </li>
-          <li className="text-sm font-normal leading-5 text-white/70">Features</li>
-          <li className="text-sm font-normal leading-5 text-white/70">Pricing</li>
-        </ul>
-      </nav>
-      <main className="flex flex-col items-center max-w-2xl gap-5 mx-auto text-center mt-28">
+      <Navbar />
+      <main className="flex flex-col items-center max-w-2xl gap-5 mx-auto text-center mt-44">
         <h1 className="text-4xl font-semibold leading-snug tracking-normal ">
           All-In-One collaberation and discovery tool for digital creatives.
         </h1>
@@ -65,6 +51,52 @@ export default () => {
           <SiDiscord size={18} />
         </a>
       </main>
+
+      <section className="relative mt-24">
+        <img
+          src="/hidden/v.svg"
+          className="absolute right-[22rem] -top-24 -rotate-12"
+        />
+        <div className="absolute left-0 right-0 max-w-4xl pb-12 mx-auto blur-[0.01rem]">
+          <Image
+            src={`/landing.png`}
+            className="object-contain !w-full !relative !h-['unset'] block  max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
+            fill
+            quality={100}
+          />
+        </div>
+      </section>
     </>
+  );
+};
+
+const Navbar = () => {
+  const isAtTop = useWindowScroll();
+  return (
+    <nav
+      className={`flex items-center justify-center max-w-4xl mx-auto
+      fixed left-0 right-0  duration-200  rounded-full py-1 px-2.5 mt-5
+     ${
+       isAtTop
+         ? "bg-transparent border-transparent top-8"
+         : "backdrop-blur  top-[0rem] bg-main-border"
+     }
+    `}
+    >
+      <div className="flex items-center gap-2.5">
+        <div className="flex items-center justify-center -space-x-3">
+          <span className="block w-6 h-6 border-2 rounded-full border-main-900 bg-main-300" />
+          <span className="block w-8 h-8 border-4 rounded-full border-main-900 bg-main-500" />
+        </div>
+        <h1 className="font-medium tracking-wide">Tavern</h1>
+      </div>
+      <ul className="flex items-center gap-5 ml-auto text-white/70">
+        <li className="text-sm font-normal leading-5 text-white/70">
+          What is Tavern?
+        </li>
+        <li className="text-sm font-normal leading-5 text-white/70">Features</li>
+        <li className="text-sm font-normal leading-5 text-white/70">Pricing</li>
+      </ul>
+    </nav>
   );
 };
