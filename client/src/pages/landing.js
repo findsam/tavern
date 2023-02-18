@@ -5,7 +5,7 @@ import { SiDiscord } from "react-icons/si";
 export default () => {
   return (
     <>
-      <nav className="flex items-center justify-center mx-auto mt-20 max-w-7xl">
+      <nav className="flex items-center justify-center max-w-xl mx-auto mt-20">
         <div className="flex items-center gap-2.5">
           <div className="flex items-center justify-center -space-x-3">
             <span className="block w-6 h-6 border-2 rounded-full border-main-900 bg-main-300" />
@@ -21,20 +21,23 @@ export default () => {
           <li className="text-sm font-normal leading-5 text-white/70">Pricing</li>
         </ul>
       </nav>
-
-      <main className="flex flex-col gap-5 mx-auto mt-48 r max-w-7xl">
-        <h1 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal text-left">
-          All-In-One collaberation and discovery tool for creative storytellers.
+      <main className="flex flex-col items-center max-w-2xl gap-5 mx-auto text-center mt-28">
+        <h1 className="text-4xl font-semibold leading-snug tracking-normal ">
+          All-In-One collaberation and discovery tool for digital creatives.
         </h1>
 
-        <p className="max-w-sm text-sm font-normal leading-5 text-white/70">
-          Join these and 500+ other digital creatives and embark on your creative
-          storytelling journey.
+        <p className="max-w-md text-sm font-normal leading-5 text-white/70">
+          Tavern is a discovery and collaberation tool for digital storytelling. Our
+          community turns art into a meaningful stories. Join these and our growing
+          community of 500+ other members and embark on your creative storytelling
+          journey.
         </p>
+
         <div className="relative flex items-center -space-x-3">
-          {[...Array(10)].map((_, index) => (
+          {[...Array(10)].map((_, i) => (
             <Image
-              className={`rounded-full border-[3px] border-main-900 shadow-md`}
+              key={i}
+              className={`rounded-full border-[3px] border-main-900`}
               height="36"
               width="36"
               quality={100}
@@ -44,11 +47,16 @@ export default () => {
           ))}
         </div>
 
-        <p className="max-w-sm text-sm font-normal leading-5 text-white/70">
-          Begin turning independant art into meaningful creative stories by the help
-          of Tavern's community.
+        <p className="max-w-max tracking-wide text-[12px] text-white/70">
+          By continuing you agree to our{" "}
+          <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
+            Terms of Service
+          </a>{" "}
+          and{" "}
+          <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
+            Privacy Policy
+          </a>{" "}
         </p>
-
         <a
           href={getDiscordURL()}
           className="max-w-max flex-1 px-6 min-h-[38px] gap-2 text-sm relative text-white/70 border rounded-md bg-main-800 border-main-border  hover:border-white/70  duration-150 flex items-center justify-center"
