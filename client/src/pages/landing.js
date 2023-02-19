@@ -51,7 +51,7 @@ export default () => {
           <SiDiscord size={18} />
         </a>
       </main>
-      <section className="relative mt-24 -z-10">
+      <section className="relative mt-24 pb-28 -z-10">
         <div className="max-w-4xl mx-auto blur-[0.01rem]">
           <Image
             src={`/landing.png`}
@@ -62,7 +62,7 @@ export default () => {
         </div>
       </section>
 
-      <section className="flex flex-col items-center gap-5 mx-auto text-center pb-28 mt-28">
+      {/* <section className="flex flex-col items-center gap-5 mx-auto text-center pb-28 mt-28">
         <h1 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
           Let's try something new together.
         </h1>
@@ -72,7 +72,9 @@ export default () => {
           storytelling and we have a mission to your tale by rewarding creators and
           collaberatiors.
         </p>
-      </section>
+
+        <div className="max-w-4xl mx-auto">123</div>
+      </section> */}
     </>
   );
 };
