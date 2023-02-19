@@ -72,16 +72,6 @@ export default () => {
           storytelling and we have a mission to your tale by rewarding creators and
           collaberatiors.
         </p>
-
-        <div className="grid w-full max-w-4xl grid-cols-3 gap-5">
-          <div className="p-5 border rounded-md border-main-border">
-            <p className="max-w-md text-sm font-normal leading-5 text-white/70">
-              Community driven creativity.
-            </p>
-          </div>
-          <div className="p-5 border rounded-md border-main-border"></div>
-          <div className="p-5 border rounded-md border-main-border"></div>
-        </div>
       </section>
     </>
   );
@@ -91,12 +81,12 @@ const Navbar = () => {
   const isAtTop = useWindowScroll();
   return (
     <nav
-      className={`flex items-center justify-center max-w-4xl mx-auto z-100
-      fixed left-0 right-0  duration-200  rounded-full py-1 px-2.5 mt-5
+      className={`flex items-center justify-center  mx-auto z-100
+      fixed left-0 right-0  duration-200  rounded-full py-1 px-3 mt-5
      ${
        isAtTop
-         ? "bg-transparent border-transparent top-8"
-         : "backdrop-blur  top-[0rem] bg-main-border"
+         ? "bg-transparent top-8  max-w-4xl"
+         : "backdrop-blur  top-[0rem] bg-main-border  max-w-xl"
      }
     `}
     >
