@@ -64,14 +64,21 @@ export default () => {
 
       <section className="flex flex-col items-center gap-5 mx-auto text-center pb-28 mt-28">
         <h1 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
-          Let's try something new. Build exceptional stories with Tavern's community.
+          Let's try something new together.
         </h1>
 
+        <p className="max-w-md text-sm font-normal leading-5 text-white/70">
+          Industry standard social medias do not value the digital creative. Art is
+          storytelling and we have a mission to your tale by rewarding creators and
+          collaberatiors.
+        </p>
+
         <div className="grid w-full max-w-4xl grid-cols-3 gap-5">
-          <div className="p-5 border rounded-md border-main-border"></div>
-          <div className="p-5 border rounded-md border-main-border"></div>
-          <div className="p-5 border rounded-md border-main-border"></div>
-          <div className="p-5 border rounded-md border-main-border"></div>
+          <div className="p-5 border rounded-md border-main-border">
+            <p className="max-w-md text-sm font-normal leading-5 text-white/70">
+              Community driven creativity.
+            </p>
+          </div>
           <div className="p-5 border rounded-md border-main-border"></div>
           <div className="p-5 border rounded-md border-main-border"></div>
         </div>
