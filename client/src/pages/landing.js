@@ -117,5 +117,64 @@ const Navbar = () => {
 };
 
 const Footer = () => {
-  return <footer className="max-w-4xl mx-auto pb-28">123</footer>;
+  return (
+    <footer className="flex items-start max-w-4xl mx-auto mb-28">
+      <ul className="grid gap-1 max-w-max">
+        <div className="flex items-center gap-1 mb-1.5">
+          <div className="flex items-center justify-center -space-x-3">
+            <span className="block w-6 h-6 border-2 rounded-full border-main-900 bg-main-300" />
+            <span className="block w-8 h-8 border-4 rounded-full border-main-900 bg-main-500" />
+          </div>
+        </div>
+        <li className="text-sm font-normal leading-5 text-white/70">
+          Built with love from,
+        </li>
+        <li className="text-sm font-normal leading-5 text-white/70">
+          Italia and United
+        </li>
+        <li className="text-sm font-normal leading-5 text-white/70">Kingdom.</li>
+      </ul>
+
+      <div className="flex items-start justify-between w-full max-w-md gap-5 ml-auto">
+        <ul className="grid flex-1 gap-1 max-w-max">
+          <h1 className="font-medium tracking-wide  mb-1.5">Discover</h1>
+          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+            Pricing
+          </li>
+          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+            Company
+          </li>
+        </ul>
+
+        <ul className="grid flex-1 gap-1 max-w-max">
+          <h1 className="font-medium tracking-wide  mb-1.5">Legal</h1>
+          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+            Terms of Service
+          </li>
+          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+            Privacy Policy
+          </li>
+          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+            Cookie Policy
+          </li>
+        </ul>
+
+        <ul className="grid flex-1 gap-1 max-w-max">
+          <h1 className="font-medium tracking-wide  mb-1.5">Our Socials</h1>
+          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+            Discord
+          </li>
+          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+            Twitter
+          </li>
+          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+            Instagram
+          </li>
+          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+            LinkedIn
+          </li>
+        </ul>
+      </div>
+    </footer>
+  );
 };
