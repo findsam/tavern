@@ -45,25 +45,35 @@ export default () => {
         </p>
         <a
           href={getDiscordURL()}
-          className="max-w-max flex-1 px-6 min-h-[38px] gap-2 text-sm relative text-white/70 border rounded-md bg-main-800 border-main-border  hover:border-white/70  duration-150 flex items-center justify-center"
+          className="max-w-max flex-1 px-6 min-h-[38px] gap-2 text-sm text-white/70 border rounded-md bg-main-800 border-main-border  hover:border-white/70  duration-150 flex items-center justify-center"
         >
           Continue with Discord
           <SiDiscord size={18} />
         </a>
       </main>
-
-      <section className="relative mt-24">
-        <img
-          src="/hidden/v.svg"
-          className="absolute right-[22rem] -top-24 -rotate-12"
-        />
-        <div className="absolute left-0 right-0 max-w-4xl pb-12 mx-auto blur-[0.01rem]">
+      <section className="relative mt-24 -z-10">
+        <div className="max-w-4xl mx-auto blur-[0.01rem]">
           <Image
             src={`/landing.png`}
             className="object-contain !w-full !relative !h-['unset'] block  max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
             fill
             quality={100}
           />
+        </div>
+      </section>
+
+      <section className="flex flex-col items-center gap-5 mx-auto text-center pb-28 mt-28">
+        <h1 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
+          Let's try something new. Build exceptional stories with Tavern's community.
+        </h1>
+
+        <div className="grid w-full max-w-4xl grid-cols-3 gap-5">
+          <div className="p-5 border rounded-md border-main-border"></div>
+          <div className="p-5 border rounded-md border-main-border"></div>
+          <div className="p-5 border rounded-md border-main-border"></div>
+          <div className="p-5 border rounded-md border-main-border"></div>
+          <div className="p-5 border rounded-md border-main-border"></div>
+          <div className="p-5 border rounded-md border-main-border"></div>
         </div>
       </section>
     </>
@@ -74,7 +84,7 @@ const Navbar = () => {
   const isAtTop = useWindowScroll();
   return (
     <nav
-      className={`flex items-center justify-center max-w-4xl mx-auto
+      className={`flex items-center justify-center max-w-4xl mx-auto z-100
       fixed left-0 right-0  duration-200  rounded-full py-1 px-2.5 mt-5
      ${
        isAtTop
@@ -83,7 +93,7 @@ const Navbar = () => {
      }
     `}
     >
-      <div className="flex items-center gap-2.5">
+      <div className="flex items-center gap-1">
         <div className="flex items-center justify-center -space-x-3">
           <span className="block w-6 h-6 border-2 rounded-full border-main-900 bg-main-300" />
           <span className="block w-8 h-8 border-4 rounded-full border-main-900 bg-main-500" />
@@ -91,11 +101,15 @@ const Navbar = () => {
         <h1 className="font-medium tracking-wide">Tavern</h1>
       </div>
       <ul className="flex items-center gap-5 ml-auto text-white/70">
-        <li className="text-sm font-normal leading-5 text-white/70">
+        <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
           What is Tavern?
         </li>
-        <li className="text-sm font-normal leading-5 text-white/70">Features</li>
-        <li className="text-sm font-normal leading-5 text-white/70">Pricing</li>
+        <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+          Features
+        </li>
+        <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
+          Pricing
+        </li>
       </ul>
     </nav>
   );

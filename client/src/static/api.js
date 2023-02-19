@@ -9,7 +9,7 @@ const fetchUserDetails = async (next, router) => {
     });
     return true;
   } catch (error) {
-    return router.push("/auth");
+    return router.push("/landing");
   }
 };
 
@@ -20,9 +20,9 @@ const handleLogout = async (next, router) => {
       type: "SET_USER",
       payload: null,
     });
-    return router.push("/auth");
+    return router.push("/landing");
   } catch (error) {
-    return router.push("/auth");
+    return router.push("/landing");
   }
 };
 
