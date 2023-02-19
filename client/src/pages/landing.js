@@ -19,7 +19,7 @@ export default () => {
           journey.
         </p>
 
-        <div className="relative flex items-center -space-x-3">
+        <div className="flex items-center -space-x-3">
           {[...Array(10)].map((_, i) => (
             <Image
               key={i}
@@ -51,7 +51,7 @@ export default () => {
           <SiDiscord size={18} />
         </a>
       </main>
-      <section className="relative mt-24 pb-28 -z-10">
+      <section className="mt-24 pb-28 -z-10">
         <div className="max-w-4xl mx-auto blur-[0.01rem]">
           <Image
             src={`/landing.png`}
@@ -75,6 +75,8 @@ export default () => {
 
         <div className="max-w-4xl mx-auto">123</div>
       </section> */}
+
+      <Footer />
     </>
   );
 };
@@ -112,4 +114,8 @@ const Navbar = () => {
       </ul>
     </nav>
   );
+};
+
+const Footer = () => {
+  return <footer className="max-w-4xl mx-auto pb-28">123</footer>;
 };
