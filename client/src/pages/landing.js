@@ -51,20 +51,20 @@ export default () => {
           <SiDiscord size={18} />
         </a>
       </main>
-      <section className="mt-24 pb-28 -z-10">
+      <section className="relative mt-24 pb-28 -z-10">
         <div className="max-w-4xl mx-auto blur-[0.01rem]">
           <Image
             src={`/landing.png`}
-            className="object-contain !w-full !relative !h-['unset'] block  max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
+            className="object-contain !w-full !relative -z-10 !h-['unset'] block  max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
             fill
             quality={100}
           />
         </div>
       </section>
 
-      {/* <section className="flex flex-col items-center gap-5 mx-auto text-center pb-28 mt-28">
+      <section className="flex flex-col items-center gap-5 mx-auto text-center mb-28">
         <h1 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
-          Let's try something new together.
+          Flexible pricing as you scale
         </h1>
 
         <p className="max-w-md text-sm font-normal leading-5 text-white/70">
@@ -73,8 +73,111 @@ export default () => {
           collaberatiors.
         </p>
 
-        <div className="max-w-4xl mx-auto">123</div>
-      </section> */}
+        <div className="grid w-full max-w-4xl grid-cols-3 gap-5 mt-1.5">
+          <div className="border border-main-border rounded-lg min-h-[400px] py-3.5">
+            <div className="grid gap-0.5 pb-5">
+              <h1 className="font-medium tracking-wide">Free</h1>
+              <p className="max-w-md px-5 text-sm font-normal leading-5 text-white/70">
+                Hobbyist
+              </p>
+              <h2 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
+                $0
+              </h2>
+
+              <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
+                <span className="h-[1px] block flex-1 bg-main-border" />
+                <span className="text-sm text-white/70">Forever</span>
+                <span className="h-[1px] block flex-1 bg-main-border" />
+              </span>
+            </div>
+          </div>
+          <div className="border-4 border-[#f0c165] rounded-lg min-h-[400px] py-3.5 relative">
+            <span className="block absolute left-3 -top-3 bg-[#f0c165] rounded-md">
+              <p className="px-3 py-0.5 text-sm leading-5 font-medium tracking-wide">
+                Best Value
+              </p>
+            </span>
+            <div className="grid gap-0.5">
+              <h1 className="font-medium tracking-wide">Lite</h1>
+              <p className="max-w-md px-5 text-sm font-normal leading-5 text-white/70">
+                Supporter
+              </p>
+              <h2 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
+                $5
+              </h2>
+              <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
+                <span className="h-[1px] block flex-1 bg-main-border" />
+                <span className="text-sm text-white/70">Billed Monthly</span>
+                <span className="h-[1px] block flex-1 bg-main-border" />
+              </span>
+            </div>
+          </div>
+          <div className="border border-main-border rounded-lg min-h-[400px] py-3.5">
+            <div className="grid gap-0.5">
+              <h1 className="font-medium tracking-wide">Pro</h1>
+              <p className="max-w-md px-5 text-sm font-normal leading-5 text-white/70">
+                Super-Supporter
+              </p>
+              <h2 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
+                $12
+              </h2>
+              <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
+                <span className="h-[1px] block flex-1 bg-main-border" />
+                <span className="text-sm text-white/70">Billed Monthly</span>
+                <span className="h-[1px] block flex-1 bg-main-border" />
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="grid w-full max-w-4xl grid-cols-1 gap-5 mx-auto mt-1.5">
+          <div className="flex flex-row-reverse gap-5">
+            <div className="flex-1 p-5 overflow-hidden border rounded-xl border-main-border">
+              <h1 className="font-medium tracking-wide  mb-1.5">Authentication</h1>
+              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
+                For your security and online safety — we offer easy authentication
+                via Discord.
+              </p>
+            </div>
+            <div className="flex-1 p-5 overflow-hidden border rounded-xl border-main-border">
+              <h1 className="font-medium tracking-wide  mb-1.5">Full Control</h1>
+              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
+                Accept or Deny suggested collaberations anonymously or even just
+                disable it.
+              </p>
+            </div>
+            <div className="p-5 border rounded-xl border-main-border flex-[1.35]">
+              <h1 className="font-medium tracking-wide  mb-1.5">No Advertisement</h1>
+              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
+                An ad-free experience is critical for building an immersive Tavern
+                whereby each member can truly get lost in fantasy.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-5">
+            <div className="flex-1 p-5 overflow-hidden border rounded-xl border-main-border">
+              <h1 className="font-medium tracking-wide  mb-1.5">Your Tavern</h1>
+              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
+                Save your favourite threads for later with ease by simply giving it a
+                like.
+              </p>
+            </div>
+            <div className="flex-1 p-5 overflow-hidden border rounded-xl border-main-border">
+              <h1 className="font-medium tracking-wide  mb-1.5">Collaberations</h1>
+              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
+                Seamless collaberation, no hastle meaningful tales together.
+              </p>
+            </div>
+            <div className="p-5 border rounded-xl border-main-border flex-[1.5]">
+              <h1 className="font-medium tracking-wide  mb-1.5">Crediting</h1>
+              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
+                Each thread will respectively reward each collaberator by displaying
+                their profiles on the collaberation timeline.
+              </p>
+            </div>
+          </div>
+        </div> */}
+      </section>
 
       <Footer />
     </>
