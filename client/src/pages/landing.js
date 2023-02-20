@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getDiscordURL } from "../static/util";
 import { SiDiscord } from "react-icons/si";
+import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { useWindowScroll } from "../hooks/useWinScroll";
 
 export default () => {
@@ -74,8 +75,8 @@ export default () => {
         </p>
 
         <div className="grid w-full max-w-4xl grid-cols-3 gap-5 mt-1.5">
-          <div className="border border-main-border rounded-lg min-h-[400px] py-3.5 flex flex-col">
-            <div className="grid gap-0.5 pb-5">
+          <div className="border border-main-border rounded-lg py-3.5 flex flex-col">
+            <div className="grid gap-0.5">
               <h1 className="font-medium tracking-wide">Free</h1>
               <p className="max-w-md px-5 text-sm font-normal leading-5 text-white/70">
                 Hobbyist
@@ -91,20 +92,52 @@ export default () => {
               </span>
             </div>
 
+            <ul className="px-3.5 grid gap-2 mb-5 mt-5">
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Access to all basic features.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">2 Threads weekly.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Basic Help Center.</span>
+              </li>
+
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Unlimited Interactions.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Secure Data Storage.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">File size cap.</span>
+              </li>
+            </ul>
+
             <div className="flex flex-col mt-auto">
               <span className="relative flex items-center w-full gap-2 mt-auto text-xs tracking-wide text-center">
                 <span className="h-[1px] block flex-1 bg-main-border" />
-                <span className="text-sm text-white/70">Like what you see?</span>
+                <span className="text-sm text-white/70">It's always free!</span>
                 <span className="h-[1px] block flex-1 bg-main-border" />
               </span>
               <span className="block px-2.5">
-                <button className="w-full  mx-auto flex-1 px-6 min-h-[38px] gap-2 text-sm text-white/70 border rounded-md bg-main-800 border-main-border  hover:border-white/70  duration-150 flex items-center justify-center mt-2">
-                  Subscribe Now
-                </button>
+                <a
+                  href={getDiscordURL()}
+                  className="mt-2 flex-1 px-6 min-h-[38px] gap-2 text-sm text-white/70 border rounded-md bg-main-800 border-main-border  hover:border-white/70  duration-150 flex items-center justify-center"
+                >
+                  Continue with Discord
+                  <SiDiscord size={18} />
+                </a>
               </span>
             </div>
           </div>
-          <div className="border-4 border-[#f0c165] rounded-lg min-h-[400px] py-3.5 relative flex flex-col">
+          <div className="border-4 border-[#f0c165] rounded-lg py-3.5 relative flex flex-col">
             <span className="block absolute left-3 -top-3 bg-[#f0c165] rounded-md">
               <p className="px-3 py-0.5 text-sm leading-5 font-medium tracking-wide">
                 Best Value
@@ -124,6 +157,45 @@ export default () => {
                 <span className="h-[1px] block flex-1 bg-main-border" />
               </span>
             </div>
+
+            <ul className="px-3.5 grid gap-2 mb-5 mt-5">
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">All basic and hobbyist features.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">10 Threads weekly.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">24/7 Help Center.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Secure Data Storage.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">50mb Files.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Directly support creators.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Support on-going development.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Private Discord access.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Influence on new features.</span>
+              </li>
+            </ul>
 
             <div className="flex flex-col mt-auto">
               <span className="relative flex items-center w-full gap-2 mt-auto text-xs tracking-wide text-center">
@@ -153,6 +225,32 @@ export default () => {
                 <span className="h-[1px] block flex-1 bg-main-border" />
               </span>
             </div>
+
+            <ul className="px-3.5 grid gap-2 mb-5 mt-5">
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">All basic and lite features.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Unlimited Threads weekly.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Unlimited file size.</span>
+              </li>
+
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">Vote on new features.</span>
+              </li>
+              <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
+                <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
+                <span className="inline">
+                  Create suggestions for development team.
+                </span>
+              </li>
+            </ul>
 
             <div className="flex flex-col mt-auto">
               <span className="relative flex items-center w-full gap-2 mt-auto text-xs tracking-wide text-center">
