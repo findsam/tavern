@@ -74,7 +74,7 @@ export default () => {
         </p>
 
         <div className="grid w-full max-w-4xl grid-cols-3 gap-5 mt-1.5">
-          <div className="border border-main-border rounded-lg min-h-[400px] py-3.5">
+          <div className="border border-main-border rounded-lg min-h-[400px] py-3.5 flex flex-col">
             <div className="grid gap-0.5 pb-5">
               <h1 className="font-medium tracking-wide">Free</h1>
               <p className="max-w-md px-5 text-sm font-normal leading-5 text-white/70">
@@ -90,8 +90,21 @@ export default () => {
                 <span className="h-[1px] block flex-1 bg-main-border" />
               </span>
             </div>
+
+            <div className="flex flex-col mt-auto">
+              <span className="relative flex items-center w-full gap-2 mt-auto text-xs tracking-wide text-center">
+                <span className="h-[1px] block flex-1 bg-main-border" />
+                <span className="text-sm text-white/70">Like what you see?</span>
+                <span className="h-[1px] block flex-1 bg-main-border" />
+              </span>
+              <span className="block px-2.5">
+                <button className="w-full  mx-auto flex-1 px-6 min-h-[38px] gap-2 text-sm text-white/70 border rounded-md bg-main-800 border-main-border  hover:border-white/70  duration-150 flex items-center justify-center mt-2">
+                  Subscribe Now
+                </button>
+              </span>
+            </div>
           </div>
-          <div className="border-4 border-[#f0c165] rounded-lg min-h-[400px] py-3.5 relative">
+          <div className="border-4 border-[#f0c165] rounded-lg min-h-[400px] py-3.5 relative flex flex-col">
             <span className="block absolute left-3 -top-3 bg-[#f0c165] rounded-md">
               <p className="px-3 py-0.5 text-sm leading-5 font-medium tracking-wide">
                 Best Value
@@ -111,8 +124,21 @@ export default () => {
                 <span className="h-[1px] block flex-1 bg-main-border" />
               </span>
             </div>
+
+            <div className="flex flex-col mt-auto">
+              <span className="relative flex items-center w-full gap-2 mt-auto text-xs tracking-wide text-center">
+                <span className="h-[1px] block flex-1 bg-main-border" />
+                <span className="text-sm text-white/70">Like what you see?</span>
+                <span className="h-[1px] block flex-1 bg-main-border" />
+              </span>
+              <span className="block px-2.5">
+                <button className="w-full  mx-auto flex-1 px-6 min-h-[38px] gap-2 text-sm text-white border rounded-md bg-[#f0c165] border-main-border  hover:border-white/70  duration-150 flex items-center justify-center mt-2">
+                  Subscribe Now
+                </button>
+              </span>
+            </div>
           </div>
-          <div className="border border-main-border rounded-lg min-h-[400px] py-3.5">
+          <div className="border border-main-border rounded-lg min-h-[400px] py-3.5 flex flex-col">
             <div className="grid gap-0.5">
               <h1 className="font-medium tracking-wide">Pro</h1>
               <p className="max-w-md px-5 text-sm font-normal leading-5 text-white/70">
@@ -125,6 +151,19 @@ export default () => {
                 <span className="h-[1px] block flex-1 bg-main-border" />
                 <span className="text-sm text-white/70">Billed Monthly</span>
                 <span className="h-[1px] block flex-1 bg-main-border" />
+              </span>
+            </div>
+
+            <div className="flex flex-col mt-auto">
+              <span className="relative flex items-center w-full gap-2 mt-auto text-xs tracking-wide text-center">
+                <span className="h-[1px] block flex-1 bg-main-border" />
+                <span className="text-sm text-white/70">Like what you see?</span>
+                <span className="h-[1px] block flex-1 bg-main-border" />
+              </span>
+              <span className="block px-2.5">
+                <button className="w-full  mx-auto flex-1 px-6 min-h-[38px] gap-2 text-sm text-white/70 border rounded-md bg-main-800 border-main-border  hover:border-white/70  duration-150 flex items-center justify-center mt-2">
+                  Subscribe Now
+                </button>
               </span>
             </div>
           </div>
