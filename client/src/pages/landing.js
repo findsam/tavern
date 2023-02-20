@@ -62,8 +62,28 @@ export default () => {
           />
         </div>
       </section>
-
       <section className="flex flex-col items-center gap-5 mx-auto text-center mb-28">
+        <h1 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
+          How it works...
+        </h1>
+
+        <p className="max-w-md text-sm font-normal leading-5 text-white/70">
+          to build a community-driven cultivating and creative environment accessible
+          to the digital storyteller. We're trying something new, and why don't you?
+          Endlessly embark in the storytelling adventure and bring your tale together
+          with the help of Tavern.
+        </p>
+        <div className="max-w-4xl mx-auto blur-[0.01rem] mt-4">
+          <Image
+            src={`/hidden/page2.png`}
+            className="object-contain !w-full !relative -z-10 !h-['unset'] block  max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
+            fill
+            quality={100}
+          />
+        </div>
+      </section>
+
+      <section className="flex flex-col items-center gap-5 mx-auto mb-12 text-center">
         <h1 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
           Flexible pricing as you scale
         </h1>
@@ -149,7 +169,7 @@ export default () => {
                 Supporter
               </p>
               <h2 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
-                $5
+                $4.99
               </h2>
               <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
                 <span className="h-[1px] block flex-1 bg-main-border" />
@@ -217,7 +237,7 @@ export default () => {
                 Super-Supporter
               </p>
               <h2 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
-                $12
+                $9.99
               </h2>
               <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
                 <span className="h-[1px] block flex-1 bg-main-border" />
@@ -266,54 +286,6 @@ export default () => {
             </div>
           </div>
         </div>
-
-        {/* <div className="grid w-full max-w-4xl grid-cols-1 gap-5 mx-auto mt-1.5">
-          <div className="flex flex-row-reverse gap-5">
-            <div className="flex-1 p-5 overflow-hidden border rounded-xl border-main-border">
-              <h1 className="font-medium tracking-wide  mb-1.5">Authentication</h1>
-              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
-                For your security and online safety — we offer easy authentication
-                via Discord.
-              </p>
-            </div>
-            <div className="flex-1 p-5 overflow-hidden border rounded-xl border-main-border">
-              <h1 className="font-medium tracking-wide  mb-1.5">Full Control</h1>
-              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
-                Accept or Deny suggested collaberations anonymously or even just
-                disable it.
-              </p>
-            </div>
-            <div className="p-5 border rounded-xl border-main-border flex-[1.35]">
-              <h1 className="font-medium tracking-wide  mb-1.5">No Advertisement</h1>
-              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
-                An ad-free experience is critical for building an immersive Tavern
-                whereby each member can truly get lost in fantasy.
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-5">
-            <div className="flex-1 p-5 overflow-hidden border rounded-xl border-main-border">
-              <h1 className="font-medium tracking-wide  mb-1.5">Your Tavern</h1>
-              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
-                Save your favourite threads for later with ease by simply giving it a
-                like.
-              </p>
-            </div>
-            <div className="flex-1 p-5 overflow-hidden border rounded-xl border-main-border">
-              <h1 className="font-medium tracking-wide  mb-1.5">Collaberations</h1>
-              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
-                Seamless collaberation, no hastle meaningful tales together.
-              </p>
-            </div>
-            <div className="p-5 border rounded-xl border-main-border flex-[1.5]">
-              <h1 className="font-medium tracking-wide  mb-1.5">Crediting</h1>
-              <p className="max-w-md text-sm font-normal leading-5 text-white/70">
-                Each thread will respectively reward each collaberator by displaying
-                their profiles on the collaberation timeline.
-              </p>
-            </div>
-          </div>
-        </div> */}
       </section>
 
       <Footer />
@@ -358,7 +330,7 @@ const Navbar = () => {
 
 const Footer = () => {
   return (
-    <footer className="flex items-start max-w-4xl mx-auto mb-28">
+    <footer className="flex items-start max-w-4xl pt-10 mx-auto mb-12 border-t border-dashed border-main-border ">
       <ul className="grid gap-1 max-w-max">
         <div className="flex items-center gap-1 mb-1.5">
           <div className="flex items-center justify-center -space-x-3">
@@ -375,17 +347,7 @@ const Footer = () => {
         <li className="text-sm font-normal leading-5 text-white/70">Kingdom.</li>
       </ul>
 
-      <div className="flex items-start justify-between w-full max-w-md gap-5 ml-auto">
-        <ul className="grid flex-1 gap-1 max-w-max">
-          <h1 className="font-medium tracking-wide  mb-1.5">Discover</h1>
-          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
-            Pricing
-          </li>
-          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
-            Company
-          </li>
-        </ul>
-
+      <div className="flex items-start justify-between w-full max-w-xs ml-auto">
         <ul className="grid flex-1 gap-1 max-w-max">
           <h1 className="font-medium tracking-wide  mb-1.5">Legal</h1>
           <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
@@ -409,9 +371,6 @@ const Footer = () => {
           </li>
           <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
             Instagram
-          </li>
-          <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
-            LinkedIn
           </li>
         </ul>
       </div>
