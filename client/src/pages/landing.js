@@ -351,23 +351,23 @@ const Footer = () => {
         <ul className="grid flex-1 gap-1 max-w-max">
           <h1 className="font-medium tracking-wide  mb-1.5">Legal</h1>
           <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
-            Terms of Service
+            Cookie Policy
           </li>
           <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
             Privacy Policy
           </li>
           <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
-            Cookie Policy
+            Terms of Service
           </li>
         </ul>
 
         <ul className="grid flex-1 gap-1 max-w-max">
           <h1 className="font-medium tracking-wide  mb-1.5">Our Socials</h1>
           <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
-            Discord
+            Twitter
           </li>
           <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
-            Twitter
+            Discord
           </li>
           <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
             Instagram
