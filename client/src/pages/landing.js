@@ -73,7 +73,7 @@ export default () => {
           Endlessly embark in the storytelling adventure and bring your tale together
           with the help of Tavern.
         </p>
-        <div className="max-w-4xl mx-auto blur-[0.01rem] mt-4">
+        <div className="max-w-4xl mx-auto blur-[0.01rem] mt-4 relative -z-10">
           <Image
             src={`/hidden/page2.png`}
             className="object-contain !w-full !relative -z-10 !h-['unset'] block  max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
@@ -330,7 +330,7 @@ const Navbar = () => {
 
 const Footer = () => {
   return (
-    <footer className="flex items-start max-w-4xl pt-10 mx-auto mb-12 border-t border-dashed border-main-border ">
+    <footer className="flex items-start max-w-4xl pt-10 mx-auto mb-10 border-t border-dashed border-main-border ">
       <ul className="grid gap-1 max-w-max">
         <div className="flex items-center gap-1 mb-1.5">
           <div className="flex items-center justify-center -space-x-3">
