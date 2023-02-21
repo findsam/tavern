@@ -181,11 +181,11 @@ export default () => {
             <ul className="px-3.5 grid gap-2 mb-5 mt-5">
               <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
                 <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
-                <span className="inline">All basic and hobbyist features.</span>
+                <span className="inline">All hobbyist features.</span>
               </li>
               <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
                 <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
-                <span className="inline">10 Threads weekly.</span>
+                <span className="inline">15 Threads weekly.</span>
               </li>
               <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
                 <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
@@ -249,7 +249,7 @@ export default () => {
             <ul className="px-3.5 grid gap-2 mb-5 mt-5">
               <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
                 <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />
-                <span className="inline">All basic and lite features.</span>
+                <span className="inline">All hobbyist and lite features.</span>
               </li>
               <li className="inline-block text-sm font-normal leading-5 text-left text-white/70">
                 <IoCheckmarkCircleOutline className="inline text-lg mr-1.5" />

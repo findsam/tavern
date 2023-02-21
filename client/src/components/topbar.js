@@ -7,6 +7,7 @@ import { AiOutlineFileAdd } from "react-icons/ai";
 import NotificationsContainer from "./notifications/notificationsContainer";
 import { useContext } from "react";
 import { Context } from "../store/context";
+import Slider from "./slider";
 
 export default () => {
   const [show, setShow] = useState(false);
@@ -74,6 +75,7 @@ export default () => {
               <AiOutlineSearch className="text-xl opacity-70" />
             </button>
           </form>
+          <Slider />
         </div>
 
         <div className="ml-0 flex-0 md:ml-auto">
