@@ -6,11 +6,10 @@ import { useState, useRef, useEffect } from "react";
 export default () => {
   const slideContainer = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const STATIC_TABS = ["Feed", "For You", "Following"];
+  const STATIC_TABS = ["Feed", "Following", "For You"];
 
   const handleStaticTabClick = (idx) => {
     setActiveSlide(idx);
-    console.log("hitting this");
   };
 
   useEffect(() => {
@@ -18,8 +17,10 @@ export default () => {
     const activeChildNode = childNodes[activeSlide];
     const width = activeChildNode.getBoundingClientRect().width;
     const height = activeChildNode.getBoundingClientRect().height;
-    slideContainer.current.childNodes[0].style.width = `${width}px`;
-    slideContainer.current.childNodes[0].style.height = `${height}px`;
+    const lavaLamp = slideContainer.current.childNodes[0];
+    lavaLamp.style.width = `${width}px`;
+    lavaLamp.style.height = `${height}px`;
+    lavaLamp.style.left = `${activeChildNode.offsetLeft}px`;
   }, [activeSlide]);
 
   return (
@@ -28,7 +29,7 @@ export default () => {
       ref={slideContainer}
     >
       <span
-        className={`block w-full absolute z-10 bg-main-900 rounded-md left-0.5 ease-[cubic-bezier(.17,.67,.83,.67)] duration-150`}
+        className={`block w-full absolute z-10 bg-main-800 rounded-md left-0.5 ease-[cubic-bezier(.17,.67,.83,.67)] duration-150 transition-[left]`}
       />
       {STATIC_TABS.map((_, i) => (
         <li
