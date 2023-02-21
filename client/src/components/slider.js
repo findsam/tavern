@@ -1,22 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 
-//   "bg-main-800 text-white-100"
-//    "bg-transparent text-white/70"
-
 export default () => {
   const slideContainer = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const STATIC_TABS = ["Feed", "Following", "For You"];
 
-  const handleStaticTabClick = (idx) => {
-    setActiveSlide(idx);
-  };
-
   useEffect(() => {
     const childNodes = [...slideContainer.current.childNodes].slice(1);
     const activeChildNode = childNodes[activeSlide];
-    const width = activeChildNode.getBoundingClientRect().width;
-    const height = activeChildNode.getBoundingClientRect().height;
+    const { width, height } = activeChildNode.getBoundingClientRect();
     const lavaLamp = slideContainer.current.childNodes[0];
     lavaLamp.style.width = `${width}px`;
     lavaLamp.style.height = `${height}px`;
@@ -36,7 +28,7 @@ export default () => {
           className={`px-6 py-1 h-full rounded-md z-50 relative text-white/70 text-sm flex items-center hover:cursor-pointer hover:text-white duration-150  ${
             activeSlide === i && "text-white"
           }`}
-          onClick={() => handleStaticTabClick(i)}
+          onClick={() => setActiveSlide(i)}
         >
           {_}
         </li>
