@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 export default () => {
   const slideContainer = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const STATIC_TABS = ["Feed", "Following", "For You"];
+  const STATIC_TABS = ["Feed", "Following"];
 
   useEffect(() => {
     const childNodes = [...slideContainer.current.childNodes].slice(1);
