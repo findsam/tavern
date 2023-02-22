@@ -8,12 +8,16 @@ import NotificationsContainer from "./notifications/notificationsContainer";
 import { useContext } from "react";
 import { Context } from "../store/context";
 import Slider from "./slider";
+import { useRouter } from "next/router";
 
 export default () => {
   const [show, setShow] = useState(false);
   const [upload, setUpload] = useState(false);
   const { state } = useContext(Context);
 
+  const router = useRouter();
+
+  // console.log(router.pathname.split("").length);
   return (
     <>
       <Modal show={upload} setShow={setUpload}>
@@ -75,7 +79,7 @@ export default () => {
               <AiOutlineSearch className="text-xl opacity-70" />
             </button>
           </form>
-          <Slider />
+          {router.pathname.split("").length <= 1 && <Slider />}
         </div>
 
         <div className="ml-0 flex-0 md:ml-auto">

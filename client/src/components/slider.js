@@ -25,7 +25,7 @@ export default () => {
       />
       {STATIC_TABS.map((_, i) => (
         <li
-          className={`px-6 py-1 h-full rounded-md z-50 relative text-white/70 text-sm flex items-center hover:cursor-pointer hover:text-white duration-150  ${
+          className={`px-6 py-1 h-full select-none rounded-md z-50 relative text-white/70 text-sm flex items-center hover:cursor-pointer hover:text-white duration-150  ${
             activeSlide === i && "text-white"
           }`}
           onClick={() => setActiveSlide(i)}
