@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { memo } from "react";
 import { AiOutlineSound, AiOutlineMessage, AiOutlinePicture } from "react-icons/ai";
 
 const randomNames = ["saya#3893", "kianrws#rs4", "bellamonnet#9938", "tyasly#9929"];
 
-export default (props) => {
+export default memo((props) => {
   switch (props.type) {
     case "sound":
       return (
@@ -82,4 +83,4 @@ export default (props) => {
     default:
       return null;
   }
-};
+});
