@@ -39,7 +39,6 @@ export default ({ passedPosts }) => {
   const size = useWindowSize();
   const [cols, setCols] = useState(null);
   const [loaded, setLoaded] = useState(false);
-  const [lastCol, setLastCol] = useState(false);
 
   // useEffect(() => {
   //   testingInfiniteScroll();
