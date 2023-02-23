@@ -10,7 +10,7 @@ import { Context } from "../store/context";
 import Slider from "./slider";
 import { useRouter } from "next/router";
 
-export default () => {
+export default ({ setActiveTab }) => {
   const [show, setShow] = useState(false);
   const [upload, setUpload] = useState(false);
   const { state } = useContext(Context);

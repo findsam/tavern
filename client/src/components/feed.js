@@ -33,7 +33,6 @@ const images = [
 import Image from "next/image";
 
 export default ({ passedPosts }) => {
-  const [posts, setPosts] = useState(passedPosts);
   const container = useRef();
   const [columnWrappers, setColumnWrappers] = useState({});
   const size = useWindowSize();
@@ -74,9 +73,9 @@ export default ({ passedPosts }) => {
   useEffect(() => {
     if (cols !== null) {
       document.body.style.overflow = "hidden";
-      generateMasonryGrid(cols, posts);
+      generateMasonryGrid(cols, passedPosts);
     }
-  }, [posts, cols]);
+  }, [passedPosts, cols]);
 
   const observer = useRef();
   const lastPost = useCallback((node) => {
@@ -98,7 +97,6 @@ export default ({ passedPosts }) => {
   useEffect(() => {
     setColumnWrappers((prev) => {
       const temp = Object.assign({}, prev);
-
       const colsWithImages =
         Object.keys(prev)
           .map((_) => {
@@ -124,7 +122,7 @@ export default ({ passedPosts }) => {
       });
       return temp;
     });
-  }, [posts, passedPosts, cols]);
+  }, [passedPosts, cols]);
 
   return (
     <>
