@@ -48,12 +48,6 @@ export default memo(({ isPlaceholder }) => {
                 <li className={liclass}>
                   <span className="absolute inset-0 -translate-x-full animate-[shimmer_1.55s_infinite] bg-gradient-to-r from-main-800 via-main-500/5 to-main-800" />
                 </li>
-                <li className={liclass}>
-                  <span className="absolute inset-0 -translate-x-full animate-[shimmer_1.55s_infinite] bg-gradient-to-r from-main-800 via-main-500/5 to-main-800" />
-                </li>
-                <li className={liclass}>
-                  <span className="absolute inset-0 -translate-x-full animate-[shimmer_1.55s_infinite] bg-gradient-to-r from-main-800 via-main-500/5 to-main-800" />
-                </li>
               </ul>
             </div>
           );

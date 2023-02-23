@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import Loading from "./loading";
 import { useWindowSize } from "../hooks/useWindowSize";
+import { sleep } from "../static/util";
 const images = [
   "1.jpg",
   "2.jpg",
@@ -32,59 +33,73 @@ const images = [
 ];
 import Image from "next/image";
 
-export default ({ passedPosts }) => {
+export default ({ posts, tab, isLoaded, setIsLoaded }) => {
   const container = useRef();
   const [columnWrappers, setColumnWrappers] = useState({});
   const size = useWindowSize();
   const [cols, setCols] = useState(null);
-  const [loaded, setLoaded] = useState(false);
-
-  // useEffect(() => {
-  //   testingInfiniteScroll();
-  // }, []);
-
-  // function testingInfiniteScroll() {
-  //   let imageIndex = 0;
-  //   for (let i = 0; i < 80; i++) {
-  //     let item = {
-  //       id: i,
-  //       title: `Post ${i}`,
-  //       image: images[imageIndex],
-  //     };
-  //     setPosts((prevPosts) => [...prevPosts, item]);
-  //     imageIndex++;
-  //     if (imageIndex > images.length - 1) imageIndex = 0;
-  //   }
-  // }
 
   function generateMasonryGrid(columns, posts) {
     setColumnWrappers([]);
-    for (let i = 0; i < columns; i++)
-      setColumnWrappers((prev) => ({ ...prev, [`column${i}`]: [] }));
-    for (let i = 0; i < posts.length; i++) {
-      const column = i % columns;
-      setColumnWrappers((prev) => ({
-        ...prev,
-        [`column${column}`]: [...prev[`column${column}`], posts[i]],
-      }));
-    }
+    setIsLoaded(false);
+    (async () => {
+      await sleep(250);
+      for (let i = 0; i < columns; i++)
+        setColumnWrappers((prev) => ({ ...prev, [`column${i}`]: [] }));
+      for (let i = 0; i < posts.length; i++) {
+        const column = i % columns;
+        setColumnWrappers((prev) => ({
+          ...prev,
+          [`column${column}`]: [...prev[`column${column}`], posts[i]],
+        }));
+      }
+
+      setColumnWrappers((prev) => {
+        const temp = Object.assign({}, prev);
+        const colsWithImages =
+          Object.keys(prev)
+            .map((_) => {
+              return prev[_][prev[_].length - 1]?.image ? true : null;
+            })
+            .filter((_) => _ !== null).length - 1;
+
+        Object.keys(prev).forEach((_, index) => {
+          let hasImage = prev[_][prev[_].length - 1];
+          if (
+            !prev[_] ||
+            prev[_] === undefined ||
+            (Array.isArray(prev[_]) && prev[_].length === 0)
+          ) {
+            return (temp[_] = [{ id: Math.random() }]);
+          } else if (hasImage && index === colsWithImages) {
+            return (temp[_][temp[_].length - 1] = {
+              ...temp[_][temp[_].length - 1],
+              isLast: true,
+            });
+          }
+          return temp[_];
+        });
+
+        return temp;
+      });
+    })();
   }
 
   useEffect(() => {
     if (cols !== null) {
       document.body.style.overflow = "hidden";
-      generateMasonryGrid(cols, passedPosts);
+      generateMasonryGrid(cols, posts);
     }
-  }, [passedPosts, cols]);
+  }, [posts, cols]);
 
-  const observer = useRef();
-  const lastPost = useCallback((node) => {
-    if (observer.current) observer.current.disconnect();
-    // observer.current = new IntersectionObserver((entries) => {
-    //   if (entries[0].isIntersecting) testingInfiniteScroll();
-    // });
-    // if (node) observer.current.observe(node);
-  }, []);
+  // const observer = useRef();
+  // const lastPost = useCallback((node) => {
+  //   if (observer.current) observer.current.disconnect();
+  //   // observer.current = new IntersectionObserver((entries) => {
+  //   //   if (entries[0].isIntersecting) testingInfiniteScroll();
+  //   // });
+  //   // if (node) observer.current.observe(node);
+  // }, []);
 
   useEffect(() => {
     if (size.width > 1450) setCols(5);
@@ -94,60 +109,59 @@ export default ({ passedPosts }) => {
     if (size.width < 600) setCols(1);
   }, [size.width]);
 
-  useEffect(() => {
-    setColumnWrappers((prev) => {
-      const temp = Object.assign({}, prev);
-      const colsWithImages =
-        Object.keys(prev)
-          .map((_) => {
-            return prev[_][prev[_].length - 1]?.image ? true : null;
-          })
-          .filter((_) => _ !== null).length - 1;
+  // useEffect(() => {
+  //   setColumnWrappers((prev) => {
+  //     const temp = Object.assign({}, prev);
+  //     const colsWithImages =
+  //       Object.keys(prev)
+  //         .map((_) => {
+  //           return prev[_][prev[_].length - 1]?.image ? true : null;
+  //         })
+  //         .filter((_) => _ !== null).length - 1;
 
-      Object.keys(prev).forEach((_, index) => {
-        let hasImage = prev[_][prev[_].length - 1];
-        if (
-          !prev[_] ||
-          prev[_] === undefined ||
-          (Array.isArray(prev[_]) && prev[_].length === 0)
-        ) {
-          return (temp[_] = [{ id: Math.random() }]);
-        } else if (hasImage && index === colsWithImages) {
-          return (temp[_][temp[_].length - 1] = {
-            ...temp[_][temp[_].length - 1],
-            isLast: true,
-          });
-        }
-        return temp[_];
-      });
-      return temp;
-    });
-  }, [passedPosts, cols]);
+  //     Object.keys(prev).forEach((_, index) => {
+  //       let hasImage = prev[_][prev[_].length - 1];
+  //       if (
+  //         !prev[_] ||
+  //         prev[_] === undefined ||
+  //         (Array.isArray(prev[_]) && prev[_].length === 0)
+  //       ) {
+  //         return (temp[_] = [{ id: Math.random() }]);
+  //       } else if (hasImage && index === colsWithImages) {
+  //         return (temp[_][temp[_].length - 1] = {
+  //           ...temp[_][temp[_].length - 1],
+  //           isLast: true,
+  //         });
+  //       }
+  //       return temp[_];
+  //     });
+
+  //     return temp;
+  //   });
+  // }, [posts, cols]);
 
   return (
     <>
       <div className="grid w-full">
-        {!loaded && cols && (
+        {/* {!isLoaded && cols && (
           <div className="relative flex gap-2.5 md:gap-5 items-start">
             {[...Array(cols)].map((_, _i) => (
               <Loading key={_i} />
             ))}
           </div>
-        )}
-        <div
-          className={`relative flex gap-2.5 md:gap-5 ${
-            loaded ? "visible" : "invisible"
-          }`}
-          ref={container}
-        >
+        )} */}
+
+        <div className={`relative flex gap-2.5 md:gap-5`} ref={container}>
           {Object.keys(columnWrappers).map((key, index) => {
             return (
               <div className="flex flex-col flex-1 gap-2.5 md:gap-5" key={index}>
                 {columnWrappers[key].map((item, index) => {
                   if (item.isLast) {
-                    return <Post post={item} key={index} setLoaded={setLoaded} />;
+                    return (
+                      <Post key={index} post={item} setIsLoaded={setIsLoaded} />
+                    );
                   }
-                  return <Post post={item} key={index} />;
+                  return <Post key={index} post={item} />;
                 })}
               </div>
             );
@@ -158,7 +172,7 @@ export default ({ passedPosts }) => {
   );
 };
 
-const Post = ({ post, setLoaded = null }) => {
+const Post = ({ post, setIsLoaded = null }) => {
   return (
     <>
       <div className={`${post.isLast && "IM THE LAST"} relative w-full`}>
@@ -172,7 +186,7 @@ const Post = ({ post, setLoaded = null }) => {
                       onLoadingComplete={
                         post.isLast &&
                         (() => {
-                          setLoaded(true);
+                          setIsLoaded(true);
                           document.body.style.overflow = "unset";
                         })
                       }
@@ -205,7 +219,7 @@ const Post = ({ post, setLoaded = null }) => {
                   </li>
                   {post.isLast && (
                     <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
-                      Development Last
+                      Last
                     </li>
                   )}
                 </ul>

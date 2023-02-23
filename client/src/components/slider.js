@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-export default ({ setActiveTab = null }) => {
+export default ({ setTab }) => {
   const slideContainer = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const STATIC_TABS = ["Feed", "Following"];
@@ -21,7 +21,7 @@ export default ({ setActiveTab = null }) => {
       ref={slideContainer}
     >
       <span
-        className={`will-change-transform block w-full absolute z-10 bg-main-800 rounded-md left-0.5 ease-[cubic-bezier(.17,.67,.83,.67)] duration-150 transition-[left]`}
+        className={`will-change-transform block w-full absolute z-10 bg-main-800 rounded-md left-0.5 ease-[cubic-bezier(.17,.67,.83,.67)] transition-[left]`}
       />
       {STATIC_TABS.map((_, i) => (
         <li
@@ -29,6 +29,7 @@ export default ({ setActiveTab = null }) => {
             activeSlide === i && "text-white"
           }`}
           onClick={() => {
+            setTab(i);
             setActiveSlide(i);
           }}
         >
