@@ -7,21 +7,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState(0);
-  const [data, setData] = useState(dummyData);
-  const {
-    query: { activity },
-  } = useRouter();
-
-  useEffect(() => {
-    if (activity == "feed") {
-      setData(dummyData);
-    }
-    if (activity == "following") {
-      setData(data.slice(0, 3));
-    }
-  }, [activity]);
-
   if (!useAuth()) return null;
 
   return (
@@ -29,7 +14,7 @@ export default function Home() {
       <Topbar />
       <Navbar />
       <div className="flex w-[calc(100%-62px)] ml-auto px-2.5 md:px-5  pb-12 mt-[62px] pt-2.5 md:pt-5">
-        <Feed passedPosts={data} />
+        <Feed passedPosts={dummyData} />
       </div>
     </>
   );
