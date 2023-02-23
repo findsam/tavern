@@ -12,9 +12,8 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(false);
-    if (tab === 0) return setPosts(dummyData);
-    if (tab === 1) return setPosts(dummyData.slice(0, 5));
+    if (tab === 0) setPosts(dummyData);
+    if (tab === 1) setPosts(dummyData.slice(0, 5));
   }, [tab]);
   if (!useAuth()) return null;
 
