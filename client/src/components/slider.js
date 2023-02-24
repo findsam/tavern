@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
+import { sleep } from "../static/util";
 
 export default () => {
   const slideContainer = useRef(null);
