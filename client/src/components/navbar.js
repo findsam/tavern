@@ -9,10 +9,10 @@ import {
 import { getDiscordURL } from "../static/util";
 import { RiHeartLine } from "react-icons/ri";
 import { handleLogout } from "../static/api";
+import { Context } from "../store/context";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import Link from "next/link";
-import { Context } from "../store/context";
 
 const APP_ROUTES = [
   { name: "Home", url: "/", icon: <AiOutlineHome />, tooltip: "Homepage" },
