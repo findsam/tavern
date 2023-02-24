@@ -59,7 +59,7 @@ export default function Navbar(props) {
                   <span className="text-[1.3rem] relative">
                     {r.icon}
 
-                    <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7 whitespace-nowrap">
+                    <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none select-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7 whitespace-nowrap">
                       {isActivePath ? "You are here" : r.name}
                     </span>
                   </span>
