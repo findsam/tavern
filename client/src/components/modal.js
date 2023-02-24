@@ -16,7 +16,7 @@ export default ({ show, setShow, children }) => {
         await sleep(1);
         container?.current?.childNodes[0]?.classList?.remove(
           "opacity-0",
-          "-translate-y-8"
+          "-translate-y-4"
         );
         document.body.style.overflow = "hidden";
       }
@@ -24,7 +24,7 @@ export default ({ show, setShow, children }) => {
   }, [show, container]);
 
   async function handleClose() {
-    container?.current?.childNodes[0]?.classList?.add("opacity-0", "-translate-y-8");
+    container?.current?.childNodes[0]?.classList?.add("opacity-0", "-translate-y-4");
     document.body.style.overflow = "unset";
     await sleep(300);
     setShow(false);
@@ -43,10 +43,10 @@ export default ({ show, setShow, children }) => {
   return (
     show && (
       <div
-        className="fixed top-0 left-0 z-50 flex items-start justify-center w-full h-full p-3 pt-20 overflow-hidden transition-all duration-150 bg-main-900/90"
+        className="fixed top-0 left-0 z-50 flex items-start justify-center w-full h-full p-3 pt-20 overflow-hidden transition-all duration-150 bg-main-900/70"
         ref={container}
       >
-        <div className="duration-300 -translate-y-8 border rounded-lg opacity-0 border-main-border bg-main-800 max-w-[535px] w-full">
+        <div className="w-full max-w-lg duration-300 -translate-y-4 border rounded-lg opacity-0 border-main-border bg-main-800">
           <div className="relative b-5">
             <button
               className="absolute items-center justify-center -right-3.5 top-5 rounded-full border border-main-border bg-main-900 h-[28px] w-[28px] flex z-50"
