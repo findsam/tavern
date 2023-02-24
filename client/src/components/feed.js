@@ -33,6 +33,7 @@ const images = [
 import Image from "next/image";
 
 export default ({ passedPosts, setIsLoaded, isLoaded }) => {
+  const firstRender = useRef(true);
   const container = useRef();
   const [columnWrappers, setColumnWrappers] = useState({});
   const size = useWindowSize();
@@ -115,7 +116,7 @@ export default ({ passedPosts, setIsLoaded, isLoaded }) => {
   return (
     <>
       <div className="grid w-full">
-        {/* {!loaded && cols && (
+        {/* {firstRender && cols && (
           <div className="relative flex gap-2.5 md:gap-5 items-start">
             {[...Array(cols)].map((_, _i) => (
               <Loading key={_i} />
@@ -129,7 +130,12 @@ export default ({ passedPosts, setIsLoaded, isLoaded }) => {
                 {columnWrappers[key].map((item, index) => {
                   if (item.isLast) {
                     return (
-                      <Post key={index} post={item} setIsLoaded={setIsLoaded} />
+                      <Post
+                        key={index}
+                        post={item}
+                        setIsLoaded={setIsLoaded}
+                        firstRender={firstRender}
+                      />
                     );
                   }
                   return <Post post={item} key={index} />;
