@@ -53,14 +53,12 @@ export default ({ passedPosts, setIsLoaded, isLoaded, firstRender }) => {
     }
     setColumnWrappers((prev) => {
       const temp = Object.assign({}, prev);
-
       const colsWithImages =
         Object.keys(prev)
           .map((_) => {
             return prev[_][prev[_].length - 1]?.image ? true : null;
           })
           .filter((_) => _ !== null).length - 1;
-
       Object.keys(prev).forEach((_, index) => {
         let hasImage = prev[_][prev[_].length - 1];
         if (

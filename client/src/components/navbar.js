@@ -34,7 +34,6 @@ export default function Navbar(props) {
   const router = useRouter();
   const { state, dispatch } = useContext(Context);
 
-  // console.log(state);
   return (
     <div className="fixed top-0 left-0 min-h-screen border-r bg-main-800 border-main-border max-w-[62px] min-w-[62px] z-10">
       <nav className="flex flex-col items-center h-full min-h-screen gap-5 p-2">
