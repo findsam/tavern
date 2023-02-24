@@ -165,7 +165,8 @@ const Post = ({ post, setIsLoaded = null }) => {
                       src={"/" + post.image}
                       className="object-contain !w-full !relative !h-['unset']"
                       fill
-                      quality={85}
+                      loading="eager"
+                      quality={70}
                     />
                   </>
                 </div>

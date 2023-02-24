@@ -41,7 +41,7 @@ export default function Home() {
       <Topbar />
       <Navbar />
       <div
-        className={`flex w-[calc(100%-62px)] ml-auto px-2.5 md:px-5  pb-12 mt-[62px] pt-2.5 md:pt-5`}
+        className={`flex w-[calc(100%-62px)] ml-auto px-2.5 md:px-5 pb-12 mt-[62px] pt-2.5 md:pt-5`}
       >
         <Feed passedPosts={posts} setIsLoaded={setIsLoaded} isLoaded={isLoaded} />
       </div>

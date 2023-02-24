@@ -12,6 +12,13 @@ export default () => {
   const router = useRouter();
 
   useEffect(() => {
+    const foundIndex = STATIC_TABS.findIndex(
+      (_) => _.name.toLocaleLowerCase() === router.query.activity.toLocaleLowerCase()
+    );
+    setActiveSlide(foundIndex);
+  }, [router.query]);
+
+  useEffect(() => {
     const childNodes = [...slideContainer.current.childNodes].slice(1);
     const activeChildNode = childNodes[activeSlide];
     const { width, height } = activeChildNode.getBoundingClientRect();
@@ -27,7 +34,7 @@ export default () => {
       ref={slideContainer}
     >
       <span
-        className={`will-change-transform block w-full absolute z-10 bg-main-800 rounded-md left-0.5 ease-[cubic-bezier(.17,.67,.83,.67)] transition-[left]`}
+        className={`will-change-transform block w-full absolute z-10 bg-main-800 rounded-md left-0.5 duration-150 ease-[cubic-bezier(.17,.67,.83,.67)] transition-[left]`}
       />
       {STATIC_TABS.map((_, i) => (
         <li
