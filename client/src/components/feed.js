@@ -9,7 +9,6 @@ import {
 import Link from "next/link";
 import Loading from "./loading";
 import { useWindowSize } from "../hooks/useWindowSize";
-import { sleep } from "../static/util";
 const images = [
   "1.jpg",
   "2.jpg",
@@ -33,73 +32,77 @@ const images = [
 ];
 import Image from "next/image";
 
-export default ({ posts, tab, isLoaded, setIsLoaded }) => {
+export default ({ passedPosts, setIsLoaded, isLoaded }) => {
   const container = useRef();
   const [columnWrappers, setColumnWrappers] = useState({});
   const size = useWindowSize();
   const [cols, setCols] = useState(null);
 
+  // useEffect(() => {
+  //   testingInfiniteScroll();
+  // }, []);
+
+  // function testingInfiniteScroll() {
+  //   let imageIndex = 0;
+  //   for (let i = 0; i < 80; i++) {
+  //     let item = {
+  //       id: i,
+  //       title: `Post ${i}`,
+  //       image: images[imageIndex],
+  //     };
+  //     setPosts((prevPosts) => [...prevPosts, item]);
+  //     imageIndex++;
+  //     if (imageIndex > images.length - 1) imageIndex = 0;
+  //   }
+  // }
+
   function generateMasonryGrid(columns, posts) {
     setColumnWrappers([]);
-    setIsLoaded(false);
-    (async () => {
-      await sleep(250);
-      for (let i = 0; i < columns; i++)
-        setColumnWrappers((prev) => ({ ...prev, [`column${i}`]: [] }));
-      for (let i = 0; i < posts.length; i++) {
-        const column = i % columns;
-        setColumnWrappers((prev) => ({
-          ...prev,
-          [`column${column}`]: [...prev[`column${column}`], posts[i]],
-        }));
-      }
+    for (let i = 0; i < columns; i++)
+      setColumnWrappers((prev) => ({ ...prev, [`column${i}`]: [] }));
+    for (let i = 0; i < posts.length; i++) {
+      const column = i % columns;
+      setColumnWrappers((prev) => ({
+        ...prev,
+        [`column${column}`]: [...prev[`column${column}`], posts[i]],
+      }));
+    }
+    setColumnWrappers((prev) => {
+      const temp = Object.assign({}, prev);
 
-      setColumnWrappers((prev) => {
-        const temp = Object.assign({}, prev);
-        const colsWithImages =
-          Object.keys(prev)
-            .map((_) => {
-              return prev[_][prev[_].length - 1]?.image ? true : null;
-            })
-            .filter((_) => _ !== null).length - 1;
+      const colsWithImages =
+        Object.keys(prev)
+          .map((_) => {
+            return prev[_][prev[_].length - 1]?.image ? true : null;
+          })
+          .filter((_) => _ !== null).length - 1;
 
-        Object.keys(prev).forEach((_, index) => {
-          let hasImage = prev[_][prev[_].length - 1];
-          if (
-            !prev[_] ||
-            prev[_] === undefined ||
-            (Array.isArray(prev[_]) && prev[_].length === 0)
-          ) {
-            return (temp[_] = [{ id: Math.random() }]);
-          } else if (hasImage && index === colsWithImages) {
-            return (temp[_][temp[_].length - 1] = {
-              ...temp[_][temp[_].length - 1],
-              isLast: true,
-            });
-          }
-          return temp[_];
-        });
-
-        return temp;
+      Object.keys(prev).forEach((_, index) => {
+        let hasImage = prev[_][prev[_].length - 1];
+        if (
+          !prev[_] ||
+          prev[_] === undefined ||
+          (Array.isArray(prev[_]) && prev[_].length === 0)
+        ) {
+          return (temp[_] = [{ id: Math.random() }]);
+        } else if (hasImage && index === colsWithImages) {
+          return (temp[_][temp[_].length - 1] = {
+            ...temp[_][temp[_].length - 1],
+            isLast: true,
+          });
+        }
+        return temp[_];
       });
-    })();
+      return temp;
+    });
   }
 
   useEffect(() => {
     if (cols !== null) {
       document.body.style.overflow = "hidden";
-      generateMasonryGrid(cols, posts);
+      generateMasonryGrid(cols, passedPosts);
     }
-  }, [posts, cols]);
-
-  // const observer = useRef();
-  // const lastPost = useCallback((node) => {
-  //   if (observer.current) observer.current.disconnect();
-  //   // observer.current = new IntersectionObserver((entries) => {
-  //   //   if (entries[0].isIntersecting) testingInfiniteScroll();
-  //   // });
-  //   // if (node) observer.current.observe(node);
-  // }, []);
+  }, [passedPosts, cols]);
 
   useEffect(() => {
     if (size.width > 1450) setCols(5);
@@ -109,48 +112,16 @@ export default ({ posts, tab, isLoaded, setIsLoaded }) => {
     if (size.width < 600) setCols(1);
   }, [size.width]);
 
-  // useEffect(() => {
-  //   setColumnWrappers((prev) => {
-  //     const temp = Object.assign({}, prev);
-  //     const colsWithImages =
-  //       Object.keys(prev)
-  //         .map((_) => {
-  //           return prev[_][prev[_].length - 1]?.image ? true : null;
-  //         })
-  //         .filter((_) => _ !== null).length - 1;
-
-  //     Object.keys(prev).forEach((_, index) => {
-  //       let hasImage = prev[_][prev[_].length - 1];
-  //       if (
-  //         !prev[_] ||
-  //         prev[_] === undefined ||
-  //         (Array.isArray(prev[_]) && prev[_].length === 0)
-  //       ) {
-  //         return (temp[_] = [{ id: Math.random() }]);
-  //       } else if (hasImage && index === colsWithImages) {
-  //         return (temp[_][temp[_].length - 1] = {
-  //           ...temp[_][temp[_].length - 1],
-  //           isLast: true,
-  //         });
-  //       }
-  //       return temp[_];
-  //     });
-
-  //     return temp;
-  //   });
-  // }, [posts, cols]);
-
   return (
     <>
       <div className="grid w-full">
-        {/* {!isLoaded && cols && (
+        {/* {!loaded && cols && (
           <div className="relative flex gap-2.5 md:gap-5 items-start">
             {[...Array(cols)].map((_, _i) => (
               <Loading key={_i} />
             ))}
           </div>
         )} */}
-
         <div className={`relative flex gap-2.5 md:gap-5`} ref={container}>
           {Object.keys(columnWrappers).map((key, index) => {
             return (
@@ -161,7 +132,7 @@ export default ({ posts, tab, isLoaded, setIsLoaded }) => {
                       <Post key={index} post={item} setIsLoaded={setIsLoaded} />
                     );
                   }
-                  return <Post key={index} post={item} />;
+                  return <Post post={item} key={index} />;
                 })}
               </div>
             );
@@ -219,7 +190,7 @@ const Post = ({ post, setIsLoaded = null }) => {
                   </li>
                   {post.isLast && (
                     <li className="px-2 py-1 text-[10px] tracking-wide text-white/70 duration-150 rounded-full bg-main-800">
-                      Last
+                      Development Last
                     </li>
                   )}
                 </ul>

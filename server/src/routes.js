@@ -5,7 +5,7 @@ const {
 } = require("./controllers.js");
 const { generateNewAccessToken } = require("./services.js");
 const jwt = require("jsonwebtoken");
-const { signJWT, verifyJWT, generateCookies } = require("./constants.js");
+const { signJWT, verifyJWT, generateCookies, dummyData } = require("./constants.js");
 
 async function generateTokens(req, res) {
   if (req.cookies.refreshToken) {
@@ -42,10 +42,33 @@ async function verifyTokens(req, res, next) {
   }
 }
 
+async function fetchTest(req, res) {
+  const { type } = req.params;
+  if (+type === 0) {
+    res.status(200).json(dummyData);
+  }
+  if (+type === 1) {
+    res.status(200).json([dummyData[Math.floor(Math.random() * dummyData.length)]]);
+  }
+  if (+type === 2) {
+    res
+      .status(200)
+      .json([
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+      ]);
+  }
+}
+
 function routes(app) {
   app.get("/api/auth/discord/redirect", discordOAuthHandler);
   app.get("/getUserDetails", verifyTokens, fetchUserDetails);
   app.get("/logout", verifyTokens, handleLogout);
+  app.get("/fetch/:type", fetchTest);
 }
 
 module.exports = routes;

@@ -1,9 +1,15 @@
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/router";
 
-export default ({ setTab }) => {
+export default () => {
   const slideContainer = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const STATIC_TABS = ["Feed", "Following"];
+  const STATIC_TABS = [
+    { name: "Feed" },
+    { name: "Following" },
+    { name: "Favourites" },
+  ];
+  const router = useRouter();
 
   useEffect(() => {
     const childNodes = [...slideContainer.current.childNodes].slice(1);
@@ -29,11 +35,11 @@ export default ({ setTab }) => {
             activeSlide === i && "text-white"
           }`}
           onClick={() => {
-            setTab(i);
+            router.push(`/?activity=${_.name.toLowerCase()}`);
             setActiveSlide(i);
           }}
         >
-          {_}
+          {_.name}
         </li>
       ))}
     </ul>

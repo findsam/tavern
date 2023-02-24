@@ -8,3 +8,4 @@ const API = axios.create({
 
 export const getUserDetails = () => API.get("/getUserDetails");
 export const logout = () => API.get("/logout");
+export const fetchTest = (type) => API.get(`/fetch/${type}`);

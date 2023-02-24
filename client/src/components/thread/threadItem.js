@@ -6,7 +6,6 @@ import { useContext } from "react";
 import { Context } from "../../store/context";
 import { useRouter } from "next/router";
 import { RiHeartLine, RiHeartFill } from "react-icons/ri";
-import { dummyData } from "../../static/util";
 import { useState, useRef } from "react";
 import { TbCopy } from "react-icons/tb";
 import { sleep } from "../../static/util";
@@ -15,7 +14,7 @@ import AudioPlayer from "../audio/audioPlayer";
 export default () => {
   const { state, dispatch } = useContext(Context);
   const router = useRouter();
-  const post = dummyData.find((_) => _.id === +router.query.slug);
+  // const post = dummyData.find((_) => _.id === +router.query.slug);
   !post && router.push("/");
   const liked = state.favourites.find((_) => _.id == post.id);
 

@@ -26,4 +26,13 @@ const handleLogout = async (next, router) => {
   }
 };
 
-export { fetchUserDetails, handleLogout };
+const fetchTest = async (next, type) => {
+  try {
+    const { data } = await api.fetchTest(type);
+    next(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { fetchUserDetails, handleLogout, fetchTest };

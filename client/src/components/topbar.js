@@ -10,7 +10,7 @@ import { Context } from "../store/context";
 import Slider from "./slider";
 import { useRouter } from "next/router";
 
-export default ({ setTab }) => {
+export default () => {
   const [show, setShow] = useState(false);
   const [upload, setUpload] = useState(false);
   const { state } = useContext(Context);
@@ -77,7 +77,7 @@ export default ({ setTab }) => {
               <AiOutlineSearch className="text-xl opacity-70" />
             </button>
           </form>
-          {pathname.split("").length <= 1 && <Slider setTab={setTab} />}
+          <Slider />
         </div>
 
         <div className="ml-0 flex-0 md:ml-auto">
