@@ -32,8 +32,7 @@ const images = [
 ];
 import Image from "next/image";
 
-export default ({ passedPosts, setIsLoaded, isLoaded }) => {
-  const firstRender = useRef(true);
+export default ({ passedPosts, setIsLoaded, isLoaded, firstRender }) => {
   const container = useRef();
   const [columnWrappers, setColumnWrappers] = useState({});
   const size = useWindowSize();
@@ -116,13 +115,13 @@ export default ({ passedPosts, setIsLoaded, isLoaded }) => {
   return (
     <>
       <div className="grid w-full">
-        {/* {firstRender && cols && (
+        {firstRender.current && cols && (
           <div className="relative flex gap-2.5 md:gap-5 items-start">
             {[...Array(cols)].map((_, _i) => (
               <Loading key={_i} />
             ))}
           </div>
-        )} */}
+        )}
         <div className={`relative flex gap-2.5 md:gap-5`} ref={container}>
           {Object.keys(columnWrappers).map((key, index) => {
             return (
@@ -149,7 +148,7 @@ export default ({ passedPosts, setIsLoaded, isLoaded }) => {
   );
 };
 
-const Post = ({ post, setIsLoaded = null }) => {
+const Post = ({ post, setIsLoaded = null, firstRender }) => {
   return (
     <>
       <div className={`${post.isLast && "IM THE LAST"} relative w-full`}>
@@ -163,6 +162,7 @@ const Post = ({ post, setIsLoaded = null }) => {
                       onLoadingComplete={
                         post.isLast &&
                         (() => {
+                          firstRender.current = false;
                           setIsLoaded(true);
                           document.body.style.overflow = "unset";
                         })

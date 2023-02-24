@@ -2,13 +2,13 @@ import Navbar from "../components/navbar";
 import Topbar from "../components/topbar";
 import Feed from "../components/feed";
 import useAuth from "../hooks/useAuth";
-import { useState, useEffect } from "react";
 import { fetchTest } from "../static/api";
-import { dummyData } from "../static/util";
 import { useRouter } from "next/router";
 import { sleep } from "../static/util";
+import { useRef, useLayoutEffect, useState, useEffect } from "react";
 
 export default function Home() {
+  const firstRender = useRef(true);
   const [posts, setPosts] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const {
@@ -42,7 +42,12 @@ export default function Home() {
       <div
         className={`flex w-[calc(100%-62px)] ml-auto px-2.5 md:px-5 pb-12 mt-[62px] pt-2.5 md:pt-5`}
       >
-        <Feed passedPosts={posts} setIsLoaded={setIsLoaded} isLoaded={isLoaded} />
+        <Feed
+          passedPosts={posts}
+          setIsLoaded={setIsLoaded}
+          isLoaded={isLoaded}
+          firstRender={firstRender}
+        />
       </div>
     </>
   );
