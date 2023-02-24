@@ -52,7 +52,6 @@ export default function Home() {
             ))}
           </div>
         )}
-
         <Feed
           passedPosts={posts}
           setIsLoaded={setIsLoaded}

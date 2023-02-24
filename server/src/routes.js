@@ -2,6 +2,7 @@ const {
   discordOAuthHandler,
   handleLogout,
   fetchUserDetails,
+  fetchMultipleThreads,
   fetchIndividualThread,
 } = require("./controllers.js");
 const { generateNewAccessToken } = require("./services.js");
@@ -43,27 +44,11 @@ async function verifyTokens(req, res, next) {
   }
 }
 
-async function fetchTest(req, res) {
-  const { type } = req.params;
-  if (+type === 0) {
-    res.status(200).json(dummyData);
-  }
-  if (+type === 1) {
-    res
-      .status(200)
-      .json([
-        dummyData[Math.floor(Math.random() * dummyData.length)],
-        dummyData[Math.floor(Math.random() * dummyData.length)],
-        dummyData[Math.floor(Math.random() * dummyData.length)],
-      ]);
-  }
-}
-
 function routes(app) {
   app.get("/api/auth/discord/redirect", discordOAuthHandler);
   app.get("/getUserDetails", verifyTokens, fetchUserDetails);
   app.get("/logout", verifyTokens, handleLogout);
-  app.get("/fetch/:type", fetchTest);
+  app.get("/fetch/:type", fetchMultipleThreads);
   app.get("/fetchIndividualThread/:id", fetchIndividualThread);
 }
 

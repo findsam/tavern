@@ -52,6 +52,26 @@ async function fetchUserDetails(req, res) {
   }
 }
 
+async function fetchMultipleThreads(req, res) {
+  const { type } = req.params;
+  if (+type === 0) {
+    res.status(200).json(dummyData);
+  }
+  if (+type === 1) {
+    res
+      .status(200)
+      .json([
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+        dummyData[Math.floor(Math.random() * dummyData.length)],
+      ]);
+  }
+}
+
 async function fetchIndividualThread(req, res) {
   const thread = dummyData.find((_) => _.id === +req.params.id);
   if (thread) {
@@ -65,5 +85,6 @@ module.exports = {
   discordOAuthHandler,
   handleLogout,
   fetchUserDetails,
+  fetchMultipleThreads,
   fetchIndividualThread,
 };

@@ -79,6 +79,15 @@ export default ({ passedPosts, setIsLoaded, isLoaded, firstRender }) => {
     });
   }
 
+  const observer = useRef();
+  const lastPost = useCallback((node) => {
+    if (observer.current) observer.current.disconnect();
+    observer.current = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) console.log("hi");
+    });
+    if (node) observer.current.observe(node);
+  }, []);
+
   return (
     <>
       <div className="grid w-full">
@@ -89,12 +98,14 @@ export default ({ passedPosts, setIsLoaded, isLoaded, firstRender }) => {
                 {columnWrappers[key].map((item, index) => {
                   if (item.isLast) {
                     return (
-                      <Post
-                        key={index}
-                        post={item}
-                        setIsLoaded={setIsLoaded}
-                        firstRender={firstRender}
-                      />
+                      <span ref={lastPost}>
+                        <Post
+                          key={index}
+                          post={item}
+                          setIsLoaded={setIsLoaded}
+                          firstRender={firstRender}
+                        />
+                      </span>
                     );
                   }
                   return <Post post={item} key={index} />;
