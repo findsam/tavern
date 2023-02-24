@@ -55,9 +55,6 @@ async function fetchTest(req, res) {
         dummyData[Math.floor(Math.random() * dummyData.length)],
         dummyData[Math.floor(Math.random() * dummyData.length)],
         dummyData[Math.floor(Math.random() * dummyData.length)],
-        dummyData[Math.floor(Math.random() * dummyData.length)],
-        dummyData[Math.floor(Math.random() * dummyData.length)],
-        dummyData[Math.floor(Math.random() * dummyData.length)],
       ]);
   }
 }

@@ -7,36 +7,13 @@ import {
   useMemo,
 } from "react";
 import Link from "next/link";
-import Loading from "./loading";
-import { useWindowSize } from "../hooks/useWindowSize";
-const images = [
-  "1.jpg",
-  "2.jpg",
-  "3.jpg",
-  "4.jpg",
-  "5.webp",
-  "6.jpg",
-  "7.jpg",
-  "8.jpg",
-  "9.webp",
-  "10.jpg",
-  "11.jpg",
-  "12.jpg",
-  "13.jpg",
-  "14.jpg",
-  "15.jpeg",
-  "16.jpeg",
-  "17.jpeg",
-  "18.jpg",
-  "19.webp",
-];
+import { useCols } from "../hooks/useCols";
 import Image from "next/image";
 
 export default ({ passedPosts, setIsLoaded, isLoaded, firstRender }) => {
   const container = useRef();
   const [columnWrappers, setColumnWrappers] = useState({});
-  const size = useWindowSize();
-  const [cols, setCols] = useState(null);
+  const cols = useCols();
 
   // useEffect(() => {
   //   testingInfiniteScroll();
@@ -55,6 +32,13 @@ export default ({ passedPosts, setIsLoaded, isLoaded, firstRender }) => {
   //     if (imageIndex > images.length - 1) imageIndex = 0;
   //   }
   // }
+
+  useEffect(() => {
+    if (cols !== null) {
+      document.body.style.overflow = "hidden";
+      generateMasonryGrid(cols, passedPosts);
+    }
+  }, [passedPosts, cols]);
 
   function generateMasonryGrid(columns, posts) {
     setColumnWrappers([]);
@@ -97,31 +81,9 @@ export default ({ passedPosts, setIsLoaded, isLoaded, firstRender }) => {
     });
   }
 
-  useEffect(() => {
-    if (cols !== null) {
-      document.body.style.overflow = "hidden";
-      generateMasonryGrid(cols, passedPosts);
-    }
-  }, [passedPosts, cols]);
-
-  useEffect(() => {
-    if (size.width > 1450) setCols(5);
-    if (size.width < 1450) setCols(4);
-    if (size.width < 1100) setCols(3);
-    if (size.width < 850) setCols(2);
-    if (size.width < 600) setCols(1);
-  }, [size.width]);
-
   return (
     <>
       <div className="grid w-full">
-        {firstRender.current && cols && (
-          <div className="relative flex gap-2.5 md:gap-5 items-start">
-            {[...Array(cols)].map((_, _i) => (
-              <Loading key={_i} />
-            ))}
-          </div>
-        )}
         <div className={`relative flex gap-2.5 md:gap-5`} ref={container}>
           {Object.keys(columnWrappers).map((key, index) => {
             return (
