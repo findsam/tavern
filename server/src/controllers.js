@@ -1,6 +1,5 @@
 const {
   getDiscordTokens,
-  getGoogleUser,
   revokeAccessToken,
   getDiscordUser,
 } = require("./services");
@@ -10,6 +9,7 @@ const {
   signJWT,
   generateCookies,
   verifyJWT,
+  dummyData,
 } = require("./constants.js");
 
 async function discordOAuthHandler(req, res) {
@@ -51,4 +51,19 @@ async function fetchUserDetails(req, res) {
     res.status(404).json("error while fetching user, please relogin.");
   }
 }
-module.exports = { discordOAuthHandler, handleLogout, fetchUserDetails };
+
+async function fetchIndividualThread(req, res) {
+  const thread = dummyData.find((_) => _.id === +req.params.id);
+  if (thread) {
+    return res.status(200).json(dummyData.find((_) => _.id === +req.params.id));
+  } else {
+    return res.status(500).json("couldn't find a post with this id.");
+  }
+}
+
+module.exports = {
+  discordOAuthHandler,
+  handleLogout,
+  fetchUserDetails,
+  fetchIndividualThread,
+};

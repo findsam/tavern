@@ -2,6 +2,7 @@ const {
   discordOAuthHandler,
   handleLogout,
   fetchUserDetails,
+  fetchIndividualThread,
 } = require("./controllers.js");
 const { generateNewAccessToken } = require("./services.js");
 const jwt = require("jsonwebtoken");
@@ -48,9 +49,6 @@ async function fetchTest(req, res) {
     res.status(200).json(dummyData);
   }
   if (+type === 1) {
-    res.status(200).json([dummyData[Math.floor(Math.random() * dummyData.length)]]);
-  }
-  if (+type === 2) {
     res
       .status(200)
       .json([
@@ -69,6 +67,7 @@ function routes(app) {
   app.get("/getUserDetails", verifyTokens, fetchUserDetails);
   app.get("/logout", verifyTokens, handleLogout);
   app.get("/fetch/:type", fetchTest);
+  app.get("/fetchIndividualThread/:id", fetchIndividualThread);
 }
 
 module.exports = routes;

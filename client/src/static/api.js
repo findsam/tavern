@@ -35,4 +35,14 @@ const fetchTest = async (next, type) => {
   }
 };
 
-export { fetchUserDetails, handleLogout, fetchTest };
+const fetchIndividualThread = async (next, postId, router) => {
+  try {
+    const { data } = await api.fetchIndividualThread(postId);
+    next(data);
+  } catch (error) {
+    console.log(error);
+    return router.push("/");
+  }
+};
+
+export { fetchUserDetails, handleLogout, fetchTest, fetchIndividualThread };

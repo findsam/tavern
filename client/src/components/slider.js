@@ -7,11 +7,12 @@ export default () => {
   const STATIC_TABS = [
     { name: "Feed" },
     { name: "Following" },
-    { name: "Favourites" },
+    // { name: "Favourites" },
   ];
   const router = useRouter();
 
   useEffect(() => {
+    if (!router.query.activity) return;
     const foundIndex = STATIC_TABS.findIndex(
       (_) => _.name.toLocaleLowerCase() === router.query.activity.toLocaleLowerCase()
     );

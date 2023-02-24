@@ -77,7 +77,7 @@ export default () => {
               <AiOutlineSearch className="text-xl opacity-70" />
             </button>
           </form>
-          <Slider />
+          {pathname.split("").length <= 1 && <Slider />}
         </div>
 
         <div className="ml-0 flex-0 md:ml-auto">

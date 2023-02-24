@@ -2,7 +2,7 @@ import Image from "next/image";
 import { BsBell } from "react-icons/bs";
 import ThreadContribution from "./threadContribution";
 import ThreadDropdown from "./threadDropdown";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "../../store/context";
 import { useRouter } from "next/router";
 import { RiHeartLine, RiHeartFill } from "react-icons/ri";
@@ -10,12 +10,17 @@ import { useState, useRef } from "react";
 import { TbCopy } from "react-icons/tb";
 import { sleep } from "../../static/util";
 import AudioPlayer from "../audio/audioPlayer";
+import { fetchIndividualThread } from "../../static/api";
 
 export default () => {
-  const { state, dispatch } = useContext(Context);
   const router = useRouter();
-  // const post = dummyData.find((_) => _.id === +router.query.slug);
-  !post && router.push("/");
+  const [post, setPost] = useState(null);
+  const { state, dispatch } = useContext(Context);
+
+  useEffect(() => {
+    (async () => await fetchIndividualThread(setPost, +router.query.slug, router))();
+  }, []);
+
   const liked = state.favourites.find((_) => _.id == post.id);
 
   return (

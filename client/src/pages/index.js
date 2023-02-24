@@ -15,7 +15,6 @@ export default function Home() {
     query: { activity },
   } = useRouter();
 
-  console.log(activity);
   useEffect(() => {
     (async () => {
       setIsLoaded(false);
