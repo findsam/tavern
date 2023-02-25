@@ -3,26 +3,33 @@ import {
   AiOutlineFileText,
   AiOutlineLock,
   AiOutlineHome,
-  AiOutlineUpload,
+  AiOutlinePlusCircle,
 } from "react-icons/ai";
 import { Context } from "../store/context";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import Link from "next/link";
+import { BsBell } from "react-icons/bs";
 
 const APP_ROUTES = [
   { name: "Home", url: "/", icon: <AiOutlineHome />, tooltip: "Homepage" },
   {
-    name: "Create a thread",
-    url: "/create",
-    icon: <AiOutlineUpload />,
-    tooltip: "Your Favourites",
+    name: "Notifications",
+    url: "/notifications",
+    icon: <BsBell />,
+    tooltip: "notifications",
   },
   {
-    name: "FAQ",
-    url: "/faq",
+    name: "Create",
+    url: "/create",
+    icon: <AiOutlinePlusCircle />,
+    tooltip: "create",
+  },
+  {
+    name: "Help",
+    url: "/help",
     icon: <AiOutlineQuestionCircle />,
-    tooltip: "Our FAQ",
+    tooltip: "Help",
   },
 ];
 
@@ -45,19 +52,13 @@ export default function Navbar(props) {
             return (
               <li
                 key={i}
-                className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group `}
+                className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer hover:text-white `}
               >
                 <Link
                   href={r.url}
                   className={`${isActivePath && "pointer-events-none"}`}
                 >
-                  <span className="text-[1.3rem] relative">
-                    {r.icon}
-
-                    <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none select-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7 whitespace-nowrap">
-                      {isActivePath ? "You are here" : r.name}
-                    </span>
-                  </span>
+                  <span className="text-[1.3rem] relative">{r.icon}</span>
                 </Link>
               </li>
             );
@@ -66,24 +67,18 @@ export default function Navbar(props) {
 
         <ul className="flex flex-col flex-1 flex-grow-0 gap-2.5 mt-auto text-sm">
           <li
-            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
+            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer hover:text-white`}
           >
             <span className="text-[1.3rem] relative">
               <AiOutlineFileText />
-              <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                Terms of Service
-              </span>
             </span>
           </li>
 
           <li
-            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
+            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer hover:text-white`}
           >
             <span className="text-[1.3rem] relative">
               <AiOutlineLock />
-              <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                Privacy
-              </span>
             </span>
           </li>
         </ul>
