@@ -61,7 +61,7 @@ export default () => {
         </div>
       </Modal>
       <Dropdown show={profile} setShow={setProfile}>
-        <div className="p-3.5 flex items-center gap-1.5">
+        <div className="p-3.5 flex items-center gap-1.5 overflow-hidden">
           <Image
             className="rounded-full ring-1 ring-main-border p-0.5 hover:ring-white/70 duration-150 hover:cursor-pointer"
             height="38"
@@ -81,7 +81,7 @@ export default () => {
             Pro
           </span>
         </div>
-        <ul className="text-sm border-t text-white/70 border-main-border  py-3.5 gap-2 grid">
+        <ul className="text-sm border-t text-white/70 border-main-border  py-2.5 gap-2.5 grid">
           <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
             <AiOutlineSetting className="text-[1.3rem]" />{" "}
             <span>Account Settings</span>
@@ -89,12 +89,7 @@ export default () => {
           <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
             <AiOutlineStar className="text-[1.3rem]" /> <span>Upgrade Settings</span>
           </li>
-          <button
-            className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5"
-            onClick={() => handleLogout(dispatch, router)}
-          >
-            <AiOutlineLogout className="text-[1.25rem]" /> <span>Log out</span>
-          </button>
+
           {/* <li
             className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
           >
@@ -118,6 +113,13 @@ export default () => {
             )}
           </li> */}
         </ul>
+
+        <button
+          className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5 py-2.5 border-t border-main-border w-full"
+          onClick={() => handleLogout(dispatch, router)}
+        >
+          <AiOutlineLogout className="text-[1.25rem]" /> <span>Log out</span>
+        </button>
       </Dropdown>
 
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
