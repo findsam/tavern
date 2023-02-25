@@ -1,14 +1,10 @@
 import {
   AiOutlineQuestionCircle,
   AiOutlineFileText,
-  AiOutlineLogout,
-  AiOutlineLogin,
   AiOutlineLock,
   AiOutlineHome,
 } from "react-icons/ai";
-import { getDiscordURL } from "../static/util";
 import { RiHeartLine } from "react-icons/ri";
-import { handleLogout } from "../static/api";
 import { Context } from "../store/context";
 import { useRouter } from "next/router";
 import { useContext } from "react";
@@ -89,29 +85,6 @@ export default function Navbar(props) {
                 Privacy
               </span>
             </span>
-          </li>
-
-          <li
-            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
-          >
-            {!state.user ? (
-              <a className="text-[1.3rem] relative" href={getDiscordURL()}>
-                <AiOutlineLogin />
-                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                  Login
-                </span>
-              </a>
-            ) : (
-              <button
-                className="text-[1.3rem] relative"
-                onClick={() => handleLogout(dispatch, router)}
-              >
-                <AiOutlineLogout />
-                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                  Logout
-                </span>
-              </button>
-            )}
           </li>
         </ul>
       </nav>

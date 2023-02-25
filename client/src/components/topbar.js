@@ -10,7 +10,7 @@ import { Context } from "../store/context";
 import Slider from "./slider";
 import { useRouter } from "next/router";
 import Dropdown from "./dropdown";
-import { IoSettingsOutline } from "react-icons/io5";
+import { AiOutlineStar, AiOutlineSetting, AiOutlineLogout } from "react-icons/ai";
 
 export default () => {
   const [show, setShow] = useState(false);
@@ -83,9 +83,40 @@ export default () => {
         </div>
         <ul className="text-sm border-t text-white/70 border-main-border  py-3.5 gap-2 grid">
           <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
-            <IoSettingsOutline className="text-[1.15rem]" />{" "}
+            <AiOutlineSetting className="text-[1.3rem]" />{" "}
             <span>Account Settings</span>
           </li>
+          <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
+            <AiOutlineStar className="text-[1.3rem]" /> <span>Upgrade Settings</span>
+          </li>
+          <button
+            className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5"
+            onClick={() => handleLogout(dispatch, router)}
+          >
+            <AiOutlineLogout className="text-[1.25rem]" /> <span>Log out</span>
+          </button>
+          {/* <li
+            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
+          >
+            {!state.user ? (
+              <a className="text-[1.15rem] relative" href={getDiscordURL()}>
+                <IoSettingsOutline />
+                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                  Login
+                </span>
+              </a>
+            ) : (
+              <button
+                className="text-[1.15rem] relative"
+                onClick={() => handleLogout(dispatch, router)}
+              >
+                <IoSettingsOutline />
+                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                  Logout
+                </span>
+              </button>
+            )}
+          </li> */}
         </ul>
       </Dropdown>
 
