@@ -3,8 +3,8 @@ import {
   AiOutlineFileText,
   AiOutlineLock,
   AiOutlineHome,
+  AiOutlineUpload,
 } from "react-icons/ai";
-import { RiHeartLine } from "react-icons/ri";
 import { Context } from "../store/context";
 import { useRouter } from "next/router";
 import { useContext } from "react";
@@ -13,9 +13,9 @@ import Link from "next/link";
 const APP_ROUTES = [
   { name: "Home", url: "/", icon: <AiOutlineHome />, tooltip: "Homepage" },
   {
-    name: "Favourites",
-    url: "/favourites",
-    icon: <RiHeartLine />,
+    name: "Create a thread",
+    url: "/create",
+    icon: <AiOutlineUpload />,
     tooltip: "Your Favourites",
   },
   {
