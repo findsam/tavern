@@ -27,6 +27,9 @@ const Notis = () => {
         ref={slideContainer}
         className="flex gap-5 px-5 py-4 text-sm leading-5 border-t text-white/70 border-main-border"
       >
+        <span
+          className={`will-change-transform block w-full absolute bottom-0 z-10 font-normal bg-white rounded-md  max-h-[1px] left-0.5 duration-150 ease-[cubic-bezier(.17,.67,.83,.67)] transition-[left]`}
+        />
         {STATIC_OPTS.map((_, i) => (
           <li
             key={i}
@@ -35,7 +38,7 @@ const Notis = () => {
             }}
             className={`${
               activeSlide === i && "text-white"
-            } flex gap-2.5 items-center max-w-max`}
+            } flex gap-2.5 items-center max-w-max hover:cursor-pointer`}
           >
             {_.name}
             <span
