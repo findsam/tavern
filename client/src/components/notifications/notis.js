@@ -3,7 +3,11 @@ import { AiOutlineSetting } from "react-icons/ai";
 const Notis = () => {
   const slideContainer = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const STATIC_OPTS = [{ name: "Feed" }, { name: "Following" }];
+  const STATIC_OPTS = [
+    { name: "Feed" },
+    { name: "Following" },
+    { name: "Archived" },
+  ];
 
   useEffect(() => {
     const childNodes = [...slideContainer.current.childNodes].slice(1);
