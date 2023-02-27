@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { AiOutlineSetting } from "react-icons/ai";
+import { IoMdCheckmark } from "react-icons/io";
 const Notis = () => {
   const slideContainer = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const STATIC_OPTS = [
-    { name: "Feed" },
+    { name: "Unread" },
     { name: "Following" },
     { name: "Archived" },
   ];
@@ -21,11 +22,16 @@ const Notis = () => {
 
   return (
     <div className="flex flex-col border-b border-main-border">
-      <div className="flex flex-col items-center justify-center px-5 py-4">
-        <h1 className="mr-auto font-medium tracking-wide">Notifications</h1>
-        <span className="items-center  mr-auto text-xs text-green-400 gap-1.5 inline-flex hover:cursor-pointer">
-          Mark all as read
-        </span>
+      <div className="flex items-center justify-center px-5 py-4">
+        <div className="flex items-center w-full mr-auto">
+          <h1 className="mr-auto text-xl font-medium tracking-wide">
+            Notifications
+          </h1>
+          <span className="items-center flex ml-auto text-xs text-green-400 gap-1.5  hover:cursor-pointer">
+            <IoMdCheckmark className="text-base" />
+            Mark all as read
+          </span>
+        </div>
       </div>
       <ul
         ref={slideContainer}
@@ -42,32 +48,20 @@ const Notis = () => {
             }}
             className={`${
               activeSlide === i && "text-white"
-            } flex gap-2.5 items-center max-w-max hover:cursor-pointer`}
+            } flex gap-2.5 items-center max-w-max hover:cursor-pointer duration-75`}
           >
             {_.name}
             <span
               className={`${
                 activeSlide === i ? "bg-white text-black" : "bg-white/70 text-black"
-              } flex items-center w-full h-5 px-1 text-xs font-semibold rounded-md max-w-max`}
+              } flex items-center w-full h-5 px-1 text-xs font-semibold rounded-md max-w-max duration-75`}
             >
               108
             </span>
           </li>
         ))}
-        {/* <li className="flex gap-2.5 items-center text-white">
-          Unread
-          <span className="flex items-center w-full h-5 px-1 text-xs font-semibold text-black bg-white rounded-md">
-            28
-          </span>
-        </li>
-        <li className="flex gap-2.5 items-center ">
-          Following
-          <span className="flex items-center w-full h-5 px-1 text-xs font-semibold text-white bg-indigo-600 rounded-md">
-            108
-          </span>
-        </li> */}
-        <li className="flex gap-2.5 items-center text-white/70 ml-auto">
-          <AiOutlineSetting className="text-[1.35rem]" />{" "}
+        <li className="flex ml-auto text-white/70">
+          <AiOutlineSetting className="text-[1.3rem]" />{" "}
         </li>
       </ul>
     </div>

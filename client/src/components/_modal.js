@@ -43,16 +43,16 @@ export default ({ show, setShow, children }) => {
   return (
     show && (
       <div
-        className="fixed z-50 flex w-full max-w-[450px] top-0 transition-all duration-75 right-0 drop-shadow-3xl h-[100%] drop-shadow-2xl shadow-2xl"
+        className="fixed z-50 flex top-0 transition-all duration-75 right-0 drop-shadow-3xl h-[100%] drop-shadow-xs bg-main-900/70 w-full"
         ref={container}
       >
-        <div className="w-full max-w-lg duration-300 translate-x-2 border-l opacity-0 border-main-border bg-main-800">
+        <div className="w-full max-w-lg ml-auto duration-300 translate-x-2 border-l rounded-tl-lg rounded-bl-lg opacity-0 border-main-border bg-main-800">
           <div className="relative">
             <button
-              className="absolute items-center justify-center right-4 top-6  h-[28px] w-[28px] flex z-50"
+              className="absolute items-center justify-center -left-3.5 top-4 rounded-full border border-main-border bg-main-900 h-[28px] w-[28px] flex z-50"
               onClick={handleClose}
             >
-              <IoClose className="text-[1.35rem] opacity-70 " />
+              <IoClose className="text-xs opacity-70" />
             </button>
             {children}
           </div>
