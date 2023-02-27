@@ -10,6 +10,7 @@ import Dropdown from "./dropdown";
 import { AiOutlineSetting, AiOutlineFileAdd } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
 import M from "../components/_modal";
+import { IoMdCheckmark } from "react-icons/io";
 
 export default () => {
   const [upload, setUpload] = useState(false);
@@ -94,7 +95,32 @@ export default () => {
       </Dropdown>
 
       <M show={notiications} setShow={setNotifications}>
-        123
+        <div className="flex flex-col border-b border-main-border">
+          <div className="flex items-center justify-center px-5 py-5">
+            <h1 className="font-medium tracking-wide">Notifications</h1>
+            <span className="items-center ml-auto text-sm text-green-400  gap-1.5 inline-flex">
+              <IoMdCheckmark />
+              Mark all as read...
+            </span>
+          </div>
+          <ul className="flex gap-5 px-5 text-sm leading-5 text-white/70 py-2.5 border-t border-main-border">
+            <li className="flex gap-2.5 items-center text-white">
+              Unread
+              <span className="flex items-center w-full h-5 px-1 text-xs font-semibold text-black bg-white rounded-md">
+                28
+              </span>
+            </li>
+            <li className="flex gap-2.5 items-center ">
+              Following
+              <span className="flex items-center w-full h-5 px-1 text-xs font-semibold text-white bg-green-600 rounded-md">
+                108
+              </span>
+            </li>
+            <li className="flex gap-2.5 items-center text-white/70 ml-auto">
+              <AiOutlineSetting className="text-[1.2rem]" />{" "}
+            </li>
+          </ul>
+        </div>
       </M>
 
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">

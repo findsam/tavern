@@ -43,11 +43,11 @@ export default ({ show, setShow, children }) => {
   return (
     show && (
       <div
-        className="fixed z-50 flex w-full max-w-[450px] top-0 transition-all duration-75 right-0 drop-shadow-3xl h-full drop-shadow-lg"
+        className="fixed z-50 flex w-full max-w-[450px] top-0 transition-all duration-75 right-0 drop-shadow-3xl h-full drop-shadow-2xl shadow-2xl"
         ref={container}
       >
         <div className="w-full max-w-lg duration-300 translate-x-2 border rounded-lg opacity-0 border-main-border bg-main-800">
-          <div className="relative b-5">
+          <div className="relative">
             <button
               className="absolute items-center justify-center -left-3.5 top-5 rounded-full border border-main-border bg-main-900 h-[28px] w-[28px] flex z-50"
               onClick={handleClose}
