@@ -47,12 +47,12 @@ export default ({ show, setShow, children }) => {
         ref={container}
       >
         <div className="w-full max-w-lg ml-auto duration-300 translate-x-2 border-l rounded-tl-lg rounded-bl-lg opacity-0 border-main-border bg-main-800">
-          <div className="relative">
+          <div className="relative max-h-full overflow-x-visible overflow-y-scroll">
             <button
-              className="absolute items-center justify-center -left-3.5 top-4 rounded-full border border-main-border bg-main-900 h-[28px] w-[28px] flex z-50"
+              className="fixed z-50 flex items-center justify-center rounded-full right-5 top-5"
               onClick={handleClose}
             >
-              <IoClose className="text-xs opacity-70" />
+              <IoClose className="text-xl opacity-70" />
             </button>
             {children}
           </div>
