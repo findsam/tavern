@@ -151,7 +151,7 @@ const Post = ({ post, setIsLoaded = null, firstRender }) => {
               <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
                 <div className="inline-flex w-full">
                   <Link href={`profile/@swkn#dev`}>
-                    <p className="mr-auto text-xs tracking-wide text-left opacity-70">
+                    <p className="mr-auto text-xs text-left opacity-70">
                       @tavern#dev
                     </p>
                   </Link>

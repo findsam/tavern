@@ -58,9 +58,6 @@ export default () => {
             <CommentItem />
             <LikeItem />
             <ContributionItem />
-            <LikeItem />
-            <CommentItem />
-            <ContributionItem />
           </>
         ) : (
           <>

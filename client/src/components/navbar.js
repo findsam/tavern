@@ -61,7 +61,7 @@ export default function Navbar(props) {
                   <span className="text-[1.3rem] relative">
                     {r.icon}
 
-                    <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none select-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7 whitespace-nowrap">
+                    <span className="absolute top-0 z-50 px-2 py-1 text-xs text-white duration-150 rounded-md opacity-0 pointer-events-none select-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7 whitespace-nowrap">
                       {isActivePath ? "You are here" : r.name}
                     </span>
                   </span>
@@ -77,7 +77,7 @@ export default function Navbar(props) {
           >
             <span className="text-[1.3rem] relative">
               <AiOutlineFileText />
-              <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+              <span className="absolute top-0 z-50 px-2 py-1 text-xs text-white duration-150 rounded-md opacity-0 pointer-events-none whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
                 Terms of Service
               </span>
             </span>
@@ -88,7 +88,7 @@ export default function Navbar(props) {
           >
             <span className="text-[1.3rem] relative">
               <AiOutlineLock />
-              <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+              <span className="absolute top-0 z-50 px-2 py-1 text-xs text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
                 Privacy
               </span>
             </span>
@@ -100,7 +100,7 @@ export default function Navbar(props) {
             {!state.user ? (
               <a className="text-[1.3rem] relative" href={getDiscordURL()}>
                 <AiOutlineLogin />
-                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                <span className="absolute top-0 z-50 px-2 py-1 text-xs text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
                   Login
                 </span>
               </a>
@@ -110,7 +110,7 @@ export default function Navbar(props) {
                 onClick={() => handleLogout(dispatch, router)}
               >
                 <AiOutlineLogout />
-                <span className="absolute top-0 z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+                <span className="absolute top-0 z-50 px-2 py-1 text-xs text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
                   Logout
                 </span>
               </button>
