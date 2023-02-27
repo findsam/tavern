@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import Dropdown from "./dropdown";
 import { AiOutlineSetting, AiOutlineFileAdd } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
+import M from "../components/_modal";
 
 export default () => {
   const [upload, setUpload] = useState(false);
@@ -16,6 +17,7 @@ export default () => {
   const { pathname } = useRouter();
   const [profile, setProfile] = useState(false);
   const [notiications, setNotifications] = useState(false);
+  const [create, setCreate] = useState(false);
   const router = useRouter();
 
   return (
@@ -91,6 +93,10 @@ export default () => {
         )}
       </Dropdown>
 
+      <M show={notiications} setShow={setNotifications}>
+        123
+      </M>
+
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
         <div className=" flex-1 flex w-full gap-2.5 md:gap-5">
           {/* <button
@@ -114,11 +120,14 @@ export default () => {
         <div className="ml-0 flex-0 md:ml-auto">
           {state.user !== null && (
             <aside className="flex flex-row items-center gap-2.5 ml-auto md:gap-2.5">
-              <button className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0">
+              <button
+                onClick={() => setCreate((_) => !_)}
+                className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0"
+              >
                 <AiOutlineFileAdd className="text-xl shrink-0 opacity-70" />
               </button>
               <button
-                onClick={() => setShow(true)}
+                onClick={() => setNotifications((_) => !_)}
                 className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0"
               >
                 <span className="absolute top-0 right-0 z-10 block w-3 h-3 bg-green-400 border-2 rounded-full border-main-800" />
