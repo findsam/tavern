@@ -66,9 +66,9 @@ const Notis = () => {
             108
           </span>
         </li> */}
-        {/* <li className="flex gap-2.5 items-center text-white/70 ml-auto">
-          <AiOutlineSetting className="text-[1.2rem]" />{" "}
-        </li> */}
+        <li className="flex gap-2.5 items-center text-white/70 ml-auto">
+          <AiOutlineSetting className="text-[1.35rem]" />{" "}
+        </li>
       </ul>
     </div>
   );

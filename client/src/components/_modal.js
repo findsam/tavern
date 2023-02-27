@@ -52,7 +52,7 @@ export default ({ show, setShow, children }) => {
               className="absolute items-center justify-center right-4 top-6  h-[28px] w-[28px] flex z-50"
               onClick={handleClose}
             >
-              <IoClose className="text-[1.2rem] opacity-70 " />
+              <IoClose className="text-[1.35rem] opacity-70 " />
             </button>
             {children}
           </div>
