@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { AiOutlineSearch } from "react-icons/ai";
-import Modal from "./modal";
 import { useState } from "react";
 import { useContext } from "react";
 import { Context } from "../store/context";
@@ -9,9 +8,10 @@ import { useRouter } from "next/router";
 import Dropdown from "./dropdown";
 import { AiOutlineSetting, AiOutlineFileAdd } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
-import M from "../components/_modal";
+import Modal from "../components/modal";
 import { IoMdCheckmark } from "react-icons/io";
 import Notis from "./notifications/notis";
+import Create from "../components/create";
 
 export default () => {
   const [upload, setUpload] = useState(false);
@@ -24,7 +24,7 @@ export default () => {
 
   return (
     <>
-      <Modal show={upload} setShow={setUpload}>
+      {/* <Modal show={upload} setShow={setUpload}>
         <div className="block w-full min-w-full p-5">
           <p className="">Title:</p>
           <p className="text-xs tracking-wide opacity-70">
@@ -61,7 +61,7 @@ export default () => {
             </button>
           </div>
         </div>
-      </Modal>
+      </Modal> */}
       <Dropdown show={profile} setShow={setProfile}>
         {state.user && (
           <>
@@ -95,9 +95,12 @@ export default () => {
         )}
       </Dropdown>
 
-      <M show={notiications} setShow={setNotifications}>
+      <Modal show={notiications} setShow={setNotifications}>
         <Notis />
-      </M>
+      </Modal>
+      <Modal show={create} setShow={setCreate}>
+        <Create />
+      </Modal>
 
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
         <div className=" flex-1 flex w-full gap-2.5 md:gap-5">

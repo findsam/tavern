@@ -2,10 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { sleep } from "../static/util";
 import { useRef, useEffect } from "react";
-import { AiOutlineClose } from "react-icons/ai";
-import { ContributionItem } from "../components/notifications/contributionItem";
-import { LikeItem } from "../components/notifications/likeItem";
-import { CommentItem } from "../components/notifications/commentItem";
+import { IoClose } from "react-icons/io5";
 
 export default ({ show, setShow, children }) => {
   const container = useRef(null);
@@ -14,9 +11,10 @@ export default ({ show, setShow, children }) => {
     (async () => {
       if (show) {
         await sleep(1);
+        container?.current?.classList?.remove("opacity-0");
         container?.current?.childNodes[0]?.classList?.remove(
           "opacity-0",
-          "-translate-y-2"
+          "translate-x-2"
         );
         document.body.style.overflow = "hidden";
       }
@@ -24,7 +22,8 @@ export default ({ show, setShow, children }) => {
   }, [show, container]);
 
   async function handleClose() {
-    container?.current?.childNodes[0]?.classList?.add("opacity-0", "-translate-y-2");
+    container?.current?.classList?.add("opacity-0");
+    container?.current?.childNodes[0]?.classList?.add("opacity-0", "translate-x-2");
     document.body.style.overflow = "unset";
     await sleep(300);
     setShow(false);
@@ -43,16 +42,16 @@ export default ({ show, setShow, children }) => {
   return (
     show && (
       <div
-        className="fixed top-0 left-0 z-50 flex items-start justify-center w-full h-full p-3 pt-20 overflow-hidden transition-all duration-75 bg-main-900/70"
+        className="fixed z-50 flex top-0 right-0 drop-shadow-3xl h-[100%] transition-opacity ease-[cubic-bezier(.17,.67,.83,.67)] duration-75 shadow-md bg-main-800/60 w-full opacity-0"
         ref={container}
       >
-        <div className="w-full max-w-lg duration-300 -translate-y-2 border rounded-lg opacity-0 border-main-border bg-main-800">
-          <div className="relative b-5">
+        <div className="w-full max-w-lg ml-auto [transition:transform_300ms,opacity_200ms] ease-[cubic-bezier(.17,.67,.83,.67)] translate-x-2 border-l rounded-tl-lg rounded-bl-lg opacity-0 border-main-border bg-main-800">
+          <div className="relative max-h-full overflow-x-visible overflow-y-scroll">
             <button
-              className="absolute items-center justify-center -right-3.5 top-5 rounded-full border border-main-border bg-main-900 h-[28px] w-[28px] flex z-50"
+              className="fixed z-50 flex items-center justify-center rounded-full right-5 top-5"
               onClick={handleClose}
             >
-              <AiOutlineClose className="text-xs opacity-70" />
+              <IoClose className="text-xl opacity-70" />
             </button>
             {children}
           </div>

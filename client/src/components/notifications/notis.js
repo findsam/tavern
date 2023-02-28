@@ -27,9 +27,7 @@ const Notis = () => {
       <div className="sticky top-0 flex flex-col h-full overflow-x-visible overflow-y-scroll border-b shadow-lg border-main-border bg-main-800">
         <div className="flex items-center justify-center px-5 py-4">
           <div className="flex items-center w-full mr-auto">
-            <h1 className="mr-auto text-xl font-medium tracking-wide">
-              Notifications
-            </h1>
+            <h1 className="mr-auto text-xl font-medium">Notifications</h1>
             <span className="items-center flex ml-auto mr-8 text-xs text-green-400 gap-1.5  hover:cursor-pointer">
               <IoMdCheckmark className="text-base" />
               Mark all as read
@@ -70,9 +68,7 @@ const Notis = () => {
           </li>
         </ul>
       </div>
-      {/* <CommentItem />
-      <LikeItem />
-      <ContributionItem /> */}
+
       <div className="block max-h-full overflow-auto top-48">
         <div className="flex items-start w-full gap-2.5 p-5 border-b border-main-border">
           <Image
@@ -111,7 +107,6 @@ const Notis = () => {
             </div>
           </div>
         </div>
-
         <div className="flex items-start w-full gap-2.5 p-5 border-b border-main-border">
           <Image
             className="rounded-full ring-1 ring-main-border p-0.5"
@@ -143,7 +138,6 @@ const Notis = () => {
             </div>
           </div>
         </div>
-
         <div className="flex items-start w-full gap-2.5 p-5 border-b border-main-border">
           <Image
             className="rounded-full ring-1 ring-main-border p-0.5"
