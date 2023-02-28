@@ -1,10 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { AiOutlineSetting } from "react-icons/ai";
 import { IoMdCheckmark } from "react-icons/io";
-import { CommentItem } from "./commentItem";
-import { LikeItem } from "./likeItem";
+
 import Image from "next/image";
-import { ContributionItem } from "./contributionItem";
 const Notis = () => {
   const slideContainer = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
