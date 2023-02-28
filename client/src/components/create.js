@@ -48,7 +48,7 @@ export default () => {
             <label className="inline-flex items-center text-xs text-left text-white/70 ">
               Description{" "}
             </label>
-            <textbox className="px-3 text-sm text-white bg-transparent border rounded-md border-main-border py-2 min-h-[122px] resize-none" />
+            <textbox className="px-3 text-sm text-white bg-transparent border rounded-md border-main-border py-2 min-h-[142px] resize-none" />
           </span>
           <span className="flex justify-between  gap-2.5">
             <span className="flex flex-col gap-1.5 flex-1">
@@ -94,7 +94,7 @@ export default () => {
               <a className="inline text-ellipsis">Required</a>
             </label>
 
-            <div className="px-3 text-sm text-white bg-transparent border rounded-md border-main-border  py-2 min-h-[122px] flex items-center justify-center flex-col gap-1">
+            <div className="px-3 text-sm text-white bg-transparent border rounded-md border-main-border  py-2 min-h-[142px] flex items-center justify-center flex-col gap-1">
               <AiOutlineCloudUpload className="text-[1.35rem]" />
               <p className="text-sm text-white">Click to upload a file...</p>
               <p className="text-xs text-left text-white/70">Max 5mb</p>
