@@ -27,7 +27,7 @@ export default () => {
       </div>
 
       <div className="w-full py-5 border-t border-main-border">
-        <form className="flex flex-col gap-6 px-5">
+        <form className="flex flex-col gap-2.5 px-5">
           <span className="flex flex-col gap-1.5">
             <label className="inline-flex items-center text-xs text-left text-white/70 ">
               Title <span className="block w-1 h-1 mx-2 rounded-full bg-white/40" />{" "}
