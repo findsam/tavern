@@ -99,7 +99,7 @@ export default () => {
             </label>
 
             <div className="px-3 text-sm text-white bg-transparent border rounded-md border-main-border  py-2 min-h-[142px] flex items-center justify-center flex-col gap-1">
-              <AiOutlineCloudUpload className="text-[1.35rem]" />
+              <AiOutlineCloudUpload className="text-[1.3rem]" />
               <p className="text-sm text-white">Click to upload a file...</p>
               <p className="text-xs text-left text-white/70">Max 5mb</p>
             </div>

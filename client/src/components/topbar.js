@@ -82,14 +82,14 @@ export default () => {
                 onClick={() => setCreate((_) => !_)}
                 className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0"
               >
-                <AiOutlineFileAdd className="text-xl shrink-0 opacity-70" />
+                <AiOutlineFileAdd className="text-[1.3rem] shrink-0 opacity-70" />
               </button>
               <button
                 onClick={() => setNotifications((_) => !_)}
                 className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0"
               >
                 <span className="absolute top-0 right-0 z-10 block w-3 h-3 bg-green-400 border-2 rounded-full border-main-800" />
-                <BsBell className="text-xl shrink-0 opacity-70" />
+                <BsBell className="text-[1.3rem] shrink-0 opacity-70" />
               </button>
               <button onClick={() => setProfile((_) => !_)}>
                 <Image

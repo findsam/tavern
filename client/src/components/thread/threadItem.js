@@ -71,7 +71,7 @@ export default () => {
                   }}
                   className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group z-50`}
                 >
-                  <span className="text-[1.35rem] relative">
+                  <span className="text-[1.3rem] relative">
                     <RiHeartFill className="text-red-500" />
                     <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
                       Unlike
@@ -88,7 +88,7 @@ export default () => {
                   }}
                   className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group duration-500 `}
                 >
-                  <span className="text-[1.35rem] relative">
+                  <span className="text-[1.3rem] relative">
                     <RiHeartLine />
                     <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
                       Like
