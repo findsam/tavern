@@ -5,6 +5,7 @@ import {
   AiOutlineCloudUpload,
 } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
+
 export default () => {
   const tagsRef = useRef();
   const [tags, setTags] = useState([]);
