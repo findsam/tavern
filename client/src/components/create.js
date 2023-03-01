@@ -27,47 +27,25 @@ export default () => {
       </div>
 
       <div className="w-full py-5 border-t border-main-border">
-        <form className="flex flex-col gap-2.5 px-5">
+        <form
+          className="flex flex-col gap-2.5 px-5"
+          onSubmit={(e) => e.preventDefault()}
+        >
           <span className="flex flex-col gap-1.5">
             <label className="inline-flex items-center text-xs text-left text-white/70 ">
-              Title <span className="block w-1 h-1 mx-2 rounded-full bg-white/40" />{" "}
-              <a className="inline text-ellipsis">Required</a>
+              Title <span className="ml-0.5 font-medium text-red-500">*</span>
             </label>
             <input className="px-3 py-2 text-sm text-white bg-transparent border rounded-md border-main-border focus:outline-none active:outline-none" />
           </span>
-          <span className="flex flex-col gap-1.5 max-w-max">
-            <label className="inline-flex items-center text-xs text-left text-white/70 ">
-              Date
-            </label>
-            <p className="flex items-center gap-2 px-3 py-2 text-sm text-white bg-transparent border rounded-md border-main-border">
-              <AiOutlineCalendar className="text-lg text-white/70" />
-              26, Jan 2022
-            </p>
-          </span>
-          <span className="flex flex-col gap-1.5">
-            <label className="inline-flex items-center text-xs text-left text-white/70 ">
-              Description{" "}
-            </label>
-            <textbox className="px-3 text-sm text-white bg-transparent border rounded-md border-main-border py-2 min-h-[142px] resize-none" />
-          </span>
-          <span className="flex justify-between  gap-2.5">
-            <span className="flex flex-col gap-1.5 flex-1">
-              <label className="inline-flex items-center text-xs text-left text-white/70 ">
-                Tags <span className="block w-1 h-1 mx-2 rounded-full bg-white/40" />{" "}
-                <a className="inline text-ellipsis">Required</a>
-              </label>
-              <span className="flex items-center gap-2 px-3 py-2 text-sm text-white bg-transparent border rounded-md border-main-border">
-                <AiOutlineTags className="text-lg text-white/70" />
-                <input className="bg-transparent focus:outline-none active:outline-none" />
-              </span>
-            </span>
-            <span className="flex flex-col gap-1.5 flex-1">
+          <div className="flex gap-2.5">
+            <span className="flex flex-col gap-1.5  max-w-max ">
               <label className="inline-flex items-center text-xs text-left text-white/70 ">
                 Contributions{" "}
+                <span className="ml-0.5 font-medium text-red-500">*</span>
               </label>
               <ul
                 ref={slideContainer}
-                className="flex justify-center relative p-0.5 border rounded-md  border-main-border max-h-[38px] min-h-[38px] gap-1"
+                className="flex justify-center items-center relative p-0.5 border rounded-md border-main-border max-h-[38px] min-h-[38px] gap-1"
               >
                 <span
                   className={`will-change-transform block w-full absolute z-10 font-normal bg-main-700 rounded-md left-0.5 duration-150 ease-[cubic-bezier(.17,.67,.83,.67)] transition-[left]`}
@@ -86,12 +64,36 @@ export default () => {
                 ))}
               </ul>
             </span>
-          </span>
+            <span className="flex flex-col gap-1.5 max-w-max">
+              <label className="inline-flex items-center text-xs text-left text-white/70 ">
+                Date
+              </label>
+              <p className="flex items-center gap-2 px-3 py-2 text-sm text-white bg-transparent border rounded-md border-main-border">
+                <AiOutlineCalendar className="text-lg text-white/70" />
+                26, Jan 2022
+              </p>
+            </span>
+          </div>
           <span className="flex flex-col gap-1.5">
             <label className="inline-flex items-center text-xs text-left text-white/70 ">
-              Add file{" "}
-              <span className="block w-1 h-1 mx-2 rounded-full bg-white/40" />{" "}
-              <a className="inline text-ellipsis">Required</a>
+              Description{" "}
+            </label>
+            <textarea className="px-3 text-sm text-white bg-transparent border rounded-md border-main-border py-2 min-h-[142px] resize-none focus:outline-none active:outline-none" />
+          </span>
+
+          <span className="flex flex-col gap-1.5 col-span-1 ">
+            <label className="inline-flex items-center text-xs text-left text-white/70 ">
+              Tags
+            </label>
+            <span className="flex items-center gap-2 px-3 py-2 text-sm text-white bg-transparent border rounded-md border-main-border">
+              <AiOutlineTags className="text-lg text-white/70" />
+              <input className="w-full bg-transparent focus:outline-none active:outline-none" />
+            </span>
+          </span>
+
+          <span className="flex flex-col gap-1.5">
+            <label className="inline-flex items-center text-xs text-left text-white/70 ">
+              Add file <span className="ml-0.5 font-medium text-red-500">*</span>
             </label>
 
             <div className="px-3 text-sm text-white bg-transparent border rounded-md border-main-border  py-2 min-h-[142px] flex items-center justify-center flex-col gap-1">
