@@ -34,7 +34,7 @@ export default () => {
           ))}
         </div>
 
-        <p className="max-w-max  text-[12px] text-white/70">
+        <p className="text-xs text-left text-white/40">
           By continuing you agree to our{" "}
           <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
             Terms of Service
@@ -44,6 +44,7 @@ export default () => {
             Privacy Policy
           </a>{" "}
         </p>
+
         <a
           href={getDiscordURL()}
           className="max-w-max flex-1 px-6 min-h-[38px] gap-2 text-sm text-white/70 border rounded-md bg-main-800 border-main-border  hover:border-white/70  duration-150 flex items-center justify-center"
@@ -157,9 +158,9 @@ export default () => {
               </span>
             </div>
           </div>
-          <div className="border-4 border-[#f0c165] rounded-lg py-3.5 relative flex flex-col">
-            <span className="block absolute left-3 -top-3 bg-[#f0c165] rounded-md">
-              <p className="px-3 py-0.5 text-sm leading-5 font-medium ">
+          <div className="border-2 border-green-900/40 rounded-lg py-3.5 relative flex flex-col">
+            <span className="absolute block mx-auto text-green-400 bg-green-900 border-green-400 rounded-md left-3 max-w-max -top-3">
+              <p className="px-3 py-0.5 text-sm leading-5 font-normal text-green-400">
                 Best Value
               </p>
             </span>
@@ -224,7 +225,7 @@ export default () => {
                 <span className="h-[1px] block flex-1 bg-main-border" />
               </span>
               <span className="block px-2.5">
-                <button className="w-full  mx-auto flex-1 px-6 min-h-[38px] gap-2 text-sm text-white border rounded-md bg-[#f0c165] border-main-border  hover:border-white/70  duration-150 flex items-center justify-center mt-2">
+                <button className="px-6 min-h-[38px] mt-2.5 w-full text-sm border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:border-green-400">
                   Subscribe Now
                 </button>
               </span>
