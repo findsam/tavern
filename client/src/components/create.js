@@ -4,7 +4,10 @@ import {
   AiOutlineTags,
   AiOutlineCloudUpload,
 } from "react-icons/ai";
+import { IoClose } from "react-icons/io5";
 export default () => {
+  const tagsRef = useRef();
+  const [tags, setTags] = useState([]);
   const [activeSlide, setActiveSlide] = useState(0);
   const slideContainer = useRef();
 
@@ -20,6 +23,12 @@ export default () => {
 
   const STATIC_TABS = ["Enabled", "Disabled"];
 
+  const handleTags = (e) => {
+    e.preventDefault();
+    setTags([...tags, tagsRef.current.value]);
+    tagsRef.current.value = "";
+  };
+
   return (
     <>
       <div className="flex items-center justify-center px-5 py-4">
@@ -29,7 +38,7 @@ export default () => {
       </div>
 
       <div className="w-full py-5 border-t border-main-border">
-        <form
+        <div
           className="flex flex-col gap-2.5 px-5"
           onSubmit={(e) => e.preventDefault()}
         >
@@ -83,13 +92,29 @@ export default () => {
             <textarea className="px-3 text-sm text-white bg-transparent border rounded-md border-main-border py-2 min-h-[142px] resize-none focus:outline-none active:outline-none" />
           </span>
 
-          <span className="flex flex-col gap-1.5 col-span-1 ">
+          <span className="flex flex-col gap-1.5">
             <label className="inline-flex items-center text-xs text-left text-white/70 ">
               Tags
             </label>
-            <span className="flex items-center gap-2 px-3 py-2 text-sm text-white bg-transparent border rounded-md border-main-border">
+            <span className="flex items-center gap-2 px-3 min-h-[38px] text-sm text-white bg-transparent border rounded-md border-main-border">
               <AiOutlineTags className="text-lg text-white/70" />
-              <input className="w-full bg-transparent focus:outline-none active:outline-none" />
+              <ul className="flex gap-1">
+                {tags.map((_, i) => (
+                  <li
+                    key={i}
+                    className="whitespace-nowrap gap-1 flex items-center px-1.5 py-1 text-xs rounded-md bg-main-700"
+                  >
+                    {_}
+                    <IoClose className="text-sm" />
+                  </li>
+                ))}
+              </ul>
+              <form onSubmit={(e) => handleTags(e)}>
+                <input
+                  className="w-full bg-transparent focus:outline-none active:outline-none"
+                  ref={tagsRef}
+                />
+              </form>
             </span>
           </span>
 
@@ -105,7 +130,7 @@ export default () => {
             </div>
           </span>
 
-          <span className="relative flex items-center w-full gap-2 text-xs text-center e">
+          <span className="relative flex items-center w-full gap-2 text-xs text-center">
             <span className="h-[1px] block flex-1 bg-main-border" />
             <span className="mx-3 text-white/70">Confirm Upload</span>
             <span className="h-[1px] block flex-1 bg-main-border" />
@@ -118,7 +143,7 @@ export default () => {
               Create Thread
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </>
   );

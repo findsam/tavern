@@ -21,9 +21,7 @@ export default ({ show, setShow, children }) => {
           "-translate-y-2"
         );
       }
-
       if (!show) {
-        console.log("hitting here");
         await handleClose();
       }
     })();
