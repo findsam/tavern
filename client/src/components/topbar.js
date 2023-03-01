@@ -36,9 +36,7 @@ export default () => {
                 <a>
                   {state.user.me.username}#{state.user.me.discriminator}
                 </a>
-                <p className="text-xs tracking-wide text-left opacity-70">
-                  {state.user.me.email}
-                </p>
+                <p className="text-xs text-left opacity-70">{state.user.me.email}</p>
               </span>
               <span className="block px-2.5 py-0.5 ml-auto text-sm text-green-400 rounded-full bg-green-900/40">
                 Pro

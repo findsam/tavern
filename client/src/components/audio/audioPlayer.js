@@ -99,7 +99,7 @@ export default () => {
 
       <div className="flex items-center gap-2">
         <span
-          className="block text-xs tracking-wide text-left text-white/70 min-w-[42px]
+          className="block text-xs  text-left text-white/70 min-w-[42px]
         "
         >
           {calculateTime(currentTime)}
@@ -115,7 +115,7 @@ export default () => {
           </div>
         </div>
 
-        <span className="block text-xs tracking-wide  text-white/70  min-w-[42px] text-right ">
+        <span className="block text-xs   text-white/70  min-w-[42px] text-right ">
           {duration && !isNaN(duration) && calculateTime(duration)}
         </span>
       </div>
@@ -127,7 +127,7 @@ export default () => {
         >
           <span className="relative flex items-center justify-center rounded-full text-white/70">
             <MdOutlineReplay className="text-lg text-white/70" />
-            <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+            <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
               Replay
             </span>
           </span>
@@ -138,7 +138,7 @@ export default () => {
         >
           <span className="rounded-full border border-main-border text-white/70 bg-main-800 h-[38px] w-[38px] text-xl flex items-center justify-center relative">
             {!isPlaying ? <IoPlayOutline className="ml-0.5" /> : <IoPauseOutline />}
-            <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+            <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
               {isPlaying ? "Pause" : "Play"}
             </span>
           </span>
@@ -149,7 +149,7 @@ export default () => {
         >
           <span className="relative flex items-center justify-center rounded-full text-white/70">
             <IoVolumeOffOutline className="text-2xl text-white/70" />
-            <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+            <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
               Change Volume
             </span>
             <span className="absolute flex items-center h-4 gap-0.5 left-5 align-center">

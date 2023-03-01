@@ -34,7 +34,7 @@ export default () => {
           ))}
         </div>
 
-        <p className="max-w-max tracking-wide text-[12px] text-white/70">
+        <p className="max-w-max  text-[12px] text-white/70">
           By continuing you agree to our{" "}
           <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
             Terms of Service
@@ -97,7 +97,7 @@ export default () => {
         <div className="grid w-full max-w-4xl grid-cols-3 gap-5 mt-1.5">
           <div className="border border-main-border rounded-lg py-3.5 flex flex-col">
             <div className="grid gap-0.5">
-              <h1 className="font-medium tracking-wide">Free</h1>
+              <h1 className="font-medium ">Free</h1>
               <p className="max-w-md px-5 text-sm font-normal leading-5 text-white/70">
                 Hobbyist
               </p>
@@ -105,7 +105,7 @@ export default () => {
                 $0
               </h2>
 
-              <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
+              <span className="relative flex items-center w-full gap-2 text-xs text-center">
                 <span className="h-[1px] block flex-1 bg-main-border" />
                 <span className="text-sm text-white/70">Forever</span>
                 <span className="h-[1px] block flex-1 bg-main-border" />
@@ -141,7 +141,7 @@ export default () => {
             </ul>
 
             <div className="flex flex-col mt-auto">
-              <span className="relative flex items-center w-full gap-2 mt-auto text-xs tracking-wide text-center">
+              <span className="relative flex items-center w-full gap-2 mt-auto text-xs text-center">
                 <span className="h-[1px] block flex-1 bg-main-border" />
                 <span className="text-sm text-white/70">It's always free!</span>
                 <span className="h-[1px] block flex-1 bg-main-border" />
@@ -159,19 +159,19 @@ export default () => {
           </div>
           <div className="border-4 border-[#f0c165] rounded-lg py-3.5 relative flex flex-col">
             <span className="block absolute left-3 -top-3 bg-[#f0c165] rounded-md">
-              <p className="px-3 py-0.5 text-sm leading-5 font-medium tracking-wide">
+              <p className="px-3 py-0.5 text-sm leading-5 font-medium ">
                 Best Value
               </p>
             </span>
             <div className="grid gap-0.5">
-              <h1 className="font-medium tracking-wide">Lite</h1>
+              <h1 className="font-medium ">Lite</h1>
               <p className="max-w-md px-5 text-sm font-normal leading-5 text-white/70">
                 Supporter
               </p>
               <h2 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
                 $4.99
               </h2>
-              <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
+              <span className="relative flex items-center w-full gap-2 text-xs text-center">
                 <span className="h-[1px] block flex-1 bg-main-border" />
                 <span className="text-sm text-white/70">Billed Monthly</span>
                 <span className="h-[1px] block flex-1 bg-main-border" />
@@ -218,7 +218,7 @@ export default () => {
             </ul>
 
             <div className="flex flex-col mt-auto">
-              <span className="relative flex items-center w-full gap-2 mt-auto text-xs tracking-wide text-center">
+              <span className="relative flex items-center w-full gap-2 mt-auto text-xs text-center">
                 <span className="h-[1px] block flex-1 bg-main-border" />
                 <span className="text-sm text-white/70">Like what you see?</span>
                 <span className="h-[1px] block flex-1 bg-main-border" />
@@ -232,14 +232,14 @@ export default () => {
           </div>
           <div className="border border-main-border rounded-lg min-h-[400px] py-3.5 flex flex-col">
             <div className="grid gap-0.5">
-              <h1 className="font-medium tracking-wide">Pro</h1>
+              <h1 className="font-medium ">Pro</h1>
               <p className="max-w-md px-5 text-sm font-normal leading-5 text-white/70">
                 Super-Supporter
               </p>
               <h2 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
                 $9.99
               </h2>
-              <span className="relative flex items-center w-full gap-2 text-xs tracking-wide text-center">
+              <span className="relative flex items-center w-full gap-2 text-xs text-center">
                 <span className="h-[1px] block flex-1 bg-main-border" />
                 <span className="text-sm text-white/70">Billed Monthly</span>
                 <span className="h-[1px] block flex-1 bg-main-border" />
@@ -273,7 +273,7 @@ export default () => {
             </ul>
 
             <div className="flex flex-col mt-auto">
-              <span className="relative flex items-center w-full gap-2 mt-auto text-xs tracking-wide text-center">
+              <span className="relative flex items-center w-full gap-2 mt-auto text-xs text-center">
                 <span className="h-[1px] block flex-1 bg-main-border" />
                 <span className="text-sm text-white/70">Like what you see?</span>
                 <span className="h-[1px] block flex-1 bg-main-border" />
@@ -311,7 +311,7 @@ const Navbar = () => {
           <span className="block w-6 h-6 border-2 rounded-full border-main-900 bg-main-300" />
           <span className="block w-8 h-8 border-4 rounded-full border-main-900 bg-main-500" />
         </div>
-        <h1 className="font-medium tracking-wide">Tavern</h1>
+        <h1 className="font-medium ">Tavern</h1>
       </div>
       <ul className="flex items-center gap-5 ml-auto text-white/70">
         <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
@@ -349,7 +349,7 @@ const Footer = () => {
 
       <div className="flex items-start justify-between w-full max-w-xs ml-auto">
         <ul className="grid flex-1 gap-1 max-w-max">
-          <h1 className="font-medium tracking-wide  mb-1.5">Legal</h1>
+          <h1 className="font-medium   mb-1.5">Legal</h1>
           <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
             Cookie Policy
           </li>
@@ -362,7 +362,7 @@ const Footer = () => {
         </ul>
 
         <ul className="grid flex-1 gap-1 max-w-max">
-          <h1 className="font-medium tracking-wide  mb-1.5">Our Socials</h1>
+          <h1 className="font-medium   mb-1.5">Our Socials</h1>
           <li className="text-sm font-normal leading-5 duration-150 hover:cursor-pointer hover:text-white text-white/70">
             Twitter
           </li>

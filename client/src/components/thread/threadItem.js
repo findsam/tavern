@@ -73,7 +73,7 @@ export default () => {
                 >
                   <span className="text-[1.3rem] relative">
                     <RiHeartFill className="text-red-500" />
-                    <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+                    <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
                       Unlike
                     </span>
                   </span>
@@ -90,7 +90,7 @@ export default () => {
                 >
                   <span className="text-[1.3rem] relative">
                     <RiHeartLine />
-                    <span className="absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+                    <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
                       Like
                     </span>
                   </span>
@@ -153,7 +153,7 @@ const Copy = () => {
       <span className="text-[1.3rem] relative">
         <TbCopy />
         <span
-          className={`absolute z-50 px-2 py-1 text-xs tracking-wide text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none left-1/2 whitespace-nowrap 
+          className={`absolute z-50 px-2 py-1 text-xs  text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none left-1/2 whitespace-nowrap 
           ${show ? "-bottom-9 opacity-100" : "-bottom-5 opacity-0"} 
          bg-main-800 overflow-hidden
          `}

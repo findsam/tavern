@@ -131,7 +131,7 @@ const Notis = () => {
               <a className="inline text-ellipsis">See full comment</a>
             </p>
             <div className="p-2 mt-0.5 text-sm border rounded-md bg-main-700 border-main-border text-white">
-              <p className="text-xs tracking-wide">
+              <p className="text-xs ">
                 Amazing art, is this the first draft? Feel free to take a look at a
                 piece I've made and tell me what you think...
               </p>
@@ -262,7 +262,7 @@ const Notis = () => {
               <a className="inline text-ellipsis">See full comment</a>
             </p>
             <div className="p-2 mt-0.5 text-sm border rounded-md bg-main-700 border-main-border text-white">
-              <p className="text-xs tracking-wide">
+              <p className="text-xs ">
                 Amazing art, is this the first draft? Feel free to take a look at a
                 piece I've made and tell me what you think...
               </p>
