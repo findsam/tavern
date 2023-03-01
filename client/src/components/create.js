@@ -7,6 +7,7 @@ import {
 export default () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const slideContainer = useRef();
+
   useEffect(() => {
     const childNodes = [...slideContainer.current.childNodes].slice(1);
     const activeChildNode = childNodes[activeSlide];
@@ -18,6 +19,7 @@ export default () => {
   }, [activeSlide]);
 
   const STATIC_TABS = ["Enabled", "Disabled"];
+
   return (
     <>
       <div className="flex items-center justify-center px-5 py-4">
