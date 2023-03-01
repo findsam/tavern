@@ -1,26 +1,23 @@
-import Image from "next/image";
-import { AiOutlineSearch } from "react-icons/ai";
-import { useState } from "react";
-import { useContext } from "react";
-import { Context } from "../store/context";
 import Slider from "./slider";
-import { useRouter } from "next/router";
+import Image from "next/image";
+import { useState } from "react";
 import Dropdown from "./dropdown";
-import { AiOutlineSetting, AiOutlineFileAdd } from "react-icons/ai";
+import { useContext } from "react";
 import { BsBell } from "react-icons/bs";
 import Modal from "../components/modal";
-import { IoMdCheckmark } from "react-icons/io";
+import { useRouter } from "next/router";
 import Notis from "./notifications/notis";
 import Create from "../components/create";
+import { Context } from "../store/context";
+import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSetting, AiOutlineFileAdd } from "react-icons/ai";
 
 export default () => {
-  const [upload, setUpload] = useState(false);
   const { state } = useContext(Context);
   const { pathname } = useRouter();
   const [profile, setProfile] = useState(false);
   const [notiications, setNotifications] = useState(false);
   const [create, setCreate] = useState(false);
-  const router = useRouter();
 
   return (
     <>
