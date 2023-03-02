@@ -46,6 +46,6 @@ export default function Following() {
   );
 }
 
-Following.getLayout = function getLayout(page) {
+Following.getLayout = (page) => {
   return <Layout>{page}</Layout>;
 };

@@ -48,6 +48,6 @@ export default function Home() {
   );
 }
 
-Home.getLayout = function getLayout(page) {
+Home.getLayout = (page) => {
   return <Layout>{page}</Layout>;
 };
