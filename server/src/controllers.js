@@ -73,6 +73,10 @@ async function fetchMultipleThreads(req, res) {
         dummyData[Math.floor(Math.random() * dummyData.length)],
       ]);
   }
+  if (+type === 2) {
+    await sleep(1000);
+    res.status(200).json([dummyData[Math.floor(Math.random() * dummyData.length)]]);
+  }
 }
 
 async function fetchIndividualThread(req, res) {

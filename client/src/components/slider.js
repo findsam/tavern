@@ -8,6 +8,7 @@ export default () => {
   const STATIC_TABS = [
     { name: "Feed", url: "/" },
     { name: "Following", url: "/following" },
+    { name: "Favourites", url: "/favourites" },
   ];
   const router = useRouter();
 
