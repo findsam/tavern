@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { BsBell } from "react-icons/bs";
-import ThreadContribution from "./threadContribution";
-import ThreadDropdown from "./threadDropdown";
+import Dropdown from "./dropdown";
 import { useContext, useEffect } from "react";
 import { Context } from "../../store/context";
 import { useRouter } from "next/router";
@@ -11,6 +10,7 @@ import { TbCopy } from "react-icons/tb";
 import { sleep } from "../../static/util";
 import AudioPlayer from "../audio/audioPlayer";
 import { fetchIndividualThread } from "../../static/api";
+import Contribution from "./contribution";
 
 export default () => {
   const router = useRouter();
@@ -39,7 +39,7 @@ export default () => {
               quality={100}
             />
 
-            <ThreadDropdown
+            <Dropdown
               text="When the world of the Orcs of Draenor is being destroyed by the evil fel
                 magic that uses life-force, the powerful warlock Gul'dan creates a portal
                 to the world of Azeroth and forms the Horde with members of the Orc clans.
@@ -112,10 +112,10 @@ export default () => {
 
             <div className="mt-1 rounded-md max-w-max">
               <ul className="relative flex flex-col w-full gap-5">
-                <ThreadContribution type="creator" />
-                <ThreadContribution type="image" />
-                <ThreadContribution type="sound" />
-                <ThreadContribution type="text" />
+                <Contribution type="creator" />
+                <Contribution type="image" />
+                <Contribution type="sound" />
+                <Contribution type="text" />
               </ul>
             </div>
           </div>

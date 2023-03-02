@@ -25,8 +25,8 @@ const Notis = () => {
   return (
     <>
       <div className="sticky top-0 flex flex-col h-full overflow-x-visible overflow-y-scroll border-b shadow-lg border-main-border bg-main-800">
-        <div className="flex items-center justify-center px-5 py-4">
-          <div className="flex items-center w-full mr-auto">
+        <div className="flex items-center justify-center px-5 py-4 min-h-[61px]">
+          <div className="flex items-center w-full mr-auto ">
             <h1 className="mr-auto text-xl font-medium">Notifications</h1>
             <span className="items-center flex ml-auto mr-8 text-xs text-green-400 gap-1.5  hover:cursor-pointer">
               <IoMdCheckmark className="text-base" />
@@ -36,7 +36,7 @@ const Notis = () => {
         </div>
         <ul
           ref={slideContainer}
-          className="relative flex gap-5 px-5 py-4 text-sm leading-5 border-t text-white/70 border-main-border"
+          className="relative flex gap-5 px-5 py-4 text-sm leading-5 border-t text-white/70 border-main-border min-h-[62px]"
         >
           <span
             className={`will-change-transform block w-full absolute bottom-0 z-10 font-normal bg-white rounded-md  max-h-[1px] left-0.5 duration-150 ease-[cubic-bezier(.17,.67,.83,.67)] transition-[left]`}

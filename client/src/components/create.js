@@ -32,7 +32,7 @@ export default () => {
 
   return (
     <>
-      <div className="flex items-center justify-center px-5 py-4">
+      <div className="flex items-center justify-center px-5 py-4 min-h-[61px]">
         <div className="flex items-center w-full mr-auto">
           <h1 className="mr-auto text-xl font-medium">New Thread</h1>
         </div>
