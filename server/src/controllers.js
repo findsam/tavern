@@ -10,6 +10,7 @@ const {
   generateCookies,
   verifyJWT,
   dummyData,
+  sleep,
 } = require("./constants.js");
 
 async function discordOAuthHandler(req, res) {
@@ -55,9 +56,11 @@ async function fetchUserDetails(req, res) {
 async function fetchMultipleThreads(req, res) {
   const { type } = req.params;
   if (+type === 0) {
+    // await sleep(1000);
     res.status(200).json(dummyData);
   }
   if (+type === 1) {
+    await sleep(1000);
     res
       .status(200)
       .json([

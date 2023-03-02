@@ -3069,6 +3069,8 @@ const dummyData = [
   },
 ];
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
 module.exports = {
   accessTokenCookieOptions,
   refreshTokenCookieOptions,
@@ -3076,4 +3078,5 @@ module.exports = {
   signJWT,
   generateCookies,
   dummyData,
+  sleep,
 };

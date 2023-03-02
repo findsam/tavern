@@ -11,6 +11,7 @@ import Create from "../components/create";
 import { Context } from "../store/context";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineSetting, AiOutlineFileAdd } from "react-icons/ai";
+import Link from "next/link";
 
 export default () => {
   const { state } = useContext(Context);
@@ -45,7 +46,9 @@ export default () => {
             <ul className="text-sm border-t text-white/70 border-main-border  py-2.5 gap-2.5 grid">
               <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
                 <AiOutlineSetting className="text-[1.3rem]" />{" "}
-                <span>Account Settings</span>
+                <Link href={`/profile/@${state.user.me.username}`}>
+                  Account Settings
+                </Link>
               </li>
             </ul>
           </>
@@ -70,7 +73,8 @@ export default () => {
               <AiOutlineSearch className="text-xl opacity-70" />
             </button>
           </form>
-          {pathname.split("").length <= 1 && <Slider />}
+          {/* {pathname.split("").length <= 1 && <Slider />} */}
+          {<Slider />}
         </div>
 
         <div className="ml-0 flex-0 md:ml-auto">

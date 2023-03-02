@@ -3,10 +3,8 @@ import Topbar from "../components/topbar";
 import Feed from "../components/feed";
 import useAuth from "../hooks/useAuth";
 import { fetchTest } from "../static/api";
-import { useRouter } from "next/router";
-import { sleep } from "../static/util";
 import { useCols } from "../hooks/useCols";
-import { useRef, useLayoutEffect, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import Loading from "../components/loading";
 
 export default function Home() {
@@ -18,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       setIsLoaded(false);
-      await fetchTest(setPosts, 0);
+      await fetchTest(setPosts, 1);
     })();
   }, []);
 
