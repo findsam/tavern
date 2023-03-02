@@ -6,7 +6,7 @@ export default () => {
   const slideContainer = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const STATIC_TABS = [
-    { name: "Feed", url: "/" },
+    { name: "Feed", url: "/feed" },
     { name: "Following", url: "/following" },
     { name: "Favourites", url: "/favourites" },
   ];

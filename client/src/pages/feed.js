@@ -6,7 +6,7 @@ import { useRef, useState, useEffect } from "react";
 import Loading from "../components/loading";
 import Layout from "../components/layout/navigation";
 
-export default function Favourites() {
+export default function Home() {
   const cols = useCols();
   const firstRender = useRef(true);
   const [posts, setPosts] = useState([]);
@@ -15,7 +15,7 @@ export default function Favourites() {
   useEffect(() => {
     (async () => {
       setIsLoaded(false);
-      await fetchTest(setPosts, 2);
+      await fetchTest(setPosts, 0);
     })();
   }, []);
 
@@ -44,6 +44,6 @@ export default function Favourites() {
   );
 }
 
-Favourites.getLayout = function getLayout(page) {
+Home.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
