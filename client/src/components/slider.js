@@ -37,7 +37,7 @@ export default () => {
       "transition-[left]",
       "duration-150"
     );
-    await sleep(155);
+    await sleep(150);
     lavaLamp.classList.remove(
       "ease-[cubic-bezier(.17,.67,.83,.67)]",
       "transition-[left]",

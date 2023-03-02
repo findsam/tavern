@@ -8,6 +8,7 @@ import { sleep } from "../static/util";
 import { useCols } from "../hooks/useCols";
 import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import Loading from "../components/loading";
+import Layout from "../components/layout/navigation";
 
 export default function Home() {
   const cols = useCols();
@@ -26,8 +27,6 @@ export default function Home() {
 
   return (
     <>
-      <Topbar />
-      <Navbar />
       <div
         className={`flex w-[calc(100%-62px)] ml-auto px-2.5 md:px-5 pb-12 mt-[62px] pt-2.5 md:pt-5 flex-col`}
       >
@@ -48,3 +47,7 @@ export default function Home() {
     </>
   );
 }
+
+Home.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
