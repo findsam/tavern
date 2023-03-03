@@ -56,11 +56,11 @@ async function fetchUserDetails(req, res) {
 async function fetchMultipleThreads(req, res) {
   const { type } = req.params;
   if (+type === 0) {
-    await sleep(1000);
+    await sleep(1250);
     res.status(200).json(dummyData);
   }
   if (+type === 1) {
-    await sleep(1000);
+    await sleep(1250);
     res
       .status(200)
       .json([
@@ -74,7 +74,7 @@ async function fetchMultipleThreads(req, res) {
       ]);
   }
   if (+type === 2) {
-    await sleep(1000);
+    await sleep(1250);
     res.status(200).json([dummyData[Math.floor(Math.random() * dummyData.length)]]);
   }
 }

@@ -39,11 +39,11 @@ export default () => {
       "duration-150"
     );
     await sleep(150);
-    lavaLamp.classList.remove(
-      "ease-[cubic-bezier(.17,.67,.83,.67)]",
-      "transition-[left]",
-      "duration-150"
-    );
+    // lavaLamp.classList.remove(
+    //   "ease-[cubic-bezier(.17,.67,.83,.67)]",
+    //   "transition-[left]",
+    //   "duration-150"
+    // );
     router.push(`/${_.url.toLowerCase()}`);
   };
 
