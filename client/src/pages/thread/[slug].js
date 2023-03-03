@@ -16,6 +16,6 @@ export default function Slug() {
   );
 }
 
-Slug.getLayout = (page) => {
+Slug.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
