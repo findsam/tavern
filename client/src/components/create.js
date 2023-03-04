@@ -25,6 +25,7 @@ export default () => {
   const STATIC_TABS = ["Enabled", "Disabled"];
 
   const handleTags = (e) => {
+    if (tags.length >= 3) return null;
     e.preventDefault();
     setTags([...tags, tagsRef.current.value]);
     tagsRef.current.value = "";
@@ -98,7 +99,7 @@ export default () => {
               Tags
             </label>
             <span className="flex items-center gap-2 px-3 min-h-[38px] w-full text-sm text-white bg-transparent border rounded-md border-main-border">
-              <AiOutlineTags className="text-lg text-white/70" />
+              <AiOutlineTags className="text-lg text-white/70 shrink-0" />
               <ul className="flex gap-1 max-w-max">
                 {tags.map((_, i) => (
                   <li
@@ -106,7 +107,10 @@ export default () => {
                     className="whitespace-nowrap gap-1 flex items-center px-1.5 py-1 text-xs rounded-md bg-main-700"
                   >
                     {_}
-                    <IoClose className="text-sm" />
+                    <IoClose
+                      className="text-sm"
+                      onClick={() => setTags(tags.filter((_, _i) => _i !== i))}
+                    />
                   </li>
                 ))}
               </ul>
