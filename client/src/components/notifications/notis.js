@@ -78,7 +78,7 @@ const Notis = () => {
                   }}
                 >
                   {_.name}
-                  <span className="absolute top-0 bottom-0 z-10 block w-1.5 h-1.5 my-auto bg-green-400 rounded-full right-2 " />
+                  <span className="absolute top-0 bottom-0 z-10 block w-2 h-2 my-auto bg-green-400 rounded-full right-2 " />
                 </li>
               ))}
             </ul>
