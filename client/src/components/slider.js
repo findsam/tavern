@@ -32,13 +32,13 @@ export default () => {
 
   const handleClick = async (_, i) => {
     const lavaLamp = slideContainer.current.childNodes[0];
-    setActiveSlide(i);
     lavaLamp.classList.add(
       "ease-[cubic-bezier(.17,.67,.83,.67)]",
       "transition-[left]",
       "duration-150"
     );
-    await sleep(150);
+    setActiveSlide(i);
+    await sleep(140);
     router.push(`/${_.url.toLowerCase()}`);
   };
 
