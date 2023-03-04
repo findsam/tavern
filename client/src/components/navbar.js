@@ -1,19 +1,11 @@
 import {
   AiOutlineQuestionCircle,
   AiOutlineFileText,
-  AiOutlineLogout,
-  AiOutlineLogin,
   AiOutlineLock,
   AiOutlineHome,
-  AiOutlinePlusCircle,
 } from "react-icons/ai";
-import { getDiscordURL } from "../static/util";
-import { RiHeartLine, RiDashboardLine } from "react-icons/ri";
 import { RxDashboard } from "react-icons/rx";
-import { handleLogout } from "../static/api";
-import { Context } from "../store/context";
 import { useRouter } from "next/router";
-import { useContext } from "react";
 import Link from "next/link";
 
 const APP_ROUTES = [
@@ -34,9 +26,6 @@ const APP_ROUTES = [
 
 export default function Navbar(props) {
   const router = useRouter();
-  const { state, dispatch } = useContext(Context);
-
-  // console.log(state);
   return (
     <div className="fixed top-0 left-0 min-h-screen border-r bg-main-800 border-main-border max-w-[62px] min-w-[62px] z-10">
       <nav className="flex flex-col items-center h-full min-h-screen gap-5 p-2">
@@ -93,29 +82,6 @@ export default function Navbar(props) {
               </span>
             </span>
           </li>
-
-          {/* <li
-            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
-          >
-            {!state.user ? (
-              <a className="text-[1.3rem] relative" href={getDiscordURL()}>
-                <AiOutlineLogin />
-                <span className="absolute top-0 z-50 px-2 py-1 text-xs text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                  Login
-                </span>
-              </a>
-            ) : (
-              <button
-                className="text-[1.3rem] relative"
-                onClick={() => handleLogout(dispatch, router)}
-              >
-                <AiOutlineLogout />
-                <span className="absolute top-0 z-50 px-2 py-1 text-xs text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
-                  Logout
-                </span>
-              </button>
-            )}
-          </li> */}
         </ul>
       </nav>
     </div>

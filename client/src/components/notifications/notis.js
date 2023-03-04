@@ -25,16 +25,8 @@ const Notis = () => {
   return (
     <>
       <div className="sticky top-0 flex flex-col h-full overflow-x-visible overflow-y-scroll border-b shadow-lg border-main-border bg-main-800">
-        <div className="flex items-center justify-center px-5 py-4 min-h-[61px]">
-          <div className="flex items-center w-full mr-auto ">
-            <h1 className="mr-auto text-xl font-medium">Notifications</h1>
-            <span className="items-center flex ml-auto mr-8 text-xs text-green-400 gap-1.5  hover:cursor-pointer">
-              <IoMdCheckmark className="text-base" />
-              Mark all as read
-            </span>
-          </div>
-        </div>
-        <ul
+        <div className="flex flex-col items-center px-5 min-h-[61px]">
+          {/* <ul
           ref={slideContainer}
           className="relative flex gap-5 px-5 py-4 text-sm leading-5 border-t text-white/70 border-main-border min-h-[62px]"
         >
@@ -66,7 +58,32 @@ const Notis = () => {
           <li className="flex ml-auto text-white/70">
             <AiOutlineSetting className="text-[1.3rem]" />{" "}
           </li>
-        </ul>
+        </ul> */}
+
+          <div className="flex w-full mt-auto mb-auto">
+            <ul
+              ref={slideContainer}
+              className="flex justify-center items-center relative p-0.5 border rounded-md border-main-border bg-main-800 max-h-[38px] min-h-[38px] gap-1"
+            >
+              <span
+                className={`will-change-transform block w-full absolute z-10 font-normal bg-main-700 rounded-md left-0.5 duration-150 ease-[cubic-bezier(.17,.67,.83,.67)] transition-[left]`}
+              />
+              {STATIC_OPTS.map((_, i) => (
+                <li
+                  className={`px-6 gap-1.5 py-1 h-full font-normal select-none rounded-md z-50 relative text-white/70 text-sm flex items-center hover:cursor-pointer hover:text-white duration-150  ${
+                    activeSlide === i && "text-white"
+                  }`}
+                  onClick={() => {
+                    setActiveSlide(i);
+                  }}
+                >
+                  {_.name}
+                  <span className="absolute top-0 bottom-0 z-10 block w-1.5 h-1.5 my-auto bg-green-400 rounded-full right-2 " />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div className="block max-h-full overflow-auto top-48">

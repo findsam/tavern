@@ -48,7 +48,7 @@ export default () => {
       ref={slideContainer}
     >
       <span
-        className={`will-change-transform block w-full absolute z-10 font-normal bg-main-800 rounded-md left-0.5 `}
+        className={`will-change-transform block w-full absolute z-10 font-normal bg-main-800 rounded-md left-0.5`}
       />
       {STATIC_TABS.map((_, i) => (
         <button
