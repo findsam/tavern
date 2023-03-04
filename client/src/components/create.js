@@ -97,9 +97,9 @@ export default () => {
             <label className="inline-flex items-center text-xs text-left text-white/70 ">
               Tags
             </label>
-            <span className="flex items-center gap-2 px-3 min-h-[38px] text-sm text-white bg-transparent border rounded-md border-main-border">
+            <span className="flex items-center gap-2 px-3 min-h-[38px] w-full text-sm text-white bg-transparent border rounded-md border-main-border">
               <AiOutlineTags className="text-lg text-white/70" />
-              <ul className="flex gap-1">
+              <ul className="flex gap-1 max-w-max">
                 {tags.map((_, i) => (
                   <li
                     key={i}
@@ -110,7 +110,7 @@ export default () => {
                   </li>
                 ))}
               </ul>
-              <form onSubmit={(e) => handleTags(e)}>
+              <form onSubmit={(e) => handleTags(e)} className="w-full">
                 <input
                   className="w-full bg-transparent focus:outline-none active:outline-none"
                   ref={tagsRef}

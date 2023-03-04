@@ -12,13 +12,16 @@ import { Context } from "../store/context";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineSetting, AiOutlineFileAdd } from "react-icons/ai";
 import Link from "next/link";
+import { BiLogOutCircle } from "react-icons/bi";
+import { handleLogout } from "../static/api";
 
 export default () => {
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
   const { pathname } = useRouter();
   const [profile, setProfile] = useState(false);
   const [notiications, setNotifications] = useState(false);
   const [create, setCreate] = useState(false);
+  const router = useRouter();
 
   return (
     <>
@@ -50,6 +53,12 @@ export default () => {
                   Account Settings
                 </Link>
               </li>
+              <button
+                onClick={() => handleLogout(dispatch, router)}
+                className="leading-5 border-t border-main-border pt-2.5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5"
+              >
+                <BiLogOutCircle className="text-[1.3rem]" /> <span>Log out</span>
+              </button>
             </ul>
           </>
         )}

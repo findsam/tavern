@@ -141,35 +141,15 @@ const Post = ({ post, setIsLoaded = null, firstRender }) => {
                   </>
                 </div>
               </Link>
-              {/* <div className="flex flex-col items-start w-full text-white ml-0.5 gap-1 mt-1">
-                <div className="inline-flex w-full">
-                  <Link href={`profile/@swkn#dev`}>
-                    <p className="mr-auto text-xs text-left opacity-70">
-                      @tavern#dev
-                    </p>
-                  </Link>
-                </div>
-                <ul className="flex gap-1 font-normal leading-none">
-                  <li className="px-2 py-1 text-[10px] text-white/70 duration-150 rounded-full bg-main-800">
-                    #photoshop
-                  </li>
-                  <li className="px-2 py-1 text-[10px] text-white/70 duration-150 rounded-full bg-main-800">
-                    #warcraft
-                  </li>
-                  <li className="px-2 py-1 text-[10px] text-white/70 duration-150 rounded-full bg-main-800">
-                    #offline
-                  </li>
-                  {post.isLast && (
-                    <li className="px-2 py-1 text-[10px] text-white/70 duration-150 rounded-full bg-main-800">
-                      Development Last
-                    </li>
-                  )}
-                </ul>
-              </div> */}
 
               <div className="flex flex-col text-sm text-white/70 gap-1.5 mt-1.5">
                 <p className="inline-flex items-center text-xs text-left text-white/40 ">
-                  <a>@swkn#dev</a>
+                  <Link
+                    href={`profile/@swkn#dev`}
+                    className="duration-150 hover:cursor-pointer hover:text-white"
+                  >
+                    <p className="mr-auto text-xs text-left opacity-70">@swkn#dev</p>
+                  </Link>
                   <span className="block w-1 h-1 mx-2 rounded-full bg-white/40" />
                   <span>photoshop</span>
                   <span className="block w-1 h-1 mx-2 rounded-full bg-white/40" />

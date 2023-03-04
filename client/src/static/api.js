@@ -40,8 +40,7 @@ const fetchIndividualThread = async (next, postId, router) => {
     const { data } = await api.fetchIndividualThread(postId);
     next(data);
   } catch (error) {
-    // console.log(error);
-    return router.push("/");
+    return router.push("/feed");
   }
 };
 

@@ -14,13 +14,13 @@ const {
 } = require("./constants.js");
 
 async function discordOAuthHandler(req, res) {
-  if (req.query.error) return res.redirect("http://localhost:3000/?login=failure");
+  if (req.query.error) return res.redirect("http://localhost:3000/landing");
   const { code } = req.query;
   const { access_token, refresh_token } = await getDiscordTokens(code);
   const refreshToken = signJWT({ refresh_token }, "59m");
   const accessToken = signJWT({ access_token }, "15m");
   await generateCookies(res, req, accessToken, refreshToken);
-  res.redirect("http://localhost:3000?login=success");
+  res.redirect("http://localhost:3000/feed");
 }
 
 async function handleLogout(req, res) {
