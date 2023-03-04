@@ -78,7 +78,7 @@ export default () => {
               className="w-full text-sm bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm placeholder:font-normal"
               placeholder="Looking to explore..."
             />
-            <button className="pl-2 shrink-0">
+            <button className="pl-2 shrink-0 ">
               <AiOutlineSearch className="text-xl opacity-70" />
             </button>
           </form>
@@ -90,18 +90,21 @@ export default () => {
             <aside className="flex flex-row items-center gap-2.5 ml-auto md:gap-2.5">
               <button
                 onClick={() => setCreate((_) => !_)}
-                className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0"
+                className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0 active:outline-none focus:outline-none outline-none"
               >
                 <AiOutlineFileAdd className="text-[1.3rem] shrink-0 opacity-70" />
               </button>
               <button
                 onClick={() => setNotifications((_) => !_)}
-                className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0"
+                className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0 active:outline-none focus:outline-none outline-none "
               >
                 <span className="absolute top-0 right-0 z-10 block w-3 h-3 bg-green-400 border-2 rounded-full border-main-800" />
                 <BsBell className="text-[1.3rem] shrink-0 opacity-70" />
               </button>
-              <button onClick={() => setProfile((_) => !_)}>
+              <button
+                onClick={() => setProfile((_) => !_)}
+                className="active:outline-none focus:outline-none"
+              >
                 <Image
                   className="rounded-full ring-1 ring-main-border p-0.5 hover:ring-white/70 duration-150 hover:cursor-pointer"
                   height="38"
