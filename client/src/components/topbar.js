@@ -12,8 +12,9 @@ import { Context } from "../store/context";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineSetting, AiOutlineFileAdd } from "react-icons/ai";
 import Link from "next/link";
-import { BiLogOutCircle } from "react-icons/bi";
+import { BiLogOutCircle, BiCookie } from "react-icons/bi";
 import { handleLogout } from "../static/api";
+import { RxUpdate } from "react-icons/rx";
 
 export default () => {
   const { state, dispatch } = useContext(Context);
@@ -51,6 +52,18 @@ export default () => {
                 <AiOutlineSetting className="text-[1.3rem]" />{" "}
                 <Link href={`/profile/@${state.user.me.username}`}>
                   Account Settings
+                </Link>
+              </li>
+              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
+                <RxUpdate className="text-[1.3rem]" />{" "}
+                <Link href={`/profile/@${state.user.me.username}`}>
+                  Manage Subscription
+                </Link>
+              </li>
+              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
+                <BiCookie className="text-[1.3rem]" />{" "}
+                <Link href={`/profile/@${state.user.me.username}`}>
+                  Cookie Information
                 </Link>
               </li>
               <button

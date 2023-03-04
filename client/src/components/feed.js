@@ -142,13 +142,13 @@ const Post = ({ post, setIsLoaded = null, firstRender }) => {
                 </div>
               </Link>
 
-              <div className="flex flex-col text-sm text-white/70 gap-1.5 mt-1.5">
+              <div className="flex flex-col text-sm  gap-1.5 mt-1.5">
                 <p className="inline-flex items-center text-xs text-left text-white/40 ">
                   <Link
                     href={`profile/@swkn#dev`}
                     className="duration-150 hover:cursor-pointer hover:text-white"
                   >
-                    <p className="mr-auto text-xs text-left opacity-70">@swkn#dev</p>
+                    @swkn#dev
                   </Link>
                   <span className="block w-1 h-1 mx-2 rounded-full bg-white/40" />
                   <span>photoshop</span>
