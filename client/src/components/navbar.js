@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 const APP_ROUTES = [
-  { name: "Home", url: "/", icon: <AiOutlineHome />, tooltip: "Homepage" },
+  { name: "Home", url: "/feed", icon: <AiOutlineHome />, tooltip: "Homepage" },
   {
     name: "Dashboard",
     url: "/dashboard",
