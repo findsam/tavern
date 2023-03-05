@@ -42,13 +42,13 @@ export default () => {
       <div className="w-full py-5 border-t border-main-border">
         <div
           className="flex flex-col gap-2.5 px-5"
-          onSubmit={(e) => e.preventDefault()}
+          // onSubmit={(e) => e.preventDefault()}
         >
           <span className="flex flex-col gap-1.5">
             <label className="inline-flex items-center text-xs text-left text-white/70 ">
               Title <span className="ml-0.5 font-medium text-red-500">*</span>
             </label>
-            <input className="px-3 py-2 text-sm text-white bg-transparent border rounded-md border-main-border focus:outline-none active:outline-none" />
+            <input className="px-3 py-2 text-sm text-white bg-transparent border rounded-md border-main-border focus:outline-none active:outline-none " />
           </span>
           <div className="flex gap-2.5">
             <span className="flex flex-col gap-1.5  max-w-max ">
