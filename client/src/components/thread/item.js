@@ -11,6 +11,7 @@ import { sleep } from "../../static/util";
 import AudioPlayer from "../audio/audioPlayer";
 import { fetchIndividualThread } from "../../static/api";
 import Contribution from "./contribution";
+import Heart from "../heart";
 
 export default () => {
   const router = useRouter();
@@ -25,10 +26,6 @@ export default () => {
     post && (
       <>
         <div className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-image blur opacity-5 after:absolute after:content-[''] after:left-0 after:right-0 after:bottom-0 after:top-0 after:bg-main-900/30">
-          {/* <img
-            src={`/${post?.image}`}
-            className="object-cover object-top w-full h-full "
-          /> */}
           <Image
             src={`/${post?.image}`}
             className="object-cover !w-full !relative !h-['unset'] block  max-w-full object-top border rounded-xl drop-shadow-md bg-main-800 border-main-border"
@@ -67,6 +64,7 @@ export default () => {
           </div>
           <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px] z-30">
             <div className="flex gap-2 text-2xl">
+              <Heart />
               {liked ? (
                 <button
                   onClick={(e) => {

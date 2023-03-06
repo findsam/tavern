@@ -155,23 +155,6 @@ const Post = ({ post, setIsLoaded = null, firstRender }) => {
                   <span className="block w-1 h-1 mx-2 rounded-full bg-white/40" />
                   <span>warcraft</span>
                 </p>
-
-                {/* <ul className="flex gap-1 font-normal leading-none">
-                  <li className="px-2 py-1 text-xs duration-150 rounded-full text-white/40 bg-main-800">
-                    #photoshop
-                  </li>
-                  <li className="px-2 py-1 text-xs duration-150 rounded-full text-white/40 bg-main-800">
-                    #warcraft
-                  </li>
-                  <li className="px-2 py-1 text-xs duration-150 rounded-full text-white/40 bg-main-800">
-                    #offline
-                  </li>
-                  {post.isLast && (
-                    <li className="px-2 py-1 text-xs duration-150 rounded-full text-white/40 bg-main-800">
-                      Development Last
-                    </li>
-                  )}
-                </ul> */}
               </div>
             </>
           )}
