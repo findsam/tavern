@@ -2,16 +2,15 @@ const {
   getDiscordTokens,
   revokeAccessToken,
   getDiscordUser,
-} = require("./auth/services");
-const jwt = require("jsonwebtoken");
+} = require("../auth/services");
 const {
   refreshTokenCookieOptions,
   signJWT,
-  generateCookies,
   verifyJWT,
   dummyData,
   sleep,
-} = require("./constants.js");
+} = require("../constants.js");
+const { generateCookies } = require("../auth/tokens.js");
 
 async function handleLogin(req, res) {
   if (req.query.error) return res.redirect("http://localhost:3000/landing");

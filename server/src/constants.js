@@ -1,4 +1,10 @@
 const jwt = require("jsonwebtoken");
+
+const corsDefaults = {
+  origin: ["http://localhost:3000"],
+  credentials: true,
+};
+
 const accessTokenCookieOptions = {
   maxAge: 900000, // 15 mins
   httpOnly: true,
@@ -24,11 +30,6 @@ function verifyJWT(token) {
   } catch (error) {
     return { payload: null, expired: true };
   }
-}
-
-async function generateCookies(res, req, accessToken, refreshToken) {
-  res.cookie("accessToken", accessToken, accessTokenCookieOptions);
-  res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
 }
 
 const dummyData = [
@@ -3076,7 +3077,7 @@ module.exports = {
   refreshTokenCookieOptions,
   verifyJWT,
   signJWT,
-  generateCookies,
   dummyData,
   sleep,
+  corsDefaults,
 };

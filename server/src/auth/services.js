@@ -24,7 +24,7 @@ async function getDiscordTokens(code) {
   }
 }
 
-async function generateNewAccessToken(refresh_token) {
+async function generateAccessToken(refresh_token) {
   try {
     const res = await axios.post(
       "https://discord.com/api/oauth2/token",
@@ -110,6 +110,6 @@ async function revokeAccessToken(access_token) {
 module.exports = {
   getDiscordTokens,
   getDiscordUser,
-  generateNewAccessToken,
+  generateAccessToken,
   revokeAccessToken,
 };

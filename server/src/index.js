@@ -1,12 +1,10 @@
-const corsDefaults = {
-  origin: ["http://localhost:3000"],
-  credentials: true,
-};
+require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const cors = require("cors");
-const routes = require("./routes.js");
-require("dotenv").config();
+const authRoutes = require("./routes/authRoutes.js");
+const contentRoutes = require("./routes/contentRoutes.js");
+const { corsDefaults } = require("./constants.js");
 
 const app = express();
 
@@ -16,5 +14,6 @@ app.use(cookieParser());
 
 app.listen(3001, async () => {
   console.log(`App is running at http://localhost:${3001}`);
-  routes(app);
+  authRoutes(app);
+  contentRoutes(app);
 });
