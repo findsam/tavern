@@ -10,7 +10,6 @@ const Heart = () => {
   const handleClick = async () => {
     setClick(true);
     await sleep(125);
-    // setLiked(true);
     liked ? setLiked(false) : setLiked(true);
     await sleep(300);
     setClick(false);
@@ -20,7 +19,7 @@ const Heart = () => {
     <>
       <div
         onClick={() => handleClick()}
-        className={`rounded-full relative hover:cursor-pointer ${
+        className={`rounded-full relative hover:cursor-pointer text-white/70 ${
           click && "animate-[heart_0.55s_cubic-bezier(.17,.67,.83,.67)]"
         } text-[1.3rem]`}
       >
