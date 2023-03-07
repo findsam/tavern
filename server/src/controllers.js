@@ -2,7 +2,7 @@ const {
   getDiscordTokens,
   revokeAccessToken,
   getDiscordUser,
-} = require("./services");
+} = require("./auth/services");
 const jwt = require("jsonwebtoken");
 const {
   refreshTokenCookieOptions,
@@ -13,7 +13,7 @@ const {
   sleep,
 } = require("./constants.js");
 
-async function discordOAuthHandler(req, res) {
+async function handleLogin(req, res) {
   if (req.query.error) return res.redirect("http://localhost:3000/landing");
   const { code } = req.query;
   const { access_token, refresh_token } = await getDiscordTokens(code);
@@ -89,7 +89,7 @@ async function fetchIndividualThread(req, res) {
 }
 
 module.exports = {
-  discordOAuthHandler,
+  handleLogin,
   handleLogout,
   fetchUserDetails,
   fetchMultipleThreads,
