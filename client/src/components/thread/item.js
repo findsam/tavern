@@ -65,7 +65,7 @@ export default () => {
           <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px] z-30">
             <div className="flex gap-2 text-2xl">
               <Heart />
-              {liked ? (
+              {/* {liked ? (
                 <button
                   onClick={(e) => {
                     dispatch({
@@ -99,7 +99,7 @@ export default () => {
                     </span>
                   </span>
                 </button>
-              )}
+              )} */}
 
               <Copy />
             </div>
