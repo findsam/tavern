@@ -10,7 +10,10 @@ const Heart = () => {
   const handleClick = async () => {
     setClick(true);
     await sleep(125);
-    setLiked(true);
+    // setLiked(true);
+    liked ? setLiked(false) : setLiked(true);
+    await sleep(300);
+    setClick(false);
   };
 
   return (
