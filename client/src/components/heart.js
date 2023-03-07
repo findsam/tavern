@@ -1,18 +1,21 @@
 import React, { useState } from "react";
+import { RiHeartLine, RiHeartFill } from "react-icons/ri";
 
 const Heart = () => {
   const [click, setClick] = useState(false);
 
   const handleClick = async () => {
-    console.log("hi");
     setClick(true);
   };
 
   return (
     <div
       onClick={() => handleClick()}
-      className={`block w-5 h-5 bg-white rounded-full ${click && "animate-[heart]"}`}
-    ></div>
+      className={`rounded-full ${click && "animate-[heart_5s_linear]"}`}
+    >
+      <RiHeartLine />
+      {/* <RiHeartFill /> */}
+    </div>
   );
 };
 

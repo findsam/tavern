@@ -37,7 +37,7 @@ export default () => {
           <div className="flex flex-col max-w-xl gap-5">
             <Image
               src={`/${post?.image}`}
-              className="object-contain !w-full !relative !h-['unset'] block  max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
+              className="object-contain !w-full !relative !h-['unset'] block  max-w-full align-middle border rounded-lg drop-shadow-md bg-main-800 border-main-border"
               fill
               quality={100}
             />
