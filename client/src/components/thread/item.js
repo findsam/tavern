@@ -10,13 +10,13 @@ import Contribution from "./contribution";
 import Heart from "../heart";
 import { Dropdown as Navdrop } from "../dropdown";
 import { AiOutlineShareAlt, AiOutlineInstagram } from "react-icons/ai";
-import { RxTwitterLogo, RxDiscordLogo } from "react-icons/rx";
+import { RxTwitterLogo } from "react-icons/rx";
 import { TbCopy } from "react-icons/tb";
 
 export default () => {
   const router = useRouter();
   const [post, setPost] = useState(null);
-  const { state, dispatch } = useContext(Context);
+  const { state } = useContext(Context);
 
   useEffect(() => {
     (async () => await fetchIndividualThread(setPost, +router.query.slug, router))();
@@ -142,7 +142,6 @@ const Share = () => {
         >
           <AiOutlineShareAlt />
         </button>
-
         <Navdrop show={open} setShow={setOpen}>
           <>
             <ul className="text-sm  text-white/70   p-1.5 gap-1.5 flex justify-between">
