@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { BsBell } from "react-icons/bs";
 import Dropdown from "./dropdown";
 import { useContext, useEffect } from "react";
 import { Context } from "../../store/context";
 import { useRouter } from "next/router";
-import { RiHeartLine, RiHeartFill } from "react-icons/ri";
-import { useState, useRef } from "react";
-import { TbCopy } from "react-icons/tb";
-import { sleep } from "../../static/util";
+import { useState } from "react";
 import AudioPlayer from "../audio/audioPlayer";
 import { fetchIndividualThread } from "../../static/api";
 import Contribution from "./contribution";
 import Heart from "../heart";
+import { Dropdown as Navdrop } from "../dropdown";
+import { AiOutlineShareAlt, AiOutlineInstagram } from "react-icons/ai";
+import { RxTwitterLogo, RxDiscordLogo } from "react-icons/rx";
+import { TbCopy } from "react-icons/tb";
 
 export default () => {
   const router = useRouter();
@@ -63,7 +63,7 @@ export default () => {
             <AudioPlayer />
           </div>
           <div className="max-w-[550px] w-full flex flex-col gap-4 sticky max-h-max top-[84px] z-30">
-            <div className="flex gap-2 text-2xl">
+            <div className="flex gap-2 items-star ">
               <Heart />
               {/* {liked ? (
                 <button
@@ -101,7 +101,9 @@ export default () => {
                 </button>
               )} */}
 
-              <Copy />
+              {/* <Copy /> */}
+
+              <Share />
             </div>
 
             <h1 className="text-2xl font-medium leading-none text-wide">
@@ -129,52 +131,85 @@ export default () => {
   );
 };
 
-const Copy = () => {
-  const [clicked, setClicked] = useState(false);
-  const [show, setShow] = useState(false);
-  const clickable = useRef(null);
-
-  const onClickHandler = async () => {
-    setClicked(true);
-    await navigator.clipboard.writeText(location.href);
-    await sleep(2950);
-    setShow(false);
-    await sleep(150);
-    setClicked(false);
-  };
-
-  const handleMouse = async ({ type }) =>
-    type === "mouseenter" ? setShow(true) : !clicked && setShow(false);
-
+const Share = () => {
+  const [open, setOpen] = useState(false);
   return (
-    <li
-      onMouseEnter={(e) => handleMouse(e)}
-      onMouseLeave={(e) => handleMouse(e)}
-      ref={clickable}
-      onClick={!clicked ? onClickHandler : null}
-      className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer`}
-    >
-      <span className="text-[1.3rem] relative">
-        <TbCopy />
-        <span
-          className={`absolute z-50 px-2 py-1 text-xs  text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none left-1/2 whitespace-nowrap 
-          ${show ? "-bottom-9 opacity-100" : "-bottom-5 opacity-0"} 
-         bg-main-800 overflow-hidden
-         `}
+    <>
+      <div className="relative flex">
+        <button
+          onClick={() => setOpen((p) => !p)}
+          className="text-[1.3rem] text-white/70"
         >
-          <span
-            className={`
-            ${
-              clicked
-                ? "-left-full visible duration-[3s]"
-                : "left-0 invisible duration-0"
-            }
-            absolute content-[''] top-0 h-0.5 bg-green-400 transition-all w-full`}
-          />
+          <AiOutlineShareAlt />
+        </button>
 
-          {!clicked ? "Copy URL" : "Copied"}
-        </span>
-      </span>
-    </li>
+        <Navdrop show={open} setShow={setOpen}>
+          <>
+            <ul className="text-sm  text-white/70   p-1.5 gap-1.5 flex justify-between">
+              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-0.5 list-none flex text-white/70 text-sm items-center gap-1.5">
+                <RxTwitterLogo className="text-[1.3rem]" />
+              </li>
+              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-0.5 list-none flex text-white/70 text-sm items-center gap-1.5">
+                <AiOutlineInstagram className="text-[1.3rem]" />{" "}
+              </li>
+
+              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-0.5 list-none flex text-white/70 text-sm items-center gap-1.5">
+                <TbCopy className="text-[1.3rem]" />{" "}
+              </li>
+            </ul>
+          </>
+        </Navdrop>
+      </div>
+    </>
   );
 };
+
+// const Copy = () => {
+//   const [clicked, setClicked] = useState(false);
+//   const [show, setShow] = useState(false);
+//   const clickable = useRef(null);
+
+//   const onClickHandler = async () => {
+//     setClicked(true);
+//     await navigator.clipboard.writeText(location.href);
+//     await sleep(2950);
+//     setShow(false);
+//     await sleep(150);
+//     setClicked(false);
+//   };
+
+//   const handleMouse = async ({ type }) =>
+//     type === "mouseenter" ? setShow(true) : !clicked && setShow(false);
+
+//   return (
+//     <li
+//       onMouseEnter={handleMouse}
+//       onMouseLeave={handleMouse}
+//       ref={clickable}
+//       onClick={!clicked ? onClickHandler : null}
+//       className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer`}
+//     >
+//       <span className="text-[1.3rem] relative">
+//         <TbCopy />
+//         <span
+//           className={`absolute z-50 px-2 py-1 text-xs  text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none left-1/2 whitespace-nowrap
+//           ${show ? "-bottom-9 opacity-100" : "-bottom-5 opacity-0"}
+//          bg-main-800 overflow-hidden
+//          `}
+//         >
+//           <span
+//             className={`
+//             ${
+//               clicked
+//                 ? "-left-full visible duration-[3s]"
+//                 : "left-0 invisible duration-0"
+//             }
+//             absolute content-[''] top-0 h-0.5 bg-green-400 transition-all w-full`}
+//           />
+
+//           {!clicked ? "Copy URL" : "Copied"}
+//         </span>
+//       </span>
+//     </li>
+//   );
+// };
