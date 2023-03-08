@@ -1,4 +1,4 @@
-const { generateAccessToken } = require("./services.js");
+const { generateAccessTokenFromRefresh } = require("./services.js");
 const {
   verifyJWT,
   accessTokenCookieOptions,
@@ -15,38 +15,32 @@ async function clearCookies(res) {
   res.clearCookie("accessToken");
 }
 
-async function generateTokens(req, res) {
-  if (req.cookies.refreshToken) {
-    const { expired, payload } = verifyJWT(req.cookies.refreshToken);
-    const { accessToken, refreshToken } = await generateAccessToken(
-      payload.refresh_token
-    );
-    return { accessToken, refreshToken };
-  }
-}
-
 async function verifyTokens(req, res, next) {
   if (!req.cookies || req.cookies === undefined) {
-    // error handler for wtf...
+    // error handler for wtf how did you even make the request you hackermans...
     console.log("litearlly HOW are you making a request...???");
     return res.status(500).json("error while fetching user, please relogin.");
   }
   if (verifyJWT(req.cookies.refreshToken).expired) {
     // user session has completely expired
-
     return res.status(500).json("error while fetching user, please relogin.");
   } else {
     if (
       verifyJWT(req.cookies.accessToken).expired ||
-      (!req.cookies.accessToken && !verifyJWT(req.cookies.refreshToken).expired)
+      (!req.cookies.accessToken &&
+        !verifyJWT(req.cookies.refreshToken).expired &&
+        req.cookies.refreshToken)
     ) {
       //generate access and refresh token if access & refresh token is expired
-      const { accessToken, refreshToken } = await generateTokens(req, res);
-      await generateCookies(res, req, accessToken, refreshToken);
       console.log(
         "Regenerating accessToken using refreshToken as accessToken has expired."
       );
+      const { expired, payload } = verifyJWT(req.cookies.refreshToken);
+      const { accessToken, refreshToken } = await generateAccessTokenFromRefresh(
+        payload.refresh_token
+      );
       res.locals.at = accessToken;
+      await generateCookies(res, req, accessToken, refreshToken);
       return next();
     }
     return next();

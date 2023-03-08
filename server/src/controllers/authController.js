@@ -1,25 +1,18 @@
 const {
-  getDiscordTokens,
+  fetchInitialAuthTokens,
   revokeAccessToken,
   getDiscordUser,
 } = require("../auth/services");
-const {
-  refreshTokenCookieOptions,
-  signJWT,
-  verifyJWT,
-  dummyData,
-  sleep,
-  signTokens,
-} = require("../constants.js");
+const { verifyJWT } = require("../constants.js");
 const { generateCookies, clearCookies } = require("../auth/tokens.js");
 
 async function handleLogin(req, res) {
   if (req.query.error) return res.redirect("http://localhost:3000/landing");
   const { code } = req.query;
-  const { accessToken, refreshToken } = await getDiscordTokens(code);
+  const { accessToken, refreshToken } = await fetchInitialAuthTokens(code);
+  console.log("creating cookies and successfully gained access");
   await generateCookies(res, req, accessToken, refreshToken);
   res.redirect("http://localhost:3000/feed");
-  console.log("creating cookies and successfully gained access");
 }
 
 async function handleLogout(req, res) {
@@ -28,8 +21,8 @@ async function handleLogout(req, res) {
       verifyJWT(res.locals.at || req.cookies.accessToken).payload.access_token
     )
   ) {
-    await clearCookies(res);
     console.log("deleting cookies and successfully revoked access");
+    await clearCookies(res);
     res.status(200).json("deleted");
   } else {
     console.log("couldnt delete cookies wtf :(");
@@ -55,6 +48,4 @@ module.exports = {
   handleLogin,
   handleLogout,
   fetchUserDetails,
-  // fetchMultipleThreads,
-  // fetchIndividualThread,
 };

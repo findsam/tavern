@@ -2,7 +2,7 @@ const axios = require("axios");
 const qs = require("qs");
 const { signTokens } = require("../constants.js");
 
-async function getDiscordTokens(code) {
+async function fetchInitialAuthTokens(code) {
   try {
     const res = await axios.post(
       "https://discord.com/api/oauth2/token",
@@ -30,7 +30,7 @@ async function getDiscordTokens(code) {
   }
 }
 
-async function generateAccessToken(refresh_token) {
+async function generateAccessTokenFromRefresh(refresh_token) {
   try {
     const res = await axios.post(
       "https://discord.com/api/oauth2/token",
@@ -118,8 +118,8 @@ async function revokeAccessToken(access_token) {
 }
 
 module.exports = {
-  getDiscordTokens,
+  fetchInitialAuthTokens,
   getDiscordUser,
-  generateAccessToken,
+  generateAccessTokenFromRefresh,
   revokeAccessToken,
 };
