@@ -2,7 +2,7 @@ const {
   handleLogin,
   handleLogout,
   fetchUserDetails,
-} = require("../controllers/controllers.js");
+} = require("../controllers/authController.js");
 const { verifyTokens } = require("../auth/tokens.js");
 
 function authRoutes(app) {

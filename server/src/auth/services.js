@@ -1,5 +1,6 @@
 const axios = require("axios");
 const qs = require("qs");
+const { signTokens } = require("../constants.js");
 
 async function getDiscordTokens(code) {
   try {
@@ -18,7 +19,12 @@ async function getDiscordTokens(code) {
         },
       }
     );
-    return res.data;
+
+    const { accessToken, refreshToken } = await signTokens(
+      res.data.access_token,
+      res.data.refresh_token
+    );
+    return { accessToken, refreshToken };
   } catch (err) {
     console.log(err);
   }
@@ -40,7 +46,12 @@ async function generateAccessToken(refresh_token) {
         },
       }
     );
-    return res.data;
+    // return res.data;
+    const { accessToken, refreshToken } = await signTokens(
+      res.data.access_token,
+      res.data.refresh_token
+    );
+    return { accessToken, refreshToken };
   } catch (err) {
     console.log(err);
   }
@@ -53,7 +64,6 @@ async function getDiscordUser(access_token) {
         Authorization: `Bearer ${access_token}`,
       },
     };
-
     return await axios
       .all([
         axios.get("https://discord.com/api/users/@me", TOKEN_CONFIG),

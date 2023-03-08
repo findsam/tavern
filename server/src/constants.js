@@ -32,6 +32,12 @@ function verifyJWT(token) {
   }
 }
 
+async function signTokens(access_token, refresh_token) {
+  const accessToken = signJWT({ access_token }, "15m");
+  const refreshToken = signJWT({ refresh_token }, "59m");
+  return { accessToken, refreshToken };
+}
+
 const dummyData = [
   {
     id: 0,
@@ -3080,4 +3086,5 @@ module.exports = {
   dummyData,
   sleep,
   corsDefaults,
+  signTokens,
 };

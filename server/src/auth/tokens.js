@@ -1,6 +1,5 @@
 const { generateAccessToken } = require("./services.js");
 const {
-  signJWT,
   verifyJWT,
   accessTokenCookieOptions,
   refreshTokenCookieOptions,
@@ -11,14 +10,17 @@ async function generateCookies(res, req, accessToken, refreshToken) {
   res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
 }
 
+async function deleteCookies() {
+  res.clearCookie("refreshToken");
+  res.clearCookie("accessToken");
+}
+
 async function generateTokens(req, res) {
   if (req.cookies.refreshToken) {
     const { expired, payload } = verifyJWT(req.cookies.refreshToken);
-    const { access_token, refresh_token } = await generateAccessToken(
+    const { accessToken, refreshToken } = await generateAccessToken(
       payload.refresh_token
     );
-    const accessToken = signJWT({ access_token }, "15m");
-    const refreshToken = signJWT({ refresh_token }, "59m");
     return { accessToken, refreshToken };
   }
 }
@@ -31,7 +33,7 @@ async function verifyTokens(req, res, next) {
   }
   if (verifyJWT(req.cookies.refreshToken).expired) {
     // user session has completely expired
-    console.log("need to relog you dumbdum");
+
     return res.status(500).json("error while fetching user, please relogin.");
   } else {
     if (
@@ -41,7 +43,9 @@ async function verifyTokens(req, res, next) {
       //generate access and refresh token if access & refresh token is expired
       const { accessToken, refreshToken } = await generateTokens(req, res);
       await generateCookies(res, req, accessToken, refreshToken);
-      console.log("have to regenrate tokens because accessToken is expired");
+      console.log(
+        "Regenerating accessToken using refreshToken as accessToken has expired."
+      );
       res.locals.at = accessToken;
       return next();
     }
@@ -49,4 +53,4 @@ async function verifyTokens(req, res, next) {
   }
 }
 
-module.exports = { verifyTokens, generateCookies };
+module.exports = { verifyTokens, generateCookies, deleteCookies };
