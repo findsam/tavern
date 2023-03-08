@@ -22,8 +22,8 @@ async function verifyTokens(req, res, next) {
     return res.status(500).json("error while fetching user, please relogin.");
   }
   if (verifyJWT(req.cookies.refreshToken).expired) {
-    // user session has completely expired
-    return res.status(500).json("error while fetching user, please relogin.");
+    console.log("refresh token is expired, please login again.");
+    return res.status(500).json("user refresh token expired, please login again.");
   } else {
     if (
       verifyJWT(req.cookies.accessToken).expired ||
@@ -31,11 +31,10 @@ async function verifyTokens(req, res, next) {
         !verifyJWT(req.cookies.refreshToken).expired &&
         req.cookies.refreshToken)
     ) {
-      //generate access and refresh token if access & refresh token is expired
       console.log(
         "Regenerating accessToken using refreshToken as accessToken has expired."
       );
-      const { expired, payload } = verifyJWT(req.cookies.refreshToken);
+      const { payload } = verifyJWT(req.cookies.refreshToken);
       const { accessToken, refreshToken } = await generateAccessTokenFromRefresh(
         payload.refresh_token
       );

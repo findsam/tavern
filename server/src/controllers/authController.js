@@ -8,9 +8,8 @@ const { generateCookies, clearCookies } = require("../auth/tokens.js");
 
 async function handleLogin(req, res) {
   if (req.query.error) return res.redirect("http://localhost:3000/landing");
-  const { code } = req.query;
-  const { accessToken, refreshToken } = await fetchInitialAuthTokens(code);
   console.log("creating cookies and successfully gained access");
+  const { accessToken, refreshToken } = await fetchInitialAuthTokens(req.query.code);
   await generateCookies(res, req, accessToken, refreshToken);
   res.redirect("http://localhost:3000/feed");
 }

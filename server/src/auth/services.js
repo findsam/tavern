@@ -46,7 +46,6 @@ async function generateAccessTokenFromRefresh(refresh_token) {
         },
       }
     );
-    // return res.data;
     const { accessToken, refreshToken } = await signTokens(
       res.data.access_token,
       res.data.refresh_token
