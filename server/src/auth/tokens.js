@@ -16,32 +16,32 @@ async function clearCookies(res) {
 }
 
 async function verifyTokens(req, res, next) {
-  if (!req.cookies || req.cookies === undefined) {
-    // error handler for wtf how did you even make the request you hackermans...
-    console.log("litearlly HOW are you making a request...???");
+  const refresh = verifyJWT(req.cookies.refreshToken);
+  const access = verifyJWT(req.cookies.accessToken);
+
+  if (!req.cookies || req.cookies === undefined)
     return res.status(500).json("error while fetching user, please relogin.");
-  }
-  if (verifyJWT(req.cookies.refreshToken).expired) {
-    console.log("refresh token is expired, please login again.");
+  if (refresh.expired) {
+    await clearCookies(res);
     return res.status(500).json("user refresh token expired, please login again.");
   } else {
     if (
-      verifyJWT(req.cookies.accessToken).expired ||
-      (!req.cookies.accessToken &&
-        !verifyJWT(req.cookies.refreshToken).expired &&
-        req.cookies.refreshToken)
+      access.expired ||
+      (!refresh.expired &&
+        access.payload.access_token == null &&
+        refresh.payload.refresh_token !== null)
     ) {
       console.log(
         "Regenerating accessToken using refreshToken as accessToken has expired."
       );
-      const { payload } = verifyJWT(req.cookies.refreshToken);
       const { accessToken, refreshToken } = await generateAccessTokenFromRefresh(
-        payload.refresh_token
+        refresh.payload.refresh_token
       );
       res.locals.at = accessToken;
       await generateCookies(res, req, accessToken, refreshToken);
       return next();
     }
+    console.log("tokens valid");
     return next();
   }
 }

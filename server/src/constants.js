@@ -11,7 +11,7 @@ const accessTokenCookieOptions = {
   domain: "localhost",
   path: "/",
   sameSite: "strict",
-  secure: false,
+  secure: true,
 };
 const refreshTokenCookieOptions = {
   ...accessTokenCookieOptions,
@@ -34,7 +34,7 @@ function verifyJWT(token) {
 
 async function signTokens(access_token, refresh_token) {
   const accessToken = signJWT({ access_token }, "15m");
-  const refreshToken = signJWT({ refresh_token }, "59m");
+  const refreshToken = signJWT({ refresh_token }, "1hr");
   return { accessToken, refreshToken };
 }
 
