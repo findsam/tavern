@@ -10,7 +10,7 @@ async function generateCookies(res, req, accessToken, refreshToken) {
   res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
 }
 
-async function deleteCookies() {
+async function clearCookies(res) {
   res.clearCookie("refreshToken");
   res.clearCookie("accessToken");
 }
@@ -53,4 +53,4 @@ async function verifyTokens(req, res, next) {
   }
 }
 
-module.exports = { verifyTokens, generateCookies, deleteCookies };
+module.exports = { verifyTokens, generateCookies, clearCookies };

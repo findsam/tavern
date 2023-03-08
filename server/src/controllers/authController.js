@@ -11,7 +11,7 @@ const {
   sleep,
   signTokens,
 } = require("../constants.js");
-const { generateCookies, deleteCookies } = require("../auth/tokens.js");
+const { generateCookies, clearCookies } = require("../auth/tokens.js");
 
 async function handleLogin(req, res) {
   if (req.query.error) return res.redirect("http://localhost:3000/landing");
@@ -28,8 +28,8 @@ async function handleLogout(req, res) {
       verifyJWT(res.locals.at || req.cookies.accessToken).payload.access_token
     )
   ) {
+    await clearCookies(res);
     console.log("deleting cookies and successfully revoked access");
-    await deleteCookies();
     res.status(200).json("deleted");
   } else {
     console.log("couldnt delete cookies wtf :(");
