@@ -3,9 +3,9 @@ const {
   fetchIndividualThread,
 } = require("../controllers/contentController.js");
 
-function contentRoutes(app) {
+module.exports = (app) => {
   app.get("/fetch/:type", fetchMultipleThreads);
   app.get("/fetchIndividualThread/:id", fetchIndividualThread);
-}
+};
 
-module.exports = contentRoutes;
+// module.exports = contentRoutes;
