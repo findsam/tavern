@@ -19,7 +19,6 @@ async function fetchInitialAuthTokens(code) {
         },
       }
     );
-
     const { accessToken, refreshToken } = await signTokens(
       res.data.access_token,
       res.data.refresh_token
@@ -27,6 +26,7 @@ async function fetchInitialAuthTokens(code) {
     return { accessToken, refreshToken };
   } catch (err) {
     console.log(err);
+    return { accessToken: null, refreshToken: null };
   }
 }
 
