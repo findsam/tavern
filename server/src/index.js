@@ -14,7 +14,6 @@ app.use(cookieParser());
 app.listen(3001, async () => {
   console.log(`App is running at http://localhost:${3001}`);
   for (file of fs.readdirSync(process.cwd() + "/src/routes")) {
-    require(process.cwd() + `/src/routes/${file}`)(app);
+    await require(process.cwd() + `/src/routes/${file}`)(app);
   }
-  console.log("loaded files");
 });
