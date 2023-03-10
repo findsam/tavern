@@ -110,7 +110,7 @@ const Post = ({ post, setIsLoaded = null, firstRender }) => {
           {post.image && (
             <>
               <Link href={`thread/${post.id}`} className="bg-main-800">
-                <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg bg-main-800 border-main-border ">
+                <div className="relative h-full max-w-full mx-auto my-0 overflow-hidden border rounded-lg bg-main-800 border-main-700">
                   <>
                     <Image
                       onLoadingComplete={
