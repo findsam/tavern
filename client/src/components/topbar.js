@@ -37,7 +37,7 @@ export default () => {
         <div className=" flex-1 flex w-full gap-2.5 md:gap-5">
           <form className="flex items-center justify-center w-[200px] md:w-[350px] pl-4 pr-3 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
             <input
-              className="w-full text-sm bg-transparent focus:outline-none text-white/70 placeholder:text-white/70 placeholder:text-sm placeholder:font-normal"
+              className="w-full text-sm bg-transparent focus:outline-none text-main-text/70 placeholder:text-main-text/70 placeholder:text-sm placeholder:font-normal"
               placeholder="Looking to explore..."
             />
             <button className="pl-2 shrink-0 ">
@@ -85,24 +85,24 @@ export default () => {
                           Pro
                         </span>
                       </div>
-                      <ul className="text-sm border-t text-white/70 border-main-border  py-2.5 gap-2.5 grid">
-                        <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
-                          <AiOutlineSetting className="text-[1.3rem]" />{" "}
+                      <ul className="text-sm border-t text-main-text/70 border-main-border  py-2.5 gap-2.5 grid">
+                        <li className="leading-5 duration-150 hover:cursor-pointer hover:text-main-text px-3.5 list-none flex text-main-text/70 text-sm items-center gap-1.5">
+                          <AiOutlineSetting className="text-xl" />{" "}
                           <Link href={`/profile/@${state.user.me.username}`}>Account Settings</Link>
                         </li>
-                        <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
-                          <RxUpdate className="text-[1.3rem]" />{" "}
+                        <li className="leading-5 duration-150 hover:cursor-pointer hover:text-main-text px-3.5 list-none flex text-main-text/70 text-sm items-center gap-1.5">
+                          <RxUpdate className="text-xl" />{" "}
                           <Link href={`/profile/@${state.user.me.username}`}>Manage Subscription</Link>
                         </li>
-                        <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
-                          <BiCookie className="text-[1.3rem]" />{" "}
+                        <li className="leading-5 duration-150 hover:cursor-pointer hover:text-main-text px-3.5 list-none flex text-main-text/70 text-sm items-center gap-1.5">
+                          <BiCookie className="text-xl" />{" "}
                           <Link href={`/profile/@${state.user.me.username}`}>Cookie Information</Link>
                         </li>
                         <button
                           onClick={() => handleLogout(dispatch, router)}
-                          className="leading-5 border-t border-main-border pt-2.5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5"
+                          className="leading-5 border-t border-main-border pt-2.5 duration-150 hover:cursor-pointer hover:text-main-text px-3.5 list-none flex text-main-text/70 text-sm items-center gap-1.5"
                         >
-                          <BiLogOutCircle className="text-[1.3rem]" /> <span>Log out</span>
+                          <BiLogOutCircle className="text-xl" /> <span>Log out</span>
                         </button>
                       </ul>
                     </>
@@ -113,14 +113,14 @@ export default () => {
                 onClick={() => setCreate((_) => !_)}
                 className="h-[38px] w-[38px] bg-main-700 border-main-border hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0 active:outline-none focus:outline-none outline-none"
               >
-                <AiOutlineFileAdd className="text-[1.3rem] shrink-0 text-main-text" />
+                <AiOutlineFileAdd className="text-xl shrink-0 text-main-text/60" />
               </button>
               <button
                 onClick={() => setNotifications((_) => !_)}
                 className="h-[38px] w-[38px] bg-main-700 border-main-border hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0 active:outline-none focus:outline-none outline-none "
               >
                 <span className="absolute top-0 right-0 z-10 block w-3 h-3 bg-green-400 border-2 rounded-full border-main-800" />
-                <BsBell className="text-[1.3rem] shrink-0  text-main-text" />
+                <BsBell className="text-xl shrink-0 text-main-text/60" />
               </button>
             </aside>
           )}

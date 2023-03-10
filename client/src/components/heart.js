@@ -21,11 +21,11 @@ const Heart = () => {
         payload: state.favourites.filter((_) => _.id !== post?.id),
       });
     }}
-    className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group z-50`}
+    className={`border-transparent text-main-text/70 flex relative border rounded-md hover:cursor-pointer group z-50`}
   >
-    <span className="text-[1.3rem] relative">
+    <span className="relative text-xl">
       <RiHeartFill className="text-red-500" />
-      <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+      <span className="absolute z-50 px-2 py-1 text-xs duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none text-main-text -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
         Unlike
       </span>
     </span>
@@ -34,9 +34,9 @@ const Heart = () => {
     <>
       <div
         onClick={() => handleClick()}
-        className={`rounded-full relative hover:cursor-pointer text-white/70 ${
+        className={`rounded-full relative hover:cursor-pointer text-main-text/70 ${
           click && "animate-[heart_0.55s_cubic-bezier(.17,.67,.83,.67)]"
-        } text-[1.3rem]`}
+        } text-xl`}
       >
         {!liked ? <RiHeartLine /> : <RiHeartFill className="text-red-600" />}
 

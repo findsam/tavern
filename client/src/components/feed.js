@@ -35,8 +35,7 @@ export default ({ passedPosts, setIsLoaded, isLoaded, firstRender }) => {
 
   function generateMasonryGrid(columns, posts) {
     setColumnWrappers([]);
-    for (let i = 0; i < columns; i++)
-      setColumnWrappers((prev) => ({ ...prev, [`column${i}`]: [] }));
+    for (let i = 0; i < columns; i++) setColumnWrappers((prev) => ({ ...prev, [`column${i}`]: [] }));
     for (let i = 0; i < posts.length; i++) {
       const column = i % columns;
       setColumnWrappers((prev) => ({
@@ -54,11 +53,7 @@ export default ({ passedPosts, setIsLoaded, isLoaded, firstRender }) => {
           .filter((_) => _ !== null).length - 1;
       Object.keys(prev).forEach((_, index) => {
         let hasImage = prev[_][prev[_].length - 1];
-        if (
-          !prev[_] ||
-          prev[_] === undefined ||
-          (Array.isArray(prev[_]) && prev[_].length === 0)
-        ) {
+        if (!prev[_] || prev[_] === undefined || (Array.isArray(prev[_]) && prev[_].length === 0)) {
           return (temp[_] = [{ id: Math.random() }]);
         } else if (hasImage && index === colsWithImages) {
           return (temp[_][temp[_].length - 1] = {
@@ -92,12 +87,7 @@ export default ({ passedPosts, setIsLoaded, isLoaded, firstRender }) => {
                   if (item.isLast) {
                     return (
                       <span ref={lastPost}>
-                        <Post
-                          key={index}
-                          post={item}
-                          setIsLoaded={setIsLoaded}
-                          firstRender={firstRender}
-                        />
+                        <Post key={index} post={item} setIsLoaded={setIsLoaded} firstRender={firstRender} />
                       </span>
                     );
                   }
@@ -143,10 +133,10 @@ const Post = ({ post, setIsLoaded = null, firstRender }) => {
               </Link>
 
               <div className="flex flex-col text-sm  gap-1.5 mt-1.5">
-                <p className="inline-flex items-center text-xs text-left text-white/40 ">
+                <p className="inline-flex items-center text-xs text-left text-main-text/40 ">
                   <Link
                     href={`profile/@swkn#dev`}
-                    className="duration-150 hover:cursor-pointer hover:text-white"
+                    className="duration-150 hover:cursor-pointer hover:text-main-text"
                   >
                     @swkn#dev
                   </Link>

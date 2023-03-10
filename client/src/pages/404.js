@@ -12,9 +12,7 @@ export default () => {
         alt={"displaying duck"}
         src={`/1.png`}
       />
-      <p className="max-w-sm text-sm leading-5 text-white/70">
-        404: We couldn't find that page.
-      </p>
+      <p className="max-w-sm text-sm leading-5 text-main-text/70">404: We couldn't find that page.</p>
     </div>
   );
 };

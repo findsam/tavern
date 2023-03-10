@@ -33,13 +33,10 @@ export default () => {
   };
 
   const updateBar = () => {
-    const curPercent = Math.floor(
-      (audioPlayer?.current?.currentTime / duration) * 100
-    );
+    const curPercent = Math.floor((audioPlayer?.current?.currentTime / duration) * 100);
     if (progressBar.current) {
       progressBar.current.style.background = `linear-gradient(to right, hsla(0, 100%, 100%, 0.7) ${curPercent}%, hsla(0,0%,99%,.08) 0)`;
-      progressBar.current.childNodes[0].style.left =
-        curPercent >= 99 ? `${98}%` : `${curPercent - 0.5}%`;
+      progressBar.current.childNodes[0].style.left = curPercent >= 99 ? `${98}%` : `${curPercent - 0.5}%`;
     }
   };
 
@@ -53,8 +50,7 @@ export default () => {
     const { width, left } = progressBar.current.getBoundingClientRect();
     const cursorPos = e.pageX - left;
     const clickPercent = Math.round((cursorPos / width) * 100);
-    audioPlayer.current.currentTime =
-      (clickPercent / 100) * audioPlayer?.current.duration;
+    audioPlayer.current.currentTime = (clickPercent / 100) * audioPlayer?.current.duration;
     updateBar();
   };
 
@@ -75,8 +71,7 @@ export default () => {
   };
 
   const handleAudio = () => {
-    const newIndex =
-      volumeIndex + 1 > availableVolumeOptions.length - 1 ? 0 : volumeIndex + 1;
+    const newIndex = volumeIndex + 1 > availableVolumeOptions.length - 1 ? 0 : volumeIndex + 1;
     setVolumeIndex(newIndex);
     audioPlayer.current.volume = availableVolumeOptions[newIndex];
   };
@@ -91,15 +86,11 @@ export default () => {
 
   return (
     <div>
-      <audio
-        ref={audioPlayer}
-        src={`/hidden/soundx.mp3`}
-        onLoadedMetadata={() => setLoaded(true)}
-      />
+      <audio ref={audioPlayer} src={`/hidden/soundx.mp3`} onLoadedMetadata={() => setLoaded(true)} />
 
       <div className="flex items-center gap-2">
         <span
-          className="block text-xs  text-left text-white/70 min-w-[42px]
+          className="block text-xs  text-left text-main-text/70 min-w-[42px]
         "
         >
           {calculateTime(currentTime)}
@@ -115,7 +106,7 @@ export default () => {
           </div>
         </div>
 
-        <span className="block text-xs   text-white/70  min-w-[42px] text-right ">
+        <span className="block text-xs   text-main-text/70  min-w-[42px] text-right ">
           {duration && !isNaN(duration) && calculateTime(duration)}
         </span>
       </div>
@@ -123,39 +114,37 @@ export default () => {
       <div className="flex items-center justify-center gap-2 mt-2">
         <span
           onClick={replay}
-          className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+          className={`border-transparent text-main-text/70 flex relative border rounded-md hover:cursor-pointer group`}
         >
-          <span className="relative flex items-center justify-center rounded-full text-white/70">
-            <MdOutlineReplay className="text-lg text-white/70" />
-            <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+          <span className="relative flex items-center justify-center rounded-full text-main-text/70">
+            <MdOutlineReplay className="text-lg text-main-text/70" />
+            <span className="absolute z-50 px-2 py-1 text-xs duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none text-main-text -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
               Replay
             </span>
           </span>
         </span>
         <button
           onClick={() => togglePlayPause()}
-          className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+          className={`border-transparent text-main-text/70 flex relative border rounded-md hover:cursor-pointer group`}
         >
-          <span className="rounded-full border border-main-border text-white/70 bg-main-800 h-[38px] w-[38px] text-xl flex items-center justify-center relative">
+          <span className="rounded-full border border-main-border text-main-text/70 bg-main-800 h-[38px] w-[38px] text-xl flex items-center justify-center relative">
             {!isPlaying ? <IoPlayOutline className="ml-0.5" /> : <IoPauseOutline />}
-            <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+            <span className="absolute z-50 px-2 py-1 text-xs duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none text-main-text -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
               {isPlaying ? "Pause" : "Play"}
             </span>
           </span>
         </button>
         <button
           onClick={handleAudio}
-          className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group`}
+          className={`border-transparent text-main-text/70 flex relative border rounded-md hover:cursor-pointer group`}
         >
-          <span className="relative flex items-center justify-center rounded-full text-white/70">
-            <IoVolumeOffOutline className="text-2xl text-white/70" />
-            <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+          <span className="relative flex items-center justify-center rounded-full text-main-text/70">
+            <IoVolumeOffOutline className="text-2xl text-main-text/70" />
+            <span className="absolute z-50 px-2 py-1 text-xs duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none text-main-text -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
               Change Volume
             </span>
             <span className="absolute flex items-center h-4 gap-0.5 left-5 align-center">
-              {!volumeIndex && (
-                <MdOutlineClose className="absolute text-sm scale-90 -left-1" />
-              )}
+              {!volumeIndex && <MdOutlineClose className="absolute text-sm scale-90 -left-1" />}
               {[...Array(volumeIndex)].map((_, _i) => {
                 const indexValue = 2 * Math.round(_i + 1 / 2);
                 return (

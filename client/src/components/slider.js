@@ -32,11 +32,7 @@ export default () => {
 
   const handleClick = async (_, i) => {
     const lavaLamp = slideContainer.current.childNodes[0];
-    lavaLamp.classList.add(
-      "ease-[cubic-bezier(.17,.67,.83,.67)]",
-      "transition-[left]",
-      "duration-150"
-    );
+    lavaLamp.classList.add("ease-[cubic-bezier(.17,.67,.83,.67)]", "transition-[left]", "duration-150");
     setActiveSlide(i);
     await sleep(140);
     router.push(`/${_.url.toLowerCase()}`);
@@ -52,8 +48,8 @@ export default () => {
       />
       {STATIC_TABS.map((_, i) => (
         <button
-          className={`px-6 py-1 h-full font-normal select-none rounded-md z-50 relative text-white/70 text-sm flex items-center hover:cursor-pointer hover:text-white duration-150  ${
-            activeSlide === i && "text-white"
+          className={`px-6 py-1 h-full font-normal select-none rounded-md z-50 relative text-main-text/70 text-sm flex items-center hover:cursor-pointer hover:text-main-text duration-150  ${
+            activeSlide === i && "text-main-text"
           }`}
           onClick={() => handleClick(_, i)}
         >

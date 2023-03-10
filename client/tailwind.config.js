@@ -18,7 +18,7 @@ module.exports = {
           200: "#e5e5e5",
           100: "#f5f5f5",
           border: "#303030",
-          text: "#8b8b8b",
+          text: "#e9e9e9",
         },
       },
       keyframes: {

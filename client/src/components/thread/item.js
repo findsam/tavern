@@ -73,11 +73,11 @@ export default () => {
                       payload: state.favourites.filter((_) => _.id !== post?.id),
                     });
                   }}
-                  className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group z-50`}
+                  className={`border-transparent text-main-text/70 flex relative border rounded-md hover:cursor-pointer group z-50`}
                 >
-                  <span className="text-[1.3rem] relative">
+                  <span className="relative text-xl">
                     <RiHeartFill className="text-red-500" />
-                    <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+                    <span className="absolute z-50 px-2 py-1 text-xs duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none text-main-text -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
                       Unlike
                     </span>
                   </span>
@@ -90,11 +90,11 @@ export default () => {
                       payload: [...state.favourites, post],
                     });
                   }}
-                  className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer group duration-500 `}
+                  className={`border-transparent text-main-text/70 flex relative border rounded-md hover:cursor-pointer group duration-500 `}
                 >
-                  <span className="text-[1.3rem] relative">
+                  <span className="relative text-xl">
                     <RiHeartLine />
-                    <span className="absolute z-50 px-2 py-1 text-xs text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
+                    <span className="absolute z-50 px-2 py-1 text-xs duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none select-none text-main-text -bottom-5 left-1/2 whitespace-nowrap bg-main-800 group-hover:opacity-100 group-hover:-bottom-9">
                       Like
                     </span>
                   </span>
@@ -106,14 +106,12 @@ export default () => {
               <Share />
             </div>
 
-            <h1 className="text-2xl font-medium leading-none text-wide">
-              Illidan Stormrage
-            </h1>
+            <h1 className="text-2xl font-medium leading-none text-wide">Illidan Stormrage</h1>
 
-            <p className="max-w-md text-sm font-normal leading-5 text-white/70">
-              A great Demon Gate defended the Skull as Illidan and his forces had to
-              fight mightily to gain access to the artifact. Driven by necessity and
-              influenced by the belief that with the increased power.
+            <p className="max-w-md text-sm font-normal leading-5 text-main-text/70">
+              A great Demon Gate defended the Skull as Illidan and his forces had to fight mightily to gain
+              access to the artifact. Driven by necessity and influenced by the belief that with the increased
+              power.
             </p>
 
             <div className="mt-1 rounded-md max-w-max">
@@ -136,24 +134,21 @@ const Share = () => {
   return (
     <>
       <div className="relative flex">
-        <button
-          onClick={() => setOpen((p) => !p)}
-          className="text-[1.3rem] text-white/70"
-        >
+        <button onClick={() => setOpen((p) => !p)} className="text-xl text-main-text/70">
           <AiOutlineShareAlt />
         </button>
         <Navdrop show={open} setShow={setOpen}>
           <>
-            <ul className="text-sm  text-white/70   p-1.5 gap-1.5 flex justify-between">
-              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-0.5 list-none flex text-white/70 text-sm items-center gap-1.5">
-                <RxTwitterLogo className="text-[1.3rem]" />
+            <ul className="text-sm  text-main-text/70   p-1.5 gap-1.5 flex justify-between">
+              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-main-text px-0.5 list-none flex text-main-text/70 text-sm items-center gap-1.5">
+                <RxTwitterLogo className="text-xl" />
               </li>
-              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-0.5 list-none flex text-white/70 text-sm items-center gap-1.5">
-                <AiOutlineInstagram className="text-[1.3rem]" />{" "}
+              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-main-text px-0.5 list-none flex text-main-text/70 text-sm items-center gap-1.5">
+                <AiOutlineInstagram className="text-xl" />{" "}
               </li>
 
-              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-0.5 list-none flex text-white/70 text-sm items-center gap-1.5">
-                <TbCopy className="text-[1.3rem]" />{" "}
+              <li className="leading-5 duration-150 hover:cursor-pointer hover:text-main-text px-0.5 list-none flex text-main-text/70 text-sm items-center gap-1.5">
+                <TbCopy className="text-xl" />{" "}
               </li>
             </ul>
           </>
@@ -186,12 +181,12 @@ const Share = () => {
 //       onMouseLeave={handleMouse}
 //       ref={clickable}
 //       onClick={!clicked ? onClickHandler : null}
-//       className={`border-transparent text-white/70 flex relative border rounded-md hover:cursor-pointer`}
+//       className={`border-transparent text-main-text/70 flex relative border rounded-md hover:cursor-pointer`}
 //     >
-//       <span className="text-[1.3rem] relative">
+//       <span className="relative text-xl">
 //         <TbCopy />
 //         <span
-//           className={`absolute z-50 px-2 py-1 text-xs  text-white duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none left-1/2 whitespace-nowrap
+//           className={`absolute z-50 px-2 py-1 text-xs  text-main-text duration-150 -translate-x-1/2 rounded-md opacity-0 pointer-events-none left-1/2 whitespace-nowrap
 //           ${show ? "-bottom-9 opacity-100" : "-bottom-5 opacity-0"}
 //          bg-main-800 overflow-hidden
 //          `}

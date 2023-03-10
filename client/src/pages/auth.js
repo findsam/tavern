@@ -13,10 +13,7 @@ export default () => {
   useEffect(() => {
     (async () => {
       await sleep(1);
-      container?.current?.childNodes[0]?.classList?.remove(
-        "opacity-0",
-        "-translate-y-8"
-      );
+      container?.current?.childNodes[0]?.classList?.remove("opacity-0", "-translate-y-8");
     })();
   }, [container]);
 
@@ -48,14 +45,12 @@ export default () => {
               </div>
             </div>
 
-            <p className="mt-2 text-xs text-white/70">
-              Tavern is a community based storytelling and creative platform for all
-              digital art forms.
+            <p className="mt-2 text-xs text-main-text/70">
+              Tavern is a community based storytelling and creative platform for all digital art forms.
             </p>
             <div className="min-w-[400px]  max-w-[400px] mt-2.5">
-              <p className="text-xs text-white/70">
-                Join these and 500+ other digital creatives and embark on your
-                creative storytelling journey.
+              <p className="text-xs text-main-text/70">
+                Join these and 500+ other digital creatives and embark on your creative storytelling journey.
               </p>
               <div className="relative flex items-center mt-2.5">
                 {imgs.map((_, index) => (
@@ -73,32 +68,30 @@ export default () => {
           </div>
 
           <div className="flex flex-col gap-5 min-w-[400px]  max-w-[400px]">
-            <p className="mt-3 text-xs text-white/70">
+            <p className="mt-3 text-xs text-main-text/70">
               By loging-in or sigin-up you agree to our{" "}
-              <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
+              <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-main-text hover:decoration-white">
                 Terms of Service
               </a>{" "}
               and{" "}
-              <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
+              <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-main-text hover:decoration-white">
                 Privacy Policy
               </a>{" "}
               including{" "}
-              <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-white hover:decoration-white">
+              <a className="underline duration-150 decoration-white/40 underline-offset-2 hover:cursor-pointer hover:text-main-text hover:decoration-white">
                 Cookie Use
               </a>
             </p>
             <a
               href={getDiscordURL()}
-              className="flex-1 px-4 min-h-[38px] gap-2 text-sm relative text-white/70 border rounded-md bg-main-700 border-main-border  hover:border-white/70  duration-150 flex items-center justify-center"
+              className="flex-1 px-4 min-h-[38px] gap-2 text-sm relative text-main-text/70 border rounded-md bg-main-700 border-main-border  hover:border-white/70  duration-150 flex items-center justify-center"
             >
               Continue with Discord
               <SiDiscord size={18} />
             </a>
             <span className="relative flex items-center w-full gap-2 text-xs text-center">
               <span className="h-[1px] block flex-1 bg-main-border" />
-              <span className="duration-150 hover:cursor-pointer opacity-70 hover:opacity-100">
-                Need help?
-              </span>
+              <span className="duration-150 hover:cursor-pointer opacity-70 hover:opacity-100">Need help?</span>
               <span className="h-[1px] block flex-1 bg-main-border" />
             </span>
           </div>

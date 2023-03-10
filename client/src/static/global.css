@@ -18,7 +18,7 @@
   }
 }
 body {
-  @apply text-white bg-main-900 font-inter;
+  @apply text-main-text bg-main-900 font-inter;
 }
 
 input[type="range"]::--webkit-slider-thumb {

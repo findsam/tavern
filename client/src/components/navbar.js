@@ -1,9 +1,4 @@
-import {
-  AiOutlineQuestionCircle,
-  AiOutlineFileText,
-  AiOutlineLock,
-  AiOutlineHome,
-} from "react-icons/ai";
+import { AiOutlineQuestionCircle, AiOutlineFileText, AiOutlineLock, AiOutlineHome } from "react-icons/ai";
 import { RxDashboard } from "react-icons/rx";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -41,16 +36,13 @@ export default function Navbar(props) {
             return (
               <li
                 key={i}
-                className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group `}
+                className={`border-transparent text-main-text/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group `}
               >
-                <Link
-                  href={r.url}
-                  className={`${isActivePath && "pointer-events-none"}`}
-                >
-                  <span className="text-[1.3rem] relative">
+                <Link href={r.url} className={`${isActivePath && "pointer-events-none"}`}>
+                  <span className="relative text-xl">
                     {r.icon}
 
-                    <span className="absolute top-0 z-50 px-2 py-1 text-xs text-white duration-150 rounded-md opacity-0 pointer-events-none select-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7 whitespace-nowrap">
+                    <span className="absolute top-0 z-50 px-2 py-1 text-xs duration-150 rounded-md opacity-0 pointer-events-none select-none text-main-text left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7 whitespace-nowrap">
                       {isActivePath ? "You are here" : r.name}
                     </span>
                   </span>
@@ -62,22 +54,22 @@ export default function Navbar(props) {
 
         <ul className="flex flex-col flex-1 flex-grow-0 gap-2.5 mt-auto text-sm">
           <li
-            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
+            className={`border-transparent text-main-text/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
           >
-            <span className="text-[1.3rem] relative">
+            <span className="relative text-xl">
               <AiOutlineFileText />
-              <span className="absolute top-0 z-50 px-2 py-1 text-xs text-white duration-150 rounded-md opacity-0 pointer-events-none whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+              <span className="absolute top-0 z-50 px-2 py-1 text-xs duration-150 rounded-md opacity-0 pointer-events-none text-main-text whitespace-nowrap left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
                 Terms of Service
               </span>
             </span>
           </li>
 
           <li
-            className={`border-transparent text-white/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
+            className={`border-transparent text-main-text/70 flex px-2 py-2 relative border rounded-md hover:cursor-pointer group`}
           >
-            <span className="text-[1.3rem] relative">
+            <span className="relative text-xl">
               <AiOutlineLock />
-              <span className="absolute top-0 z-50 px-2 py-1 text-xs text-white duration-150 rounded-md opacity-0 pointer-events-none left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
+              <span className="absolute top-0 z-50 px-2 py-1 text-xs duration-150 rounded-md opacity-0 pointer-events-none text-main-text left-5 bg-main-900 group-hover:opacity-100 group-hover:left-7">
                 Privacy
               </span>
             </span>
