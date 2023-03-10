@@ -1,9 +1,5 @@
 const { generateAccessTokenFromRefresh } = require("./services.js");
-const {
-  verifyJWT,
-  accessTokenCookieOptions,
-  refreshTokenCookieOptions,
-} = require("../constants.js");
+const { verifyJWT, accessTokenCookieOptions, refreshTokenCookieOptions } = require("../constants.js");
 
 async function generateCookies(res, req, accessToken, refreshToken) {
   res.cookie("accessToken", accessToken, accessTokenCookieOptions);
@@ -27,16 +23,10 @@ async function verifyTokens(req, res, next) {
   } else {
     if (
       access.expired ||
-      (!refresh.expired &&
-        access.payload.access_token == null &&
-        refresh.payload.refresh_token !== null)
+      (!refresh.expired && access.payload.access_token == null && refresh.payload.refresh_token !== null)
     ) {
-      console.log(
-        "Regenerating accessToken using refreshToken as accessToken has expired."
-      );
-      const { accessToken, refreshToken } = await generateAccessTokenFromRefresh(
-        refresh.payload.refresh_token
-      );
+      console.log("Regenerating accessToken using refreshToken as accessToken has expired.");
+      const { accessToken, refreshToken } = await generateAccessTokenFromRefresh(refresh.payload.refresh_token);
       res.locals.at = accessToken;
       await generateCookies(res, req, accessToken, refreshToken);
       return next();

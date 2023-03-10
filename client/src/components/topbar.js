@@ -56,7 +56,7 @@ export default () => {
                   className="active:outline-none focus:outline-none"
                 >
                   <Image
-                    className="rounded-full ring-1 ring-main-border p-0.5 hover:ring-white/70 duration-150 hover:cursor-pointer"
+                    className="rounded-full border border-main-border hover:border-white/70 p-0.5 hover:ring-white/70 duration-150 hover:cursor-pointer"
                     height="38"
                     width="38"
                     src={`https://cdn.discordapp.com/avatars/${state.user.me.id}/${state.user.me.avatar}.png`}
@@ -79,9 +79,7 @@ export default () => {
                             {state.user.me.username}#{state.user.me.discriminator}
                           </a>
                           {/* <p className="text-xs text-left opacity-70">{state.user.me.email}</p> */}
-                          <p className="text-xs text-left opacity-70">
-                            development@tavern.gg
-                          </p>
+                          <p className="text-xs text-left opacity-70">development@tavern.gg</p>
                         </span>
                         <span className="block px-2.5 py-0.5 ml-auto text-sm text-green-400 rounded-full bg-green-900/40">
                           Pro
@@ -90,28 +88,21 @@ export default () => {
                       <ul className="text-sm border-t text-white/70 border-main-border  py-2.5 gap-2.5 grid">
                         <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
                           <AiOutlineSetting className="text-[1.3rem]" />{" "}
-                          <Link href={`/profile/@${state.user.me.username}`}>
-                            Account Settings
-                          </Link>
+                          <Link href={`/profile/@${state.user.me.username}`}>Account Settings</Link>
                         </li>
                         <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
                           <RxUpdate className="text-[1.3rem]" />{" "}
-                          <Link href={`/profile/@${state.user.me.username}`}>
-                            Manage Subscription
-                          </Link>
+                          <Link href={`/profile/@${state.user.me.username}`}>Manage Subscription</Link>
                         </li>
                         <li className="leading-5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5">
                           <BiCookie className="text-[1.3rem]" />{" "}
-                          <Link href={`/profile/@${state.user.me.username}`}>
-                            Cookie Information
-                          </Link>
+                          <Link href={`/profile/@${state.user.me.username}`}>Cookie Information</Link>
                         </li>
                         <button
                           onClick={() => handleLogout(dispatch, router)}
                           className="leading-5 border-t border-main-border pt-2.5 duration-150 hover:cursor-pointer hover:text-white px-3.5 list-none flex text-white/70 text-sm items-center gap-1.5"
                         >
-                          <BiLogOutCircle className="text-[1.3rem]" />{" "}
-                          <span>Log out</span>
+                          <BiLogOutCircle className="text-[1.3rem]" /> <span>Log out</span>
                         </button>
                       </ul>
                     </>
@@ -120,16 +111,16 @@ export default () => {
               </span>
               <button
                 onClick={() => setCreate((_) => !_)}
-                className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0 active:outline-none focus:outline-none outline-none"
+                className="h-[38px] w-[38px] bg-main-700 border-main-border hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0 active:outline-none focus:outline-none outline-none"
               >
-                <AiOutlineFileAdd className="text-[1.3rem] shrink-0 opacity-70" />
+                <AiOutlineFileAdd className="text-[1.3rem] shrink-0 text-main-text" />
               </button>
               <button
                 onClick={() => setNotifications((_) => !_)}
-                className="h-[38px] w-[38px] bg-main-700 border-main-600 hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0 active:outline-none focus:outline-none outline-none "
+                className="h-[38px] w-[38px] bg-main-700 border-main-border hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0 active:outline-none focus:outline-none outline-none "
               >
                 <span className="absolute top-0 right-0 z-10 block w-3 h-3 bg-green-400 border-2 rounded-full border-main-800" />
-                <BsBell className="text-[1.3rem] shrink-0 opacity-70" />
+                <BsBell className="text-[1.3rem] shrink-0  text-main-text" />
               </button>
             </aside>
           )}
