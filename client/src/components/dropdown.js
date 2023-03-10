@@ -35,7 +35,7 @@ export const Dropdown = ({ show, setShow, children }) => {
 
   return (
     <div
-      className="absolute z-50 flex w-full max-w-[252px] min-w-max left-1/2 -translate-x-1/2 top-[calc(100%+16px)] overflow-hidden  drop-shadow-3xl"
+      className="absolute z-50 flex w-full max-w-[252px] min-w-max left-1/2 -translate-x-1/2 top-[calc(100%+16px)] overflow-hidden "
       ref={container}
     >
       <div className="w-full max-w-lg overflow-hidden duration-300 -translate-y-2 [transition:transform_125ms,opacity_150ms]  border rounded-lg opacity-0 border-main-border bg-main-800">

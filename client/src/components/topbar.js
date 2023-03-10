@@ -35,15 +35,15 @@ export default () => {
 
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
         <div className=" flex-1 flex w-full gap-2.5 md:gap-5">
-          <form className="flex items-center justify-center w-[200px] md:w-[350px] pl-4 pr-3 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
-            <input
-              className="w-full text-sm bg-transparent focus:outline-none text-main-text/70 placeholder:text-main-text/70 placeholder:text-sm placeholder:font-normal"
+          <button className="flex items-center justify-center w-[200px] md:w-[350px] pl-4 pr-3 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
+            <span
+              className="w-full text-sm text-left bg-transparent focus:outline-none text-main-text/70 placeholder:text-main-text/70 placeholder:text-sm placeholder:font-normal"
               placeholder="Looking to explore..."
-            />
-            <button className="pl-2 shrink-0 ">
-              <AiOutlineSearch className="text-xl opacity-70" />
-            </button>
-          </form>
+            >
+              Looking to explore...
+            </span>
+            <AiOutlineSearch className="text-xl opacity-70" />
+          </button>
           {pathname.startsWith("/f") && <Slider />}
         </div>
 
