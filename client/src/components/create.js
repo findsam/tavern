@@ -93,12 +93,8 @@ export default () => {
               <AiOutlineTags className="text-lg text-main-text/70 shrink-0" />
               <ul className="flex gap-1 max-w-max">
                 {tags.map((_, i) => (
-                  <li
-                    key={i}
-                    className="whitespace-nowrap gap-1 flex items-center px-1.5 py-1 text-xs rounded-md bg-main-700"
-                  >
+                  <li className="px-2 py-1 text-xs border rounded-md text-main-text/70 border-main-border bg-main-700">
                     {_}
-                    <IoClose className="text-sm" onClick={() => setTags(tags.filter((_, _i) => _i !== i))} />
                   </li>
                 ))}
               </ul>

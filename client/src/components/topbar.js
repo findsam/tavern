@@ -22,6 +22,7 @@ export default () => {
   const [profile, setProfile] = useState(false);
   const [notiications, setNotifications] = useState(false);
   const [create, setCreate] = useState(false);
+  const [search, setSearch] = useState(false);
   const router = useRouter();
 
   return (
@@ -35,14 +36,16 @@ export default () => {
 
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
         <div className=" flex-1 flex w-full gap-2.5 md:gap-5">
-          <button className="flex items-center justify-center w-[200px] md:w-[350px] pl-4 pr-3 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]">
-            <span
+          <button
+            onClick={() => setSearch((_) => !_)}
+            className="active:outline-none focus:outline-none outline:none flex items-center justify-center w-[200px] md:w-[350px] pl-4 pr-3 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]"
+          >
+            <input
               className="w-full text-sm text-left bg-transparent focus:outline-none text-main-text/70 placeholder:text-main-text/70 placeholder:text-sm placeholder:font-normal"
               placeholder="Looking to explore..."
-            >
-              Looking to explore...
-            </span>
-            <AiOutlineSearch className="text-xl opacity-70" />
+            />
+
+            <AiOutlineSearch className="text-xl text-main-text/70" />
           </button>
           {pathname.startsWith("/f") && <Slider />}
         </div>
@@ -78,8 +81,7 @@ export default () => {
                           <a>
                             {state.user.me.username}#{state.user.me.discriminator}
                           </a>
-                          {/* <p className="text-xs text-left opacity-70">{state.user.me.email}</p> */}
-                          <p className="text-xs text-left opacity-70">development@tavern.gg</p>
+                          <p className="text-xs text-left text-main-text/70">development@tavern.gg</p>
                         </span>
                         <span className="block px-2.5 py-0.5 ml-auto text-sm text-green-400 rounded-full bg-green-900/40">
                           Pro
@@ -113,14 +115,14 @@ export default () => {
                 onClick={() => setCreate((_) => !_)}
                 className="h-[38px] w-[38px] bg-main-700 border-main-border hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0 active:outline-none focus:outline-none outline-none"
               >
-                <AiOutlineFileAdd className="text-xl shrink-0 text-main-text/60" />
+                <AiOutlineFileAdd className="text-xl shrink-0 text-main-text/70" />
               </button>
               <button
                 onClick={() => setNotifications((_) => !_)}
                 className="h-[38px] w-[38px] bg-main-700 border-main-border hover:border-white/70 duration-150 border rounded-full flex items-center justify-center relative shrink-0 active:outline-none focus:outline-none outline-none "
               >
                 <span className="absolute top-0 right-0 z-10 block w-3 h-3 bg-green-400 border-2 rounded-full border-main-800" />
-                <BsBell className="text-xl shrink-0 text-main-text/60" />
+                <BsBell className="text-xl shrink-0 text-main-text/70" />
               </button>
             </aside>
           )}

@@ -48,7 +48,7 @@ export default ({ show, setShow, children }) => {
               className="fixed z-50 flex items-center justify-center rounded-full right-5 top-5"
               onClick={handleClose}
             >
-              <IoClose className="text-xl opacity-70" />
+              <IoClose className="text-xl text-main-text/70" />
             </button>
             {children}
           </div>

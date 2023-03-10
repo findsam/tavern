@@ -91,7 +91,9 @@ export default () => {
             </a>
             <span className="relative flex items-center w-full gap-2 text-xs text-center">
               <span className="h-[1px] block flex-1 bg-main-border" />
-              <span className="duration-150 hover:cursor-pointer opacity-70 hover:opacity-100">Need help?</span>
+              <span className="duration-150 hover:cursor-pointer text-main-text/70 hover:text-main-text">
+                Need help?
+              </span>
               <span className="h-[1px] block flex-1 bg-main-border" />
             </span>
           </div>
