@@ -56,7 +56,7 @@ export default () => {
         <div className="max-w-4xl mx-auto blur-[0.01rem]">
           <Image
             src={`/landing.png`}
-            className="object-contain !w-full !relative -z-10 !h-['unset'] block  max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
+            className="object-contain !w-full !relative -z-10 !h-['unset'] block  max-w-full align-middle border rounded-xl  bg-main-800 border-main-border"
             fill
             quality={100}
           />
@@ -73,7 +73,7 @@ export default () => {
         <div className="max-w-4xl mx-auto blur-[0.01rem] mt-4 relative -z-10">
           <Image
             src={`/hidden/page2.png`}
-            className="object-contain !w-full !relative -z-10 !h-['unset'] block  max-w-full align-middle border rounded-xl drop-shadow-md bg-main-800 border-main-border"
+            className="object-contain !w-full !relative -z-10 !h-['unset'] block  max-w-full align-middle border rounded-xl  bg-main-800 border-main-border"
             fill
             quality={100}
           />

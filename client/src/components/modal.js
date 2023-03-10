@@ -12,10 +12,7 @@ export default ({ show, setShow, children }) => {
       if (show) {
         await sleep(1);
         container?.current?.classList?.remove("opacity-0");
-        container?.current?.childNodes[0]?.classList?.remove(
-          "opacity-0",
-          "translate-x-2"
-        );
+        container?.current?.childNodes[0]?.classList?.remove("opacity-0", "translate-x-2");
         document.body.style.overflow = "hidden";
       }
     })();
@@ -42,7 +39,7 @@ export default ({ show, setShow, children }) => {
   return (
     show && (
       <div
-        className="fixed z-50 flex top-0 right-0 drop-shadow-3xl h-[100%] transition-opacity ease-[cubic-bezier(.17,.67,.83,.67)] duration-75 shadow-md bg-main-800/60 w-full opacity-0"
+        className="fixed z-50 flex top-0 right-0  h-[100%] transition-opacity ease-[cubic-bezier(.17,.67,.83,.67)] duration-75 shadow-md bg-main-800/60 w-full opacity-0"
         ref={container}
       >
         <div className="w-full max-w-lg ml-auto [transition:transform_300ms,opacity_200ms] ease-[cubic-bezier(.17,.67,.83,.67)] translate-x-2 border-l rounded-tl-lg rounded-bl-lg opacity-0 border-main-border bg-main-800">
