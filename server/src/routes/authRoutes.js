@@ -1,8 +1,4 @@
-const {
-  handleLogin,
-  handleLogout,
-  fetchUserDetails,
-} = require("../controllers/authController.js");
+const { handleLogin, handleLogout, fetchUserDetails } = require("../controllers/authController.js");
 const { verifyTokens } = require("../auth/tokens.js");
 
 module.exports = (app) => {
