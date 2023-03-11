@@ -273,7 +273,7 @@ const Navbar = () => {
     <nav
       className={`flex items-center justify-center  mx-auto z-100
       fixed left-0 right-0  duration-200  rounded-full py-1 px-3 mt-5
-     ${isAtTop ? "bg-transparent top-8  max-w-5xl" : "backdrop-blur  top-[0rem] bg-main-border  max-w-xl"}
+     ${isAtTop ? "bg-transparent top-8  max-w-6xl" : "backdrop-blur  top-[0rem] bg-main-border  max-w-xl"}
     `}
     >
       <div className="flex items-center gap-1">
