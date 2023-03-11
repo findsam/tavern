@@ -40,6 +40,11 @@ async function signTokens(access_token, refresh_token) {
 
 const dummyData = [
   {
+    id: 0,
+    title: "Post 1",
+    image: "0.png",
+  },
+  {
     id: 1,
     title: "Post 1",
     image: "2.jpg",

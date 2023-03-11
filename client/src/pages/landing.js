@@ -72,14 +72,6 @@ export default () => {
           storyteller. We're trying something new, and why don't you? Endlessly embark in the storytelling
           adventure and bring your tale together with the help of Tavern.
         </p>
-        <div className="max-w-4xl mx-auto blur-[0.01rem] mt-4 relative -z-10">
-          <Image
-            src={`/hidden/landing2.png`}
-            className="object-contain !w-full !relative -z-10 !h-['unset'] block  max-w-full align-middle border rounded-xl  bg-main-800 border-main-border"
-            fill
-            quality={100}
-          />
-        </div>
       </section>
 
       <section className="flex flex-col items-center gap-5 mx-auto mt-48 mb-12 text-center">
@@ -281,7 +273,7 @@ const Navbar = () => {
     <nav
       className={`flex items-center justify-center  mx-auto z-100
       fixed left-0 right-0  duration-200  rounded-full py-1 px-3 mt-5
-     ${isAtTop ? "bg-transparent top-8  max-w-6xl" : "backdrop-blur  top-[0rem] bg-main-border  max-w-xl"}
+     ${isAtTop ? "bg-transparent top-8  max-w-5xl" : "backdrop-blur  top-[0rem] bg-main-border  max-w-xl"}
     `}
     >
       <div className="flex items-center gap-1">
