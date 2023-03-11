@@ -100,7 +100,7 @@ const Notis = () => {
             </p>
             <p className="inline-flex items-center text-xs text-left text-main-text/40 ">
               2 hours ago <span className="block w-1 h-1 mx-2 rounded-full bg-white/40" />{" "}
-              <a className="inline text-ellipsis">Quick Actions</a>
+              <a className="inline text-ellipsis">Quick actions</a>
             </p>
             <div className="flex gap-2.5 mt-0.5">
               <button className="px-6 min-h-[32px] max-w-[120px] w-full text-sm border border-green-900 rounded-md text-green-400 bg-green-900/40 duration-150 hover:border-green-400">
