@@ -8,7 +8,7 @@ export default () => {
   return (
     <>
       <Navbar />
-      <main className="relative flex flex-col items-center max-w-2xl gap-5 mx-auto mt-48 text-center -z-10">
+      <main className="relative z-0 flex flex-col items-center max-w-2xl gap-5 mx-auto mt-48 text-center">
         <h1 className="text-4xl font-semibold leading-snug tracking-normal ">
           All-In-One collaberation and discovery tool for digital creatives.
         </h1>
@@ -271,7 +271,7 @@ const Navbar = () => {
   const isAtTop = useWindowScroll();
   return (
     <nav
-      className={`flex items-center justify-center  mx-auto z-100
+      className={`flex items-center justify-center  mx-auto z-10
       fixed left-0 right-0  duration-200  rounded-full py-1 px-3 mt-5
      ${isAtTop ? "bg-transparent top-8  max-w-6xl" : "backdrop-blur  top-[0rem] bg-main-border  max-w-xl"}
     `}
