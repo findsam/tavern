@@ -4,7 +4,7 @@ import { sleep } from "../static/util";
 import { useRef, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 
-export default ({ show, setShow, children }) => {
+export default function Modal({ show, setShow, children }) {
   const container = useRef(null);
 
   useEffect(() => {
@@ -56,4 +56,4 @@ export default ({ show, setShow, children }) => {
       </div>
     )
   );
-};
+}

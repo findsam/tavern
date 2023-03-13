@@ -66,6 +66,7 @@ const Notis = () => {
               />
               {STATIC_OPTS.map((_, i) => (
                 <li
+                  key={i}
                   className={`px-6 gap-1.5 py-1 h-full font-normal select-none rounded-md z-50 relative text-main-text/70 text-sm flex items-center hover:cursor-pointer hover:text-main-text duration-150  ${
                     activeSlide === i && "text-main-text"
                   }`}
@@ -134,8 +135,8 @@ const Notis = () => {
             </p>
             <div className="p-2 mt-0.5 text-sm border rounded-md bg-main-700 border-main-border text-main-text">
               <p className="text-xs ">
-                Amazing art, is this the first draft? Feel free to take a look at a piece I've made and tell me
-                what you think...
+                Amazing art, is this the first draft? Feel free to take a look at a piece I&apos;ve made and
+                tell me what you think...
               </p>
             </div>
           </div>
@@ -241,8 +242,8 @@ const Notis = () => {
             </p>
             <div className="p-2 mt-0.5 text-sm border rounded-md bg-main-700 border-main-border text-main-text">
               <p className="text-xs ">
-                Amazing art, is this the first draft? Feel free to take a look at a piece I've made and tell me
-                what you think...
+                Amazing art, is this the first draft? Feel free to take a look at a piece I&apos;ve made and
+                tell me what you think...
               </p>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { AiOutlineSound, AiOutlineMessage, AiOutlinePicture } from "react-icons/
 
 const randomNames = ["saya#3893", "kianrws#rs4", "bellamonnet#9938", "tyasly#9929"];
 
-export default memo((props) => {
+function Contribution(props) {
   switch (props.type) {
     case "creator":
       return (
@@ -94,4 +94,6 @@ export default memo((props) => {
     default:
       return null;
   }
-});
+}
+
+export default memo(Contribution);

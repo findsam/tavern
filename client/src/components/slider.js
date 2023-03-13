@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import { sleep } from "../static/util";
 
-export default () => {
+export default function Slider() {
   const slideContainer = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const STATIC_TABS = [
@@ -48,6 +48,7 @@ export default () => {
       />
       {STATIC_TABS.map((_, i) => (
         <button
+          key={i}
           className={`px-6 py-1 h-full font-normal select-none rounded-md z-50 relative text-main-text/70 text-sm flex items-center hover:cursor-pointer hover:text-main-text duration-150  ${
             activeSlide === i && "text-main-text"
           }`}
@@ -58,4 +59,4 @@ export default () => {
       ))}
     </div>
   );
-};
+}

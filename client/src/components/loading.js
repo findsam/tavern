@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-export default memo(() => {
+function Loading() {
   const randomHeight = () => Math.floor(Math.random() * (485 - 220)) + 220;
   const divclass = `relative flex-1 w-full h-full max-w-full mx-auto my-0 overflow-hidden rounded-lg  bg-main-800  min-h-[100px]`;
 
@@ -22,4 +22,6 @@ export default memo(() => {
       })}
     </div>
   );
-});
+}
+
+export default memo(Loading);

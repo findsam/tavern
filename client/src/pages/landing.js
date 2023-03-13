@@ -4,7 +4,7 @@ import { SiDiscord } from "react-icons/si";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { useWindowScroll } from "../hooks/useWinScroll";
 
-export default () => {
+export default function Landing() {
   return (
     <>
       <Navbar />
@@ -69,8 +69,8 @@ export default () => {
 
         <p className="max-w-md text-sm font-normal leading-5 text-main-text/70">
           to build a community-driven cultivating and creative environment accessible to the digital
-          storyteller. We're trying something new, and why don't you? Endlessly embark in the storytelling
-          adventure and bring your tale together with the help of Tavern.
+          storyteller. We&apos;re trying something new, and why don&apos;t you? Endlessly embark in the
+          storytelling adventure and bring your tale together with the help of Tavern.
         </p>
       </section>
 
@@ -129,7 +129,7 @@ export default () => {
             <div className="flex flex-col mt-auto">
               <span className="relative flex items-center w-full gap-2 mt-auto text-xs text-center">
                 <span className="h-[1px] block flex-1 bg-main-border" />
-                <span className="text-sm text-main-text/70">It's always free!</span>
+                <span className="text-sm text-main-text/70">It&apos;s always free!</span>
                 <span className="h-[1px] block flex-1 bg-main-border" />
               </span>
               <span className="block px-2.5">
@@ -265,7 +265,7 @@ export default () => {
       <Footer />
     </>
   );
-};
+}
 
 const Navbar = () => {
   const isAtTop = useWindowScroll();

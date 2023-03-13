@@ -19,10 +19,7 @@ async function fetchInitialAuthTokens(code) {
         },
       }
     );
-    const { accessToken, refreshToken } = await signTokens(
-      res.data.access_token,
-      res.data.refresh_token
-    );
+    const { accessToken, refreshToken } = await signTokens(res.data.access_token, res.data.refresh_token);
     return { accessToken, refreshToken };
   } catch (err) {
     console.log(err);
@@ -46,10 +43,7 @@ async function generateAccessTokenFromRefresh(refresh_token) {
         },
       }
     );
-    const { accessToken, refreshToken } = await signTokens(
-      res.data.access_token,
-      res.data.refresh_token
-    );
+    const { accessToken, refreshToken } = await signTokens(res.data.access_token, res.data.refresh_token);
     return { accessToken, refreshToken };
   } catch (err) {
     console.log(err);
@@ -73,9 +67,7 @@ async function getDiscordUser(access_token) {
         axios.spread((...responses) => {
           return responses
             .map((item, index) => ({
-              [item.config.url
-                .substring(item.config.url.lastIndexOf("/") + 1)
-                .replace("@", "")]: item.data,
+              [item.config.url.substring(item.config.url.lastIndexOf("/") + 1).replace("@", "")]: item.data,
             }))
             .reduce(
               (acc, curr) => ({

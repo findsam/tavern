@@ -13,7 +13,7 @@ import { AiOutlineShareAlt, AiOutlineInstagram } from "react-icons/ai";
 import { RxTwitterLogo } from "react-icons/rx";
 import { TbCopy } from "react-icons/tb";
 
-export default () => {
+export default function Item() {
   const router = useRouter();
   const [post, setPost] = useState(null);
   const { state } = useContext(Context);
@@ -127,7 +127,7 @@ export default () => {
       </>
     )
   );
-};
+}
 
 const Share = () => {
   const [open, setOpen] = useState(false);

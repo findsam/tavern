@@ -33,12 +33,7 @@ export default function Favourites() {
             ))}
           </div>
         )}
-        <Feed
-          passedPosts={posts}
-          setIsLoaded={setIsLoaded}
-          isLoaded={isLoaded}
-          firstRender={firstRender}
-        />
+        <Feed passedPosts={posts} setIsLoaded={setIsLoaded} isLoaded={isLoaded} firstRender={firstRender} />
       </div>
     </>
   );

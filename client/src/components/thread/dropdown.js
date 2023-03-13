@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default ({ text }) => {
+export default function Dropdown({ text }) {
   const [grow, setGrow] = useState(false);
 
   <p className="inline-flex items-center text-xs text-left text-main-text/40 ">
@@ -26,4 +26,4 @@ export default ({ text }) => {
       </div>
     </div>
   );
-};
+}

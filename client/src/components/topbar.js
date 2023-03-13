@@ -16,7 +16,7 @@ import { BiLogOutCircle, BiCookie } from "react-icons/bi";
 import { handleLogout } from "../static/api";
 import { RxUpdate } from "react-icons/rx";
 
-export default () => {
+export default function Topbar() {
   const { state, dispatch } = useContext(Context);
   const { pathname } = useRouter();
   const [profile, setProfile] = useState(false);
@@ -130,4 +130,4 @@ export default () => {
       </div>
     </>
   );
-};
+}

@@ -3,7 +3,7 @@ import { IoPlayOutline, IoPauseOutline, IoVolumeOffOutline } from "react-icons/i
 import { useState, useRef, useEffect } from "react";
 import { MdOutlineClose } from "react-icons/md";
 
-export default () => {
+export default function AudioPlayer() {
   const availableVolumeOptions = [0, 0.15, 0.45, 0.85];
   const audioPlayer = useRef();
   const progressBar = useRef();
@@ -149,6 +149,7 @@ export default () => {
                 const indexValue = 2 * Math.round(_i + 1 / 2);
                 return (
                   <span
+                    key={_i}
                     style={{
                       height: `${indexValue * 2}px`,
                     }}
@@ -162,4 +163,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

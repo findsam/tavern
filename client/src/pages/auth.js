@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-export default () => {
+export default function Auth() {
   const container = useRef(null);
 
   useEffect(() => {
@@ -55,6 +55,7 @@ export default () => {
               <div className="relative flex items-center mt-2.5">
                 {imgs.map((_, index) => (
                   <Image
+                    key={index}
                     className={`-mx-1.5 rounded-full border-2 border-main-700 shadow-md`}
                     height="36"
                     width="36"
@@ -101,4 +102,4 @@ export default () => {
       </div>
     </>
   );
-};
+}

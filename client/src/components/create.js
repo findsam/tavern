@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { AiOutlineCalendar, AiOutlineTags, AiOutlineCloudUpload } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
 
-export default () => {
+export default function Create() {
   const tagsRef = useRef();
   const [tags, setTags] = useState([]);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -60,6 +60,7 @@ export default () => {
                 />
                 {STATIC_TABS.map((_, i) => (
                   <li
+                    key={i}
                     className={`px-6 py-1 h-full font-normal select-none rounded-md z-50 relative text-main-text/70 text-sm flex items-center hover:cursor-pointer hover:text-main-text duration-150  ${
                       activeSlide === i && "text-main-text"
                     }`}
@@ -93,7 +94,10 @@ export default () => {
               <AiOutlineTags className="text-lg text-main-text/70 shrink-0" />
               <ul className="flex gap-1 max-w-max">
                 {tags.map((_, i) => (
-                  <li className="px-2 py-1 text-xs border rounded-md text-main-text/70 border-main-border bg-main-700">
+                  <li
+                    className="px-2 py-1 text-xs border rounded-md text-main-text/70 border-main-border bg-main-700"
+                    key={i}
+                  >
                     {_}
                   </li>
                 ))}
@@ -133,4 +137,4 @@ export default () => {
       </div>
     </>
   );
-};
+}

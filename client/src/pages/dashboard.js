@@ -6,9 +6,9 @@ import Navbar from "../components/navbar";
 import Loading from "../components/loading";
 import useAuth from "../hooks/useAuth";
 
-export default () => {
+export default function Dashboard() {
   if (!useAuth()) return null;
-  const { state, dispatch } = useContext(Context);
+  // const { state, dispatch } = useContext(Context);
   return (
     <>
       <Topbar />
@@ -18,4 +18,4 @@ export default () => {
       </div>
     </>
   );
-};
+}

@@ -3,9 +3,8 @@ import Navbar from "../../components/navbar";
 import useAuth from "../../hooks/useAuth";
 import Profile from "../../components/profile";
 
-export default () => {
+export default function Slug() {
   if (!useAuth()) return null;
-
   return (
     <>
       <Topbar />
@@ -15,4 +14,4 @@ export default () => {
       </div>
     </>
   );
-};
+}
