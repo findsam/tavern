@@ -1,6 +1,6 @@
 import Slider from "./slider";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Dropdown } from "./dropdown";
 import { useContext } from "react";
 import { BsBell } from "react-icons/bs";
@@ -24,6 +24,7 @@ export default function Topbar() {
   const [create, setCreate] = useState(false);
   const [search, setSearch] = useState(false);
   const router = useRouter();
+  const query = useRef();
 
   return (
     <>
@@ -35,12 +36,22 @@ export default function Topbar() {
       </Modal>
 
       <div className="fixed flex items-center border-b border-main-border bg-main-800 w-[calc(100%-62px)] right-0 z-10 top-0 min-h-[62px] max-h-[62px] px-2.5 md:px-5 py-5 gap-2.5 md:gap-5">
-        <div className=" flex-1 flex w-full gap-2.5 md:gap-5">
+        <form
+          className=" flex-1 flex w-full gap-2.5 md:gap-5 "
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (query.current.value === "") return;
+            router.push(`/feed/?search=${query.current.value}`);
+            // return (query.current.value = "");
+          }}
+        >
           <button
             onClick={() => setSearch((_) => !_)}
             className="active:outline-none focus:outline-none outline:none flex items-center justify-center w-[200px] md:w-[350px] pl-4 pr-3 py-2 border rounded-md bg-main-700 border-main-border max-h-[38px] min-h-[38px]"
           >
             <input
+              ref={query}
+              // onChange={(e) => (query.current = e.target.valeu)}
               className="w-full text-sm text-left bg-transparent focus:outline-none text-main-text/70 placeholder:text-main-text/70 placeholder:text-sm placeholder:font-normal"
               placeholder="Looking to explore..."
             />
@@ -48,7 +59,7 @@ export default function Topbar() {
             <AiOutlineSearch className="text-xl text-main-text/70" />
           </button>
           {pathname.startsWith("/f") && <Slider />}
-        </div>
+        </form>
 
         <div className="ml-0 flex-0 md:ml-auto">
           {state.user !== null && (
