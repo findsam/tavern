@@ -35,4 +35,13 @@ async function fetchIndividualThread(req, res) {
   }
 }
 
-module.exports = { fetchIndividualThread, fetchMultipleThreads };
+async function fetchThreadsByName(req, res) {
+  const thread = dummyData.find((_) => _.id === +req.params.id);
+  if (thread) {
+    return res.status(200).json(dummyData.filter((_) => _.title === +req.params.title));
+  } else {
+    return res.status(500).json("couldn't find a post with this name.");
+  }
+}
+
+module.exports = { fetchIndividualThread, fetchMultipleThreads, fetchThreadsByName };

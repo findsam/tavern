@@ -7,8 +7,8 @@ import Loading from "../components/loading";
 import useAuth from "../hooks/useAuth";
 
 export default function Dashboard() {
+  const { state, dispatch } = useContext(Context);
   if (!useAuth()) return null;
-  // const { state, dispatch } = useContext(Context);
   return (
     <>
       <Topbar />
