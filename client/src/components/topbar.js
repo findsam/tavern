@@ -42,7 +42,7 @@ export default function Topbar() {
             e.preventDefault();
             if (query.current.value === "") return;
             router.push(`/feed/?search=${query.current.value}`);
-            
+
             // return (query.current.value = "");
           }}
         >
