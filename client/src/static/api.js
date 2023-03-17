@@ -47,7 +47,8 @@ const fetchIndividualThread = async (next, postId, router) => {
 const fetchThreadsByName = async (next, postName, router) => {
   try {
     const { data } = await api.fetchThreadsByName(postName);
-    next(data);
+    console.log(data);
+    // next(data);
   } catch (error) {
     return router.push("/feed");
   }

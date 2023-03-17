@@ -1,16 +1,18 @@
 import Feed from "../components/feed";
 import useAuth from "../hooks/useAuth";
-import { fetchTest } from "../static/api";
+import { fetchTest, fetchThreadsByName } from "../static/api";
 import { useCols } from "../hooks/useCols";
 import { useRef, useState, useEffect } from "react";
 import Loading from "../components/loading";
 import Layout from "../components/layout/navigation";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const cols = useCols();
   const firstRender = useRef(true);
   const [posts, setPosts] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     (async () => {
@@ -18,6 +20,14 @@ export default function Home() {
       await fetchTest(setPosts, 0);
     })();
   }, []);
+
+  useEffect(() => {
+    console.log(router.query.search);
+    (async () => {
+      setIsLoaded(false);
+      await fetchThreadsByName(setPosts, router.query.search, router);
+    })();
+  }, [router.query]);
 
   if (!useAuth()) return null;
 

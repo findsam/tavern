@@ -11,4 +11,4 @@ export const logout = () => API.get("/logout");
 
 export const fetchTest = (type) => API.get(`/fetch/${type}`);
 export const fetchIndividualThread = (postId) => API.get(`/fetchIndividualThread/${postId}`);
-export const fetchThreadsByName = (postName) => API.get(`/fetchIndividualThread/${postName}`);
+export const fetchThreadsByName = (postName) => API.get(`/fetchThreadsByName/${postName}`);

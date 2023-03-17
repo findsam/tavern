@@ -36,9 +36,9 @@ async function fetchIndividualThread(req, res) {
 }
 
 async function fetchThreadsByName(req, res) {
-  const thread = dummyData.filter((_) => _.title === +req.params.title);
-  if (thread) {
-    return res.status(200).json(dummyData.filter((_) => _.title === +req.params.title));
+  const threads = dummyData.filter((_) => _.title.toLowerCase() === req.params.search.toLowerCase());
+  if (threads) {
+    return res.status(200).json(threads);
   } else {
     return res.status(500).json("couldn't find a post with this name.");
   }
