@@ -50,7 +50,7 @@ export default function Landing() {
           <img src="/icons/trynow.svg" className="max-w-[245px] opacity-40 absolute -left-48 -top-3" />
         </a>{" "}
       </main>
-      <section className="relative mt-48 -z-10">
+      <section className="relative mt-36 -z-10">
         <div className="max-w-6xl mx-auto blur-[0.01rem] relative ">
           <Image
             src={`/hidden/landing.png`}
@@ -63,15 +63,6 @@ export default function Landing() {
             className="max-w-[100px] opacity-40 absolute -right-28 top-28"
           />
         </div>
-      </section>
-      <section className="flex flex-col items-center gap-5 mx-auto mt-48 text-center">
-        <h1 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">How it works...</h1>
-
-        <p className="max-w-md text-sm font-normal leading-5 text-main-text/70">
-          to build a community-driven cultivating and creative environment accessible to the digital
-          storyteller. We&apos;re trying something new, and why don&apos;t you? Endlessly embark in the
-          storytelling adventure and bring your tale together with the help of Tavern.
-        </p>
       </section>
 
       <section className="flex flex-col items-center gap-5 mx-auto mt-48 mb-12 text-center">
