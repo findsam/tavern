@@ -30,6 +30,7 @@ export default function Landing() {
             />
           ))}
           <img src="/icons/community.svg" className="max-w-[245px] opacity-40 absolute -right-full -top-14" />
+          <img src="/icons/trynow.svg" className="max-w-[245px] opacity-40 absolute -left-40 top-20" />
         </div>
         <p className="text-xs text-left text-main-text/40">
           By continuing you agree to our{" "}
@@ -47,10 +48,9 @@ export default function Landing() {
         >
           Continue with Discord
           <SiDiscord size={18} />
-          <img src="/icons/trynow.svg" className="max-w-[245px] opacity-40 absolute -left-48 -top-3" />
         </a>{" "}
       </main>
-      <section className="relative mt-36 -z-10">
+      <section className="relative my-36 -z-10 ">
         <div className="max-w-6xl mx-auto blur-[0.01rem] relative ">
           <Image
             src={`/hidden/landing.png`}
@@ -65,7 +65,7 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center gap-5 mx-auto mt-48 mb-12 text-center">
+      {/* <section className="flex flex-col items-center gap-5 mx-auto mt-48 mb-12 text-center">
         <h1 className="max-w-2xl text-4xl font-semibold leading-snug tracking-normal ">
           Flexible pricing as you scale
         </h1>
@@ -251,9 +251,9 @@ export default function Landing() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
